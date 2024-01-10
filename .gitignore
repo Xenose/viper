@@ -1,0 +1,8 @@
+
+# Folders
+build/*
+doxygen/*
+
+# Objects
+*.o
+*.so
