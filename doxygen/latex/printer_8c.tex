@@ -1,0 +1,467 @@
+\doxysection{source/printer.c File Reference}
+\hypertarget{printer_8c}{}\label{printer_8c}\index{source/printer.c@{source/printer.c}}
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$vulkan/vulkan.\+h$>$}\newline
+{\ttfamily \#include $<$viper/printer.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+{\ttfamily \#include $<$viper/utils.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$vulkan/vulkan\+\_\+core.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em This struct is a internal data type to help with passing along crusial data to the next function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int64\+\_\+t \mbox{\hyperlink{printer_8c_abf445d966ec0ce9b44083013ead8b9e1}{\+\_\+\+\_\+\+Flush\+Buffer}} (\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em This function will check if the buffer exceeds the max buffer value, if so then the buffer will be flushed and the buffer\+Used varible will be reset. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{printer_8c_a8b7adc91302e3116deba510075c22f6a}{\+\_\+\+\_\+\+Get\+Error\+Number}} (\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function is used to convert errno number into something a bit more readable and adding it to the log print buffer. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{printer_8c_a2e37f90e3c14dd7db2d63fcb6ae0125b}{\+\_\+\+\_\+\+Copy\+String}} (\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function will extract the va\+\_\+list string and addit to the buffer so it will be printed. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{printer_8c_adefe5487994c375508f0c1df346967d1}{\+\_\+\+\_\+\+Vulkan\+Result\+To\+String}} (\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data, va\+\_\+list va)
+\item 
+static int64\+\_\+t \mbox{\hyperlink{printer_8c_ae69d4253db4f6ed015431a66079d0a43}{\+\_\+\+\_\+\+Dollar}} (\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em Instead of wasting time on parsing in the \+\_\+\+Percentage function these function will handle more complex parsing allowing for faster parsing over all. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{printer_8c_a5b368c330fe45e75dc6e81fbcd638148}{\+\_\+\+\_\+\+Percentage}} (\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function is the faster alternative to \+\_\+\+Dollar allowing for less time spent on the printing parsing. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a3cffd22799fc3b403c1a5dd3b8e1024a}{Print\+Flush}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t used)
+\begin{DoxyCompactList}\small\item\em This function is to flush the buffer for all the print function or if the above function does so. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a35b59e576ee18735ed3449070995d137}{Print\+NSBUFVA}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t used, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function is the main print function all the other function and allows the most freedom when printing, but it also requires more setup over the smaller functions. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a1614429c4000df56320690b27a396086}{Print\+NSBUF}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t used, const char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em Print\+NSBF or \mbox{[} Print No-\/buffer Stream Used Format \mbox{]} is a print function wrapping Print\+NSBFVA allowing for simpler calls. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a774b6d4ea1d1cc7e203e1253be4d80c0}{Print\+NSBFVA}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a9a9d75d8074fc55d6afb76267007bc8e}{Print\+NSBF}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a4b4dc6e62456ada3aa4faaa9b16f8809}{Print\+SBFVA}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a1a6b947341c5641090acd6104c6556b8}{Print\+SBF}} (int stream, \mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a280385f879ace48edf1e055a331fe631}{Print\+SFVA}} (int stream, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_ac97fcd629b84a8bdf415f40af66148b0}{Print\+FVA}} (const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a3d35a0ed989a12827bd1bcdfc4394aaf}{Print\+SF}} (int stream, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a6da71dca80390ed494f960d31c435f79}{PrintF}} (const char \texorpdfstring{$\ast$}{*}format,...)
+\begin{DoxyCompactList}\small\item\em The functions mimics the printf function, but is thread safe and have more options or will have. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8c_a6277725427d018b807b60ee948164915}{Print}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em The simplest function for printting with no formatting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{printer_8c_a2e37f90e3c14dd7db2d63fcb6ae0125b}\label{printer_8c_a2e37f90e3c14dd7db2d63fcb6ae0125b} 
+\index{printer.c@{printer.c}!\_\_CopyString@{\_\_CopyString}}
+\index{\_\_CopyString@{\_\_CopyString}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_CopyString()}{\_\_CopyString()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Copy\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function will extract the va\+\_\+list string and addit to the buffer so it will be printed. 
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00053}{53}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00027}{\+\_\+\+\_\+\+Flush\+Buffer()}}, \mbox{\hyperlink{printer_8c_source_l00016}{Print\+Data\+\_\+t\+::buffer}}, \mbox{\hyperlink{printer_8c_source_l00019}{Print\+Data\+\_\+t\+::buffer\+Used}}, \mbox{\hyperlink{memory_8h_source_l00021}{Buffer\+\_\+t\+::bytes}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00145}{\+\_\+\+\_\+\+Dollar()}}, and \mbox{\hyperlink{printer_8c_source_l00174}{\+\_\+\+\_\+\+Percentage()}}.
+
+\Hypertarget{printer_8c_ae69d4253db4f6ed015431a66079d0a43}\label{printer_8c_ae69d4253db4f6ed015431a66079d0a43} 
+\index{printer.c@{printer.c}!\_\_Dollar@{\_\_Dollar}}
+\index{\_\_Dollar@{\_\_Dollar}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_Dollar()}{\_\_Dollar()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Dollar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Instead of wasting time on parsing in the \+\_\+\+Percentage function these function will handle more complex parsing allowing for faster parsing over all. 
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00145}{145}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00053}{\+\_\+\+\_\+\+Copy\+String()}}, \mbox{\hyperlink{printer_8c_source_l00016}{Print\+Data\+\_\+t\+::buffer}}, \mbox{\hyperlink{printer_8c_source_l00019}{Print\+Data\+\_\+t\+::buffer\+Used}}, \mbox{\hyperlink{printer_8c_source_l00018}{Print\+Data\+\_\+t\+::current}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00235}{Print\+NSBUFVA()}}.
+
+\Hypertarget{printer_8c_abf445d966ec0ce9b44083013ead8b9e1}\label{printer_8c_abf445d966ec0ce9b44083013ead8b9e1} 
+\index{printer.c@{printer.c}!\_\_FlushBuffer@{\_\_FlushBuffer}}
+\index{\_\_FlushBuffer@{\_\_FlushBuffer}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_FlushBuffer()}{\_\_FlushBuffer()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Flush\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function will check if the buffer exceeds the max buffer value, if so then the buffer will be flushed and the buffer\+Used varible will be reset. 
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00027}{27}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00016}{Print\+Data\+\_\+t\+::buffer}}, \mbox{\hyperlink{printer_8c_source_l00019}{Print\+Data\+\_\+t\+::buffer\+Used}}, \mbox{\hyperlink{memory_8h_source_l00021}{Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00023}{Buffer\+\_\+t\+::ptr}}, and \mbox{\hyperlink{printer_8c_source_l00015}{Print\+Data\+\_\+t\+::stream}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00053}{\+\_\+\+\_\+\+Copy\+String()}}.
+
+\Hypertarget{printer_8c_a8b7adc91302e3116deba510075c22f6a}\label{printer_8c_a8b7adc91302e3116deba510075c22f6a} 
+\index{printer.c@{printer.c}!\_\_GetErrorNumber@{\_\_GetErrorNumber}}
+\index{\_\_GetErrorNumber@{\_\_GetErrorNumber}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_GetErrorNumber()}{\_\_GetErrorNumber()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Get\+Error\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function is used to convert errno number into something a bit more readable and adding it to the log print buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00040}{40}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00016}{Print\+Data\+\_\+t\+::buffer}}, \mbox{\hyperlink{printer_8c_source_l00019}{Print\+Data\+\_\+t\+::buffer\+Used}}, \mbox{\hyperlink{memory_8h_source_l00021}{Buffer\+\_\+t\+::bytes}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00174}{\+\_\+\+\_\+\+Percentage()}}.
+
+\Hypertarget{printer_8c_a5b368c330fe45e75dc6e81fbcd638148}\label{printer_8c_a5b368c330fe45e75dc6e81fbcd638148} 
+\index{printer.c@{printer.c}!\_\_Percentage@{\_\_Percentage}}
+\index{\_\_Percentage@{\_\_Percentage}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_Percentage()}{\_\_Percentage()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Percentage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+This function is the faster alternative to \+\_\+\+Dollar allowing for less time spent on the printing parsing. 
+
+b is used for binary
+
+d is used for double
+
+f is used for floats
+
+h is used for hexdecimal
+
+i is used for int
+
+n is used print errno
+
+o is used for octets
+
+s is used for c strings
+
+S is used for \doxylink{structString__t}{String\+\_\+t}
+
+t is used to print the current time with no argument
+
+v is used for printing Vk\+Result
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00174}{174}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00053}{\+\_\+\+\_\+\+Copy\+String()}}, \mbox{\hyperlink{printer_8c_source_l00040}{\+\_\+\+\_\+\+Get\+Error\+Number()}}, \mbox{\hyperlink{printer_8c_source_l00077}{\+\_\+\+\_\+\+Vulkan\+Result\+To\+String()}}, \mbox{\hyperlink{printer_8c_source_l00016}{Print\+Data\+\_\+t\+::buffer}}, \mbox{\hyperlink{printer_8c_source_l00019}{Print\+Data\+\_\+t\+::buffer\+Used}}, \mbox{\hyperlink{memory_8h_source_l00021}{Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{printer_8c_source_l00018}{Print\+Data\+\_\+t\+::current}}, \mbox{\hyperlink{utils_8c_source_l00024}{Itoa()}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00235}{Print\+NSBUFVA()}}.
+
+\Hypertarget{printer_8c_adefe5487994c375508f0c1df346967d1}\label{printer_8c_adefe5487994c375508f0c1df346967d1} 
+\index{printer.c@{printer.c}!\_\_VulkanResultToString@{\_\_VulkanResultToString}}
+\index{\_\_VulkanResultToString@{\_\_VulkanResultToString}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_VulkanResultToString()}{\_\_VulkanResultToString()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Vulkan\+Result\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structPrintData__t}{Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A very long switch with all the Vk\+Result values
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00077}{77}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00016}{Print\+Data\+\_\+t\+::buffer}}, \mbox{\hyperlink{printer_8c_source_l00019}{Print\+Data\+\_\+t\+::buffer\+Used}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00174}{\+\_\+\+\_\+\+Percentage()}}.
+
+\Hypertarget{printer_8c_a6277725427d018b807b60ee948164915}\label{printer_8c_a6277725427d018b807b60ee948164915} 
+\index{printer.c@{printer.c}!Print@{Print}}
+\index{Print@{Print}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{Print()}{Print()}}
+{\footnotesize\ttfamily int64\+\_\+t Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+The simplest function for printting with no formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+:: the message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00373}{373}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00357}{Print\+F()}}.
+
+\Hypertarget{printer_8c_a6da71dca80390ed494f960d31c435f79}\label{printer_8c_a6da71dca80390ed494f960d31c435f79} 
+\index{printer.c@{printer.c}!PrintF@{PrintF}}
+\index{PrintF@{PrintF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintF()}{PrintF()}}
+{\footnotesize\ttfamily int64\+\_\+t PrintF (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+The functions mimics the printf function, but is thread safe and have more options or will have. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+:: The fomrated string for the input. \\
+\hline
+{\em ...} & \+:: Is va\+\_\+arg list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00357}{357}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00323}{Print\+SFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00373}{Print()}}.
+
+\Hypertarget{printer_8c_a3cffd22799fc3b403c1a5dd3b8e1024a}\label{printer_8c_a3cffd22799fc3b403c1a5dd3b8e1024a} 
+\index{printer.c@{printer.c}!PrintFlush@{PrintFlush}}
+\index{PrintFlush@{PrintFlush}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintFlush()}{PrintFlush()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+Flush (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{used }\end{DoxyParamCaption})}
+
+
+
+This function is to flush the buffer for all the print function or if the above function does so. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \+:: The stream to output to like \mbox{[} stdout, stderr or other stream \mbox{]} \\
+\hline
+{\em buffer} & \+:: Is the buffer that\textquotesingle{}s used for storing the data. \\
+\hline
+{\em used} & \+:: Allows the above function to set the buffer index \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00220}{220}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{logger_8c_source_l00008}{\+\_\+\+\_\+\+Logger()}}.
+
+\Hypertarget{printer_8c_ac97fcd629b84a8bdf415f40af66148b0}\label{printer_8c_ac97fcd629b84a8bdf415f40af66148b0} 
+\index{printer.c@{printer.c}!PrintFVA@{PrintFVA}}
+\index{PrintFVA@{PrintFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintFVA()}{PrintFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+FVA (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00334}{334}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00323}{Print\+SFVA()}}.
+
+\Hypertarget{printer_8c_a9a9d75d8074fc55d6afb76267007bc8e}\label{printer_8c_a9a9d75d8074fc55d6afb76267007bc8e} 
+\index{printer.c@{printer.c}!PrintNSBF@{PrintNSBF}}
+\index{PrintNSBF@{PrintNSBF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintNSBF()}{PrintNSBF()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+NSBF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00299}{299}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00295}{Print\+NSBFVA()}}.
+
+\Hypertarget{printer_8c_a774b6d4ea1d1cc7e203e1253be4d80c0}\label{printer_8c_a774b6d4ea1d1cc7e203e1253be4d80c0} 
+\index{printer.c@{printer.c}!PrintNSBFVA@{PrintNSBFVA}}
+\index{PrintNSBFVA@{PrintNSBFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintNSBFVA()}{PrintNSBFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+NSBFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00295}{295}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00235}{Print\+NSBUFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00299}{Print\+NSBF()}}, and \mbox{\hyperlink{printer_8c_source_l00308}{Print\+SBFVA()}}.
+
+\Hypertarget{printer_8c_a1614429c4000df56320690b27a396086}\label{printer_8c_a1614429c4000df56320690b27a396086} 
+\index{printer.c@{printer.c}!PrintNSBUF@{PrintNSBUF}}
+\index{PrintNSBUF@{PrintNSBUF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintNSBUF()}{PrintNSBUF()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+NSBUF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{used,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Print\+NSBF or \mbox{[} Print No-\/buffer Stream Used Format \mbox{]} is a print function wrapping Print\+NSBFVA allowing for simpler calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & is the output stream like \mbox{[} stdout or stderr \mbox{]} \\
+\hline
+{\em buffer} & is used to supply the buffer to the function \\
+\hline
+{\em used} & is to tell the function if the buffer has a pre-\/existing used space \\
+\hline
+{\em format} & is the input format of the va\+\_\+list \\
+\hline
+{\em ...} & is the actual data described in the format string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00286}{286}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00235}{Print\+NSBUFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{logger_8c_source_l00008}{\+\_\+\+\_\+\+Logger()}}.
+
+\Hypertarget{printer_8c_a35b59e576ee18735ed3449070995d137}\label{printer_8c_a35b59e576ee18735ed3449070995d137} 
+\index{printer.c@{printer.c}!PrintNSBUFVA@{PrintNSBUFVA}}
+\index{PrintNSBUFVA@{PrintNSBUFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintNSBUFVA()}{PrintNSBUFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+NSBUFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{used,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+This function is the main print function all the other function and allows the most freedom when printing, but it also requires more setup over the smaller functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \+:: The stream to output to like \mbox{[} stdout, stderr or other stream \mbox{]} \\
+\hline
+{\em buffer} & \+:: Is the buffer that\textquotesingle{}s used for storing the data. \\
+\hline
+{\em used} & \+:: Allows the above function to set the buffer index \\
+\hline
+{\em format} & \+:: The formatting string for the va\+\_\+list. \\
+\hline
+{\em va} & \+:: Is the va\+\_\+list. \\
+\hline
+\end{DoxyParams}
+for loop
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00235}{235}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00145}{\+\_\+\+\_\+\+Dollar()}}, \mbox{\hyperlink{printer_8c_source_l00174}{\+\_\+\+\_\+\+Percentage()}}, \mbox{\hyperlink{printer_8c_source_l00018}{Print\+Data\+\_\+t\+::current}}, \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}, and \mbox{\hyperlink{printer_8c_source_l00015}{Print\+Data\+\_\+t\+::stream}}.
+
+
+
+Referenced by \mbox{\hyperlink{logger_8c_source_l00008}{\+\_\+\+\_\+\+Logger()}}, \mbox{\hyperlink{printer_8c_source_l00295}{Print\+NSBFVA()}}, and \mbox{\hyperlink{printer_8c_source_l00286}{Print\+NSBUF()}}.
+
+\Hypertarget{printer_8c_a1a6b947341c5641090acd6104c6556b8}\label{printer_8c_a1a6b947341c5641090acd6104c6556b8} 
+\index{printer.c@{printer.c}!PrintSBF@{PrintSBF}}
+\index{PrintSBF@{PrintSBF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintSBF()}{PrintSBF()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+SBF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00314}{314}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00308}{Print\+SBFVA()}}.
+
+\Hypertarget{printer_8c_a4b4dc6e62456ada3aa4faaa9b16f8809}\label{printer_8c_a4b4dc6e62456ada3aa4faaa9b16f8809} 
+\index{printer.c@{printer.c}!PrintSBFVA@{PrintSBFVA}}
+\index{PrintSBFVA@{PrintSBFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintSBFVA()}{PrintSBFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+SBFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structBuffer__t}{Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00308}{308}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{memory_8h_source_l00021}{Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{printer_8c_source_l00295}{Print\+NSBFVA()}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Buffer\+\_\+t\+::str}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00314}{Print\+SBF()}}, and \mbox{\hyperlink{printer_8c_source_l00323}{Print\+SFVA()}}.
+
+\Hypertarget{printer_8c_a3d35a0ed989a12827bd1bcdfc4394aaf}\label{printer_8c_a3d35a0ed989a12827bd1bcdfc4394aaf} 
+\index{printer.c@{printer.c}!PrintSF@{PrintSF}}
+\index{PrintSF@{PrintSF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintSF()}{PrintSF()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+SF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00338}{338}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{printer_8c_source_l00323}{Print\+SFVA()}}.
+
+\Hypertarget{printer_8c_a280385f879ace48edf1e055a331fe631}\label{printer_8c_a280385f879ace48edf1e055a331fe631} 
+\index{printer.c@{printer.c}!PrintSFVA@{PrintSFVA}}
+\index{PrintSFVA@{PrintSFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{PrintSFVA()}{PrintSFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Print\+SFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8c_source_l00323}{323}} of file \mbox{\hyperlink{printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{memory_8h_source_l00021}{Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00011}{MEMORY\+\_\+2\+KB}}, and \mbox{\hyperlink{printer_8c_source_l00308}{Print\+SBFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00357}{Print\+F()}}, \mbox{\hyperlink{printer_8c_source_l00334}{Print\+FVA()}}, and \mbox{\hyperlink{printer_8c_source_l00338}{Print\+SF()}}.
+

@@ -1,0 +1,32 @@
+\doxysection{include/viper/threading/master.h File Reference}
+\hypertarget{master_8h}{}\label{master_8h}\index{include/viper/threading/master.h@{include/viper/threading/master.h}}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{Viper\+Unsafe\+Struct\+Access}}(data)~while (atomic\+\_\+flag\+\_\+test\+\_\+and\+\_\+set\+\_\+explicit(\&(data.\+locked), memory\+\_\+order\+\_\+acquire));
+\item 
+\#define \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{Viper\+Unsafe\+Struct\+Release}}(data)~atomic\+\_\+flag\+\_\+clear\+\_\+explicit(\&(data.\+locked), memory\+\_\+order\+\_\+release)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{master_8h_a68e1928153336a99821f8fb1a9da0e10}\label{master_8h_a68e1928153336a99821f8fb1a9da0e10} 
+\index{master.h@{master.h}!ViperUnsafeStructAccess@{ViperUnsafeStructAccess}}
+\index{ViperUnsafeStructAccess@{ViperUnsafeStructAccess}!master.h@{master.h}}
+\doxysubsubsection{\texorpdfstring{ViperUnsafeStructAccess}{ViperUnsafeStructAccess}}
+{\footnotesize\ttfamily \#define Viper\+Unsafe\+Struct\+Access(\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})~while (atomic\+\_\+flag\+\_\+test\+\_\+and\+\_\+set\+\_\+explicit(\&(data.\+locked), memory\+\_\+order\+\_\+acquire));}
+
+
+
+Definition at line \mbox{\hyperlink{master_8h_source_l00004}{4}} of file \mbox{\hyperlink{master_8h_source}{master.\+h}}.
+
+\Hypertarget{master_8h_a7e787371d40406d850e298c53eab6783}\label{master_8h_a7e787371d40406d850e298c53eab6783} 
+\index{master.h@{master.h}!ViperUnsafeStructRelease@{ViperUnsafeStructRelease}}
+\index{ViperUnsafeStructRelease@{ViperUnsafeStructRelease}!master.h@{master.h}}
+\doxysubsubsection{\texorpdfstring{ViperUnsafeStructRelease}{ViperUnsafeStructRelease}}
+{\footnotesize\ttfamily \#define Viper\+Unsafe\+Struct\+Release(\begin{DoxyParamCaption}\item[{}]{data }\end{DoxyParamCaption})~atomic\+\_\+flag\+\_\+clear\+\_\+explicit(\&(data.\+locked), memory\+\_\+order\+\_\+release)}
+
+
+
+Definition at line \mbox{\hyperlink{master_8h_source_l00005}{5}} of file \mbox{\hyperlink{master_8h_source}{master.\+h}}.
+

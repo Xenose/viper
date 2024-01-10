@@ -1,0 +1,38 @@
+\doxysection{log.\+c}
+\hypertarget{tests_2math_2log_8c_source}{}\label{tests_2math_2log_8c_source}\index{tests/math/log.c@{tests/math/log.c}}
+\mbox{\hyperlink{tests_2math_2log_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{debug_2exceptions_8h}{viper/debug/exceptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{tests_8h}{viper/types/tests.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{log_8h}{viper/math/log.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00008}\mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{00008}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info,\ \textcolor{keywordtype}{int}\ excpeted,\ \textcolor{keywordtype}{int}\ value,\ \textcolor{keywordtype}{int}\ base)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00009}00009\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00011}00011\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00012}00012\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (excpeted\ !=\ (result\ =\ \mbox{\hyperlink{source_2math_2log_8c_a40ea27f9a85dfa30809d50f51cb4382d}{ViperLog}}(value,\ base)))\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00013}00013\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a5fea538fc7df68130d534044847ab8f4}{ViperThrow}}();}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00014}00014\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00015}00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ ViperLog(\%i,\ \%i)\ function\ :\ \%i\(\backslash\)n"{}},\ value,\ base,\ result);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00016}00016\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00017}00017\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[31m\ Failed\ \(\backslash\)033[0m\ ]\ Failed\ test\ for\ ViperLog(\%i,\ \%i)\ function\ :\ \%i\(\backslash\)n"{}},\ value,\ base,\ result);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00022}\mbox{\hyperlink{tests_2math_2log_8c_ad6e7461d8772fa34b56845f701875877}{00022}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2math_2log_8c_ad6e7461d8772fa34b56845f701875877}{ExecuteLogTests}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00023}00023\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 3,\ \ \ -\/1000,\ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00024}00024\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 2,\ \ \ -\/100,\ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00025}00025\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 1,\ \ \ -\/10,\ \ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00026}00026\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 0,\ \ \ -\/1,\ \ \ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 0,\ \ \ \ 0,\ \ \ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00028}00028\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 0,\ \ \ \ 1,\ \ \ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00029}00029\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 1,\ \ \ \ 10,\ \ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 2,\ \ \ \ 100,\ \ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00031}00031\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_a9e8742e0dc1602b00576b89ca20b295d}{ExecuteLogTest}}(info,\ 3,\ \ \ \ 1000,\ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2math_2log_8c_source_l00032}00032\ \}}
+
+\end{DoxyCode}

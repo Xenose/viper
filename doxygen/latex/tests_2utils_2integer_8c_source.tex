@@ -1,0 +1,95 @@
+\doxysection{integer.\+c}
+\hypertarget{tests_2utils_2integer_8c_source}{}\label{tests_2utils_2integer_8c_source}\index{tests/utils/integer.c@{tests/utils/integer.c}}
+\mbox{\hyperlink{tests_2utils_2integer_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{debug_2exceptions_8h}{viper/debug/exceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tests_8h}{viper/types/tests.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<limits.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{integer_8h}{viper/utils/integer.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{printer_8h}{viper/io/printer.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00010}\mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{00010}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info,\ int64\_t\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00011}00011\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00012}00012\ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00015}00015\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2utils_2integer_8c_a948cb5c6fef39fbcad96a754567b383a}{ViperItoa}}(value,\ buffer,\ 1024,\ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00016}00016\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ Itoa\ function\ :\ \%s\(\backslash\)n"{}},\ buffer);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00017}00017\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00019}00019\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[31m\ Failed\ \(\backslash\)033[0m\ ]\ Failed\ test\ for\ Itoa\ function\ :\ \%li\(\backslash\)n"{}},\ value);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00023}\mbox{\hyperlink{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}{00023}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}{ExecuteItoaCompersionTest}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info,\ \textcolor{keywordtype}{char}\ \textcolor{keyword}{const}*\ str,\ int64\_t\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00025}00025\ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2utils_2integer_8c_a948cb5c6fef39fbcad96a754567b383a}{ViperItoa}}(value,\ buffer,\ 1024,\ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ strcmp(str,\ buffer))\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a5fea538fc7df68130d534044847ab8f4}{ViperThrow}}();}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ Itoa\ comparison\ function\ :\ \%s\(\backslash\)n"{}},\ buffer);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00035}00035\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[31m\ Failed\ \(\backslash\)033[0m\ ]\ Failed\ test\ for\ Itoa\ compiles\ function\ :\ \%li\ !=\ \%s\(\backslash\)n"{}},\ value,\ buffer);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00038}00038\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00039}00039\ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00041}\mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{00041}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info,\ int64\_t\ min,\ int64\_t\ max)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00042}00042\ \ \ \ \ int64\_t\ out\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00043}00043\ \ \ \ \ int64\_t\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00044}00044\ \ \ \ \ \textcolor{keywordtype}{char}\ buffer[1024]\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00045}00045\ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00047}00047\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ min;\ i\ <=\ max;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ memset(buffer,\ 0,\ 1024);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2utils_2integer_8c_a948cb5c6fef39fbcad96a754567b383a}{ViperItoa}}(i,\ buffer,\ 1024,\ 10);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{source_2utils_2integer_8c_ab47ebb3620fe9d7464256b4b9be22337}{ViperAtoi}}(buffer);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ !=\ out)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\%li\ \%li\(\backslash\)n"{}},\ i,\ out);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a5fea538fc7df68130d534044847ab8f4}{ViperThrow}}();}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ Itoa\ /\ Atoi\ comparison:\ \%i\ to\ \%i\(\backslash\)n"{}},\ min,\ max);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00060}00060\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00062}00062\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[31m\ Failed\ \(\backslash\)033[0m\ ]\ Failed\ test\ for\ Itoa\ /\ Atoi\ comparison\ \%li\(\backslash\)n"{}},\ i);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00071}\mbox{\hyperlink{tests_2utils_2integer_8c_a3938a61b43985471e115c4fb36d56f1d}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2utils_2integer_8c_a3938a61b43985471e115c4fb36d56f1d}{ExecuteItoaTest}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00072}00072\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ 0);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00073}00073\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ -\/100);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ 100);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ INT\_MIN);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ INT\_MIN\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ INT\_MAX);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{ExecuteItoaCrashTest}}(info,\ INT\_MAX\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}{ExecuteItoaCompersionTest}}(info,\ \textcolor{stringliteral}{"{}0"{}},\ 0);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00081}00081\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}{ExecuteItoaCompersionTest}}(info,\ \textcolor{stringliteral}{"{}100"{}},\ 100);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}{ExecuteItoaCompersionTest}}(info,\ \textcolor{stringliteral}{"{}-\/100"{}},\ -\/100);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00084}00084\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ \ 10,\ \ \ \ \ \ \ 10000);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00085}00085\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ \ 1,\ \ \ \ \ \ \ \ \ \ \ \ 10000);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00086}00086\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 10000);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00088}00088\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ \ 0,\ \ \ \ \ \ \ \ \ \ \ \ 0);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00090}00090\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ -\/100,\ \ \ \ \ \ -\/1);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00091}00091\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ -\/1,\ \ \ \ \ \ \ \ \ \ \ \ 0);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00092}00092\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ -\/10000,\ \ \ \ 0);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00093}00093\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{ExecuteItoaAtoiTest}}(info,\ -\/10000,\ \ \ \ 10000);}
+\DoxyCodeLine{\Hypertarget{tests_2utils_2integer_8c_source_l00094}00094\ \}}
+
+\end{DoxyCode}

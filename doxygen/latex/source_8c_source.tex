@@ -1,0 +1,29 @@
+\doxysection{source.\+c}
+\hypertarget{source_8c_source}{}\label{source_8c_source}\index{tests/source.c@{tests/source.c}}
+\mbox{\hyperlink{source_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00002}00002\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{viper_8h}{viper.h}}>}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{tests_8h}{viper/types/tests.h}}>}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include"{}io/printer.c"{}}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include"{}utils/integer.c"{}}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include"{}math/log.c"{}}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00012}\mbox{\hyperlink{source_8c_a0943475b233623880deceb80c22d9cd3}{00012}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{types_8h_a5d94534b4ec22b6e5a2c706bc6b54ccc}{Main}}(\textcolor{keywordtype}{int}\ arc,\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}*\ arv)\ \{}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}\ info\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00015}00015\ \ \ \ \ system(\textcolor{stringliteral}{"{}clear"{}});}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{tests_2utils_2integer_8c_a3938a61b43985471e115c4fb36d56f1d}{ExecuteItoaTest}}(\&info);}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{tests_2io_2printer_8c_ac91f3ee163d18fa370df0d52ee91814d}{ExecutePrintTest}}(\&info);}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00019}00019\ \ \ \ \ \mbox{\hyperlink{tests_2math_2log_8c_ad6e7461d8772fa34b56845f701875877}{ExecuteLogTests}}(\&info);}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00021}00021\ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)n\(\backslash\)n\(\backslash\)tViper\ Engine\ \%i\ of\ \%i\ failed\(\backslash\)n\(\backslash\)n\(\backslash\)n\(\backslash\)n"{}},\ info.\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}},\ info.\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}});}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{source_8c_source_l00023}00023\ }
+
+\end{DoxyCode}

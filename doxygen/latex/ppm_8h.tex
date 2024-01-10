@@ -1,0 +1,57 @@
+\doxysection{include/viper/images/ppm.h File Reference}
+\hypertarget{ppm_8h}{}\label{ppm_8h}\index{include/viper/images/ppm.h@{include/viper/images/ppm.h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/memory.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/images.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{ppm_8h_aac20fddc006ed590e9fbd9fe42e0f4d8}{Viper\+Image\+Decode\+PPM6}} (\mbox{\hyperlink{structViperImage__t}{Viper\+Image\+\_\+t}} \texorpdfstring{$\ast$}{*}image, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} const \texorpdfstring{$\ast$}{*}data)
+\begin{DoxyCompactList}\small\item\em This function takes a valid P6 ppm raw file and returns it as a \doxylink{structViperImage__t}{Viper\+Image\+\_\+t}, the function calling this function must check that the image has a valid P6 magic header. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{ppm_8h_a7be40e2b0c37468e6079f340925de058}{Viper\+Image\+Encode\+PPM6}} (\mbox{\hyperlink{structViperImage__t}{Viper\+Image\+\_\+t}} const \texorpdfstring{$\ast$}{*}image)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{ppm_8h_aac20fddc006ed590e9fbd9fe42e0f4d8}\label{ppm_8h_aac20fddc006ed590e9fbd9fe42e0f4d8} 
+\index{ppm.h@{ppm.h}!ViperImageDecodePPM6@{ViperImageDecodePPM6}}
+\index{ViperImageDecodePPM6@{ViperImageDecodePPM6}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{ViperImageDecodePPM6()}{ViperImageDecodePPM6()}}
+{\footnotesize\ttfamily int8\+\_\+t Viper\+Image\+Decode\+PPM6 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperImage__t}{Viper\+Image\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{image,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} const \texorpdfstring{$\ast$}{*}}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+This function takes a valid P6 ppm raw file and returns it as a \doxylink{structViperImage__t}{Viper\+Image\+\_\+t}, the function calling this function must check that the image has a valid P6 magic header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em image} & \+:: Is the output varible. \\
+\hline
+{\em data} & \+:: Is the raw data for the image.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 is success and -\/1 is faliure. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{ppm_8c_source_l00020}{20}} of file \mbox{\hyperlink{ppm_8c_source}{ppm.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_2images_8h_source_l00041}{Viper\+Image\+\_\+t\+::buffer}}, \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00026}{Viper\+Buffer\+\_\+t\+::ptr}}, \mbox{\hyperlink{types_2images_8h_source_l00040}{Viper\+Image\+\_\+t\+::resultion}}, \mbox{\hyperlink{memory_8h_source_l00027}{Viper\+Buffer\+\_\+t\+::str}}, \mbox{\hyperlink{consts_8h_source_l00005}{VIPER\+\_\+\+INT\+\_\+\+MAX\+\_\+\+U16}}, \mbox{\hyperlink{consts_8h_source_l00006}{VIPER\+\_\+\+INT\+\_\+\+MAX\+\_\+\+U32}}, \mbox{\hyperlink{consts_8h_source_l00007}{VIPER\+\_\+\+INT\+\_\+\+MAX\+\_\+\+U64}}, \mbox{\hyperlink{consts_8h_source_l00004}{VIPER\+\_\+\+INT\+\_\+\+MAX\+\_\+\+U8}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00083}{Viper\+Atoi()}}, \mbox{\hyperlink{stringer_8c_source_l00065}{Viper\+Find\+Next\+Char()}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00023}{Viper\+Integer\+String\+Length()}}, \mbox{\hyperlink{stringer_8c_source_l00087}{Viper\+Skip\+Line()}}, \mbox{\hyperlink{math_8h_source_l00009}{Viper\+Vector\+Int2\+\_\+t\+::x}}, and \mbox{\hyperlink{math_8h_source_l00009}{Viper\+Vector\+Int2\+\_\+t\+::y}}.
+
+\Hypertarget{ppm_8h_a7be40e2b0c37468e6079f340925de058}\label{ppm_8h_a7be40e2b0c37468e6079f340925de058} 
+\index{ppm.h@{ppm.h}!ViperImageEncodePPM6@{ViperImageEncodePPM6}}
+\index{ViperImageEncodePPM6@{ViperImageEncodePPM6}!ppm.h@{ppm.h}}
+\doxysubsubsection{\texorpdfstring{ViperImageEncodePPM6()}{ViperImageEncodePPM6()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*} Viper\+Image\+Encode\+PPM6 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperImage__t}{Viper\+Image\+\_\+t}} const \texorpdfstring{$\ast$}{*}}]{image }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{ppm_8c_source_l00095}{95}} of file \mbox{\hyperlink{ppm_8c_source}{ppm.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_2images_8h_source_l00041}{Viper\+Image\+\_\+t\+::buffer}}, \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00026}{Viper\+Buffer\+\_\+t\+::ptr}}, \mbox{\hyperlink{types_2images_8h_source_l00040}{Viper\+Image\+\_\+t\+::resultion}}, \mbox{\hyperlink{memory_8h_source_l00027}{Viper\+Buffer\+\_\+t\+::str}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00023}{Viper\+Integer\+String\+Length()}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00040}{Viper\+Itoa()}}, \mbox{\hyperlink{math_8h_source_l00009}{Viper\+Vector\+Int2\+\_\+t\+::x}}, and \mbox{\hyperlink{math_8h_source_l00009}{Viper\+Vector\+Int2\+\_\+t\+::y}}.
+

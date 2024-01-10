@@ -1,0 +1,54 @@
+\doxysection{networking.\+h}
+\hypertarget{networking_8h_source}{}\label{networking_8h_source}\index{include/viper/types/networking.h@{include/viper/types/networking.h}}
+\mbox{\hyperlink{networking_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_viper\_networking\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_viper\_networking\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{typedefs_8h}{viper/types/typedefs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{structs_8h}{viper/types/structs.h}}>}}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00007}\mbox{\hyperlink{networking_8h_af34d3224651e343eb9d63ceba2af1896}{00007}}\ \textcolor{preprocessor}{\#define\ VIPER\_SOCKET\_FLAG\_SERVER\ \ \ \ \ \ \ \ 0x0001}}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00008}\mbox{\hyperlink{networking_8h_a5fceb2a8d54b3fa629a23efe0335fa58}{00008}}\ \textcolor{preprocessor}{\#define\ VIPER\_SOCKET\_FLAG\_UDP\ \ \ \ \ \ \ \ \ \ \ 0x0002}}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00010}\mbox{\hyperlink{structViperIPv4__t}{00010}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00011}\mbox{\hyperlink{structViperIPv4__t_a07c58991988b3ac3d47d06ad72cfb408}{00011}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperIPv4__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00012}00012\ \}\ \mbox{\hyperlink{structViperIPv4__t}{ViperIPv4\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00014}\mbox{\hyperlink{structViperIPv6__t}{00014}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00015}\mbox{\hyperlink{structViperIPv6__t_a07c58991988b3ac3d47d06ad72cfb408}{00015}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperIPv6__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00016}00016\ \}\ \mbox{\hyperlink{structViperIPv6__t}{ViperIPv6\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00018}\mbox{\hyperlink{structViperSocketCreateInfo__t}{00018}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00019}\mbox{\hyperlink{structViperSocketCreateInfo__t_a07c58991988b3ac3d47d06ad72cfb408}{00019}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00020}\mbox{\hyperlink{structViperSocketCreateInfo__t_a899a76dc5f03f0d4ea3793c339e07ee9}{00020}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a899a76dc5f03f0d4ea3793c339e07ee9}{flags}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00021}\mbox{\hyperlink{structViperSocketCreateInfo__t_a9ec5632dbffd585473553801ea84d749}{00021}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a9ec5632dbffd585473553801ea84d749}{sockType}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00022}\mbox{\hyperlink{structViperSocketCreateInfo__t_a75d537a95f8bce5a46445ac483054222}{00022}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a75d537a95f8bce5a46445ac483054222}{sockProtocol}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00023}\mbox{\hyperlink{structViperSocketCreateInfo__t_a45481c7c7ae13f13dbed455332f45cda}{00023}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a45481c7c7ae13f13dbed455332f45cda}{address}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00024}\mbox{\hyperlink{structViperSocketCreateInfo__t_ad723da1801ae1586eb330380e2d9a912}{00024}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structViperSocketCreateInfo__t_ad723da1801ae1586eb330380e2d9a912}{port}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00025}\mbox{\hyperlink{structViperSocketCreateInfo__t_a8c6fadb2a8a47abee215d54c2c80f7f5}{00025}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a8c6fadb2a8a47abee215d54c2c80f7f5}{backlog}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00026}\mbox{\hyperlink{structViperSocketCreateInfo__t_a2ca59384824cbde6949ca4b0732fd582}{00026}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structViperSocketCreateInfo__t_a2ca59384824cbde6949ca4b0732fd582}{retry}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00027}00027\ \}\ \mbox{\hyperlink{structViperSocketCreateInfo__t}{ViperSocketCreateInfo\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00029}\mbox{\hyperlink{structViperSocket__t}{00029}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00030}\mbox{\hyperlink{structViperSocket__t_a07c58991988b3ac3d47d06ad72cfb408}{00030}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperSocket__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00031}\mbox{\hyperlink{structViperSocket__t_a3666576f6b88007cc7b8f26c7da596c8}{00031}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structViperSocket__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00032}00032\ \}\ \mbox{\hyperlink{structViperSocket__t}{ViperSocket\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00034}\mbox{\hyperlink{structViperClient__t}{00034}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00035}\mbox{\hyperlink{structViperClient__t_a07c58991988b3ac3d47d06ad72cfb408}{00035}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperClient__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00036}\mbox{\hyperlink{structViperClient__t_a3666576f6b88007cc7b8f26c7da596c8}{00036}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structViperClient__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00037}00037\ \}\ \mbox{\hyperlink{structViperClient__t}{ViperClient\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00039}\mbox{\hyperlink{structViperServerCreateInfo__t}{00039}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00040}\mbox{\hyperlink{structViperServerCreateInfo__t_a07c58991988b3ac3d47d06ad72cfb408}{00040}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperServerCreateInfo__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00041}00041\ \}\ \mbox{\hyperlink{structViperServerCreateInfo__t}{ViperServerCreateInfo\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00043}\mbox{\hyperlink{structViperServer__t}{00043}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00044}\mbox{\hyperlink{structViperServer__t_a07c58991988b3ac3d47d06ad72cfb408}{00044}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperServer__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00045}\mbox{\hyperlink{structViperServer__t_a3666576f6b88007cc7b8f26c7da596c8}{00045}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structViperServer__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00046}00046\ \}\ \mbox{\hyperlink{structViperServer__t}{ViperServer\_t}};}
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{networking_8h_source_l00048}00048\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_viper\_networking\_types\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,13 @@
+\doxysection{master.\+h}
+\hypertarget{master_8h_source}{}\label{master_8h_source}\index{include/viper/threading/master.h@{include/viper/threading/master.h}}
+\mbox{\hyperlink{master_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_thread\_master\_\_}}
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_thread\_master\_\_}}
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00004}\mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{00004}}\ \textcolor{preprocessor}{\#define\ ViperUnsafeStructAccess(data)\ while\ (atomic\_flag\_test\_and\_set\_explicit(\&(data.locked),\ memory\_order\_acquire));}}
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00005}\mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{00005}}\ \textcolor{preprocessor}{\#define\ ViperUnsafeStructRelease(data)\ atomic\_flag\_clear\_explicit(\&(data.locked),\ memory\_order\_release)}}
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{master_8h_source_l00007}00007\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_thread\_master\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

@@ -1,0 +1,99 @@
+\doxysection{tests/utils/integer.c File Reference}
+\hypertarget{tests_2utils_2integer_8c}{}\label{tests_2utils_2integer_8c}\index{tests/utils/integer.c@{tests/utils/integer.c}}
+{\ttfamily \#include "{}viper/debug/exceptions.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/tests.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$limits.\+h$>$}\newline
+{\ttfamily \#include $<$viper/utils/integer.\+h$>$}\newline
+{\ttfamily \#include $<$viper/debug/logger.\+h$>$}\newline
+{\ttfamily \#include $<$viper/io/printer.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}{Execute\+Itoa\+Crash\+Test}} (\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info, int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}{Execute\+Itoa\+Compersion\+Test}} (\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info, char const \texorpdfstring{$\ast$}{*}str, int64\+\_\+t value)
+\item 
+void \mbox{\hyperlink{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}{Execute\+Itoa\+Atoi\+Test}} (\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info, int64\+\_\+t min, int64\+\_\+t max)
+\item 
+void \mbox{\hyperlink{tests_2utils_2integer_8c_a3938a61b43985471e115c4fb36d56f1d}{Execute\+Itoa\+Test}} (\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info)
+\begin{DoxyCompactList}\small\item\em This function is used to test all the integer functions and insure the quality is up to spec. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb}\label{tests_2utils_2integer_8c_a5847ae57bedde835398325693c843adb} 
+\index{integer.c@{integer.c}!ExecuteItoaAtoiTest@{ExecuteItoaAtoiTest}}
+\index{ExecuteItoaAtoiTest@{ExecuteItoaAtoiTest}!integer.c@{integer.c}}
+\doxysubsubsection{\texorpdfstring{ExecuteItoaAtoiTest()}{ExecuteItoaAtoiTest()}}
+{\footnotesize\ttfamily void Execute\+Itoa\+Atoi\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info,  }\item[{int64\+\_\+t}]{min,  }\item[{int64\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00041}{41}} of file \mbox{\hyperlink{tests_2utils_2integer_8c_source}{integer.\+c}}.
+
+
+
+References \mbox{\hyperlink{tests_8h_source_l00011}{Viper\+Test\+Info\+\_\+t\+::test\+Failed}}, \mbox{\hyperlink{tests_8h_source_l00010}{Viper\+Test\+Info\+\_\+t\+::test\+Total}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00083}{Viper\+Atoi()}}, \mbox{\hyperlink{debug_2exceptions_8h_source_l00029}{Viper\+Catch}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00040}{Viper\+Itoa()}}, \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{Viper\+Print\+F()}}, \mbox{\hyperlink{debug_2exceptions_8h_source_l00035}{Viper\+Throw}}, and \mbox{\hyperlink{debug_2exceptions_8h_source_l00021}{Viper\+Try}}.
+
+
+
+Referenced by \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00071}{Execute\+Itoa\+Test()}}.
+
+\Hypertarget{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef}\label{tests_2utils_2integer_8c_a36e3e93d3e83372a7a5089e32d3b56ef} 
+\index{integer.c@{integer.c}!ExecuteItoaCompersionTest@{ExecuteItoaCompersionTest}}
+\index{ExecuteItoaCompersionTest@{ExecuteItoaCompersionTest}!integer.c@{integer.c}}
+\doxysubsubsection{\texorpdfstring{ExecuteItoaCompersionTest()}{ExecuteItoaCompersionTest()}}
+{\footnotesize\ttfamily void Execute\+Itoa\+Compersion\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info,  }\item[{char const \texorpdfstring{$\ast$}{*}}]{str,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00023}{23}} of file \mbox{\hyperlink{tests_2utils_2integer_8c_source}{integer.\+c}}.
+
+
+
+References \mbox{\hyperlink{tests_8h_source_l00011}{Viper\+Test\+Info\+\_\+t\+::test\+Failed}}, \mbox{\hyperlink{tests_8h_source_l00010}{Viper\+Test\+Info\+\_\+t\+::test\+Total}}, \mbox{\hyperlink{debug_2exceptions_8h_source_l00029}{Viper\+Catch}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00040}{Viper\+Itoa()}}, \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{Viper\+Print\+F()}}, \mbox{\hyperlink{debug_2exceptions_8h_source_l00035}{Viper\+Throw}}, and \mbox{\hyperlink{debug_2exceptions_8h_source_l00021}{Viper\+Try}}.
+
+
+
+Referenced by \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00071}{Execute\+Itoa\+Test()}}.
+
+\Hypertarget{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa}\label{tests_2utils_2integer_8c_aa54364a74a004298ce56b1758f726daa} 
+\index{integer.c@{integer.c}!ExecuteItoaCrashTest@{ExecuteItoaCrashTest}}
+\index{ExecuteItoaCrashTest@{ExecuteItoaCrashTest}!integer.c@{integer.c}}
+\doxysubsubsection{\texorpdfstring{ExecuteItoaCrashTest()}{ExecuteItoaCrashTest()}}
+{\footnotesize\ttfamily void Execute\+Itoa\+Crash\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info,  }\item[{int64\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00010}{10}} of file \mbox{\hyperlink{tests_2utils_2integer_8c_source}{integer.\+c}}.
+
+
+
+References \mbox{\hyperlink{tests_8h_source_l00011}{Viper\+Test\+Info\+\_\+t\+::test\+Failed}}, \mbox{\hyperlink{tests_8h_source_l00010}{Viper\+Test\+Info\+\_\+t\+::test\+Total}}, \mbox{\hyperlink{debug_2exceptions_8h_source_l00029}{Viper\+Catch}}, \mbox{\hyperlink{source_2utils_2integer_8c_source_l00040}{Viper\+Itoa()}}, \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{Viper\+Print\+F()}}, and \mbox{\hyperlink{debug_2exceptions_8h_source_l00021}{Viper\+Try}}.
+
+
+
+Referenced by \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00071}{Execute\+Itoa\+Test()}}.
+
+\Hypertarget{tests_2utils_2integer_8c_a3938a61b43985471e115c4fb36d56f1d}\label{tests_2utils_2integer_8c_a3938a61b43985471e115c4fb36d56f1d} 
+\index{integer.c@{integer.c}!ExecuteItoaTest@{ExecuteItoaTest}}
+\index{ExecuteItoaTest@{ExecuteItoaTest}!integer.c@{integer.c}}
+\doxysubsubsection{\texorpdfstring{ExecuteItoaTest()}{ExecuteItoaTest()}}
+{\footnotesize\ttfamily void Execute\+Itoa\+Test (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperTestInfo__t}{Viper\+Test\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info }\end{DoxyParamCaption})}
+
+
+
+This function is used to test all the integer functions and insure the quality is up to spec. 
+
+
+
+Definition at line \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00071}{71}} of file \mbox{\hyperlink{tests_2utils_2integer_8c_source}{integer.\+c}}.
+
+
+
+References \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00041}{Execute\+Itoa\+Atoi\+Test()}}, \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00023}{Execute\+Itoa\+Compersion\+Test()}}, and \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00010}{Execute\+Itoa\+Crash\+Test()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_8c_source_l00012}{Main()}}.
+

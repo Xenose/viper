@@ -1,0 +1,61 @@
+\doxysection{source/networking/socket.c File Reference}
+\hypertarget{socket_8c}{}\label{socket_8c}\index{source/networking/socket.c@{source/networking/socket.c}}
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$netdb.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$viper/debug/logger.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/memory.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/networking.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{socket_8c_ac850f63ea2a305842379e677adab7588}{Viper\+Socket\+Create}} (\mbox{\hyperlink{structViperSocket__t}{Viper\+Socket\+\_\+t}} \texorpdfstring{$\ast$}{*}sock, \mbox{\hyperlink{structViperSocketCreateInfo__t}{Viper\+Socket\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}const info)
+\begin{DoxyCompactList}\small\item\em This function is responsible for creating both TCP and UDP sockets,. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{socket_8c_a0ee77e01836491cf7e7f848208d7c44a}{Viper\+Socket\+Accept}} (\mbox{\hyperlink{structViperServer__t}{Viper\+Server\+\_\+t}} const \texorpdfstring{$\ast$}{*}server, \mbox{\hyperlink{structViperClient__t}{Viper\+Client\+\_\+t}} \texorpdfstring{$\ast$}{*}client)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{socket_8c_a0ee77e01836491cf7e7f848208d7c44a}\label{socket_8c_a0ee77e01836491cf7e7f848208d7c44a} 
+\index{socket.c@{socket.c}!ViperSocketAccept@{ViperSocketAccept}}
+\index{ViperSocketAccept@{ViperSocketAccept}!socket.c@{socket.c}}
+\doxysubsubsection{\texorpdfstring{ViperSocketAccept()}{ViperSocketAccept()}}
+{\footnotesize\ttfamily void Viper\+Socket\+Accept (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperServer__t}{Viper\+Server\+\_\+t}} const \texorpdfstring{$\ast$}{*}}]{server,  }\item[{\mbox{\hyperlink{structViperClient__t}{Viper\+Client\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{client }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{socket_8c_source_l00085}{85}} of file \mbox{\hyperlink{socket_8c_source}{socket.\+c}}.
+
+
+
+References \mbox{\hyperlink{networking_8h_source_l00036}{Viper\+Client\+\_\+t\+::socket}}, and \mbox{\hyperlink{networking_8h_source_l00045}{Viper\+Server\+\_\+t\+::socket}}.
+
+\Hypertarget{socket_8c_ac850f63ea2a305842379e677adab7588}\label{socket_8c_ac850f63ea2a305842379e677adab7588} 
+\index{socket.c@{socket.c}!ViperSocketCreate@{ViperSocketCreate}}
+\index{ViperSocketCreate@{ViperSocketCreate}!socket.c@{socket.c}}
+\doxysubsubsection{\texorpdfstring{ViperSocketCreate()}{ViperSocketCreate()}}
+{\footnotesize\ttfamily int8\+\_\+t Viper\+Socket\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperSocket__t}{Viper\+Socket\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{sock,  }\item[{\mbox{\hyperlink{structViperSocketCreateInfo__t}{Viper\+Socket\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}const}]{info }\end{DoxyParamCaption})}
+
+
+
+This function is responsible for creating both TCP and UDP sockets,. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sock} & \+:: the output with the new socket \\
+\hline
+{\em info} & \+:: the information used to create the socket \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{socket_8c_source_l00019}{19}} of file \mbox{\hyperlink{socket_8c_source}{socket.\+c}}.
+
+
+
+References \mbox{\hyperlink{networking_8h_source_l00023}{Viper\+Socket\+Create\+Info\+\_\+t\+::address}}, \mbox{\hyperlink{networking_8h_source_l00025}{Viper\+Socket\+Create\+Info\+\_\+t\+::backlog}}, \mbox{\hyperlink{networking_8h_source_l00020}{Viper\+Socket\+Create\+Info\+\_\+t\+::flags}}, \mbox{\hyperlink{networking_8h_source_l00024}{Viper\+Socket\+Create\+Info\+\_\+t\+::port}}, \mbox{\hyperlink{networking_8h_source_l00026}{Viper\+Socket\+Create\+Info\+\_\+t\+::retry}}, \mbox{\hyperlink{networking_8h_source_l00031}{Viper\+Socket\+\_\+t\+::socket}}, \mbox{\hyperlink{networking_8h_source_l00022}{Viper\+Socket\+Create\+Info\+\_\+t\+::sock\+Protocol}}, \mbox{\hyperlink{networking_8h_source_l00021}{Viper\+Socket\+Create\+Info\+\_\+t\+::sock\+Type}}, \mbox{\hyperlink{networking_8h_source_l00007}{VIPER\+\_\+\+SOCKET\+\_\+\+FLAG\+\_\+\+SERVER}}, \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}, \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}, and \mbox{\hyperlink{logger_8h_source_l00011}{Viper\+Log\+Warning}}.
+

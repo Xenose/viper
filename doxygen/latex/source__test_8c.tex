@@ -1,0 +1,162 @@
+\doxysection{source\+\_\+test.\+c File Reference}
+\hypertarget{source__test_8c}{}\label{source__test_8c}\index{source\_test.c@{source\_test.c}}
+{\ttfamily \#include "{}viper/io/parser.\+h"{}}\newline
+{\ttfamily \#include "{}viper/debug/logger.\+h"{}}\newline
+{\ttfamily \#include "{}viper/debug/signal\+\_\+handler.\+h"{}}\newline
+{\ttfamily \#include "{}viper/images/ppm.\+h"{}}\newline
+{\ttfamily \#include "{}viper/io/images.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/file.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/images.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/memory.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/structs.\+h"{}}\newline
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+{\ttfamily \#include $<$viper.\+h$>$}\newline
+{\ttfamily \#include $<$viper/memory/create.\+h$>$}\newline
+{\ttfamily \#include $<$viper/algorithms/linked\+\_\+list.\+h$>$}\newline
+{\ttfamily \#include $<$viper/memory/search.\+h$>$}\newline
+{\ttfamily \#include $<$viper/io/file.\+h$>$}\newline
+{\ttfamily \#include $<$viper/macros/utils.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$viper/debug/exceptions.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{source__test_8c_a3f93f5e723155e122e6d6a34653b53ba}{VIPER\+\_\+\+USE\+\_\+\+LIBRARY\+\_\+\+MAIN}}
+\item 
+\#define \mbox{\hyperlink{source__test_8c_ac3d144aa01e765a1fae62ab5491c7cc1}{\+\_\+\+POSIX\+\_\+\+SOURCE}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{source__test_8c_af6b918b53ab392eb7a49965ea8e0f83f}{Dryrun}} (\mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}} \texorpdfstring{$\ast$}{*}config, void \texorpdfstring{$\ast$}{*}custom\+Data)
+\begin{DoxyCompactList}\small\item\em A example function of how to used the command line parser, using Viper\+Add\+Parser\+Option will add this function to a list and then execute when stup is done. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{source__test_8c_abad6ecf245225bc282d2bd05fb65fe59}{Render\+Loop}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\begin{DoxyCompactList}\small\item\em This is a example of the Rendering Loop Function, it is used so that the sub-\/project can render objects without any complicated setup. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source__test_8c_a5dccb4197f058033087ea62f71ad893f}{Viper\+Setup}} (\mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info)
+\begin{DoxyCompactList}\small\item\em This function is provided so that the developer can supply there own data before the actual application starts. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source__test_8c_a1282a5b9e49ca6f696dad32f41c24c64}{Viper\+Main}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\begin{DoxyCompactList}\small\item\em The library main function this is only included if the VIPER\+\_\+\+USE\+\_\+\+LIBRARY\+\_\+\+MAIN is defined. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{source__test_8c_ac3d144aa01e765a1fae62ab5491c7cc1}\label{source__test_8c_ac3d144aa01e765a1fae62ab5491c7cc1} 
+\index{source\_test.c@{source\_test.c}!\_POSIX\_SOURCE@{\_POSIX\_SOURCE}}
+\index{\_POSIX\_SOURCE@{\_POSIX\_SOURCE}!source\_test.c@{source\_test.c}}
+\doxysubsubsection{\texorpdfstring{\_POSIX\_SOURCE}{\_POSIX\_SOURCE}}
+{\footnotesize\ttfamily \#define \+\_\+\+POSIX\+\_\+\+SOURCE}
+
+
+
+Definition at line \mbox{\hyperlink{source__test_8c_source_l00003}{3}} of file \mbox{\hyperlink{source__test_8c_source}{source\+\_\+test.\+c}}.
+
+\Hypertarget{source__test_8c_a3f93f5e723155e122e6d6a34653b53ba}\label{source__test_8c_a3f93f5e723155e122e6d6a34653b53ba} 
+\index{source\_test.c@{source\_test.c}!VIPER\_USE\_LIBRARY\_MAIN@{VIPER\_USE\_LIBRARY\_MAIN}}
+\index{VIPER\_USE\_LIBRARY\_MAIN@{VIPER\_USE\_LIBRARY\_MAIN}!source\_test.c@{source\_test.c}}
+\doxysubsubsection{\texorpdfstring{VIPER\_USE\_LIBRARY\_MAIN}{VIPER\_USE\_LIBRARY\_MAIN}}
+{\footnotesize\ttfamily \#define VIPER\+\_\+\+USE\+\_\+\+LIBRARY\+\_\+\+MAIN}
+
+
+
+Definition at line \mbox{\hyperlink{source__test_8c_source_l00002}{2}} of file \mbox{\hyperlink{source__test_8c_source}{source\+\_\+test.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{source__test_8c_af6b918b53ab392eb7a49965ea8e0f83f}\label{source__test_8c_af6b918b53ab392eb7a49965ea8e0f83f} 
+\index{source\_test.c@{source\_test.c}!Dryrun@{Dryrun}}
+\index{Dryrun@{Dryrun}!source\_test.c@{source\_test.c}}
+\doxysubsubsection{\texorpdfstring{Dryrun()}{Dryrun()}}
+{\footnotesize\ttfamily void Dryrun (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{config,  }\item[{void \texorpdfstring{$\ast$}{*}}]{custom\+Data }\end{DoxyParamCaption})}
+
+
+
+A example function of how to used the command line parser, using Viper\+Add\+Parser\+Option will add this function to a list and then execute when stup is done. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em config} & \+:: \\
+\hline
+{\em custom\+Data} & \+:: This is what ever the developer supplied \textbackslash{} int the Viper\+Add\+Parser\+Option functon, its recommended to use \textbackslash{} s\+Type to identify the structure type. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source__test_8c_source_l00037}{37}} of file \mbox{\hyperlink{source__test_8c_source}{source\+\_\+test.\+c}}.
+
+
+
+References \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}.
+
+
+
+Referenced by \mbox{\hyperlink{source__test_8c_source_l00069}{Viper\+Setup()}}.
+
+\Hypertarget{source__test_8c_abad6ecf245225bc282d2bd05fb65fe59}\label{source__test_8c_abad6ecf245225bc282d2bd05fb65fe59} 
+\index{source\_test.c@{source\_test.c}!RenderLoop@{RenderLoop}}
+\index{RenderLoop@{RenderLoop}!source\_test.c@{source\_test.c}}
+\doxysubsubsection{\texorpdfstring{RenderLoop()}{RenderLoop()}}
+{\footnotesize\ttfamily void Render\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})}
+
+
+
+This is a example of the Rendering Loop Function, it is used so that the sub-\/project can render objects without any complicated setup. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & \+:: Is the supplied app struct with \textbackslash{} application inforamtion. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source__test_8c_source_l00049}{49}} of file \mbox{\hyperlink{source__test_8c_source}{source\+\_\+test.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{source__test_8c_source_l00069}{Viper\+Setup()}}.
+
+\Hypertarget{source__test_8c_a1282a5b9e49ca6f696dad32f41c24c64}\label{source__test_8c_a1282a5b9e49ca6f696dad32f41c24c64} 
+\index{source\_test.c@{source\_test.c}!ViperMain@{ViperMain}}
+\index{ViperMain@{ViperMain}!source\_test.c@{source\_test.c}}
+\doxysubsubsection{\texorpdfstring{ViperMain()}{ViperMain()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Main (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})}
+
+
+
+The library main function this is only included if the VIPER\+\_\+\+USE\+\_\+\+LIBRARY\+\_\+\+MAIN is defined. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & \+:: is the application struct \textbackslash{} everthing in the application uses this struct. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source__test_8c_source_l00083}{83}} of file \mbox{\hyperlink{source__test_8c_source}{source\+\_\+test.\+c}}.
+
+
+
+References \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}.
+
+\Hypertarget{source__test_8c_a5dccb4197f058033087ea62f71ad893f}\label{source__test_8c_a5dccb4197f058033087ea62f71ad893f} 
+\index{source\_test.c@{source\_test.c}!ViperSetup@{ViperSetup}}
+\index{ViperSetup@{ViperSetup}!source\_test.c@{source\_test.c}}
+\doxysubsubsection{\texorpdfstring{ViperSetup()}{ViperSetup()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Setup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info }\end{DoxyParamCaption})}
+
+
+
+This function is provided so that the developer can supply there own data before the actual application starts. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & \+:: the configuration data. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source__test_8c_source_l00069}{69}} of file \mbox{\hyperlink{source__test_8c_source}{source\+\_\+test.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00099}{Viper\+Application\+Create\+Info\+\_\+t\+::application\+Loop}}, \mbox{\hyperlink{source__test_8c_source_l00037}{Dryrun()}}, \mbox{\hyperlink{source__test_8c_source_l00049}{Render\+Loop()}}, and \mbox{\hyperlink{parser_8c_source_l00025}{Viper\+Add\+Parser\+Option()}}.
+

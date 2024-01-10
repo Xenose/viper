@@ -1,0 +1,163 @@
+\doxysection{include/viper/types/memory.h File Reference}
+\hypertarget{memory_8h}{}\label{memory_8h}\index{include/viper/types/memory.h@{include/viper/types/memory.h}}
+{\ttfamily \#include $<$stdatomic.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/typedefs.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/structs.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structViperMemoryRegion__t}{Viper\+Memory\+Region\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{memory_8h_a8d0797f04a324ddff1f297924e412e86}{MEMORY\+\_\+128B}}~128
+\item 
+\#define \mbox{\hyperlink{memory_8h_a5994c505481c009c0e7f1fef1477d827}{MEMORY\+\_\+256B}}~256
+\item 
+\#define \mbox{\hyperlink{memory_8h_acf4b0570e5d9f40ff039eea04f41da80}{MEMORY\+\_\+512B}}~512
+\item 
+\#define \mbox{\hyperlink{memory_8h_afb693fbfba52336fc09b0d7a47a9d481}{MEMORY\+\_\+1\+KB}}~1024
+\item 
+\#define \mbox{\hyperlink{memory_8h_a1ce544d62a06905bb7d09583361df168}{MEMORY\+\_\+2\+KB}}~2048
+\item 
+\#define \mbox{\hyperlink{memory_8h_a760e005f22b8023958a91a9ee9de56a9}{MEMORY\+\_\+4\+KB}}~4096
+\item 
+\#define \mbox{\hyperlink{memory_8h_aee55397b03cefc5a2ba1e13f481efa99}{MEMORY\+\_\+8\+KB}}~8192
+\item 
+\#define \mbox{\hyperlink{memory_8h_a895009dd83513ea2cf21c3fe35709476}{MEMORY\+\_\+16\+KB}}~16384
+\item 
+\#define \mbox{\hyperlink{memory_8h_acdad4ff7ec4807f9ad20891467d9dd51}{MEMORY\+\_\+32\+KB}}~32768
+\item 
+\#define \mbox{\hyperlink{memory_8h_a05b7fb42a3996bf74d17d0c0351a86b3}{MEMORY\+\_\+64\+KB}}~65536
+\item 
+\#define \mbox{\hyperlink{memory_8h_a77ae9720c5f55eb820acc7b393712257}{MEMORY\+\_\+128\+KB}}~131072
+\item 
+\#define \mbox{\hyperlink{memory_8h_a113eb8663c5ac1917b48827a01360669}{MEMORY\+\_\+256\+KB}}~262144
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{memory_8h_a8d0797f04a324ddff1f297924e412e86}\label{memory_8h_a8d0797f04a324ddff1f297924e412e86} 
+\index{memory.h@{memory.h}!MEMORY\_128B@{MEMORY\_128B}}
+\index{MEMORY\_128B@{MEMORY\_128B}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_128B}{MEMORY\_128B}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+128B~128}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00009}{9}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a77ae9720c5f55eb820acc7b393712257}\label{memory_8h_a77ae9720c5f55eb820acc7b393712257} 
+\index{memory.h@{memory.h}!MEMORY\_128KB@{MEMORY\_128KB}}
+\index{MEMORY\_128KB@{MEMORY\_128KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_128KB}{MEMORY\_128KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+128\+KB~131072}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00019}{19}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a895009dd83513ea2cf21c3fe35709476}\label{memory_8h_a895009dd83513ea2cf21c3fe35709476} 
+\index{memory.h@{memory.h}!MEMORY\_16KB@{MEMORY\_16KB}}
+\index{MEMORY\_16KB@{MEMORY\_16KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_16KB}{MEMORY\_16KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+16\+KB~16384}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00016}{16}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_afb693fbfba52336fc09b0d7a47a9d481}\label{memory_8h_afb693fbfba52336fc09b0d7a47a9d481} 
+\index{memory.h@{memory.h}!MEMORY\_1KB@{MEMORY\_1KB}}
+\index{MEMORY\_1KB@{MEMORY\_1KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_1KB}{MEMORY\_1KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+1\+KB~1024}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00012}{12}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a5994c505481c009c0e7f1fef1477d827}\label{memory_8h_a5994c505481c009c0e7f1fef1477d827} 
+\index{memory.h@{memory.h}!MEMORY\_256B@{MEMORY\_256B}}
+\index{MEMORY\_256B@{MEMORY\_256B}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_256B}{MEMORY\_256B}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+256B~256}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00010}{10}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a113eb8663c5ac1917b48827a01360669}\label{memory_8h_a113eb8663c5ac1917b48827a01360669} 
+\index{memory.h@{memory.h}!MEMORY\_256KB@{MEMORY\_256KB}}
+\index{MEMORY\_256KB@{MEMORY\_256KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_256KB}{MEMORY\_256KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+256\+KB~262144}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00020}{20}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a1ce544d62a06905bb7d09583361df168}\label{memory_8h_a1ce544d62a06905bb7d09583361df168} 
+\index{memory.h@{memory.h}!MEMORY\_2KB@{MEMORY\_2KB}}
+\index{MEMORY\_2KB@{MEMORY\_2KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_2KB}{MEMORY\_2KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+2\+KB~2048}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00013}{13}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_acdad4ff7ec4807f9ad20891467d9dd51}\label{memory_8h_acdad4ff7ec4807f9ad20891467d9dd51} 
+\index{memory.h@{memory.h}!MEMORY\_32KB@{MEMORY\_32KB}}
+\index{MEMORY\_32KB@{MEMORY\_32KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_32KB}{MEMORY\_32KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+32\+KB~32768}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00017}{17}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a760e005f22b8023958a91a9ee9de56a9}\label{memory_8h_a760e005f22b8023958a91a9ee9de56a9} 
+\index{memory.h@{memory.h}!MEMORY\_4KB@{MEMORY\_4KB}}
+\index{MEMORY\_4KB@{MEMORY\_4KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_4KB}{MEMORY\_4KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+4\+KB~4096}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00014}{14}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_acf4b0570e5d9f40ff039eea04f41da80}\label{memory_8h_acf4b0570e5d9f40ff039eea04f41da80} 
+\index{memory.h@{memory.h}!MEMORY\_512B@{MEMORY\_512B}}
+\index{MEMORY\_512B@{MEMORY\_512B}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_512B}{MEMORY\_512B}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+512B~512}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00011}{11}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_a05b7fb42a3996bf74d17d0c0351a86b3}\label{memory_8h_a05b7fb42a3996bf74d17d0c0351a86b3} 
+\index{memory.h@{memory.h}!MEMORY\_64KB@{MEMORY\_64KB}}
+\index{MEMORY\_64KB@{MEMORY\_64KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_64KB}{MEMORY\_64KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+64\+KB~65536}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00018}{18}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+
+\Hypertarget{memory_8h_aee55397b03cefc5a2ba1e13f481efa99}\label{memory_8h_aee55397b03cefc5a2ba1e13f481efa99} 
+\index{memory.h@{memory.h}!MEMORY\_8KB@{MEMORY\_8KB}}
+\index{MEMORY\_8KB@{MEMORY\_8KB}!memory.h@{memory.h}}
+\doxysubsubsection{\texorpdfstring{MEMORY\_8KB}{MEMORY\_8KB}}
+{\footnotesize\ttfamily \#define MEMORY\+\_\+8\+KB~8192}
+
+
+
+Definition at line \mbox{\hyperlink{memory_8h_source_l00015}{15}} of file \mbox{\hyperlink{memory_8h_source}{memory.\+h}}.
+

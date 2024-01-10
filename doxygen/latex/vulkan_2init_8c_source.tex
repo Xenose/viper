@@ -1,0 +1,262 @@
+\doxysection{init.\+c}
+\hypertarget{vulkan_2init_8c_source}{}\label{vulkan_2init_8c_source}\index{source/vulkan/init.c@{source/vulkan/init.c}}
+\mbox{\hyperlink{vulkan_2init_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{types_8h}{viper/types.h}}>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{master_8h}{viper/threading/master.h}}>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{vulkan_2init_8h}{viper/vulkan/init.h}}>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<vulkan/vulkan\_core.h>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{instance_8h}{viper/vulkan/instance.h}}>}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00013}\mbox{\hyperlink{vulkan_2init_8c_a08fa45aa5b12ac940c15c3003794eb2b}{00013}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{vulkan_2init_8c_a08fa45aa5b12ac940c15c3003794eb2b}{\_DEVICE\_EXTENSIONS}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00014}00014\ \ \ \ \ VK\_KHR\_SWAPCHAIN\_EXTENSION\_NAME,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00015}00015\ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00021}\mbox{\hyperlink{vulkan_2init_8c_a140b2a06e04b98aa95314517b5bc7840}{00021}}\ \textcolor{preprocessor}{\#define\ DEFAULT\_WINDOW\_SIZE\_X\ 1920}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00026}\mbox{\hyperlink{vulkan_2init_8c_ad0f0679c24e69a860db8f46cc47c9db1}{00026}}\ \textcolor{preprocessor}{\#define\ DEFAULT\_WINDOW\_SIZE\_Y\ 1080}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00028}\mbox{\hyperlink{vulkan_2init_8c_a817611f872a5cbfd8f7117549babf93c}{00028}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{vulkan_2init_8c_a817611f872a5cbfd8f7117549babf93c}{ViperVulkanGetPhysicalDevice}}(\mbox{\hyperlink{struct____ViperApplication__t}{ViperApplication\_t}}*\ app,\ \mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}}*\ vk)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00029}00029\ \ \ \ \ int64\_t\ returnCode\ =\ VK\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00030}00030\ \ \ \ \ uint32\_t\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00031}00031\ \ \ \ \ VkPhysicalDevice*\ devices\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00032}00032\ \ \ \ \ VkPhysicalDeviceProperties\ properties\ =\ \{\ 0\ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}VulkanGetPhysicalDevice"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00035}00035\ \ \ \ \ \mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{ViperUnsafeStructAccess}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ (returnCode\ =\ vkEnumeratePhysicalDevices(vk-\/>\mbox{\hyperlink{structViperVulkan__t_a3c832e5b49e462c9dfb583c50390a19c}{instance}}.\mbox{\hyperlink{structViperVkInstance__t_a9ad223d8b9678fae5f8ee8f009aea963}{data}},\ \&count,\ NULL)))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ retrive\ count\ of\ physical\ devices\ [\ \%v\ ]"{}},\ returnCode);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00040}00040\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (1\ ==\ count)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ (returnCode\ =\ vkEnumeratePhysicalDevices(vk-\/>\mbox{\hyperlink{structViperVulkan__t_a3c832e5b49e462c9dfb583c50390a19c}{instance}}.\mbox{\hyperlink{structViperVkInstance__t_a9ad223d8b9678fae5f8ee8f009aea963}{data}},\ \&count,\ \&vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac654165b859efa269bb663a05e82fa98}{physicalDevice}}.\mbox{\hyperlink{structViperVkPhysicalDevice__t_ab18e255765bbefe54061ec6a76d0d7dd}{data}})))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ retrive\ devices"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00050}00050\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ (devices\ =\ calloc(count,\ \textcolor{keyword}{sizeof}(VkPhysicalDevice))))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ temproary\ physical\ devices\ [\ \%v\ ]"{}},\ returnCode);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00059}00059\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00061}00061\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00062}00062\ \ \ \ \ \mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{ViperUnsafeStructAccess}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ (returnCode\ =\ vkEnumeratePhysicalDevices(vk-\/>\mbox{\hyperlink{structViperVulkan__t_a3c832e5b49e462c9dfb583c50390a19c}{instance}}.\mbox{\hyperlink{structViperVkInstance__t_a9ad223d8b9678fae5f8ee8f009aea963}{data}},\ \&count,\ devices)))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ retrive\ devices"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00067}00067\ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{for}\ (uint32\_t\ i\ =\ 0;\ i\ <\ count;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ vkGetPhysicalDeviceProperties(devices[i],\ \&properties);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Name\ \%s"{}},\ properties.deviceName);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00072}00072\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00074}00074\ EXIT:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00075}00075\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00076}00076\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00077}00077\ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00085}\mbox{\hyperlink{vulkan_2init_8c_a3552a951f36960f2016717a206ebb614}{00085}}\ int64\_t\ \mbox{\hyperlink{vulkan_2init_8c_a3552a951f36960f2016717a206ebb614}{ViperVulkanCreateDevice}}(\mbox{\hyperlink{struct____ViperApplication__t}{ViperApplication\_t}}*\ app,\ \mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}}*\ vk)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00086}00086\ \ \ \ \ uint32\_t\ selectedQueue\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00087}00087\ \ \ \ \ uint32\_t\ queuePropertiesCount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00088}00088\ \ \ \ \ int64\_t\ returnCode\ =\ VK\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00089}00089\ \ \ \ \ \textcolor{keywordtype}{float}\ queuePriorities[]\ =\ \{\ 1.0f\ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00091}00091\ \ \ \ \ VkQueueFamilyProperties*\ queueProperties\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00092}00092\ \ \ \ \ VkDeviceQueueCreateInfo\ qci\ =\ \{\ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00093}00093\ \ \ \ \ VkDeviceCreateInfo\ dci\ =\ \{\ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00095}00095\ \ \ \ \ vkGetPhysicalDeviceQueueFamilyProperties(vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac654165b859efa269bb663a05e82fa98}{physicalDevice}}.\mbox{\hyperlink{structViperVkPhysicalDevice__t_ab18e255765bbefe54061ec6a76d0d7dd}{data}},\ \&queuePropertiesCount,\ NULL);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ (queueProperties\ =\ calloc(queuePropertiesCount,\ \textcolor{keyword}{sizeof}(queueProperties))))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00098}00098\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ queueProperties"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00100}00100\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00102}00102\ \ \ \ \ vkGetPhysicalDeviceQueueFamilyProperties(vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac654165b859efa269bb663a05e82fa98}{physicalDevice}}.\mbox{\hyperlink{structViperVkPhysicalDevice__t_ab18e255765bbefe54061ec6a76d0d7dd}{data}},\ \&queuePropertiesCount,\ queueProperties);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{while}\ (selectedQueue\ <\ queuePropertiesCount)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (queueProperties[selectedQueue].queueFlags\ \&\ VK\_QUEUE\_GRAPHICS\_BIT)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Found\ family\ queue"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00107}00107\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ FOUND\_QUEUE;\ \textcolor{comment}{//\ We\ found\ a\ queue\ lets\ break\ out}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00108}00108\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00109}00109\ \ \ \ \ \ \ \ \ selectedQueue++;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00110}00110\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00111}00111\ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}No\ queue\ family\ founed\ exiting..."{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00112}00112\ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;\ \textcolor{comment}{//\ no\ queue\ was\ found\ so\ lets\ exit}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00113}00113\ FOUND\_QUEUE:\ \textcolor{comment}{//\ instead\ of\ having\ a\ million\ unneeded\ checks}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00115}00115\ \ \ \ \ qci\ =\ (VkDeviceQueueCreateInfo)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ .sType\ =\ VK\_STRUCTURE\_TYPE\_DEVICE\_QUEUE\_CREATE\_INFO,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ .pNext\ =\ NULL,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00118}00118\ \ \ \ \ \ \ \ \ .flags\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ .queueFamilyIndex\ =\ selectedQueue,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00120}00120\ \ \ \ \ \ \ \ \ .queueCount\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ .pQueuePriorities\ =\ (\textcolor{keywordtype}{float}*)queuePriorities,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00122}00122\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00123}00123\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00124}00124\ \ \ \ \ dci\ =\ (VkDeviceCreateInfo)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00125}00125\ \ \ \ \ \ \ \ \ .sType\ =\ VK\_STRUCTURE\_TYPE\_DEVICE\_CREATE\_INFO,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ .pNext\ =\ NULL,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00127}00127\ \ \ \ \ \ \ \ \ .flags\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ .pQueueCreateInfos\ =\ \&qci,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ .enabledLayerCount\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ .ppEnabledLayerNames\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00131}00131\ \ \ \ \ \ \ \ \ .enabledExtensionCount\ =\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{vulkan_2init_8c_a08fa45aa5b12ac940c15c3003794eb2b}{\_DEVICE\_EXTENSIONS}})\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{vulkan_2init_8c_a08fa45aa5b12ac940c15c3003794eb2b}{\_DEVICE\_EXTENSIONS}}[0]),}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ .ppEnabledExtensionNames\ =\ \mbox{\hyperlink{vulkan_2init_8c_a08fa45aa5b12ac940c15c3003794eb2b}{\_DEVICE\_EXTENSIONS}},}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00133}00133\ \ \ \ \ \ \ \ \ .pEnabledFeatures\ =\ NULL,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00134}00134\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00135}00135\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00136}00136\ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ (returnCode\ =\ vkCreateDevice(vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac654165b859efa269bb663a05e82fa98}{physicalDevice}}.\mbox{\hyperlink{structViperVkPhysicalDevice__t_ab18e255765bbefe54061ec6a76d0d7dd}{data}},\ \&dci,\ NULL,\ \&vk-\/>\mbox{\hyperlink{structViperVulkan__t_a12fc4593e4fc1420707a073d888a8d5c}{device}}.\mbox{\hyperlink{structViperVkDevice__t_a6948506b7f4ac5ec054d90376e7778a5}{data}})))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00137}00137\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}\%v"{}},\ returnCode);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00139}00139\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00141}00141\ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Created\ logical\ device"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00142}00142\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00143}00143\ \ \ \ \ vk-\/>\mbox{\hyperlink{structViperVulkan__t_af7464c0f5c1ace0f2ee97414d4155a9c}{swapchainInfo}}.\mbox{\hyperlink{structViperVulkanSwapchainInfo__t_af9e4ab5399c35a83aac029e9fb332f7b}{queueFamilyIndex}}\ =\ selectedQueue;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00144}00144\ \ \ \ \ vk-\/>\mbox{\hyperlink{structViperVulkan__t_af7464c0f5c1ace0f2ee97414d4155a9c}{swapchainInfo}}.\mbox{\hyperlink{structViperVulkanSwapchainInfo__t_ae12087d7bef6876295579da89185eeac}{queueCount}}\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00146}00146\ \ \ \ \ \textcolor{comment}{//free(queueProperties);}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00147}00147\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00148}00148\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00149}00149\ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}\%v"{}},\ returnCode);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00150}00150\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00151}00151\ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00152}00152\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00153}\mbox{\hyperlink{vulkan_2init_8c_a6b675a2e5f5a3b1ad4c749d9e9968b6f}{00153}}\ int64\_t\ \mbox{\hyperlink{vulkan_2init_8c_a6b675a2e5f5a3b1ad4c749d9e9968b6f}{VulkanCreateSwapchain}}(\mbox{\hyperlink{struct____ViperApplication__t}{ViperApplication\_t}}*\ app,\ \mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}}*\ vk)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00154}00154\ \ \ \ \ \textcolor{keywordtype}{int}\ result\ =\ VK\_SUCCESS;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00155}00155\ \ \ \ \ VkSurfaceCapabilitiesKHR\ sc\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00156}00156\ \ \ \ \ VkSwapchainCreateInfoKHR\ sci\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00158}00158\ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Getting\ physicalDevice\ surface\ properties"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00159}00159\ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ (result\ =\ vkGetPhysicalDeviceSurfaceCapabilitiesKHR(vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac654165b859efa269bb663a05e82fa98}{physicalDevice}}.\mbox{\hyperlink{structViperVkPhysicalDevice__t_ab18e255765bbefe54061ec6a76d0d7dd}{data}},\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_a432346636cc566dcfc0880d7ed986424}{surface}}.\mbox{\hyperlink{structViperVkSurfaceKHR__t_a830be9c1383c877f47e3d41a1c7ce007}{data}},\ \&sc)))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00160}00160\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ retrive\ surface\ capabilities\ [\ \%v\ ]"{}},\ result);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00161}00161\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00162}00162\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00164}00164\ \ \ \ \ sci\ =\ (VkSwapchainCreateInfoKHR)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00165}00165\ \ \ \ \ \ \ \ \ .sType\ =\ VK\_STRUCTURE\_TYPE\_SWAPCHAIN\_CREATE\_INFO\_KHR,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00166}00166\ \ \ \ \ \ \ \ \ .pNext\ =\ NULL,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00167}00167\ \ \ \ \ \ \ \ \ .flags\ =\ 0,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00168}00168\ \ \ \ \ \ \ \ \ .surface\ =\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_a432346636cc566dcfc0880d7ed986424}{surface}}.\mbox{\hyperlink{structViperVkSurfaceKHR__t_a830be9c1383c877f47e3d41a1c7ce007}{data}},}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00169}00169\ \ \ \ \ \ \ \ \ .minImageCount\ =\ sc.minImageCount,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00170}00170\ \ \ \ \ \ \ \ \ .imageFormat\ =\ VK\_FORMAT\_R8G8B8\_UNORM,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00171}00171\ \ \ \ \ \ \ \ \ .imageColorSpace\ =\ \ VK\_COLOR\_SPACE\_EXTENDED\_SRGB\_LINEAR\_EXT,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00172}00172\ \ \ \ \ \ \ \ \ .imageExtent\ =\ sc.currentExtent,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00173}00173\ \ \ \ \ \ \ \ \ .imageSharingMode\ =\ VK\_SHARING\_MODE\_CONCURRENT,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00174}00174\ \ \ \ \ \ \ \ \ .queueFamilyIndexCount\ =\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_af7464c0f5c1ace0f2ee97414d4155a9c}{swapchainInfo}}.\mbox{\hyperlink{structViperVulkanSwapchainInfo__t_ae12087d7bef6876295579da89185eeac}{queueCount}},}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00175}00175\ \ \ \ \ \ \ \ \ .clipped\ =\ VK\_TRUE,}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00176}00176\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00178}00178\ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Vulkan\ creating\ swapchain"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ vkCreateSwapchainKHR(vk-\/>\mbox{\hyperlink{structViperVulkan__t_a12fc4593e4fc1420707a073d888a8d5c}{device}}.\mbox{\hyperlink{structViperVkDevice__t_a6948506b7f4ac5ec054d90376e7778a5}{data}},\ \&sci,\ NULL,\ \&vk-\/>\mbox{\hyperlink{structViperVulkan__t_a147819e26e14740a037f27a2485fd3e3}{swapchain}}.\mbox{\hyperlink{structViperVkSwapchainKHR__t_a27b386e3d001c33be83e545713247072}{data}}))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00181}00181\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ swapchain"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00185}00185\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00186}00186\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00187}00187\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00188}00188\ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00189}00189\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00194}\mbox{\hyperlink{vulkan_2init_8h_a2f2b80ad70f481e0005837ded2f4345c}{00194}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{vulkan_2init_8c_a2f2b80ad70f481e0005837ded2f4345c}{ViperVulkanInit}}(\mbox{\hyperlink{struct____ViperApplication__t}{ViperApplication\_t}}*\ app,\ \mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}}*\ vk)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00195}00195\ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}VulkanInit"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00196}00196\ \ \ \ \ \textcolor{comment}{//\ vk\ can\ be\ NULL\ meaning\ that\ we\ need\ to\ allocate\ it}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ vk)\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00198}00198\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ app-\/>\mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{vulkan}})\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{ViperUnsafeStructAccess}}(app[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ app-\/>\mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{vulkan}}\ =\ calloc(1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}}));}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(app[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ app-\/>\mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{vulkan}})\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ Vulkan\_t"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00207}00207\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00208}00208\ \ \ \ \ \ \ \ \ vk\ =\ app-\/>\mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{vulkan}};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00210}00210\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{structs_8h_a16af7b253440dadd46a80a4b9fddba4da5becd3341e979b059148bc8f46dc8ab3}{VIPER\_STRUCTURE\_TYPE\_UNKOWN}}\ ==\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}})\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ vk-\/>\mbox{\hyperlink{structViperVulkan__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}}\ =\ \mbox{\hyperlink{structs_8h_a16af7b253440dadd46a80a4b9fddba4dad13871cba4653418b24fa63b32c5e791}{VIPER\_STRUCTURE\_TYPE\_VULKAN}};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00212}00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00214}00214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ ==\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac7732197fcb794fdb89d78799ac6b5b8}{dimensionsWindow}}.\mbox{\hyperlink{structViperVectorInt2__t_a040359f45343ce6667f5c66fda5f50e3}{x}}\ ||\ 0\ ==\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac7732197fcb794fdb89d78799ac6b5b8}{dimensionsWindow}}.\mbox{\hyperlink{structViperVectorInt2__t_a0cbcba26311a97b8e0763317e105a918}{y}})\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac7732197fcb794fdb89d78799ac6b5b8}{dimensionsWindow}}.\mbox{\hyperlink{structViperVectorInt2__t_a040359f45343ce6667f5c66fda5f50e3}{x}}\ =\ \mbox{\hyperlink{vulkan_2init_8c_a140b2a06e04b98aa95314517b5bc7840}{DEFAULT\_WINDOW\_SIZE\_X}};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac7732197fcb794fdb89d78799ac6b5b8}{dimensionsWindow}}.\mbox{\hyperlink{structViperVectorInt2__t_a0cbcba26311a97b8e0763317e105a918}{y}}\ =\ \mbox{\hyperlink{vulkan_2init_8c_ad0f0679c24e69a860db8f46cc47c9db1}{DEFAULT\_WINDOW\_SIZE\_Y}};}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00217}00217\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00218}00218\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{if}\ (!glfwInit())\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00222}00222\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}glfwInit\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00224}00224\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00225}00225\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00226}00226\ \ \ \ \ \textcolor{keywordflow}{if}\ (!glfwVulkanSupported())\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00227}00227\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Vulkan\ not\ suppored"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT\_KILL\_GLFW;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00229}00229\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00231}00231\ \ \ \ \ glfwWindowHint(GLFW\_CLIENT\_API,\ GLFW\_NO\_API);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00233}00233\ \ \ \ \ \mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{ViperUnsafeStructAccess}}(vk-\/>\mbox{\hyperlink{structViperVulkan__t_aa1a8b88ecd56d9f4e7edd9f015d03b25}{window}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00234}00234\ \ \ \ \ vk-\/>\mbox{\hyperlink{structViperVulkan__t_aa1a8b88ecd56d9f4e7edd9f015d03b25}{window}}.\mbox{\hyperlink{structViperGLFWwindow__t_a392bc3e0b9b5f8d6a899f06b85fbaeff}{data}}\ =\ glfwCreateWindow(vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac7732197fcb794fdb89d78799ac6b5b8}{dimensionsWindow}}.\mbox{\hyperlink{structViperVectorInt2__t_a040359f45343ce6667f5c66fda5f50e3}{x}},\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_ac7732197fcb794fdb89d78799ac6b5b8}{dimensionsWindow}}.\mbox{\hyperlink{structViperVectorInt2__t_a0cbcba26311a97b8e0763317e105a918}{y}},\ app-\/>\mbox{\hyperlink{struct____ViperApplication__t_a10623b6ca6dca547b1e2cd22da1f8c6e}{name}}.\mbox{\hyperlink{structViperString__t_a91a70b77df95bd8b0830b49a094c2acb}{data}},\ NULL,NULL);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00236}00236\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_aa1a8b88ecd56d9f4e7edd9f015d03b25}{window}}.\mbox{\hyperlink{structViperGLFWwindow__t_a392bc3e0b9b5f8d6a899f06b85fbaeff}{data}})\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00237}00237\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}glfwCreateWindow\ ==\ NULL"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00238}00238\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00239}00239\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00240}00240\ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk-\/>\mbox{\hyperlink{structViperVulkan__t_aa1a8b88ecd56d9f4e7edd9f015d03b25}{window}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ \mbox{\hyperlink{instance_8h_ae7e220f531d712ffb28f0e69a3113b17}{ViperVulkanInstanceCreate}}(app,\ vk))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00243}00243\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ instance\ vulkan"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00244}00244\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT\_CLOSE\_WINDOW;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00246}00246\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ \mbox{\hyperlink{vulkan_2init_8c_a817611f872a5cbfd8f7117549babf93c}{ViperVulkanGetPhysicalDevice}}(app,\ vk))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00248}00248\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}VulkanGetPhysicalDevice"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00249}00249\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT\_PHYSICAL\_DEVICE;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00250}00250\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00251}00251\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00252}00252\ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ \mbox{\hyperlink{vulkan_2init_8c_a3552a951f36960f2016717a206ebb614}{ViperVulkanCreateDevice}}(app,\ vk))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00253}00253\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ logical\ device"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00254}00254\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00255}00255\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00256}00256\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00257}00257\ \ \ \ \ \mbox{\hyperlink{master_8h_a68e1928153336a99821f8fb1a9da0e10}{ViperUnsafeStructAccess}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{if}\ (VK\_SUCCESS\ !=\ glfwCreateWindowSurface(vk-\/>\mbox{\hyperlink{structViperVulkan__t_a3c832e5b49e462c9dfb583c50390a19c}{instance}}.\mbox{\hyperlink{structViperVkInstance__t_a9ad223d8b9678fae5f8ee8f009aea963}{data}},\ vk-\/>\mbox{\hyperlink{structViperVulkan__t_aa1a8b88ecd56d9f4e7edd9f015d03b25}{window}}.\mbox{\hyperlink{structViperGLFWwindow__t_a392bc3e0b9b5f8d6a899f06b85fbaeff}{data}},\ NULL,\ \&vk-\/>\mbox{\hyperlink{structViperVulkan__t_a432346636cc566dcfc0880d7ed986424}{surface}}.\mbox{\hyperlink{structViperVkSurfaceKHR__t_a830be9c1383c877f47e3d41a1c7ce007}{data}}))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00259}00259\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ surface"{}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00260}00260\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00261}00261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00262}00262\ \ \ \ \ \mbox{\hyperlink{master_8h_a7e787371d40406d850e298c53eab6783}{ViperUnsafeStructRelease}}(vk[0]);}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00263}00263\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ \mbox{\hyperlink{vulkan_2init_8c_a6b675a2e5f5a3b1ad4c749d9e9968b6f}{VulkanCreateSwapchain}}(app,\ vk))\ \{}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00265}00265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00266}00266\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00268}00268\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00269}00269\ ERROR\_EXIT\_PHYSICAL\_DEVICE:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00270}00270\ ERROR\_EXIT\_CLOSE\_WINDOW:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00271}00271\ \ \ \ \ glfwDestroyWindow(vk-\/>\mbox{\hyperlink{structViperVulkan__t_aa1a8b88ecd56d9f4e7edd9f015d03b25}{window}}.\mbox{\hyperlink{structViperGLFWwindow__t_a392bc3e0b9b5f8d6a899f06b85fbaeff}{data}});}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00272}00272\ ERROR\_EXIT\_KILL\_GLFW:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00273}00273\ \ \ \ \ glfwTerminate();}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00274}00274\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{vulkan_2init_8c_source_l00276}00276\ \}\ \textcolor{comment}{//\ VulkanInit}}
+
+\end{DoxyCode}

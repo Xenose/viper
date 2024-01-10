@@ -1,0 +1,54 @@
+\doxysection{include/viper/application/application.h File Reference}
+\hypertarget{application_8h}{}\label{application_8h}\index{include/viper/application/application.h@{include/viper/application/application.h}}
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{application_8h_a838a4158c52377694eb2c7954a2d8ccb}{Viper\+Application\+Create}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app, const \mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info)
+\begin{DoxyCompactList}\small\item\em This function can either be called directly or using the create function, it will initiliaze the struct using the data provided in the Application\+Create\+Info\+\_\+t. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{application_8h_a9851f22e4e26e711e734935610dc9cce}{Viper\+Application\+Start}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{application_8h_a838a4158c52377694eb2c7954a2d8ccb}\label{application_8h_a838a4158c52377694eb2c7954a2d8ccb} 
+\index{application.h@{application.h}!ViperApplicationCreate@{ViperApplicationCreate}}
+\index{ViperApplicationCreate@{ViperApplicationCreate}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{ViperApplicationCreate()}{ViperApplicationCreate()}}
+{\footnotesize\ttfamily int Viper\+Application\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app,  }\item[{const \mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+This function can either be called directly or using the create function, it will initiliaze the struct using the data provided in the Application\+Create\+Info\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info-\/$>$name} & \+:: is the application name that will be used for the application\textbackslash{} and for the window if graphics are used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00051}{51}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+References \mbox{\hyperlink{application_8c_source_l00011}{\+\_\+\+\_\+\+Viper\+Empty\+Loop\+No\+Call()}}, \mbox{\hyperlink{application_8c_source_l00029}{\+\_\+\+\_\+\+Viper\+Render\+Loop}}, \mbox{\hyperlink{application_8c_source_l00014}{\+\_\+\+\_\+\+Viper\+Render\+Loop\+No\+Call()}}, \mbox{\hyperlink{types_8h_source_l00081}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::application\+Loop}}, \mbox{\hyperlink{types_8h_source_l00099}{Viper\+Application\+Create\+Info\+\_\+t\+::application\+Loop}}, \mbox{\hyperlink{types_8h_source_l00093}{Viper\+Application\+Create\+Info\+\_\+t\+::flags}}, \mbox{\hyperlink{types_8h_source_l00069}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::name}}, \mbox{\hyperlink{types_8h_source_l00098}{Viper\+Application\+Create\+Info\+\_\+t\+::name}}, \mbox{\hyperlink{types_8h_source_l00078}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::opengl}}, \mbox{\hyperlink{types_8h_source_l00067}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::status}}, \mbox{\hyperlink{types_8h_source_l00064}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::s\+Type}}, \mbox{\hyperlink{types_8h_source_l00044}{VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+OPENGL}}, \mbox{\hyperlink{types_8h_source_l00043}{VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+VULKAN}}, \mbox{\hyperlink{types_8h_source_l00049}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+RUNNING}}, \mbox{\hyperlink{structs_8h_source_l00036}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+APPLICATION}}, \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}, \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}, \mbox{\hyperlink{opengl_2init_8c_source_l00016}{Viper\+Open\+GLInit()}}, \mbox{\hyperlink{opengl_2init_8c_source_l00074}{Viper\+Render\+Loop\+Open\+GL()}}, \mbox{\hyperlink{stringer_8c_source_l00013}{Viper\+String\+Create()}}, \mbox{\hyperlink{vulkan_2init_8c_source_l00194}{Viper\+Vulkan\+Init()}}, and \mbox{\hyperlink{types_8h_source_l00077}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::vulkan}}.
+
+
+
+Referenced by \mbox{\hyperlink{create_8c_source_l00008}{Viper\+Create()}}.
+
+\Hypertarget{application_8h_a9851f22e4e26e711e734935610dc9cce}\label{application_8h_a9851f22e4e26e711e734935610dc9cce} 
+\index{application.h@{application.h}!ViperApplicationStart@{ViperApplicationStart}}
+\index{ViperApplicationStart@{ViperApplicationStart}!application.h@{application.h}}
+\doxysubsubsection{\texorpdfstring{ViperApplicationStart()}{ViperApplicationStart()}}
+{\footnotesize\ttfamily void Viper\+Application\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00092}{92}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+References \mbox{\hyperlink{application_8c_source_l00036}{\+\_\+\+\_\+\+Viper\+Application\+Loop()}}.
+

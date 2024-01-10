@@ -1,0 +1,47 @@
+\doxysection{include/viper/utils.h File Reference}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{include/viper/utils.h@{include/viper/utils.h}}
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{utils_8h_aae8d6fd405fc36c720f70aaad5e688e0}{Itoa}} (int64\+\_\+t value, char \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t length, int32\+\_\+t base)
+\begin{DoxyCompactList}\small\item\em The non standard itoa function is very useful but to be more cross platform for no extra cost this is a simple implementation, it use the \+\_\+number\+Table to find the correct charter. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{utils_8h_aae8d6fd405fc36c720f70aaad5e688e0}\label{utils_8h_aae8d6fd405fc36c720f70aaad5e688e0} 
+\index{utils.h@{utils.h}!Itoa@{Itoa}}
+\index{Itoa@{Itoa}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{Itoa()}{Itoa()}}
+{\footnotesize\ttfamily int64\+\_\+t Itoa (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{value,  }\item[{char \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{length,  }\item[{int32\+\_\+t}]{base }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The non standard itoa function is very useful but to be more cross platform for no extra cost this is a simple implementation, it use the \+\_\+number\+Table to find the correct charter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em value} & \+:: is the value to be converted into a string \\
+\hline
+{\em buffer} & \+:: is the buffer that will be used for the output \\
+\hline
+{\em length} & \+:: is the length of the buffer \\
+\hline
+{\em base} & \+:: is the base that the value will be returned in 2, 4, 8, 10 and so on.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Is the length of the new string in int64\+\_\+t format \textbackslash{} and will return -\/1 if the function is had an error 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{utils_8c_source_l00024}{24}} of file \mbox{\hyperlink{utils_8c_source}{utils.\+c}}.
+
+
+
+References \mbox{\hyperlink{utils_8c_source_l00009}{\+\_\+number\+Table}}.
+
+
+
+Referenced by \mbox{\hyperlink{printer_8c_source_l00174}{\+\_\+\+\_\+\+Percentage()}}.
+

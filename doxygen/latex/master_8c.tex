@@ -1,0 +1,52 @@
+\doxysection{source/threading/master.c File Reference}
+\hypertarget{master_8c}{}\label{master_8c}\index{source/threading/master.c@{source/threading/master.c}}
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+{\ttfamily \#include $<$viper/threading/master.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{master_8c_a5d848e8ac84c45ed53d9f1db6114e08f}{Execute\+Async}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static atomic\+\_\+int\+\_\+fast32\+\_\+t \mbox{\hyperlink{master_8c_a157f934eab097a9a602077a93604f699}{stack\+Index}} = 0
+\item 
+static int8\+\_\+t \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{master_8c_a226dbccabddb090adafbff9f7d8e9878}{stakcs}} \mbox{[}\mbox{\hyperlink{memory_8h_a760e005f22b8023958a91a9ee9de56a9}{MEMORY\+\_\+4\+KB}}\mbox{]} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{master_8c_a5d848e8ac84c45ed53d9f1db6114e08f}\label{master_8c_a5d848e8ac84c45ed53d9f1db6114e08f} 
+\index{master.c@{master.c}!ExecuteAsync@{ExecuteAsync}}
+\index{ExecuteAsync@{ExecuteAsync}!master.c@{master.c}}
+\doxysubsubsection{\texorpdfstring{ExecuteAsync()}{ExecuteAsync()}}
+{\footnotesize\ttfamily void Execute\+Async (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{master_8c_source_l00007}{7}} of file \mbox{\hyperlink{master_8c_source}{master.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{master_8c_a157f934eab097a9a602077a93604f699}\label{master_8c_a157f934eab097a9a602077a93604f699} 
+\index{master.c@{master.c}!stackIndex@{stackIndex}}
+\index{stackIndex@{stackIndex}!master.c@{master.c}}
+\doxysubsubsection{\texorpdfstring{stackIndex}{stackIndex}}
+{\footnotesize\ttfamily atomic\+\_\+int\+\_\+fast32\+\_\+t stack\+Index = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{master_8c_source_l00004}{4}} of file \mbox{\hyperlink{master_8c_source}{master.\+c}}.
+
+\Hypertarget{master_8c_a226dbccabddb090adafbff9f7d8e9878}\label{master_8c_a226dbccabddb090adafbff9f7d8e9878} 
+\index{master.c@{master.c}!stakcs@{stakcs}}
+\index{stakcs@{stakcs}!master.c@{master.c}}
+\doxysubsubsection{\texorpdfstring{stakcs}{stakcs}}
+{\footnotesize\ttfamily int8\+\_\+t\texorpdfstring{$\ast$}{*} stakcs\mbox{[}\mbox{\hyperlink{memory_8h_a760e005f22b8023958a91a9ee9de56a9}{MEMORY\+\_\+4\+KB}}\mbox{]} = \{\}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{master_8c_source_l00005}{5}} of file \mbox{\hyperlink{master_8c_source}{master.\+c}}.
+

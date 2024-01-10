@@ -1,0 +1,32 @@
+\doxysection{dynamic\+\_\+array.\+c}
+\hypertarget{dynamic__array_8c_source}{}\label{dynamic__array_8c_source}\index{source/algorithms/dynamic\_array.c@{source/algorithms/dynamic\_array.c}}
+\mbox{\hyperlink{dynamic__array_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{memory_2utils_8h}{viper/memory/utils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{algorithms_8h}{viper/types/algorithms.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{structs_8h}{viper/types/structs.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{dynamic__array_8h}{viper/algorithms/dynamic\_array.h}}>}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include<string.h>}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00010}\mbox{\hyperlink{dynamic__array_8c_ad03e5502ed7edf308c0c4c5f47a3d55f}{00010}}\ int8\_t\ \mbox{\hyperlink{dynamic__array_8c_ad03e5502ed7edf308c0c4c5f47a3d55f}{ViperDynamicArrayAdd}}(\mbox{\hyperlink{structViperDynamicArray__t}{ViperDynamicArray\_t}}*\ array,\ \textcolor{keywordtype}{void}*\ ptr)\ \{}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00011}00011\ \ \ \ \ int64\_t\ bytes\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00012}00012\ \ \ \ \ int8\_t*\ current\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{structViperGenericStruct__t}{ViperGenericStruct\_t}}*\ gen\ =\ ptr;}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00015}00015\ \ \ \ \ \textcolor{keywordflow}{if}\ (array-\/>\mbox{\hyperlink{structViperDynamicArray__t_a3aafb522a6ee01e617771256aa49c9a6}{stored}}\ !=\ gen-\/>\mbox{\hyperlink{structViperGenericStruct__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}})\ \{}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00016}00016\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00017}00017\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00019}00019\ \ \ \ \ bytes\ =\ \mbox{\hyperlink{memory_2utils_8h_a540f2cce4216179044833f4fadd611c7}{ViperGetStructureSize}}(gen-\/>\mbox{\hyperlink{structViperGenericStruct__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}});}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00021}00021\ \ \ \ \ array-\/>\mbox{\hyperlink{structViperDynamicArray__t_add9af9569af79ec26dd741fb226b38ba}{ptr}}\ =\ realloc(array-\/>\mbox{\hyperlink{structViperDynamicArray__t_add9af9569af79ec26dd741fb226b38ba}{ptr}},\ bytes\ *\ array-\/>\mbox{\hyperlink{structViperDynamicArray__t_afcc68e9eec57ce069fcdc37815837d6d}{count}});}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00022}00022\ \ \ \ \ current\ =\ \&array-\/>\mbox{\hyperlink{structViperDynamicArray__t_a6f35752e9d0269394069ef88e136b969}{buffer}}[bytes\ *\ array-\/>\mbox{\hyperlink{structViperDynamicArray__t_afcc68e9eec57ce069fcdc37815837d6d}{count}}];}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00023}00023\ \ \ \ \ memcpy(current,\ ptr,\ bytes);}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00024}00024\ \ \ \ \ array-\/>\mbox{\hyperlink{structViperDynamicArray__t_afcc68e9eec57ce069fcdc37815837d6d}{count}}++;}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{dynamic__array_8c_source_l00026}00026\ \}}
+
+\end{DoxyCode}

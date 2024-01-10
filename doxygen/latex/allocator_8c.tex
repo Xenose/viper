@@ -1,0 +1,218 @@
+\doxysection{source/memory/allocator.c File Reference}
+\hypertarget{allocator_8c}{}\label{allocator_8c}\index{source/memory/allocator.c@{source/memory/allocator.c}}
+{\ttfamily \#include $<$viper/memory/allocator.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{allocator_8c_a70c9b0c5fbf71be1f76ff5d6672092d2}{Init\+Allocator}} (uint64\+\_\+t heap\+Static\+Size, uint64\+\_\+t heap\+Dynamic\+Size)
+\begin{DoxyCompactList}\small\item\em Instead of allocating the memory at runtime we should instead allocate it at startup time allowing for faster memory operations. \end{DoxyCompactList}\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a47ab8766643e789f358da9e99927d03d}{Dynamic\+Allocation}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a4a1f5767e13a85cedfcfa05591124e8f}{Static\+Allocation}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a2a2f21a1cf87c5748506cac7c102b60f}{Static\+Huge\+Allocation}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a3535f730f9f02e2d5cb4a54911850134}{Dynamic\+Huge\+Allocation}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a0dd1a1bfd38255c76d90cf83086acbb8}{Allocate}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a7c026f0ac8c95559bd4333c984c4fe75}{Reallocate}} ()
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a46b9ad03c94fec70933e4f905d8267dd}{Free\+Static}} (void \texorpdfstring{$\ast$}{*}ptr)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_ad61fc5493966c00f50e38ce6719eee93}{Free\+Dynamic}} (void \texorpdfstring{$\ast$}{*}ptr)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \mbox{\hyperlink{allocator_8c_a40dd14156af8b9b0bd540a295d0bed20}{\+\_\+\+\_\+heap\+Static\+Size\+Current}} = 0
+\item 
+static \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \mbox{\hyperlink{allocator_8c_a48f587958f72e50033354201de1e7d54}{\+\_\+\+\_\+heap\+Dynamic\+Size\+Current}} = 0
+\item 
+static \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \mbox{\hyperlink{allocator_8c_a88c9e4d9c6faf8b6969a09ea27af544a}{\+\_\+\+\_\+heap\+Static\+Size}} = 0
+\item 
+static \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \mbox{\hyperlink{allocator_8c_a429ff8546dfb1927431c457a8f329d16}{\+\_\+\+\_\+heap\+Dynamic\+Size}} = 0
+\item 
+static \mbox{\hyperlink{typedefs_8h_adf417f57a0f7d16e53f3aac2f09187c2}{auint8\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a892fb1f6643438efc2d2b00653953c1e}{\+\_\+\+\_\+heap\+Static}} = NULL
+\item 
+static \mbox{\hyperlink{typedefs_8h_adf417f57a0f7d16e53f3aac2f09187c2}{auint8\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{allocator_8c_a6ed6a67956ab715edfd648f5635b046f}{\+\_\+\+\_\+heap\+Dynamic}} = NULL
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{allocator_8c_a0dd1a1bfd38255c76d90cf83086acbb8}\label{allocator_8c_a0dd1a1bfd38255c76d90cf83086acbb8} 
+\index{allocator.c@{allocator.c}!Allocate@{Allocate}}
+\index{Allocate@{Allocate}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{Allocate()}{Allocate()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Allocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00040}{40}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a47ab8766643e789f358da9e99927d03d}\label{allocator_8c_a47ab8766643e789f358da9e99927d03d} 
+\index{allocator.c@{allocator.c}!DynamicAllocation@{DynamicAllocation}}
+\index{DynamicAllocation@{DynamicAllocation}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{DynamicAllocation()}{DynamicAllocation()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Dynamic\+Allocation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00024}{24}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a3535f730f9f02e2d5cb4a54911850134}\label{allocator_8c_a3535f730f9f02e2d5cb4a54911850134} 
+\index{allocator.c@{allocator.c}!DynamicHugeAllocation@{DynamicHugeAllocation}}
+\index{DynamicHugeAllocation@{DynamicHugeAllocation}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{DynamicHugeAllocation()}{DynamicHugeAllocation()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Dynamic\+Huge\+Allocation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00036}{36}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_ad61fc5493966c00f50e38ce6719eee93}\label{allocator_8c_ad61fc5493966c00f50e38ce6719eee93} 
+\index{allocator.c@{allocator.c}!FreeDynamic@{FreeDynamic}}
+\index{FreeDynamic@{FreeDynamic}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{FreeDynamic()}{FreeDynamic()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Free\+Dynamic (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00052}{52}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a46b9ad03c94fec70933e4f905d8267dd}\label{allocator_8c_a46b9ad03c94fec70933e4f905d8267dd} 
+\index{allocator.c@{allocator.c}!FreeStatic@{FreeStatic}}
+\index{FreeStatic@{FreeStatic}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{FreeStatic()}{FreeStatic()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Free\+Static (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00048}{48}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a70c9b0c5fbf71be1f76ff5d6672092d2}\label{allocator_8c_a70c9b0c5fbf71be1f76ff5d6672092d2} 
+\index{allocator.c@{allocator.c}!InitAllocator@{InitAllocator}}
+\index{InitAllocator@{InitAllocator}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{InitAllocator()}{InitAllocator()}}
+{\footnotesize\ttfamily void Init\+Allocator (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{heap\+Static\+Size,  }\item[{uint64\+\_\+t}]{heap\+Dynamic\+Size }\end{DoxyParamCaption})}
+
+
+
+Instead of allocating the memory at runtime we should instead allocate it at startup time allowing for faster memory operations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em heap\+Static\+Size} & \+:: the size for the static heap that will be pre-\/allocated \\
+\hline
+{\em heap\+Dynamic\+Size} & \+:: the size for the dynamic heap that will be pre-\/allocated \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00019}{19}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+
+
+References \mbox{\hyperlink{allocator_8c_source_l00010}{\+\_\+\+\_\+heap\+Dynamic}}, and \mbox{\hyperlink{allocator_8c_source_l00009}{\+\_\+\+\_\+heap\+Static}}.
+
+\Hypertarget{allocator_8c_a7c026f0ac8c95559bd4333c984c4fe75}\label{allocator_8c_a7c026f0ac8c95559bd4333c984c4fe75} 
+\index{allocator.c@{allocator.c}!Reallocate@{Reallocate}}
+\index{Reallocate@{Reallocate}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{Reallocate()}{Reallocate()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Reallocate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00044}{44}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a4a1f5767e13a85cedfcfa05591124e8f}\label{allocator_8c_a4a1f5767e13a85cedfcfa05591124e8f} 
+\index{allocator.c@{allocator.c}!StaticAllocation@{StaticAllocation}}
+\index{StaticAllocation@{StaticAllocation}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{StaticAllocation()}{StaticAllocation()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Static\+Allocation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00028}{28}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a2a2f21a1cf87c5748506cac7c102b60f}\label{allocator_8c_a2a2f21a1cf87c5748506cac7c102b60f} 
+\index{allocator.c@{allocator.c}!StaticHugeAllocation@{StaticHugeAllocation}}
+\index{StaticHugeAllocation@{StaticHugeAllocation}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{StaticHugeAllocation()}{StaticHugeAllocation()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Static\+Huge\+Allocation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00032}{32}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{allocator_8c_a6ed6a67956ab715edfd648f5635b046f}\label{allocator_8c_a6ed6a67956ab715edfd648f5635b046f} 
+\index{allocator.c@{allocator.c}!\_\_heapDynamic@{\_\_heapDynamic}}
+\index{\_\_heapDynamic@{\_\_heapDynamic}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{\_\_heapDynamic}{\_\_heapDynamic}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_adf417f57a0f7d16e53f3aac2f09187c2}{auint8\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+heap\+Dynamic = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00010}{10}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{allocator_8c_source_l00019}{Init\+Allocator()}}.
+
+\Hypertarget{allocator_8c_a429ff8546dfb1927431c457a8f329d16}\label{allocator_8c_a429ff8546dfb1927431c457a8f329d16} 
+\index{allocator.c@{allocator.c}!\_\_heapDynamicSize@{\_\_heapDynamicSize}}
+\index{\_\_heapDynamicSize@{\_\_heapDynamicSize}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{\_\_heapDynamicSize}{\_\_heapDynamicSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \+\_\+\+\_\+heap\+Dynamic\+Size = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00007}{7}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a48f587958f72e50033354201de1e7d54}\label{allocator_8c_a48f587958f72e50033354201de1e7d54} 
+\index{allocator.c@{allocator.c}!\_\_heapDynamicSizeCurrent@{\_\_heapDynamicSizeCurrent}}
+\index{\_\_heapDynamicSizeCurrent@{\_\_heapDynamicSizeCurrent}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{\_\_heapDynamicSizeCurrent}{\_\_heapDynamicSizeCurrent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \+\_\+\+\_\+heap\+Dynamic\+Size\+Current = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00004}{4}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a892fb1f6643438efc2d2b00653953c1e}\label{allocator_8c_a892fb1f6643438efc2d2b00653953c1e} 
+\index{allocator.c@{allocator.c}!\_\_heapStatic@{\_\_heapStatic}}
+\index{\_\_heapStatic@{\_\_heapStatic}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{\_\_heapStatic}{\_\_heapStatic}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_adf417f57a0f7d16e53f3aac2f09187c2}{auint8\+\_\+t}}\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+heap\+Static = NULL\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00009}{9}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{allocator_8c_source_l00019}{Init\+Allocator()}}.
+
+\Hypertarget{allocator_8c_a88c9e4d9c6faf8b6969a09ea27af544a}\label{allocator_8c_a88c9e4d9c6faf8b6969a09ea27af544a} 
+\index{allocator.c@{allocator.c}!\_\_heapStaticSize@{\_\_heapStaticSize}}
+\index{\_\_heapStaticSize@{\_\_heapStaticSize}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{\_\_heapStaticSize}{\_\_heapStaticSize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \+\_\+\+\_\+heap\+Static\+Size = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00006}{6}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+
+\Hypertarget{allocator_8c_a40dd14156af8b9b0bd540a295d0bed20}\label{allocator_8c_a40dd14156af8b9b0bd540a295d0bed20} 
+\index{allocator.c@{allocator.c}!\_\_heapStaticSizeCurrent@{\_\_heapStaticSizeCurrent}}
+\index{\_\_heapStaticSizeCurrent@{\_\_heapStaticSizeCurrent}!allocator.c@{allocator.c}}
+\doxysubsubsection{\texorpdfstring{\_\_heapStaticSizeCurrent}{\_\_heapStaticSizeCurrent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_a843edfefda9c987c9eafd45532b38bcf}{auint64\+\_\+t}} \+\_\+\+\_\+heap\+Static\+Size\+Current = 0\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{allocator_8c_source_l00003}{3}} of file \mbox{\hyperlink{allocator_8c_source}{allocator.\+c}}.
+

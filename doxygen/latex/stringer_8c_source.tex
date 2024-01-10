@@ -1,0 +1,70 @@
+\doxysection{stringer.\+c}
+\hypertarget{stringer_8c_source}{}\label{stringer_8c_source}\index{source/utils/stringer.c@{source/utils/stringer.c}}
+\mbox{\hyperlink{stringer_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<ctype.h>}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{stringer_8h}{viper/utils/stringer.h}}>}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00013}\mbox{\hyperlink{stringer_8h_a3fa85487883e41001fab7582106f6596}{00013}}\ int64\_t\ \mbox{\hyperlink{stringer_8c_a3fa85487883e41001fab7582106f6596}{ViperStringCreate}}(\mbox{\hyperlink{structViperString__t}{ViperString\_t}}*\ out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00014}00014\ \ \ \ \ int64\_t\ bytes\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00015}00015\ \ \ \ \ out-\/>\mbox{\hyperlink{structViperString__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}}\ =\ \mbox{\hyperlink{structs_8h_a16af7b253440dadd46a80a4b9fddba4da263840eef510d299cab24f62a55586ab}{VIPER\_STRUCTURE\_TYPE\_STRING}};}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ EXIT;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00019}00019\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00021}00021\ \ \ \ \ bytes\ =\ strlen(str);}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00023}00023\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ (out-\/>\mbox{\hyperlink{structViperString__t_a91a70b77df95bd8b0830b49a094c2acb}{data}}\ =\ calloc(bytes,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{char}))))\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ string\ in\ StringCreate"{}});}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00028}00028\ \ \ \ \ memcpy(out-\/>\mbox{\hyperlink{structViperString__t_a91a70b77df95bd8b0830b49a094c2acb}{data}},\ str,\ bytes);}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00029}00029\ \ \ \ \ out-\/>\mbox{\hyperlink{structViperString__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}}\ =\ bytes;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00030}00030\ EXIT:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ bytes;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00032}00032\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00033}00033\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00034}00034\ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00042}\mbox{\hyperlink{stringer_8h_a3dfbe3be574835e49cf94e3b5fca1888}{00042}}\ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{stringer_8c_a3dfbe3be574835e49cf94e3b5fca1888}{ViperStringDelete}}(\mbox{\hyperlink{structViperString__t}{ViperString\_t}}*\ str)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00043}00043\ \ \ \ \ free(str-\/>\mbox{\hyperlink{structViperString__t_a91a70b77df95bd8b0830b49a094c2acb}{data}});}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00044}00044\ \ \ \ \ free(str);}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00050}\mbox{\hyperlink{stringer_8c_a634b7539a2f10f533f7379d4a0f703f1}{00050}}\ int64\_t\ \mbox{\hyperlink{stringer_8c_a634b7539a2f10f533f7379d4a0f703f1}{ViperStringAppend}}(\mbox{\hyperlink{structViperString__t}{ViperString\_t}}*\ out,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ text)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00065}\mbox{\hyperlink{stringer_8h_a597ac1dfeca7a673134eb6bc8071d2e1}{00065}}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{stringer_8c_a597ac1dfeca7a673134eb6bc8071d2e1}{ViperFindNextChar}}(\textcolor{keywordtype}{char}*\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ data)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ EXIT;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00069}00069\ LOOP:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00070}00070\ \ \ \ \ \textcolor{keywordflow}{switch}\ (*data)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\ '}:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)t'}:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)r'}:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \textcolor{charliteral}{'\(\backslash\)n'}:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ data++;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ LOOP;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00078}00078\ EXIT:}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{return}\ data;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00080}00080\ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00082}\mbox{\hyperlink{stringer_8h_a669d8d0db5804a3fd65060328c510daf}{00082}}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{stringer_8c_a669d8d0db5804a3fd65060328c510daf}{ViperFindNonNumeric}}(\textcolor{keywordtype}{char}*\ buffer)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{while}(isdigit(buffer[0]))\ buffer++;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00084}00084\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00085}00085\ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00087}\mbox{\hyperlink{stringer_8h_adecb209834672f8d16be60768d63cb92}{00087}}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{stringer_8c_adecb209834672f8d16be60768d63cb92}{ViperSkipLine}}(\textcolor{keywordtype}{char}*\ buffer)\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{while}\ (\textcolor{charliteral}{'\(\backslash\)n'}\ !=\ buffer[0]\ \&\&\ \textcolor{charliteral}{'\(\backslash\)0'}\ !=\ buffer[0])\ \{}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ buffer++;}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00091}00091\ \ \ \ \ \textcolor{keywordflow}{return}\ buffer\ +\ 1;\ }
+\DoxyCodeLine{\Hypertarget{stringer_8c_source_l00092}00092\ \}}
+
+\end{DoxyCode}

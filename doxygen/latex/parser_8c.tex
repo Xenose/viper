@@ -1,0 +1,86 @@
+\doxysection{source/io/parser.c File Reference}
+\hypertarget{parser_8c}{}\label{parser_8c}\index{source/io/parser.c@{source/io/parser.c}}
+{\ttfamily \#include "{}viper/debug/logger.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/networking.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/opengl.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/parser.\+h"{}}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$getopt.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct____StructViperInternalParserData}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{parser_8c_a7ace12b9a57ad2ede33b62b8b37ef1eb}{Viper\+Add\+Parser\+Option}} (const char \texorpdfstring{$\ast$}{*}long\+Command, const char \texorpdfstring{$\ast$}{*}short\+Command, char short\+Char, int has\+Arg, int \texorpdfstring{$\ast$}{*}flags, void(\texorpdfstring{$\ast$}{*}function)(\mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}} \texorpdfstring{$\ast$}{*}config, void \texorpdfstring{$\ast$}{*}custom\+Data), void \texorpdfstring{$\ast$}{*}custom\+Data)
+\item 
+int8\+\_\+t \mbox{\hyperlink{parser_8c_a2982ab3fe2933c7d700c6772c06318b4}{Viper\+Parse\+Commands}} (int arc, char \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}arv, \mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}} \texorpdfstring{$\ast$}{*}config)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static struct \mbox{\hyperlink{struct____StructViperInternalParserData}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data}} \mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\+\_\+\+\_\+viper\+Internal\+Parser\+Data}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{parser_8c_a7ace12b9a57ad2ede33b62b8b37ef1eb}\label{parser_8c_a7ace12b9a57ad2ede33b62b8b37ef1eb} 
+\index{parser.c@{parser.c}!ViperAddParserOption@{ViperAddParserOption}}
+\index{ViperAddParserOption@{ViperAddParserOption}!parser.c@{parser.c}}
+\doxysubsubsection{\texorpdfstring{ViperAddParserOption()}{ViperAddParserOption()}}
+{\footnotesize\ttfamily int8\+\_\+t Viper\+Add\+Parser\+Option (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{long\+Command,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{short\+Command,  }\item[{char}]{short\+Char,  }\item[{int}]{has\+Arg,  }\item[{int \texorpdfstring{$\ast$}{*}}]{flags,  }\item[{void(\texorpdfstring{$\ast$}{*})(\mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}} \texorpdfstring{$\ast$}{*}config, void \texorpdfstring{$\ast$}{*}custom\+Data)}]{function,  }\item[{void \texorpdfstring{$\ast$}{*}}]{custom\+Data }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8c_source_l00025}{25}} of file \mbox{\hyperlink{parser_8c_source}{parser.\+c}}.
+
+
+
+References \mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\+\_\+\+\_\+viper\+Internal\+Parser\+Data}}, \mbox{\hyperlink{parser_8c_source_l00014}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::action}}, \mbox{\hyperlink{parser_8c_source_l00011}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::command\+Count}}, \mbox{\hyperlink{types_2parser_8h_source_l00010}{Viper\+Option\+Action\+\_\+t\+::function}}, \mbox{\hyperlink{parser_8c_source_l00015}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::long\+\_\+options}}, and \mbox{\hyperlink{parser_8c_source_l00012}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::opts}}.
+
+
+
+Referenced by \mbox{\hyperlink{source__test_8c_source_l00069}{Viper\+Setup()}}.
+
+\Hypertarget{parser_8c_a2982ab3fe2933c7d700c6772c06318b4}\label{parser_8c_a2982ab3fe2933c7d700c6772c06318b4} 
+\index{parser.c@{parser.c}!ViperParseCommands@{ViperParseCommands}}
+\index{ViperParseCommands@{ViperParseCommands}!parser.c@{parser.c}}
+\doxysubsubsection{\texorpdfstring{ViperParseCommands()}{ViperParseCommands()}}
+{\footnotesize\ttfamily int8\+\_\+t Viper\+Parse\+Commands (\begin{DoxyParamCaption}\item[{int}]{arc,  }\item[{char \texorpdfstring{$\ast$}{*}const \texorpdfstring{$\ast$}{*}}]{arv,  }\item[{\mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{config }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{parser_8c_source_l00054}{54}} of file \mbox{\hyperlink{parser_8c_source}{parser.\+c}}.
+
+
+
+References \mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\+\_\+\+\_\+viper\+Internal\+Parser\+Data}}, \mbox{\hyperlink{parser_8c_source_l00014}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::action}}, \mbox{\hyperlink{parser_8c_source_l00011}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::command\+Count}}, \mbox{\hyperlink{types_2parser_8h_source_l00010}{Viper\+Option\+Action\+\_\+t\+::function}}, \mbox{\hyperlink{parser_8c_source_l00015}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::long\+\_\+options}}, \mbox{\hyperlink{parser_8c_source_l00012}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data\+::opts}}, and \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}\label{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989} 
+\index{parser.c@{parser.c}!\_\_viperInternalParserData@{\_\_viperInternalParserData}}
+\index{\_\_viperInternalParserData@{\_\_viperInternalParserData}!parser.c@{parser.c}}
+\doxysubsubsection{\texorpdfstring{\_\_viperInternalParserData}{\_\_viperInternalParserData}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{struct____StructViperInternalParserData}{\+\_\+\+\_\+\+Struct\+Viper\+Internal\+Parser\+Data}} \+\_\+\+\_\+viper\+Internal\+Parser\+Data\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ .commandCount\ =\ 1,}
+\DoxyCodeLine{\ \ \ \ .opts\ =\ \{\ 0\ \},}
+\DoxyCodeLine{\ \ \ \ .action\ =\ NULL,}
+\DoxyCodeLine{\ \ \ \ .long\_options\ =\ NULL,}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+
+Referenced by \mbox{\hyperlink{parser_8c_source_l00025}{Viper\+Add\+Parser\+Option()}}, and \mbox{\hyperlink{parser_8c_source_l00054}{Viper\+Parse\+Commands()}}.
+

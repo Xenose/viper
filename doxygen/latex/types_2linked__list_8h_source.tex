@@ -1,0 +1,30 @@
+\doxysection{linked\+\_\+list.\+h}
+\hypertarget{types_2linked__list_8h_source}{}\label{types_2linked__list_8h_source}\index{include/viper/types/linked\_list.h@{include/viper/types/linked\_list.h}}
+\mbox{\hyperlink{types_2linked__list_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_viper\_linked\_list\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_viper\_linked\_list\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{structs_8h}{viper/types/structs.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{typedefs_8h}{viper/types/typedefs.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00007}\mbox{\hyperlink{struct____LinkedListNode__t}{00007}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____LinkedListNode__t}{\_\_LinkedListNode\_t}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00008}\mbox{\hyperlink{struct____LinkedListNode__t_a07c58991988b3ac3d47d06ad72cfb408}{00008}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{struct____LinkedListNode__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00009}\mbox{\hyperlink{struct____LinkedListNode__t_acd1f42013ded827d1443d37bb6a8a702}{00009}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____LinkedListNode__t}{\_\_LinkedListNode\_t}}*\ \mbox{\hyperlink{struct____LinkedListNode__t_acd1f42013ded827d1443d37bb6a8a702}{pNext}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00010}\mbox{\hyperlink{struct____LinkedListNode__t_a6197c7d47f42847efe1e8f235c8035e8}{00010}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____LinkedListNode__t}{\_\_LinkedListNode\_t}}*\ \mbox{\hyperlink{struct____LinkedListNode__t_a6197c7d47f42847efe1e8f235c8035e8}{pPrivous}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00011}\mbox{\hyperlink{struct____LinkedListNode__t_a735984d41155bc1032e09bece8f8d66d}{00011}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{struct____LinkedListNode__t_a735984d41155bc1032e09bece8f8d66d}{data}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00012}\mbox{\hyperlink{types_2linked__list_8h_a6aac7e4e1d6d6d9bd18ba9e6f86f0213}{00012}}\ \}\ \mbox{\hyperlink{types_2linked__list_8h_a6aac7e4e1d6d6d9bd18ba9e6f86f0213}{ViperLinkedListNode\_t}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00014}\mbox{\hyperlink{structViperLinkedList__t}{00014}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00015}\mbox{\hyperlink{structViperLinkedList__t_a07c58991988b3ac3d47d06ad72cfb408}{00015}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperLinkedList__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00017}\mbox{\hyperlink{structViperLinkedList__t_afcc68e9eec57ce069fcdc37815837d6d}{00017}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structViperLinkedList__t_afcc68e9eec57ce069fcdc37815837d6d}{count}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00018}\mbox{\hyperlink{structViperLinkedList__t_a3aafb522a6ee01e617771256aa49c9a6}{00018}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperLinkedList__t_a3aafb522a6ee01e617771256aa49c9a6}{stored}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00020}\mbox{\hyperlink{structViperLinkedList__t_aa29cfcfa216751274110267161dc2a16}{00020}}\ \ \ \ \ \mbox{\hyperlink{struct____LinkedListNode__t}{ViperLinkedListNode\_t}}*\ \mbox{\hyperlink{structViperLinkedList__t_aa29cfcfa216751274110267161dc2a16}{head}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00021}\mbox{\hyperlink{structViperLinkedList__t_a9934796de24bdc88f0f0a80f93f023ce}{00021}}\ \ \ \ \ \mbox{\hyperlink{struct____LinkedListNode__t}{ViperLinkedListNode\_t}}*\ \mbox{\hyperlink{structViperLinkedList__t_a9934796de24bdc88f0f0a80f93f023ce}{tail}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00022}00022\ \}\ \mbox{\hyperlink{structViperLinkedList__t}{ViperLinkedList\_t}};}
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{types_2linked__list_8h_source_l00024}00024\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_viper\_linked\_list\_types\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

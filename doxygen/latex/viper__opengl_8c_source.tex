@@ -1,0 +1,59 @@
+\doxysection{viper\+\_\+opengl.\+c}
+\hypertarget{viper__opengl_8c_source}{}\label{viper__opengl_8c_source}\index{source/viper\_opengl.c@{source/viper\_opengl.c}}
+\mbox{\hyperlink{viper__opengl_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{logger_8h}{logger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{viper__opengl_8h}{viper\_opengl.h}}>}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00013}\mbox{\hyperlink{viper__opengl_8h_acfb56037cf6c5ceae6e92b86c7cc18a7}{00013}}\ int64\_t\ \mbox{\hyperlink{viper__opengl_8c_acfb56037cf6c5ceae6e92b86c7cc18a7}{OpenGLInit}}(\mbox{\hyperlink{struct____Application__t}{Application\_t}}*\ app,\ \mbox{\hyperlink{structOpenGL__t}{OpenGL\_t}}*\ gl)\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00014}00014\ \ \ \ \ \mbox{\hyperlink{logger_8h_af347100a11f303535485cc3acbf3e6b0}{LogDebug}}(\textcolor{stringliteral}{"{}Starting\ OpenGL"{}});}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ gl)\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ app-\/>\mbox{\hyperlink{struct____Application__t_a7ad82c75346aae7f37e1d0f712365a08}{opengl}})\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ \ \ \ \ app-\/>\mbox{\hyperlink{struct____Application__t_a7ad82c75346aae7f37e1d0f712365a08}{opengl}}\ =\ calloc(1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structOpenGL__t}{OpenGL\_t}}));}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ app-\/>\mbox{\hyperlink{struct____Application__t_a7ad82c75346aae7f37e1d0f712365a08}{opengl}})\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a611dbbfa5c2f148b7190b97a12835b5e}{LogError}}(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ Vulkan\_t"{}});}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ gl\ =\ app-\/>\mbox{\hyperlink{struct____Application__t_a7ad82c75346aae7f37e1d0f712365a08}{opengl}};}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a5e826b9560735e885b902a306d6b2248}{STRUCTURE\_TYPE\_UNKOWN}}\ ==\ gl-\/>\mbox{\hyperlink{structOpenGL__t_afb1cfeb8560138021980e0dc99496d0e}{sType}})\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ gl-\/>\mbox{\hyperlink{structOpenGL__t_afb1cfeb8560138021980e0dc99496d0e}{sType}}\ =\ \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a907645d96f408c9beba5e9261a5f6693}{STRUCTURE\_TYPE\_OPENGL}};}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ app-\/>\mbox{\hyperlink{struct____Application__t_a1a39e03da931fc741163e6bc098198cb}{name}}.\mbox{\hyperlink{structString__t_a91a70b77df95bd8b0830b49a094c2acb}{data}}\ ||\ 0\ ==\ app-\/>\mbox{\hyperlink{struct____Application__t_a1a39e03da931fc741163e6bc098198cb}{name}}.\mbox{\hyperlink{structString__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}})\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a611dbbfa5c2f148b7190b97a12835b5e}{LogError}}(\textcolor{stringliteral}{"{}Application\_t\ name\ not\ set"{}});}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ ==\ gl-\/>\mbox{\hyperlink{structOpenGL__t_a8aebb26c37375a20b5483a0aaa153dad}{dimensionsWindow}}.\mbox{\hyperlink{structVectorInt2__t_a040359f45343ce6667f5c66fda5f50e3}{x}}\ ||\ 0\ ==\ gl-\/>\mbox{\hyperlink{structOpenGL__t_a8aebb26c37375a20b5483a0aaa153dad}{dimensionsWindow}}.\mbox{\hyperlink{structVectorInt2__t_a0cbcba26311a97b8e0763317e105a918}{y}})\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ gl-\/>\mbox{\hyperlink{structOpenGL__t_a8aebb26c37375a20b5483a0aaa153dad}{dimensionsWindow}}.\mbox{\hyperlink{structVectorInt2__t_a040359f45343ce6667f5c66fda5f50e3}{x}}\ =\ 1920;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ gl-\/>\mbox{\hyperlink{structOpenGL__t_a8aebb26c37375a20b5483a0aaa153dad}{dimensionsWindow}}.\mbox{\hyperlink{structVectorInt2__t_a0cbcba26311a97b8e0763317e105a918}{y}}\ =\ 1080;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (!glfwInit())\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a611dbbfa5c2f148b7190b97a12835b5e}{LogError}}(\textcolor{stringliteral}{"{}glfwInit\ failed"{}});}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00055}00055\ \ \ \ \ gl-\/>\mbox{\hyperlink{structOpenGL__t_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}}\ =\ glfwCreateWindow(}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ gl-\/>\mbox{\hyperlink{structOpenGL__t_a8aebb26c37375a20b5483a0aaa153dad}{dimensionsWindow}}.\mbox{\hyperlink{structVectorInt2__t_a040359f45343ce6667f5c66fda5f50e3}{x}},\ gl-\/>\mbox{\hyperlink{structOpenGL__t_a8aebb26c37375a20b5483a0aaa153dad}{dimensionsWindow}}.\mbox{\hyperlink{structVectorInt2__t_a0cbcba26311a97b8e0763317e105a918}{y}},}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ app-\/>\mbox{\hyperlink{struct____Application__t_a1a39e03da931fc741163e6bc098198cb}{name}}.\mbox{\hyperlink{structString__t_a91a70b77df95bd8b0830b49a094c2acb}{data}},\ NULL,\ NULL);}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ gl-\/>\mbox{\hyperlink{structOpenGL__t_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}})\ \{}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a611dbbfa5c2f148b7190b97a12835b5e}{LogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ OpenGL\ Window"{}});}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00064}00064\ \ \ \ \ glfwMakeContextCurrent(gl-\/>\mbox{\hyperlink{structOpenGL__t_a80de27bd7dc4e2b2ad3d5895b97a70f0}{window}});}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00066}00066\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00067}00067\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{viper__opengl_8c_source_l00069}00069\ \}}
+
+\end{DoxyCode}

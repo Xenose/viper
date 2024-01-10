@@ -1,0 +1,46 @@
+\doxysection{memory.\+h}
+\hypertarget{memory_8h_source}{}\label{memory_8h_source}\index{include/viper/types/memory.h@{include/viper/types/memory.h}}
+\mbox{\hyperlink{memory_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_viper\_memory\_type\_\_}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_viper\_memory\_type\_\_}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <stdatomic.h>}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{typedefs_8h}{viper/types/typedefs.h}}>}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{structs_8h}{viper/types/structs.h}}>}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00009}\mbox{\hyperlink{memory_8h_a8d0797f04a324ddff1f297924e412e86}{00009}}\ \textcolor{preprocessor}{\#define\ MEMORY\_128B\ \ \ \ \ 128}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00010}\mbox{\hyperlink{memory_8h_a5994c505481c009c0e7f1fef1477d827}{00010}}\ \textcolor{preprocessor}{\#define\ MEMORY\_256B\ \ \ \ \ 256}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00011}\mbox{\hyperlink{memory_8h_acf4b0570e5d9f40ff039eea04f41da80}{00011}}\ \textcolor{preprocessor}{\#define\ MEMORY\_512B\ \ \ \ \ 512}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00012}\mbox{\hyperlink{memory_8h_afb693fbfba52336fc09b0d7a47a9d481}{00012}}\ \textcolor{preprocessor}{\#define\ MEMORY\_1KB\ \ \ \ \ \ 1024}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00013}\mbox{\hyperlink{memory_8h_a1ce544d62a06905bb7d09583361df168}{00013}}\ \textcolor{preprocessor}{\#define\ MEMORY\_2KB\ \ \ \ \ \ 2048}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00014}\mbox{\hyperlink{memory_8h_a760e005f22b8023958a91a9ee9de56a9}{00014}}\ \textcolor{preprocessor}{\#define\ MEMORY\_4KB\ \ \ \ \ \ 4096}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00015}\mbox{\hyperlink{memory_8h_aee55397b03cefc5a2ba1e13f481efa99}{00015}}\ \textcolor{preprocessor}{\#define\ MEMORY\_8KB\ \ \ \ \ \ 8192}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00016}\mbox{\hyperlink{memory_8h_a895009dd83513ea2cf21c3fe35709476}{00016}}\ \textcolor{preprocessor}{\#define\ MEMORY\_16KB\ \ \ \ \ 16384}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00017}\mbox{\hyperlink{memory_8h_acdad4ff7ec4807f9ad20891467d9dd51}{00017}}\ \textcolor{preprocessor}{\#define\ MEMORY\_32KB\ \ \ \ \ 32768}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00018}\mbox{\hyperlink{memory_8h_a05b7fb42a3996bf74d17d0c0351a86b3}{00018}}\ \textcolor{preprocessor}{\#define\ MEMORY\_64KB\ \ \ \ \ 65536}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00019}\mbox{\hyperlink{memory_8h_a77ae9720c5f55eb820acc7b393712257}{00019}}\ \textcolor{preprocessor}{\#define\ MEMORY\_128KB\ \ \ \ \ \ \ \ 131072}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00020}\mbox{\hyperlink{memory_8h_a113eb8663c5ac1917b48827a01360669}{00020}}\ \textcolor{preprocessor}{\#define\ MEMORY\_256KB\ \ \ \ \ \ \ \ 262144}}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00022}\mbox{\hyperlink{structViperBuffer__t}{00022}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00023}\mbox{\hyperlink{structViperBuffer__t_a07c58991988b3ac3d47d06ad72cfb408}{00023}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperBuffer__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00024}\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{00024}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00025}00025\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00026}\mbox{\hyperlink{structViperBuffer__t_add9af9569af79ec26dd741fb226b38ba}{00026}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structViperBuffer__t_add9af9569af79ec26dd741fb226b38ba}{ptr}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00027}\mbox{\hyperlink{structViperBuffer__t_ab50d783982593ef993ea0b68f7ad8b80}{00027}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structViperBuffer__t_ab50d783982593ef993ea0b68f7ad8b80}{str}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00028}\mbox{\hyperlink{structViperBuffer__t_abe222f6d3581e7920dcad5306cc906a8}{00028}}\ \ \ \ \ \ \ \ \ uint8\_t*\ \mbox{\hyperlink{structViperBuffer__t_abe222f6d3581e7920dcad5306cc906a8}{data}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00029}00029\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00030}00030\ \}\ \mbox{\hyperlink{structViperBuffer__t}{ViperBuffer\_t}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00032}\mbox{\hyperlink{structViperMemoryRegion__t}{00032}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00033}\mbox{\hyperlink{structViperMemoryRegion__t_a07c58991988b3ac3d47d06ad72cfb408}{00033}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperMemoryRegion__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00034}\mbox{\hyperlink{structViperMemoryRegion__t_ac0f96e054e86b6e76715c492294541df}{00034}}\ \ \ \ \ atomic\_flag\ \mbox{\hyperlink{structViperMemoryRegion__t_ac0f96e054e86b6e76715c492294541df}{lock}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00036}\mbox{\hyperlink{structViperMemoryRegion__t_a53255b934b07b472175fbb8e847f9b5d}{00036}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structViperMemoryRegion__t_a53255b934b07b472175fbb8e847f9b5d}{start}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00037}\mbox{\hyperlink{structViperMemoryRegion__t_a57dfa4d169c6b9c0b4e7352bc0c34366}{00037}}\ \ \ \ \ \textcolor{keywordtype}{void}*\ \mbox{\hyperlink{structViperMemoryRegion__t_a57dfa4d169c6b9c0b4e7352bc0c34366}{end}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00038}00038\ \}\ \mbox{\hyperlink{structViperMemoryRegion__t}{ViperMemoryRegion\_t}};}
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{memory_8h_source_l00040}00040\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_viper\_memory\_type\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

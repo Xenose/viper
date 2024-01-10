@@ -1,0 +1,109 @@
+\doxysection{types.\+h}
+\hypertarget{types_8h_source}{}\label{types_8h_source}\index{include/viper/types.h@{include/viper/types.h}}
+\mbox{\hyperlink{types_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <vulkan/vulkan\_core.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00005}\mbox{\hyperlink{types_8h_ab91f325a54d3e35fe831a86d6382c2a9}{00005}}\ \textcolor{preprocessor}{\#define\ GLFW\_INCLUDE\_VULKAN}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00007}00007\ \textcolor{preprocessor}{\#ifndef\ \_GNU\_SOURCE}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00008}\mbox{\hyperlink{types_8h_a369266c24eacffb87046522897a570d5}{00008}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ \_GNU\_SOURCE}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00009}00009\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_GNU\_SOURCE\ */}\textcolor{preprocessor}{}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00011}00011\ \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include<stdarg.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include<string.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{math_8h}{math.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include<stdatomic.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00018}00018\ \textcolor{comment}{//\ Linux\ system}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include<sys/mman.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00021}00021\ \textcolor{comment}{//\ 3rd\ party}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00022}00022\ \textcolor{preprocessor}{\#include<GL/glew.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00023}00023\ \textcolor{preprocessor}{\#include<vulkan/vulkan.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00024}00024\ \textcolor{preprocessor}{\#include<GLFW/glfw3.h>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00026}00026\ \textcolor{comment}{/*\ Include\ base\ files\ into\ the\ main\ type\ file.\ */}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00027}00027\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{structs_8h}{viper/types/structs.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00028}00028\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{typedefs_8h}{viper/types/typedefs.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00029}00029\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{memory_8h}{viper/types/memory.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00030}00030\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{math_8h}{viper/types/math.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00031}00031\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{str_8h}{viper/types/str.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00032}00032\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{vulkan_8h}{viper/types/vulkan.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00033}00033\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{error_8h}{viper/types/error.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00034}00034\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{types_2binary__tree_8h}{viper/types/binary\_tree.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00035}00035\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{networking_8h}{viper/types/networking.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00036}00036\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{types_2images_8h}{viper/types/images.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00037}00037\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{system_8h}{viper/types/system.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00038}00038\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{opengl_8h}{viper/types/opengl.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00039}00039\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{varibles_8h}{viper/types/varibles.h}}>}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00041}\mbox{\hyperlink{types_8h_a5d94534b4ec22b6e5a2c706bc6b54ccc}{00041}}\ \textcolor{preprocessor}{\#define\ Main\ main}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00043}\mbox{\hyperlink{types_8h_a217c7bc4ccd55d5fbcbadbef4fe65d36}{00043}}\ \textcolor{preprocessor}{\#define\ VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN\ 0x0001}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00044}\mbox{\hyperlink{types_8h_a5fce6355f603af3b4e871760b74513c0}{00044}}\ \textcolor{preprocessor}{\#define\ VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL\ 0x0002}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00045}00045\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00046}00046\ \textcolor{keyword}{enum}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00047}\mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ad641da61b25cbb3f4811398d4e32d2c5}{00047}}\ \ \ \ \ \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ad641da61b25cbb3f4811398d4e32d2c5}{VIPER\_APPLICATION\_STATUS\_EXIT}}\ \ \ \ \ \ =\ 0,}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00048}\mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7abe162ed0cdde3788418454e6d5eceb1a}{00048}}\ \ \ \ \ \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7abe162ed0cdde3788418454e6d5eceb1a}{VIPER\_APPLICATION\_STATUS\_EXITING}},}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00049}\mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ade0c52ca6649c20cacfee951c655da96}{00049}}\ \ \ \ \ \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ade0c52ca6649c20cacfee951c655da96}{VIPER\_APPLICATION\_STATUS\_RUNNING}},}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00050}\mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a7760f89b2832051ef61cb94bfd0af9b8}{00050}}\ \ \ \ \ \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a7760f89b2832051ef61cb94bfd0af9b8}{VIPER\_APPLICATION\_STATUS\_PAUSED}},}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00051}00051\ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00054}\mbox{\hyperlink{structViperConfig__t}{00054}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00055}\mbox{\hyperlink{structViperConfig__t_a07c58991988b3ac3d47d06ad72cfb408}{00055}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperConfig__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00056}00056\ \}\ \mbox{\hyperlink{structViperConfig__t}{ViperConfig\_t}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00058}\mbox{\hyperlink{structViperProperties__t}{00058}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00059}\mbox{\hyperlink{structViperProperties__t_a07c58991988b3ac3d47d06ad72cfb408}{00059}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperProperties__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00060}\mbox{\hyperlink{structViperProperties__t_aefc8790f2c718fa79866bc6322692e7b}{00060}}\ \ \ \ \ int64\_t\ \mbox{\hyperlink{structViperProperties__t_aefc8790f2c718fa79866bc6322692e7b}{heapSize}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00061}00061\ \}\ \mbox{\hyperlink{structViperProperties__t}{ViperProperties\_t}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00063}\mbox{\hyperlink{struct____ViperApplication__t}{00063}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____ViperApplication__t}{\_\_ViperApplication\_t}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00064}\mbox{\hyperlink{struct____ViperApplication__t_a07c58991988b3ac3d47d06ad72cfb408}{00064}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{struct____ViperApplication__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};\ \textcolor{comment}{//\ the\ type\ must\ always\ be\ first}}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00065}\mbox{\hyperlink{struct____ViperApplication__t_ad6ac3450b7f90519ff9ad29e786465f0}{00065}}\ \ \ \ \ atomic\_flag\ \mbox{\hyperlink{struct____ViperApplication__t_ad6ac3450b7f90519ff9ad29e786465f0}{locked}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00067}\mbox{\hyperlink{struct____ViperApplication__t_a95bde4ad5bd963a0234be5b5ac6a03dc}{00067}}\ \ \ \ \ atomic\_int\_least64\_t\ \mbox{\hyperlink{struct____ViperApplication__t_a95bde4ad5bd963a0234be5b5ac6a03dc}{status}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00068}00068\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00069}\mbox{\hyperlink{struct____ViperApplication__t_a10623b6ca6dca547b1e2cd22da1f8c6e}{00069}}\ \ \ \ \ \mbox{\hyperlink{structViperString__t}{ViperString\_t}}\ \mbox{\hyperlink{struct____ViperApplication__t_a10623b6ca6dca547b1e2cd22da1f8c6e}{name}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00070}\mbox{\hyperlink{struct____ViperApplication__t_ae69e9f7bdea735cea3007e60841b100a}{00070}}\ \ \ \ \ \mbox{\hyperlink{structViperSystemInfo__t}{ViperSystemInfo\_t}}\ \mbox{\hyperlink{struct____ViperApplication__t_ae69e9f7bdea735cea3007e60841b100a}{sysInfo}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00072}\mbox{\hyperlink{struct____ViperApplication__t_a5804a2c82a08e1ddba877b08b284f0e5}{00072}}\ \ \ \ \ \mbox{\hyperlink{structViperServer__t}{ViperServer\_t}}*\ \mbox{\hyperlink{struct____ViperApplication__t_a5804a2c82a08e1ddba877b08b284f0e5}{server}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00073}\mbox{\hyperlink{struct____ViperApplication__t_ac98135bbc5a812f10341e32bfa8b66ad}{00073}}\ \ \ \ \ \mbox{\hyperlink{structViperClient__t}{ViperClient\_t}}*\ \mbox{\hyperlink{struct____ViperApplication__t_ac98135bbc5a812f10341e32bfa8b66ad}{client}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00075}00075\ \ \ \ \ \textcolor{keyword}{union\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00076}\mbox{\hyperlink{struct____ViperApplication__t_af4bffe8566be6908d2f951a58b723524}{00076}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}*\ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{struct____ViperApplication__t_af4bffe8566be6908d2f951a58b723524}{graphicsPtr}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00077}\mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{00077}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}}*\ \ \ \ \ \mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{vulkan}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00078}\mbox{\hyperlink{struct____ViperApplication__t_a2c0fdd1051ba2ee35314f5db17bc65d5}{00078}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structViperOpenGL__t}{ViperOpenGL\_t}}*\ \ \ \ \ \mbox{\hyperlink{struct____ViperApplication__t_a2c0fdd1051ba2ee35314f5db17bc65d5}{opengl}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00079}00079\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00081}\mbox{\hyperlink{struct____ViperApplication__t_a98a4602c0124eae422980ad805118620}{00081}}\ \ \ \ \ void\ (*\mbox{\hyperlink{struct____ViperApplication__t_a98a4602c0124eae422980ad805118620}{applicationLoop}})(\textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____ViperApplication__t}{\_\_ViperApplication\_t}}*\ app);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00083}\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{00083}}\ \}\ \mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{ViperApplication\_t}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00085}\mbox{\hyperlink{struct____ViperGame__t}{00085}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____ViperGame__t}{\_\_ViperGame\_t}}\ \{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00086}\mbox{\hyperlink{struct____ViperGame__t_a07c58991988b3ac3d47d06ad72cfb408}{00086}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{struct____ViperGame__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00087}\mbox{\hyperlink{struct____ViperGame__t_ad6ac3450b7f90519ff9ad29e786465f0}{00087}}\ \ \ \ \ atomic\_flag\ \mbox{\hyperlink{struct____ViperGame__t_ad6ac3450b7f90519ff9ad29e786465f0}{locked}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00088}\mbox{\hyperlink{struct____ViperGame__t_ab45cc219b48afd4fd47d058db7cb6937}{00088}}\ \ \ \ \ \mbox{\hyperlink{struct____ViperApplication__t}{ViperApplication\_t}}\ \mbox{\hyperlink{struct____ViperGame__t_ab45cc219b48afd4fd47d058db7cb6937}{application}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00089}\mbox{\hyperlink{types_8h_aaff9ef7dc6a512236b490e1777f14591}{00089}}\ \}\ \mbox{\hyperlink{types_8h_aaff9ef7dc6a512236b490e1777f14591}{ViperGame\_t}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00091}\mbox{\hyperlink{structViperApplicationCreateInfo__t}{00091}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00092}\mbox{\hyperlink{structViperApplicationCreateInfo__t_a07c58991988b3ac3d47d06ad72cfb408}{00092}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{ViperStructType\_t}}\ \mbox{\hyperlink{structViperApplicationCreateInfo__t_a07c58991988b3ac3d47d06ad72cfb408}{sType}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00093}\mbox{\hyperlink{structViperApplicationCreateInfo__t_a899a76dc5f03f0d4ea3793c339e07ee9}{00093}}\ \ \ \ \ uint64\_t\ \mbox{\hyperlink{structViperApplicationCreateInfo__t_a899a76dc5f03f0d4ea3793c339e07ee9}{flags}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00095}\mbox{\hyperlink{structViperApplicationCreateInfo__t_a35121d0887b428e49e0ca31eff3af1ac}{00095}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structViperApplicationCreateInfo__t_a35121d0887b428e49e0ca31eff3af1ac}{arc}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00096}\mbox{\hyperlink{structViperApplicationCreateInfo__t_af1cbe532ddc6a676c376adb556b8c259}{00096}}\ \ \ \ \ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}*\ \mbox{\hyperlink{structViperApplicationCreateInfo__t_af1cbe532ddc6a676c376adb556b8c259}{arv}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00098}\mbox{\hyperlink{structViperApplicationCreateInfo__t_a8f8f80d37794cde9472343e4487ba3eb}{00098}}\ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ \mbox{\hyperlink{structViperApplicationCreateInfo__t_a8f8f80d37794cde9472343e4487ba3eb}{name}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00099}\mbox{\hyperlink{structViperApplicationCreateInfo__t_a06e7ad67df9e26c14ab340c84d1f709f}{00099}}\ \ \ \ \ void\ (*applicationLoop)(\mbox{\hyperlink{struct____ViperApplication__t}{ViperApplication\_t}}*\ app);}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00100}00100\ \}\ \mbox{\hyperlink{structViperApplicationCreateInfo__t}{ViperApplicationCreateInfo\_t}};}
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{types_8h_source_l00103}00103\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_types\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

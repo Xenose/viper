@@ -1,0 +1,164 @@
+\doxysection{include/viper/types.h File Reference}
+\hypertarget{types_8h}{}\label{types_8h}\index{include/viper/types.h@{include/viper/types.h}}
+{\ttfamily \#include $<$vulkan/vulkan\+\_\+core.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdarg.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdatomic.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$GL/glew.\+h$>$}\newline
+{\ttfamily \#include $<$vulkan/vulkan.\+h$>$}\newline
+{\ttfamily \#include $<$GLFW/glfw3.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/structs.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/typedefs.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/memory.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/str.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/vulkan.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/error.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/binary\+\_\+tree.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/networking.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/images.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/system.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/opengl.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/varibles.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structViperConfig__t}{Viper\+Config\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structViperProperties__t}{Viper\+Properties\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct____ViperApplication__t}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{struct____ViperGame__t}{\+\_\+\+\_\+\+Viper\+Game\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{types_8h_ab91f325a54d3e35fe831a86d6382c2a9}{GLFW\+\_\+\+INCLUDE\+\_\+\+VULKAN}}
+\item 
+\#define \mbox{\hyperlink{types_8h_a369266c24eacffb87046522897a570d5}{\+\_\+\+GNU\+\_\+\+SOURCE}}
+\item 
+\#define \mbox{\hyperlink{types_8h_a5d94534b4ec22b6e5a2c706bc6b54ccc}{Main}}~main
+\item 
+\#define \mbox{\hyperlink{types_8h_a217c7bc4ccd55d5fbcbadbef4fe65d36}{VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+VULKAN}}~0x0001
+\item 
+\#define \mbox{\hyperlink{types_8h_a5fce6355f603af3b4e871760b74513c0}{VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+OPENGL}}~0x0002
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{struct____ViperApplication__t}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t}} \mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}}
+\item 
+typedef struct \mbox{\hyperlink{struct____ViperGame__t}{\+\_\+\+\_\+\+Viper\+Game\+\_\+t}} \mbox{\hyperlink{types_8h_aaff9ef7dc6a512236b490e1777f14591}{Viper\+Game\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ad641da61b25cbb3f4811398d4e32d2c5}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+EXIT}} = 0
+, \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7abe162ed0cdde3788418454e6d5eceb1a}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+EXITING}}
+, \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ade0c52ca6649c20cacfee951c655da96}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+RUNNING}}
+, \mbox{\hyperlink{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a7760f89b2832051ef61cb94bfd0af9b8}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+PAUSED}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{types_8h_a369266c24eacffb87046522897a570d5}\label{types_8h_a369266c24eacffb87046522897a570d5} 
+\index{types.h@{types.h}!\_GNU\_SOURCE@{\_GNU\_SOURCE}}
+\index{\_GNU\_SOURCE@{\_GNU\_SOURCE}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{\_GNU\_SOURCE}{\_GNU\_SOURCE}}
+{\footnotesize\ttfamily \#define \+\_\+\+GNU\+\_\+\+SOURCE}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00008}{8}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{types_8h_ab91f325a54d3e35fe831a86d6382c2a9}\label{types_8h_ab91f325a54d3e35fe831a86d6382c2a9} 
+\index{types.h@{types.h}!GLFW\_INCLUDE\_VULKAN@{GLFW\_INCLUDE\_VULKAN}}
+\index{GLFW\_INCLUDE\_VULKAN@{GLFW\_INCLUDE\_VULKAN}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{GLFW\_INCLUDE\_VULKAN}{GLFW\_INCLUDE\_VULKAN}}
+{\footnotesize\ttfamily \#define GLFW\+\_\+\+INCLUDE\+\_\+\+VULKAN}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00005}{5}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{types_8h_a5d94534b4ec22b6e5a2c706bc6b54ccc}\label{types_8h_a5d94534b4ec22b6e5a2c706bc6b54ccc} 
+\index{types.h@{types.h}!Main@{Main}}
+\index{Main@{Main}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{Main}{Main}}
+{\footnotesize\ttfamily \#define Main~main}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00041}{41}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{types_8h_a5fce6355f603af3b4e871760b74513c0}\label{types_8h_a5fce6355f603af3b4e871760b74513c0} 
+\index{types.h@{types.h}!VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL@{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL}}
+\index{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL@{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL}{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_OPENGL}}
+{\footnotesize\ttfamily \#define VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+OPENGL~0x0002}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00044}{44}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{types_8h_a217c7bc4ccd55d5fbcbadbef4fe65d36}\label{types_8h_a217c7bc4ccd55d5fbcbadbef4fe65d36} 
+\index{types.h@{types.h}!VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN@{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN}}
+\index{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN@{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN}{VIPER\_APPLICATION\_FLAG\_GRAPHICS\_VULKAN}}
+{\footnotesize\ttfamily \#define VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+VULKAN~0x0001}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00043}{43}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{types_8h_a4fb5e22972ee516b10fe09435f17b730}\label{types_8h_a4fb5e22972ee516b10fe09435f17b730} 
+\index{types.h@{types.h}!ViperApplication\_t@{ViperApplication\_t}}
+\index{ViperApplication\_t@{ViperApplication\_t}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{ViperApplication\_t}{ViperApplication\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct____ViperApplication__t}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t}} \mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}}}
+
+\Hypertarget{types_8h_aaff9ef7dc6a512236b490e1777f14591}\label{types_8h_aaff9ef7dc6a512236b490e1777f14591} 
+\index{types.h@{types.h}!ViperGame\_t@{ViperGame\_t}}
+\index{ViperGame\_t@{ViperGame\_t}!types.h@{types.h}}
+\doxysubsubsection{\texorpdfstring{ViperGame\_t}{ViperGame\_t}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{struct____ViperGame__t}{\+\_\+\+\_\+\+Viper\+Game\+\_\+t}} \mbox{\hyperlink{types_8h_aaff9ef7dc6a512236b490e1777f14591}{Viper\+Game\+\_\+t}}}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{types_8h_adf764cbdea00d65edcd07bb9953ad2b7}\label{types_8h_adf764cbdea00d65edcd07bb9953ad2b7} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_APPLICATION\_STATUS\_EXIT@{VIPER\_APPLICATION\_STATUS\_EXIT}!types.h@{types.h}}\index{types.h@{types.h}!VIPER\_APPLICATION\_STATUS\_EXIT@{VIPER\_APPLICATION\_STATUS\_EXIT}}}\Hypertarget{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ad641da61b25cbb3f4811398d4e32d2c5}\label{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ad641da61b25cbb3f4811398d4e32d2c5} 
+VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+EXIT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_APPLICATION\_STATUS\_EXITING@{VIPER\_APPLICATION\_STATUS\_EXITING}!types.h@{types.h}}\index{types.h@{types.h}!VIPER\_APPLICATION\_STATUS\_EXITING@{VIPER\_APPLICATION\_STATUS\_EXITING}}}\Hypertarget{types_8h_adf764cbdea00d65edcd07bb9953ad2b7abe162ed0cdde3788418454e6d5eceb1a}\label{types_8h_adf764cbdea00d65edcd07bb9953ad2b7abe162ed0cdde3788418454e6d5eceb1a} 
+VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+EXITING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_APPLICATION\_STATUS\_RUNNING@{VIPER\_APPLICATION\_STATUS\_RUNNING}!types.h@{types.h}}\index{types.h@{types.h}!VIPER\_APPLICATION\_STATUS\_RUNNING@{VIPER\_APPLICATION\_STATUS\_RUNNING}}}\Hypertarget{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ade0c52ca6649c20cacfee951c655da96}\label{types_8h_adf764cbdea00d65edcd07bb9953ad2b7ade0c52ca6649c20cacfee951c655da96} 
+VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+RUNNING&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_APPLICATION\_STATUS\_PAUSED@{VIPER\_APPLICATION\_STATUS\_PAUSED}!types.h@{types.h}}\index{types.h@{types.h}!VIPER\_APPLICATION\_STATUS\_PAUSED@{VIPER\_APPLICATION\_STATUS\_PAUSED}}}\Hypertarget{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a7760f89b2832051ef61cb94bfd0af9b8}\label{types_8h_adf764cbdea00d65edcd07bb9953ad2b7a7760f89b2832051ef61cb94bfd0af9b8} 
+VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+PAUSED&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00046}{46}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+

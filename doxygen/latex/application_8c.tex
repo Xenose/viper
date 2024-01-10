@@ -1,0 +1,159 @@
+\doxysection{source/application/application.c File Reference}
+\hypertarget{application_8c}{}\label{application_8c}\index{source/application/application.c@{source/application/application.c}}
+{\ttfamily \#include $<$viper/debug/logger.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+{\ttfamily \#include $<$viper/utils/stringer.\+h$>$}\newline
+{\ttfamily \#include $<$viper/application/application.\+h$>$}\newline
+{\ttfamily \#include $<$viper/opengl/init.\+h$>$}\newline
+{\ttfamily \#include $<$viper/vulkan/init.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{application_8c_a04a58062fa11da9325f74f4b1dc9129f}{\+\_\+\+\_\+\+Viper\+Empty\+Loop\+No\+Call}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\begin{DoxyCompactList}\small\item\em These function is internal helper functions. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{application_8c_a23a4ea5ff2f99f420154edd0bd430e96}{\+\_\+\+\_\+\+Viper\+Render\+Loop\+No\+Call}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\item 
+static void \mbox{\hyperlink{application_8c_aeda2eb8880244f7342748b8ab3493a7d}{\+\_\+\+\_\+\+Viper\+Application\+Loop}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\begin{DoxyCompactList}\small\item\em The main application loop that will call the user space loop. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{application_8c_a838a4158c52377694eb2c7954a2d8ccb}{Viper\+Application\+Create}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app, const \mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}info)
+\begin{DoxyCompactList}\small\item\em This function can either be called directly or using the create function, it will initiliaze the struct using the data provided in the Application\+Create\+Info\+\_\+t. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{application_8c_a9851f22e4e26e711e734935610dc9cce}{Viper\+Application\+Start}} (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{application_8c_a0c543a8e5dd08012907f3bc139c05826}{\+\_\+\+\_\+\+Viper\+Render\+Loop}} )(\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app) = \&\mbox{\hyperlink{application_8c_a04a58062fa11da9325f74f4b1dc9129f}{\+\_\+\+\_\+\+Viper\+Empty\+Loop\+No\+Call}}
+\begin{DoxyCompactList}\small\item\em This is local global varible to allows the user to switch between multiple rendering methods. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{application_8c_aeda2eb8880244f7342748b8ab3493a7d}\label{application_8c_aeda2eb8880244f7342748b8ab3493a7d} 
+\index{application.c@{application.c}!\_\_ViperApplicationLoop@{\_\_ViperApplicationLoop}}
+\index{\_\_ViperApplicationLoop@{\_\_ViperApplicationLoop}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperApplicationLoop()}{\_\_ViperApplicationLoop()}}
+{\footnotesize\ttfamily static void \+\_\+\+\_\+\+Viper\+Application\+Loop (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The main application loop that will call the user space loop. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & \+:: is the Application\+\_\+t struct for the program. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00036}{36}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+References \mbox{\hyperlink{application_8c_source_l00029}{\+\_\+\+\_\+\+Viper\+Render\+Loop}}, \mbox{\hyperlink{types_8h_source_l00081}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::application\+Loop}}, and \mbox{\hyperlink{types_8h_source_l00067}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::status}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00092}{Viper\+Application\+Start()}}.
+
+\Hypertarget{application_8c_a04a58062fa11da9325f74f4b1dc9129f}\label{application_8c_a04a58062fa11da9325f74f4b1dc9129f} 
+\index{application.c@{application.c}!\_\_ViperEmptyLoopNoCall@{\_\_ViperEmptyLoopNoCall}}
+\index{\_\_ViperEmptyLoopNoCall@{\_\_ViperEmptyLoopNoCall}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperEmptyLoopNoCall()}{\_\_ViperEmptyLoopNoCall()}}
+{\footnotesize\ttfamily static void \+\_\+\+\_\+\+Viper\+Empty\+Loop\+No\+Call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+These function is internal helper functions. 
+
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00011}{11}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}.
+
+\Hypertarget{application_8c_a23a4ea5ff2f99f420154edd0bd430e96}\label{application_8c_a23a4ea5ff2f99f420154edd0bd430e96} 
+\index{application.c@{application.c}!\_\_ViperRenderLoopNoCall@{\_\_ViperRenderLoopNoCall}}
+\index{\_\_ViperRenderLoopNoCall@{\_\_ViperRenderLoopNoCall}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperRenderLoopNoCall()}{\_\_ViperRenderLoopNoCall()}}
+{\footnotesize\ttfamily static void \+\_\+\+\_\+\+Viper\+Render\+Loop\+No\+Call (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00014}{14}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+References \mbox{\hyperlink{opengl_8h_source_l00014}{Viper\+GLFWwindow\+\_\+t\+::data}}, \mbox{\hyperlink{types_8h_source_l00078}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::opengl}}, \mbox{\hyperlink{types_8h_source_l00067}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::status}}, \mbox{\hyperlink{types_8h_source_l00047}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+EXIT}}, and \mbox{\hyperlink{opengl_8h_source_l00049}{Viper\+Open\+GL\+\_\+t\+::window}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}.
+
+\Hypertarget{application_8c_a838a4158c52377694eb2c7954a2d8ccb}\label{application_8c_a838a4158c52377694eb2c7954a2d8ccb} 
+\index{application.c@{application.c}!ViperApplicationCreate@{ViperApplicationCreate}}
+\index{ViperApplicationCreate@{ViperApplicationCreate}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{ViperApplicationCreate()}{ViperApplicationCreate()}}
+{\footnotesize\ttfamily int Viper\+Application\+Create (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app,  }\item[{const \mbox{\hyperlink{structViperApplicationCreateInfo__t}{Viper\+Application\+Create\+Info\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{info }\end{DoxyParamCaption})}
+
+
+
+This function can either be called directly or using the create function, it will initiliaze the struct using the data provided in the Application\+Create\+Info\+\_\+t. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info-\/$>$name} & \+:: is the application name that will be used for the application\textbackslash{} and for the window if graphics are used. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00051}{51}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+References \mbox{\hyperlink{application_8c_source_l00011}{\+\_\+\+\_\+\+Viper\+Empty\+Loop\+No\+Call()}}, \mbox{\hyperlink{application_8c_source_l00029}{\+\_\+\+\_\+\+Viper\+Render\+Loop}}, \mbox{\hyperlink{application_8c_source_l00014}{\+\_\+\+\_\+\+Viper\+Render\+Loop\+No\+Call()}}, \mbox{\hyperlink{types_8h_source_l00081}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::application\+Loop}}, \mbox{\hyperlink{types_8h_source_l00099}{Viper\+Application\+Create\+Info\+\_\+t\+::application\+Loop}}, \mbox{\hyperlink{types_8h_source_l00093}{Viper\+Application\+Create\+Info\+\_\+t\+::flags}}, \mbox{\hyperlink{types_8h_source_l00069}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::name}}, \mbox{\hyperlink{types_8h_source_l00098}{Viper\+Application\+Create\+Info\+\_\+t\+::name}}, \mbox{\hyperlink{types_8h_source_l00078}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::opengl}}, \mbox{\hyperlink{types_8h_source_l00067}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::status}}, \mbox{\hyperlink{types_8h_source_l00064}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::s\+Type}}, \mbox{\hyperlink{types_8h_source_l00044}{VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+OPENGL}}, \mbox{\hyperlink{types_8h_source_l00043}{VIPER\+\_\+\+APPLICATION\+\_\+\+FLAG\+\_\+\+GRAPHICS\+\_\+\+VULKAN}}, \mbox{\hyperlink{types_8h_source_l00049}{VIPER\+\_\+\+APPLICATION\+\_\+\+STATUS\+\_\+\+RUNNING}}, \mbox{\hyperlink{structs_8h_source_l00036}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+APPLICATION}}, \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}, \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}, \mbox{\hyperlink{opengl_2init_8c_source_l00016}{Viper\+Open\+GLInit()}}, \mbox{\hyperlink{opengl_2init_8c_source_l00074}{Viper\+Render\+Loop\+Open\+GL()}}, \mbox{\hyperlink{stringer_8c_source_l00013}{Viper\+String\+Create()}}, \mbox{\hyperlink{vulkan_2init_8c_source_l00194}{Viper\+Vulkan\+Init()}}, and \mbox{\hyperlink{types_8h_source_l00077}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t\+::vulkan}}.
+
+
+
+Referenced by \mbox{\hyperlink{create_8c_source_l00008}{Viper\+Create()}}.
+
+\Hypertarget{application_8c_a9851f22e4e26e711e734935610dc9cce}\label{application_8c_a9851f22e4e26e711e734935610dc9cce} 
+\index{application.c@{application.c}!ViperApplicationStart@{ViperApplicationStart}}
+\index{ViperApplicationStart@{ViperApplicationStart}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{ViperApplicationStart()}{ViperApplicationStart()}}
+{\footnotesize\ttfamily void Viper\+Application\+Start (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00092}{92}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+References \mbox{\hyperlink{application_8c_source_l00036}{\+\_\+\+\_\+\+Viper\+Application\+Loop()}}.
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{application_8c_a0c543a8e5dd08012907f3bc139c05826}\label{application_8c_a0c543a8e5dd08012907f3bc139c05826} 
+\index{application.c@{application.c}!\_\_ViperRenderLoop@{\_\_ViperRenderLoop}}
+\index{\_\_ViperRenderLoop@{\_\_ViperRenderLoop}!application.c@{application.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperRenderLoop}{\_\_ViperRenderLoop}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} \+\_\+\+\_\+\+Viper\+Render\+Loop) (\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app) (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_a4fb5e22972ee516b10fe09435f17b730}{Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app }\end{DoxyParamCaption}) = \&\mbox{\hyperlink{application_8c_a04a58062fa11da9325f74f4b1dc9129f}{\+\_\+\+\_\+\+Viper\+Empty\+Loop\+No\+Call}}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is local global varible to allows the user to switch between multiple rendering methods. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em app} & \+:: is the Application\+\_\+t struct for the program.\\
+\hline
+\end{DoxyParams}
+default the \+\_\+\+\_\+\+Empty\+Loop\+No\+Call function is used as a placeholder. 
+
+Definition at line \mbox{\hyperlink{application_8c_source_l00029}{29}} of file \mbox{\hyperlink{application_8c_source}{application.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00036}{\+\_\+\+\_\+\+Viper\+Application\+Loop()}}, and \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}.
+

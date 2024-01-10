@@ -1,0 +1,158 @@
+\doxysection{printer.\+c}
+\hypertarget{tests_2io_2printer_8c_source}{}\label{tests_2io_2printer_8c_source}\index{tests/io/printer.c@{tests/io/printer.c}}
+\mbox{\hyperlink{tests_2io_2printer_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{tests_8h}{viper/types/tests.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <asm-\/generic/errno-\/base.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{debug_2exceptions_8h}{viper/debug/exceptions.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{printer_8h}{viper/io/printer.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include<errno.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00010}\mbox{\hyperlink{tests_2io_2printer_8c_a1d75282bab446b8466e2295399e22305}{00010}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tests_2io_2printer_8c_a1d75282bab446b8466e2295399e22305}{errnoValues}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00011}00011\ \ \ \ \ EPERM,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00012}00012\ \ \ \ \ ENOENT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00013}00013\ \ \ \ \ ESRCH,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00014}00014\ \ \ \ \ EINTR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00015}00015\ \ \ \ \ EIO,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00016}00016\ \ \ \ \ ENXIO,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00017}00017\ \ \ \ \ E2BIG,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00018}00018\ \ \ \ \ ENOEXEC,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00019}00019\ \ \ \ \ EBADF,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00020}00020\ \ \ \ \ ECHILD,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00021}00021\ \ \ \ \ EAGAIN,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00022}00022\ \ \ \ \ ENOMEM,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00023}00023\ \ \ \ \ EFAULT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00024}00024\ \ \ \ \ EACCES,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00025}00025\ \ \ \ \ ENOTBLK,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00026}00026\ \ \ \ \ EBUSY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00027}00027\ \ \ \ \ EEXIST,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00028}00028\ \ \ \ \ EXDEV,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00029}00029\ \ \ \ \ ENODEV,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00030}00030\ \ \ \ \ ENOTDIR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00031}00031\ \ \ \ \ EISDIR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00032}00032\ \ \ \ \ EINVAL,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00033}00033\ \ \ \ \ ENFILE,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00034}00034\ \ \ \ \ EMFILE,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00035}00035\ \ \ \ \ ENOTTY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00036}00036\ \ \ \ \ ETXTBSY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00037}00037\ \};}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00039}\mbox{\hyperlink{tests_2io_2printer_8c_a4ecaad27b8fbf0e0783bc486633a81d5}{00039}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{tests_2io_2printer_8c_a4ecaad27b8fbf0e0783bc486633a81d5}{vulkanResultValues}}[]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00040}00040\ \ \ \ \ VK\_SUCCESS,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00041}00041\ \ \ \ \ VK\_NOT\_READY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00042}00042\ \ \ \ \ VK\_TIMEOUT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00043}00043\ \ \ \ \ VK\_EVENT\_SET,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00044}00044\ \ \ \ \ VK\_EVENT\_RESET,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00045}00045\ \ \ \ \ VK\_INCOMPLETE,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00046}00046\ \ \ \ \ VK\_ERROR\_OUT\_OF\_HOST\_MEMORY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00047}00047\ \ \ \ \ VK\_ERROR\_OUT\_OF\_DEVICE\_MEMORY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00048}00048\ \ \ \ \ VK\_ERROR\_INITIALIZATION\_FAILED,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00049}00049\ \ \ \ \ VK\_ERROR\_DEVICE\_LOST,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00050}00050\ \ \ \ \ VK\_ERROR\_MEMORY\_MAP\_FAILED,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00051}00051\ \ \ \ \ VK\_ERROR\_LAYER\_NOT\_PRESENT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00052}00052\ \ \ \ \ VK\_ERROR\_EXTENSION\_NOT\_PRESENT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00053}00053\ \ \ \ \ VK\_ERROR\_FEATURE\_NOT\_PRESENT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00054}00054\ \ \ \ \ VK\_ERROR\_INCOMPATIBLE\_DRIVER,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00055}00055\ \ \ \ \ VK\_ERROR\_TOO\_MANY\_OBJECTS,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00056}00056\ \ \ \ \ VK\_ERROR\_FORMAT\_NOT\_SUPPORTED,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00057}00057\ \ \ \ \ VK\_ERROR\_FRAGMENTED\_POOL,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00058}00058\ \ \ \ \ VK\_ERROR\_UNKNOWN,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00059}00059\ \ \ \ \ VK\_ERROR\_OUT\_OF\_POOL\_MEMORY,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00060}00060\ \ \ \ \ VK\_ERROR\_INVALID\_EXTERNAL\_HANDLE,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00061}00061\ \ \ \ \ VK\_ERROR\_FRAGMENTATION,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00062}00062\ \ \ \ \ VK\_ERROR\_INVALID\_OPAQUE\_CAPTURE\_ADDRESS,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00063}00063\ \ \ \ \ VK\_PIPELINE\_COMPILE\_REQUIRED,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00064}00064\ \ \ \ \ VK\_ERROR\_SURFACE\_LOST\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00065}00065\ \ \ \ \ VK\_ERROR\_NATIVE\_WINDOW\_IN\_USE\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00066}00066\ \ \ \ \ VK\_SUBOPTIMAL\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00067}00067\ \ \ \ \ VK\_ERROR\_OUT\_OF\_DATE\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00068}00068\ \ \ \ \ VK\_ERROR\_INCOMPATIBLE\_DISPLAY\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00069}00069\ \ \ \ \ VK\_ERROR\_VALIDATION\_FAILED\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00070}00070\ \ \ \ \ VK\_ERROR\_INVALID\_SHADER\_NV,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00071}00071\ \ \ \ \ VK\_ERROR\_IMAGE\_USAGE\_NOT\_SUPPORTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00072}00072\ \ \ \ \ VK\_ERROR\_VIDEO\_PICTURE\_LAYOUT\_NOT\_SUPPORTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00073}00073\ \ \ \ \ VK\_ERROR\_VIDEO\_PROFILE\_OPERATION\_NOT\_SUPPORTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00074}00074\ \ \ \ \ VK\_ERROR\_VIDEO\_PROFILE\_FORMAT\_NOT\_SUPPORTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00075}00075\ \ \ \ \ VK\_ERROR\_VIDEO\_PROFILE\_CODEC\_NOT\_SUPPORTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00076}00076\ \ \ \ \ VK\_ERROR\_VIDEO\_STD\_VERSION\_NOT\_SUPPORTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00077}00077\ \ \ \ \ VK\_ERROR\_INVALID\_DRM\_FORMAT\_MODIFIER\_PLANE\_LAYOUT\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00078}00078\ \ \ \ \ VK\_ERROR\_NOT\_PERMITTED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00079}00079\ \ \ \ \ VK\_ERROR\_FULL\_SCREEN\_EXCLUSIVE\_MODE\_LOST\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00080}00080\ \ \ \ \ VK\_THREAD\_IDLE\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00081}00081\ \ \ \ \ VK\_THREAD\_DONE\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00082}00082\ \ \ \ \ VK\_OPERATION\_DEFERRED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00083}00083\ \ \ \ \ VK\_OPERATION\_NOT\_DEFERRED\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00084}00084\ \textcolor{preprocessor}{\#ifdef\ VK\_ENABLE\_BETA\_EXTENSIONS}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00085}00085\ \ \ \ \ VK\_ERROR\_INVALID\_VIDEO\_STD\_PARAMETERS\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00086}00086\ \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00087}00087\ \ \ \ \ VK\_ERROR\_COMPRESSION\_EXHAUSTED\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00088}00088\ \ \ \ \ VK\_ERROR\_INCOMPATIBLE\_SHADER\_BINARY\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00089}00089\ \ \ \ \ VK\_ERROR\_OUT\_OF\_POOL\_MEMORY\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00090}00090\ \ \ \ \ VK\_ERROR\_INVALID\_EXTERNAL\_HANDLE\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00091}00091\ \ \ \ \ VK\_ERROR\_FRAGMENTATION\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00092}00092\ \ \ \ \ VK\_ERROR\_NOT\_PERMITTED\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00093}00093\ \ \ \ \ VK\_ERROR\_INVALID\_DEVICE\_ADDRESS\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00094}00094\ \ \ \ \ VK\_ERROR\_INVALID\_OPAQUE\_CAPTURE\_ADDRESS\_KHR,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00095}00095\ \ \ \ \ VK\_PIPELINE\_COMPILE\_REQUIRED\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00096}00096\ \ \ \ \ VK\_ERROR\_PIPELINE\_COMPILE\_REQUIRED\_EXT,}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00097}00097\ \};}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00099}\mbox{\hyperlink{tests_2io_2printer_8c_ad213776bcd657d398db085ce8dfa2ba2}{00099}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{tests_2io_2printer_8c_ad213776bcd657d398db085ce8dfa2ba2}{ExecutePrintTestFormat}}(\textcolor{keywordtype}{char}*\ format)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00102}\mbox{\hyperlink{tests_2io_2printer_8c_ac91f3ee163d18fa370df0d52ee91814d}{00102}}\ int8\_t\ \mbox{\hyperlink{tests_2io_2printer_8c_ac91f3ee163d18fa370df0d52ee91814d}{ExecutePrintTest}}(\mbox{\hyperlink{structViperTestInfo__t}{ViperTestInfo\_t}}*\ info)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00103}00103\ \ \ \ \ int64\_t\ total\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00104}00104\ \ \ \ \ int64\_t\ current\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00105}00105\ \ \ \ \ int64\_t\ success\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00106}00106\ \ \ \ \ int64\_t\ failed\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00107}00107\ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00109}00109\ \ \ \ \ \textcolor{keywordtype}{int}\ min\ =\ -\/10000;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00110}00110\ \ \ \ \ \textcolor{keywordtype}{int}\ max\ =\ abs(min);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00112}00112\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00113}00113\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00115}00115\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ min;\ i\ <=\ max;\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ OK\ \(\backslash\)033[0m\ ]\ \%i."{}},\ i);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00117}00117\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00119}00119\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ integer\ printing\ [\ \%i\ ]\ to\ [\ \%i\ ]\(\backslash\)n"{}},\ min,\ max);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00120}00120\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00121}00121\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00122}00122\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[31m\ Failed\ \(\backslash\)033[0m\ ]\ ViperPrintF('\%i',\ 64)\ \(\backslash\)n"{}},\ i);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00125}00125\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00126}00126\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00128}00128\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{tests_2io_2printer_8c_a1d75282bab446b8466e2295399e22305}{errnoValues}})\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{tests_2io_2printer_8c_a1d75282bab446b8466e2295399e22305}{errnoValues}}[0]));\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ OK\ \(\backslash\)033[0m\ ]\ \%n."{}},\ \mbox{\hyperlink{tests_2io_2printer_8c_a1d75282bab446b8466e2295399e22305}{errnoValues}}[i]);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00130}00130\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00132}00132\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ the\ errno\ printing\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00133}00133\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00134}00134\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00135}00135\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)rFailed\ test\ [\ ViperPrintF('\%i\(\backslash\)n',\ errno);\(\backslash\)n]"{}},\ \mbox{\hyperlink{tests_2io_2printer_8c_a1d75282bab446b8466e2295399e22305}{errnoValues}}[i]);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00136}00136\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00138}00138\ \ \ \ \ \mbox{\hyperlink{debug_2exceptions_8h_a608e0de862d4d434fb5d3ceb2827e74e}{ViperTry}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00139}00139\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_a40fecf1d1dd71487c8f0fad8c5f7dbbf}{testTotal}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ (\textcolor{keyword}{sizeof}(\mbox{\hyperlink{tests_2io_2printer_8c_a4ecaad27b8fbf0e0783bc486633a81d5}{vulkanResultValues}})\ /\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{tests_2io_2printer_8c_a4ecaad27b8fbf0e0783bc486633a81d5}{vulkanResultValues}}[0]));\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ OK\ \(\backslash\)033[0m\ ]\ \%v."{}},\ \mbox{\hyperlink{tests_2io_2printer_8c_a4ecaad27b8fbf0e0783bc486633a81d5}{vulkanResultValues}}[i]);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00143}00143\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00145}00145\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{ViperPrintF}}(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)r[\ \(\backslash\)033[32m\ Passed\ \(\backslash\)033[0m\ ]\ passed\ test\ for\ the\ vulkan\ result\ printing\(\backslash\)n"{}});}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00146}00146\ \ \ \ \ \}\ \mbox{\hyperlink{debug_2exceptions_8h_add5d0eb1e6cf7cd0d4200f606ab2afc0}{ViperCatch}}\ \{}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00147}00147\ \ \ \ \ \ \ \ \ info-\/>\mbox{\hyperlink{structViperTestInfo__t_ae6cedd24da6741d985cbc6ab86fbd0d7}{testFailed}}++;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00148}00148\ \ \ \ \ \ \ \ \ printf(\textcolor{stringliteral}{"{}\(\backslash\)33[2K\(\backslash\)rFailed\ test\ [\ ViperPrintF('\%i\(\backslash\)n',\ vulkan\ result);\(\backslash\)n]"{}},\ \mbox{\hyperlink{tests_2io_2printer_8c_a4ecaad27b8fbf0e0783bc486633a81d5}{vulkanResultValues}}[i]);}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00149}00149\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00150}00150\ }
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00151}00151\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{tests_2io_2printer_8c_source_l00152}00152\ \}}
+
+\end{DoxyCode}

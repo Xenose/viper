@@ -1,0 +1,106 @@
+\doxysection{include/viper/types/images.h File Reference}
+\hypertarget{types_2images_8h}{}\label{types_2images_8h}\index{include/viper/types/images.h@{include/viper/types/images.h}}
+{\ttfamily \#include "{}viper/types/typedefs.\+h"{}}\newline
+{\ttfamily \#include $<$stdatomic.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/structs.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/str.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/memory.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/math.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structViperColorFormat__t}{Viper\+Color\+Format\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structViperImage__t}{Viper\+Image\+\_\+t}}
+\item 
+struct \mbox{\hyperlink{structViperImageHeaderPPM}{Viper\+Image\+Header\+PPM}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57ad98cba5faec00be4b36fbd6d54004501}{VIPER\+\_\+\+IMAGE\+\_\+\+NULLPTR\+\_\+\+HEADER}} = -\/2
+, \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a64d44a062b49a30735208dd9fc7ec179}{VIPER\+\_\+\+IMAGE\+\_\+\+UNKOWN\+\_\+\+HEADER}} = -\/1
+, \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57abb0554b4a2eea52d38dd15c709aab496}{VIPER\+\_\+\+IMAGE\+\_\+\+PNG\+\_\+\+HEADER}}
+, \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57aac44959f433d5ca6cbdf15dc6b5fa477}{VIPER\+\_\+\+IMAGE\+\_\+\+JPG\+\_\+\+HEADER}}
+, \newline
+\mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a02f5305c6b97cb7bc2a39740ddfc5fe8}{VIPER\+\_\+\+IMAGE\+\_\+\+PPM\+\_\+\+HEADER}}
+ \}
+\item 
+enum \{ \newline
+\mbox{\hyperlink{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a2af970d004876cfd4a13daabf1e9dc62}{VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+MONO}}
+, \mbox{\hyperlink{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a0a028dd37304dd1cb10642fd8e7067a0}{VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+GRAYSCALE}}
+, \mbox{\hyperlink{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a9cf1a3853a6854492bbe16c39e984b8a}{VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB}}
+, \mbox{\hyperlink{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a3c4f20a234734ac71c3a062bba0f5b06}{VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+PMS}}
+, \newline
+\mbox{\hyperlink{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a92d2a4cfc7852bcc4982f0f95ad79f3e}{VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGBA}}
+, \mbox{\hyperlink{types_2images_8h_a385c44f6fb256e5716a2302a5b940388af9220b434a3c97882fec6ca6fe4675f7}{VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+CMYK}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_COLOR\_FORMAT\_MONO@{VIPER\_COLOR\_FORMAT\_MONO}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_COLOR\_FORMAT\_MONO@{VIPER\_COLOR\_FORMAT\_MONO}}}\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a2af970d004876cfd4a13daabf1e9dc62}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a2af970d004876cfd4a13daabf1e9dc62} 
+VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+MONO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_COLOR\_FORMAT\_GRAYSCALE@{VIPER\_COLOR\_FORMAT\_GRAYSCALE}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_COLOR\_FORMAT\_GRAYSCALE@{VIPER\_COLOR\_FORMAT\_GRAYSCALE}}}\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a0a028dd37304dd1cb10642fd8e7067a0}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a0a028dd37304dd1cb10642fd8e7067a0} 
+VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+GRAYSCALE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_COLOR\_FORMAT\_RGB@{VIPER\_COLOR\_FORMAT\_RGB}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_COLOR\_FORMAT\_RGB@{VIPER\_COLOR\_FORMAT\_RGB}}}\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a9cf1a3853a6854492bbe16c39e984b8a}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a9cf1a3853a6854492bbe16c39e984b8a} 
+VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_COLOR\_FORMAT\_PMS@{VIPER\_COLOR\_FORMAT\_PMS}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_COLOR\_FORMAT\_PMS@{VIPER\_COLOR\_FORMAT\_PMS}}}\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a3c4f20a234734ac71c3a062bba0f5b06}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a3c4f20a234734ac71c3a062bba0f5b06} 
+VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+PMS&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_COLOR\_FORMAT\_RGBA@{VIPER\_COLOR\_FORMAT\_RGBA}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_COLOR\_FORMAT\_RGBA@{VIPER\_COLOR\_FORMAT\_RGBA}}}\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a92d2a4cfc7852bcc4982f0f95ad79f3e}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388a92d2a4cfc7852bcc4982f0f95ad79f3e} 
+VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+RGBA&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_COLOR\_FORMAT\_CMYK@{VIPER\_COLOR\_FORMAT\_CMYK}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_COLOR\_FORMAT\_CMYK@{VIPER\_COLOR\_FORMAT\_CMYK}}}\Hypertarget{types_2images_8h_a385c44f6fb256e5716a2302a5b940388af9220b434a3c97882fec6ca6fe4675f7}\label{types_2images_8h_a385c44f6fb256e5716a2302a5b940388af9220b434a3c97882fec6ca6fe4675f7} 
+VIPER\+\_\+\+COLOR\+\_\+\+FORMAT\+\_\+\+CMYK&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{types_2images_8h_source_l00019}{19}} of file \mbox{\hyperlink{types_2images_8h_source}{images.\+h}}.
+
+\Hypertarget{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57}\label{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57} 
+\doxysubsubsection{\texorpdfstring{anonymous enum}{anonymous enum}}
+{\footnotesize\ttfamily anonymous enum}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_IMAGE\_NULLPTR\_HEADER@{VIPER\_IMAGE\_NULLPTR\_HEADER}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_IMAGE\_NULLPTR\_HEADER@{VIPER\_IMAGE\_NULLPTR\_HEADER}}}\Hypertarget{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57ad98cba5faec00be4b36fbd6d54004501}\label{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57ad98cba5faec00be4b36fbd6d54004501} 
+VIPER\+\_\+\+IMAGE\+\_\+\+NULLPTR\+\_\+\+HEADER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_IMAGE\_UNKOWN\_HEADER@{VIPER\_IMAGE\_UNKOWN\_HEADER}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_IMAGE\_UNKOWN\_HEADER@{VIPER\_IMAGE\_UNKOWN\_HEADER}}}\Hypertarget{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a64d44a062b49a30735208dd9fc7ec179}\label{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a64d44a062b49a30735208dd9fc7ec179} 
+VIPER\+\_\+\+IMAGE\+\_\+\+UNKOWN\+\_\+\+HEADER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_IMAGE\_PNG\_HEADER@{VIPER\_IMAGE\_PNG\_HEADER}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_IMAGE\_PNG\_HEADER@{VIPER\_IMAGE\_PNG\_HEADER}}}\Hypertarget{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57abb0554b4a2eea52d38dd15c709aab496}\label{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57abb0554b4a2eea52d38dd15c709aab496} 
+VIPER\+\_\+\+IMAGE\+\_\+\+PNG\+\_\+\+HEADER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_IMAGE\_JPG\_HEADER@{VIPER\_IMAGE\_JPG\_HEADER}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_IMAGE\_JPG\_HEADER@{VIPER\_IMAGE\_JPG\_HEADER}}}\Hypertarget{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57aac44959f433d5ca6cbdf15dc6b5fa477}\label{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57aac44959f433d5ca6cbdf15dc6b5fa477} 
+VIPER\+\_\+\+IMAGE\+\_\+\+JPG\+\_\+\+HEADER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{VIPER\_IMAGE\_PPM\_HEADER@{VIPER\_IMAGE\_PPM\_HEADER}!images.h@{images.h}}\index{images.h@{images.h}!VIPER\_IMAGE\_PPM\_HEADER@{VIPER\_IMAGE\_PPM\_HEADER}}}\Hypertarget{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a02f5305c6b97cb7bc2a39740ddfc5fe8}\label{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a02f5305c6b97cb7bc2a39740ddfc5fe8} 
+VIPER\+\_\+\+IMAGE\+\_\+\+PPM\+\_\+\+HEADER&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+Definition at line \mbox{\hyperlink{types_2images_8h_source_l00011}{11}} of file \mbox{\hyperlink{types_2images_8h_source}{images.\+h}}.
+

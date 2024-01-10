@@ -1,0 +1,187 @@
+\doxysection{\+\_\+\+\_\+\+Viper\+Application\+\_\+t Struct Reference}
+\hypertarget{struct____ViperApplication__t}{}\label{struct____ViperApplication__t}\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+
+
+{\ttfamily \#include $<$types.\+h$>$}
+
+\doxysubsubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{Viper\+Struct\+Type\+\_\+t}} \mbox{\hyperlink{struct____ViperApplication__t_a07c58991988b3ac3d47d06ad72cfb408}{s\+Type}}
+\item 
+atomic\+\_\+flag \mbox{\hyperlink{struct____ViperApplication__t_ad6ac3450b7f90519ff9ad29e786465f0}{locked}}
+\item 
+atomic\+\_\+int\+\_\+least64\+\_\+t \mbox{\hyperlink{struct____ViperApplication__t_a95bde4ad5bd963a0234be5b5ac6a03dc}{status}}
+\item 
+\mbox{\hyperlink{structViperString__t}{Viper\+String\+\_\+t}} \mbox{\hyperlink{struct____ViperApplication__t_a10623b6ca6dca547b1e2cd22da1f8c6e}{name}}
+\item 
+\mbox{\hyperlink{structViperSystemInfo__t}{Viper\+System\+Info\+\_\+t}} \mbox{\hyperlink{struct____ViperApplication__t_ae69e9f7bdea735cea3007e60841b100a}{sys\+Info}}
+\item 
+\mbox{\hyperlink{structViperServer__t}{Viper\+Server\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____ViperApplication__t_a5804a2c82a08e1ddba877b08b284f0e5}{server}}
+\item 
+\mbox{\hyperlink{structViperClient__t}{Viper\+Client\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____ViperApplication__t_ac98135bbc5a812f10341e32bfa8b66ad}{client}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____ViperApplication__t_af4bffe8566be6908d2f951a58b723524}{graphicsPtr}}\\
+\>\mbox{\hyperlink{structViperVulkan__t}{ViperVulkan\_t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}{vulkan}}\\
+\>\mbox{\hyperlink{structViperOpenGL__t}{ViperOpenGL\_t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____ViperApplication__t_a2c0fdd1051ba2ee35314f5db17bc65d5}{opengl}}\\
+\}; \\
+
+\end{tabbing}\item 
+void(\texorpdfstring{$\ast$}{*} \mbox{\hyperlink{struct____ViperApplication__t_a98a4602c0124eae422980ad805118620}{application\+Loop}} )(struct \mbox{\hyperlink{struct____ViperApplication__t}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00063}{63}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+\doxysubsection{Field Documentation}
+\Hypertarget{struct____ViperApplication__t_abe0ad15709ba68c171c8c6e44b6f27fa}\label{struct____ViperApplication__t_abe0ad15709ba68c171c8c6e44b6f27fa} 
+\doxysubsubsection{\texorpdfstring{[union]}{[union]}}
+{\footnotesize\ttfamily union  \{ ... \} }
+
+\Hypertarget{struct____ViperApplication__t_a98a4602c0124eae422980ad805118620}\label{struct____ViperApplication__t_a98a4602c0124eae422980ad805118620} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!applicationLoop@{applicationLoop}}
+\index{applicationLoop@{applicationLoop}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{applicationLoop}{applicationLoop}}
+{\footnotesize\ttfamily void(\texorpdfstring{$\ast$}{*} application\+Loop) (struct \mbox{\hyperlink{struct____ViperApplication__t}{\+\_\+\+\_\+\+Viper\+Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app)}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00081}{81}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00036}{\+\_\+\+\_\+\+Viper\+Application\+Loop()}}, and \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}.
+
+\Hypertarget{struct____ViperApplication__t_ac98135bbc5a812f10341e32bfa8b66ad}\label{struct____ViperApplication__t_ac98135bbc5a812f10341e32bfa8b66ad} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!client@{client}}
+\index{client@{client}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{client}{client}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperClient__t}{Viper\+Client\+\_\+t}}\texorpdfstring{$\ast$}{*} client}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00073}{73}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{struct____ViperApplication__t_af4bffe8566be6908d2f951a58b723524}\label{struct____ViperApplication__t_af4bffe8566be6908d2f951a58b723524} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!graphicsPtr@{graphicsPtr}}
+\index{graphicsPtr@{graphicsPtr}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{graphicsPtr}{graphicsPtr}}
+{\footnotesize\ttfamily void\texorpdfstring{$\ast$}{*} graphics\+Ptr}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00076}{76}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{struct____ViperApplication__t_ad6ac3450b7f90519ff9ad29e786465f0}\label{struct____ViperApplication__t_ad6ac3450b7f90519ff9ad29e786465f0} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!locked@{locked}}
+\index{locked@{locked}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{locked}{locked}}
+{\footnotesize\ttfamily atomic\+\_\+flag locked}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00065}{65}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{struct____ViperApplication__t_a10623b6ca6dca547b1e2cd22da1f8c6e}\label{struct____ViperApplication__t_a10623b6ca6dca547b1e2cd22da1f8c6e} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!name@{name}}
+\index{name@{name}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{name}{name}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperString__t}{Viper\+String\+\_\+t}} name}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00069}{69}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}, \mbox{\hyperlink{opengl_2init_8c_source_l00016}{Viper\+Open\+GLInit()}}, \mbox{\hyperlink{vulkan_2init_8c_source_l00194}{Viper\+Vulkan\+Init()}}, and \mbox{\hyperlink{instance_8c_source_l00066}{Viper\+Vulkan\+Instance\+Create()}}.
+
+\Hypertarget{struct____ViperApplication__t_a2c0fdd1051ba2ee35314f5db17bc65d5}\label{struct____ViperApplication__t_a2c0fdd1051ba2ee35314f5db17bc65d5} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!opengl@{opengl}}
+\index{opengl@{opengl}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{opengl}{opengl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperOpenGL__t}{Viper\+Open\+GL\+\_\+t}}\texorpdfstring{$\ast$}{*} opengl}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00078}{78}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00014}{\+\_\+\+\_\+\+Viper\+Render\+Loop\+No\+Call()}}, \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}, \mbox{\hyperlink{opengl_2init_8c_source_l00016}{Viper\+Open\+GLInit()}}, and \mbox{\hyperlink{opengl_2init_8c_source_l00074}{Viper\+Render\+Loop\+Open\+GL()}}.
+
+\Hypertarget{struct____ViperApplication__t_a5804a2c82a08e1ddba877b08b284f0e5}\label{struct____ViperApplication__t_a5804a2c82a08e1ddba877b08b284f0e5} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!server@{server}}
+\index{server@{server}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{server}{server}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperServer__t}{Viper\+Server\+\_\+t}}\texorpdfstring{$\ast$}{*} server}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00072}{72}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{struct____ViperApplication__t_a95bde4ad5bd963a0234be5b5ac6a03dc}\label{struct____ViperApplication__t_a95bde4ad5bd963a0234be5b5ac6a03dc} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!status@{status}}
+\index{status@{status}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{status}{status}}
+{\footnotesize\ttfamily atomic\+\_\+int\+\_\+least64\+\_\+t status}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00067}{67}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00036}{\+\_\+\+\_\+\+Viper\+Application\+Loop()}}, \mbox{\hyperlink{application_8c_source_l00014}{\+\_\+\+\_\+\+Viper\+Render\+Loop\+No\+Call()}}, \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}, and \mbox{\hyperlink{opengl_2init_8c_source_l00074}{Viper\+Render\+Loop\+Open\+GL()}}.
+
+\Hypertarget{struct____ViperApplication__t_a07c58991988b3ac3d47d06ad72cfb408}\label{struct____ViperApplication__t_a07c58991988b3ac3d47d06ad72cfb408} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!sType@{sType}}
+\index{sType@{sType}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{sType}{sType}}
+{\footnotesize\ttfamily \mbox{\hyperlink{typedefs_8h_a5b22d1ecf6d014ce41e3c53678feb3ba}{Viper\+Struct\+Type\+\_\+t}} s\+Type}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00064}{64}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}.
+
+\Hypertarget{struct____ViperApplication__t_ae69e9f7bdea735cea3007e60841b100a}\label{struct____ViperApplication__t_ae69e9f7bdea735cea3007e60841b100a} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!sysInfo@{sysInfo}}
+\index{sysInfo@{sysInfo}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{sysInfo}{sysInfo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperSystemInfo__t}{Viper\+System\+Info\+\_\+t}} sys\+Info}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00070}{70}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+\Hypertarget{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a}\label{struct____ViperApplication__t_a2a5250a60fa89c1adb625489ca8b317a} 
+\index{\_\_ViperApplication\_t@{\_\_ViperApplication\_t}!vulkan@{vulkan}}
+\index{vulkan@{vulkan}!\_\_ViperApplication\_t@{\_\_ViperApplication\_t}}
+\doxysubsubsection{\texorpdfstring{vulkan}{vulkan}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperVulkan__t}{Viper\+Vulkan\+\_\+t}}\texorpdfstring{$\ast$}{*} vulkan}
+
+
+
+Definition at line \mbox{\hyperlink{types_8h_source_l00077}{77}} of file \mbox{\hyperlink{types_8h_source}{types.\+h}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}, and \mbox{\hyperlink{vulkan_2init_8c_source_l00194}{Viper\+Vulkan\+Init()}}.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/viper/\mbox{\hyperlink{types_8h}{types.\+h}}\end{DoxyCompactItemize}

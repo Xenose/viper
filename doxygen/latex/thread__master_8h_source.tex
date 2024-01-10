@@ -1,0 +1,15 @@
+\doxysection{thread\+\_\+master.\+h}
+\hypertarget{thread__master_8h_source}{}\label{thread__master_8h_source}\index{include/viper/thread\_master.h@{include/viper/thread\_master.h}}
+\mbox{\hyperlink{thread__master_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_thread\_master\_\_}}
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_thread\_master\_\_}}
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00004}\mbox{\hyperlink{thread__master_8h_a026adb27c2f8a4a4b404a1baafe501d8}{00004}}\ \textcolor{preprocessor}{\#define\ UnsafeStructAccess(data)\ while\ (atomic\_flag\_test\_and\_set\_explicit(\&(data-\/>locked),\ memory\_order\_acquire));}}
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00005}\mbox{\hyperlink{thread__master_8h_a3e34e1edc36ec7cc6fe21eaeb9de5d2a}{00005}}\ \textcolor{preprocessor}{\#define\ UnsafeStructRelease(data)\ atomic\_flag\_clear\_explicit(\&(data-\/>locked),\ memory\_order\_release)}}
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8h_source_l00009}00009\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_thread\_master\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

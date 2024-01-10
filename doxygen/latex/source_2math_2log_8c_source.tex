@@ -1,0 +1,18 @@
+\doxysection{log.\+c}
+\hypertarget{source_2math_2log_8c_source}{}\label{source_2math_2log_8c_source}\index{source/math/log.c@{source/math/log.c}}
+\mbox{\hyperlink{source_2math_2log_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{math_8h}{math.h}}>}}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{log_8h}{viper/math/log.h}}>}}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00005}\mbox{\hyperlink{log_8h_a40ea27f9a85dfa30809d50f51cb4382d}{00005}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{source_2math_2log_8c_a40ea27f9a85dfa30809d50f51cb4382d}{ViperLog}}(int64\_t\ value,\ int32\_t\ base)\ \{}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00006}00006\ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ ==\ value)\ \{}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00007}00007\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00008}00008\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00009}00009\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ logl(labs(value))\ /\ logl(base);}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00010}00010\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00011}00011\ \}}
+\DoxyCodeLine{\Hypertarget{source_2math_2log_8c_source_l00012}00012\ }
+
+\end{DoxyCode}

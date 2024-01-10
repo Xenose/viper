@@ -1,0 +1,276 @@
+\doxysection{source/algorithms/linked\+\_\+list.c File Reference}
+\hypertarget{linked__list_8c}{}\label{linked__list_8c}\index{source/algorithms/linked\_list.c@{source/algorithms/linked\_list.c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/linked\+\_\+list.\+h$>$}\newline
+{\ttfamily \#include $<$viper/algorithms/linked\+\_\+list.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/structs.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types/varibles.\+h$>$}\newline
+{\ttfamily \#include $<$viper/debug/logger.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{linked__list_8c_a6cec930b5b39feb78332a3bcf30acfe6}{CASE\+\_\+\+VARIBLE\+\_\+\+ADD}}(STRUCTURE\+\_\+\+TYPE,  LIST,  NODES,  TYPE,  VAR\+\_\+\+TYPE,  COUNT,  VA,  GOTO)
+\item 
+\#define \mbox{\hyperlink{linked__list_8c_a5987d56c81996fe02c5d96b379919a1b}{CASE\+\_\+\+STRUCTURE\+\_\+\+ADD}}(STRUCTURE\+\_\+\+TYPE,  LIST,  NODES,  TYPE,  COUNT,  VA,  GOTO)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{linked__list_8c_ac6b4d0eb54fade7e1da43cc52d404383}{\+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item\+VA}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list, int64\+\_\+t count, va\+\_\+list args)
+\begin{DoxyCompactList}\small\item\em This function will add items to a existing Linked\+List\+\_\+t object, the objects or variables needs to match the stored items. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \mbox{\hyperlink{linked__list_8c_a261c558cd4e526b94b43b0f40008dff3}{Viper\+Linked\+List\+Init}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list, int64\+\_\+t type, int64\+\_\+t count,...)
+\begin{DoxyCompactList}\small\item\em This function will set the structures memory to zero and the s\+Type to the type tat is passed in, after this is done object will be added to the list itself. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{linked__list_8c_ac3df15e044874f6110a47e1f62466741}{\+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list, int64\+\_\+t count,...)
+\begin{DoxyCompactList}\small\item\em Wrapper function for \+\_\+\+\_\+\+Linked\+List\+Add\+Item\+VA. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{linked__list_8c_a76a5df7789185d63c59c91cabbe3e2a1}{Linked\+List\+Delete\+Item}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list, uint64\+\_\+t index)
+\item 
+int \mbox{\hyperlink{linked__list_8c_a45d762e5da73a175d255c2f0af37f4ad}{Linked\+List\+Insert\+Item}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list, uint64\+\_\+t index,...)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__list_8c_a3d34b917ea5b90809e1bf49cc043495b}{\+\_\+\+\_\+\+Linked\+List\+Get\+Item}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list, uint64\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em This function is the underlaying function for retriving items in a linked list. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__list_8c_a48246dc3b1bf3d63bab5cc10634f644d}{Linked\+List\+Clear}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list)
+\item 
+\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__list_8c_a5beedced57efa6c3d4290d6088bc71c1}{Linked\+List\+Delete}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{linked__list_8c_abb1ed0053e731ef3607b85666b85b5d7}{Linked\+List\+To\+Array}} (\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}list)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{linked__list_8c_a5987d56c81996fe02c5d96b379919a1b}\label{linked__list_8c_a5987d56c81996fe02c5d96b379919a1b} 
+\index{linked\_list.c@{linked\_list.c}!CASE\_STRUCTURE\_ADD@{CASE\_STRUCTURE\_ADD}}
+\index{CASE\_STRUCTURE\_ADD@{CASE\_STRUCTURE\_ADD}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{CASE\_STRUCTURE\_ADD}{CASE\_STRUCTURE\_ADD}}
+{\footnotesize\ttfamily \#define CASE\+\_\+\+STRUCTURE\+\_\+\+ADD(\begin{DoxyParamCaption}\item[{}]{STRUCTURE\+\_\+\+TYPE,  }\item[{}]{LIST,  }\item[{}]{NODES,  }\item[{}]{TYPE,  }\item[{}]{COUNT,  }\item[{}]{VA,  }\item[{}]{GOTO }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STRUCTURE\_TYPE:\ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ for\ (int64\_t\ i\ =\ 0;\ i\ <\ COUNT;\ i++)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ TYPE*\ ptr\ =\ va\_arg(VA,\ TYPE*);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ NODES[i].data\ =\ malloc(\textcolor{keyword}{sizeof}(TYPE));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ memcpy(NODES[i].data,\ ptr,\ \textcolor{keyword}{sizeof}(TYPE));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ if\ (NULL\ !=\ list-\/>head\ \&\&\ NULL\ !=\ list-\/>tail)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LIST-\/>tail-\/>pNext\ =\ \&NODES[i];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ViperLogDebug(\textcolor{stringliteral}{"{}Creating\ new\ list\ \%s"{}},\ \#TYPE);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ NODES[i].pPrivous\ =\ LIST-\/>tail;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LIST-\/>tail\ =\ \&NODES[i];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{break}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00034}{34}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+\Hypertarget{linked__list_8c_a6cec930b5b39feb78332a3bcf30acfe6}\label{linked__list_8c_a6cec930b5b39feb78332a3bcf30acfe6} 
+\index{linked\_list.c@{linked\_list.c}!CASE\_VARIBLE\_ADD@{CASE\_VARIBLE\_ADD}}
+\index{CASE\_VARIBLE\_ADD@{CASE\_VARIBLE\_ADD}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{CASE\_VARIBLE\_ADD}{CASE\_VARIBLE\_ADD}}
+{\footnotesize\ttfamily \#define CASE\+\_\+\+VARIBLE\+\_\+\+ADD(\begin{DoxyParamCaption}\item[{}]{STRUCTURE\+\_\+\+TYPE,  }\item[{}]{LIST,  }\item[{}]{NODES,  }\item[{}]{TYPE,  }\item[{}]{VAR\+\_\+\+TYPE,  }\item[{}]{COUNT,  }\item[{}]{VA,  }\item[{}]{GOTO }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ STRUCTURE\_TYPE:\ \{\(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ TYPE*\ data\ =\ (TYPE*)calloc(count,\ \textcolor{keyword}{sizeof}(TYPE));\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ if\ (NULL\ ==\ data)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ViperLogError(\textcolor{stringliteral}{"{}Failed\ to\ alloacte\ memory\ for\ \#TYPE"{}});\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ GOTO;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ for\ (int64\_t\ i\ =\ 0;\ i\ <\ COUNT;\ i++)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ data-\/>sType\ =\ STRUCTURE\_TYPE;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ data-\/>value\ =\ va\_arg(VA,\ VAR\_TYPE);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ NODES[i].data\ =\ data;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ if\ (NULL\ !=\ list-\/>head\ \&\&\ NULL\ !=\ list-\/>tail)\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ LIST-\/>tail-\/>pNext\ =\ \&NODES[i];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ViperLogDebug(\textcolor{stringliteral}{"{}Creating\ new\ list\ \%s"{}},\ \#TYPE);\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ NODES[i].pPrivous\ =\ LIST-\/>tail;\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LIST-\/>tail\ =\ \&NODES[i];\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}\ \(\backslash\)}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{break}}
+
+\end{DoxyCode}
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00010}{10}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{linked__list_8c_a3d34b917ea5b90809e1bf49cc043495b}\label{linked__list_8c_a3d34b917ea5b90809e1bf49cc043495b} 
+\index{linked\_list.c@{linked\_list.c}!\_\_LinkedListGetItem@{\_\_LinkedListGetItem}}
+\index{\_\_LinkedListGetItem@{\_\_LinkedListGetItem}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{\_\_LinkedListGetItem()}{\_\_LinkedListGetItem()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} \+\_\+\+\_\+\+Linked\+List\+Get\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{uint64\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+This function is the underlaying function for retriving items in a linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \+:: The list object. \\
+\hline
+{\em index} & \+:: The index where the obejct is stored. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00154}{154}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_2linked__list_8h_source_l00011}{\+\_\+\+\_\+\+Linked\+List\+Node\+\_\+t\+::data}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00020}{Viper\+Linked\+List\+\_\+t\+::head}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00009}{\+\_\+\+\_\+\+Linked\+List\+Node\+\_\+t\+::p\+Next}}, and \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}.
+
+\Hypertarget{linked__list_8c_ac3df15e044874f6110a47e1f62466741}\label{linked__list_8c_ac3df15e044874f6110a47e1f62466741} 
+\index{linked\_list.c@{linked\_list.c}!\_\_ViperLinkedListAddItem@{\_\_ViperLinkedListAddItem}}
+\index{\_\_ViperLinkedListAddItem@{\_\_ViperLinkedListAddItem}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperLinkedListAddItem()}{\_\_ViperLinkedListAddItem()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{int64\+\_\+t}]{count,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Wrapper function for \+\_\+\+\_\+\+Linked\+List\+Add\+Item\+VA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \+:: the list that will have the items added. \\
+\hline
+{\em count} & \+:: the count of the new items that will be added. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00128}{128}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+
+
+References \mbox{\hyperlink{linked__list_8c_source_l00058}{\+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item\+VA()}}.
+
+\Hypertarget{linked__list_8c_ac6b4d0eb54fade7e1da43cc52d404383}\label{linked__list_8c_ac6b4d0eb54fade7e1da43cc52d404383} 
+\index{linked\_list.c@{linked\_list.c}!\_\_ViperLinkedListAddItemVA@{\_\_ViperLinkedListAddItemVA}}
+\index{\_\_ViperLinkedListAddItemVA@{\_\_ViperLinkedListAddItemVA}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperLinkedListAddItemVA()}{\_\_ViperLinkedListAddItemVA()}}
+{\footnotesize\ttfamily int \+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item\+VA (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{int64\+\_\+t}]{count,  }\item[{va\+\_\+list}]{args }\end{DoxyParamCaption})}
+
+
+
+This function will add items to a existing Linked\+List\+\_\+t object, the objects or variables needs to match the stored items. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \+:: the list that will have the items added. \\
+\hline
+{\em count} & \+:: the count of the new items that will be added. \\
+\hline
+{\em args} & \+:: the va\+\_\+list with the itmes stored in it. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00058}{58}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+
+
+References \mbox{\hyperlink{linked__list_8c_source_l00034}{CASE\+\_\+\+STRUCTURE\+\_\+\+ADD}}, \mbox{\hyperlink{linked__list_8c_source_l00010}{CASE\+\_\+\+VARIBLE\+\_\+\+ADD}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00020}{Viper\+Linked\+List\+\_\+t\+::head}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00009}{\+\_\+\+\_\+\+Linked\+List\+Node\+\_\+t\+::p\+Next}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00010}{\+\_\+\+\_\+\+Linked\+List\+Node\+\_\+t\+::p\+Privous}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00015}{Viper\+Linked\+List\+\_\+t\+::s\+Type}}, \mbox{\hyperlink{types_2linked__list_8h_source_l00021}{Viper\+Linked\+List\+\_\+t\+::tail}}, \mbox{\hyperlink{structs_8h_source_l00036}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+APPLICATION}}, \mbox{\hyperlink{structs_8h_source_l00034}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+VULKAN}}, \mbox{\hyperlink{structs_8h_source_l00013}{VIPER\+\_\+\+VARIABLE\+\_\+\+TYPE\+\_\+\+FLOAT}}, \mbox{\hyperlink{structs_8h_source_l00012}{VIPER\+\_\+\+VARIABLE\+\_\+\+TYPE\+\_\+\+INT}}, \mbox{\hyperlink{logger_8h_source_l00014}{Viper\+Log\+Debug}}, and \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}.
+
+
+
+Referenced by \mbox{\hyperlink{linked__list_8c_source_l00128}{\+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item()}}, and \mbox{\hyperlink{linked__list_8c_source_l00108}{Viper\+Linked\+List\+Init()}}.
+
+\Hypertarget{linked__list_8c_a48246dc3b1bf3d63bab5cc10634f644d}\label{linked__list_8c_a48246dc3b1bf3d63bab5cc10634f644d} 
+\index{linked\_list.c@{linked\_list.c}!LinkedListClear@{LinkedListClear}}
+\index{LinkedListClear@{LinkedListClear}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{LinkedListClear()}{LinkedListClear()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*} Linked\+List\+Clear (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00167}{167}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+\Hypertarget{linked__list_8c_a5beedced57efa6c3d4290d6088bc71c1}\label{linked__list_8c_a5beedced57efa6c3d4290d6088bc71c1} 
+\index{linked\_list.c@{linked\_list.c}!LinkedListDelete@{LinkedListDelete}}
+\index{LinkedListDelete@{LinkedListDelete}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{LinkedListDelete()}{LinkedListDelete()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*} Linked\+List\+Delete (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00171}{171}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+\Hypertarget{linked__list_8c_a76a5df7789185d63c59c91cabbe3e2a1}\label{linked__list_8c_a76a5df7789185d63c59c91cabbe3e2a1} 
+\index{linked\_list.c@{linked\_list.c}!LinkedListDeleteItem@{LinkedListDeleteItem}}
+\index{LinkedListDeleteItem@{LinkedListDeleteItem}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{LinkedListDeleteItem()}{LinkedListDeleteItem()}}
+{\footnotesize\ttfamily int Linked\+List\+Delete\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{uint64\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00139}{139}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+\Hypertarget{linked__list_8c_a45d762e5da73a175d255c2f0af37f4ad}\label{linked__list_8c_a45d762e5da73a175d255c2f0af37f4ad} 
+\index{linked\_list.c@{linked\_list.c}!LinkedListInsertItem@{LinkedListInsertItem}}
+\index{LinkedListInsertItem@{LinkedListInsertItem}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{LinkedListInsertItem()}{LinkedListInsertItem()}}
+{\footnotesize\ttfamily int Linked\+List\+Insert\+Item (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{uint64\+\_\+t}]{index,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00143}{143}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+\Hypertarget{linked__list_8c_abb1ed0053e731ef3607b85666b85b5d7}\label{linked__list_8c_abb1ed0053e731ef3607b85666b85b5d7} 
+\index{linked\_list.c@{linked\_list.c}!LinkedListToArray@{LinkedListToArray}}
+\index{LinkedListToArray@{LinkedListToArray}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{LinkedListToArray()}{LinkedListToArray()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Linked\+List\+To\+Array (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00175}{175}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+\Hypertarget{linked__list_8c_a261c558cd4e526b94b43b0f40008dff3}\label{linked__list_8c_a261c558cd4e526b94b43b0f40008dff3} 
+\index{linked\_list.c@{linked\_list.c}!ViperLinkedListInit@{ViperLinkedListInit}}
+\index{ViperLinkedListInit@{ViperLinkedListInit}!linked\_list.c@{linked\_list.c}}
+\doxysubsubsection{\texorpdfstring{ViperLinkedListInit()}{ViperLinkedListInit()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} Viper\+Linked\+List\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperLinkedList__t}{Viper\+Linked\+List\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{list,  }\item[{int64\+\_\+t}]{type,  }\item[{int64\+\_\+t}]{count,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+This function will set the structures memory to zero and the s\+Type to the type tat is passed in, after this is done object will be added to the list itself. 
+
+\begin{DoxyNote}{Note}
+This function will conver basic type like {\bfseries{int}} into Int\+\_\+t, \textbackslash{} so when using this function keep this in mind.
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \+:: is the object that will be used to store information. \\
+\hline
+{\em type} & \+:: is the type that will be use STRUCTURE\+\_\+\+TYPE\+\_\+\+XXX or VARBIALE\+\_\+\+TYPE\+\_\+\+XXX \\
+\hline
+{\em count} & \+:: is the number passed in to the function. \\
+\hline
+{\em ...} & \+:: is the actual values.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This function will return a copy of the Linked\+List\+\_\+t. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{linked__list_8c_source_l00108}{108}} of file \mbox{\hyperlink{linked__list_8c_source}{linked\+\_\+list.\+c}}.
+
+
+
+References \mbox{\hyperlink{linked__list_8c_source_l00058}{\+\_\+\+\_\+\+Viper\+Linked\+List\+Add\+Item\+VA()}}, and \mbox{\hyperlink{types_2linked__list_8h_source_l00015}{Viper\+Linked\+List\+\_\+t\+::s\+Type}}.
+

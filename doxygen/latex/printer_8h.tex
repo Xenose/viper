@@ -1,0 +1,170 @@
+\doxysection{include/viper/io/printer.h File Reference}
+\hypertarget{printer_8h}{}\label{printer_8h}\index{include/viper/io/printer.h@{include/viper/io/printer.h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{printer_8h_ad29df4959f3d291b0c9f8c87f5dc6872}{VIPER\+\_\+\+PRINT\+\_\+\+STDOUT}}~1
+\item 
+\#define \mbox{\hyperlink{printer_8h_a8ce0d2d5aa045116177f63d921e59356}{VIPER\+\_\+\+PRINT\+\_\+\+STDERR}}~2
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_ad4219259d607c33892b4f6eb45b4c438}{Viper\+Print\+Flush}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t used)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_a10482876700161d431eec7a4b4ff6222}{Viper\+Print\+NSBUFVA}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t used, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_adf1f8a00515d402f9dc399e31f561c8c}{Viper\+Print\+NSBFVA}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_a883e9ca2bc1bf4588069709c99afb399}{Viper\+Print\+SBFVA}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_a23ed0dae9dcb9e4fa7398e9bef933025}{Viper\+Print\+SFVA}} (int stream, const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_a343372078f8293f832667a2901789494}{Viper\+Print\+FVA}} (const char \texorpdfstring{$\ast$}{*}format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_acf56baed6f538901fe05b7c65e8d1f29}{Viper\+Print\+NSBUF}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, int64\+\_\+t used, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_af2c4b95adf386897414108a843130aa6}{Viper\+Print\+NSBF}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_af27e6e0a11cc2f2d423992af8830b8f4}{Viper\+Print\+SF}} (int stream, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_ab694fea14c131158f577844fb8ebed1f}{Viper\+PrintF}} (const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{printer_8h_a76a368c693d7ee602f4bd7efb2ad84d4}{Viper\+Print}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em The simplest function for printting with no formatting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{printer_8h_a8ce0d2d5aa045116177f63d921e59356}\label{printer_8h_a8ce0d2d5aa045116177f63d921e59356} 
+\index{printer.h@{printer.h}!VIPER\_PRINT\_STDERR@{VIPER\_PRINT\_STDERR}}
+\index{VIPER\_PRINT\_STDERR@{VIPER\_PRINT\_STDERR}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{VIPER\_PRINT\_STDERR}{VIPER\_PRINT\_STDERR}}
+{\footnotesize\ttfamily \#define VIPER\+\_\+\+PRINT\+\_\+\+STDERR~2}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8h_source_l00010}{10}} of file \mbox{\hyperlink{printer_8h_source}{printer.\+h}}.
+
+\Hypertarget{printer_8h_ad29df4959f3d291b0c9f8c87f5dc6872}\label{printer_8h_ad29df4959f3d291b0c9f8c87f5dc6872} 
+\index{printer.h@{printer.h}!VIPER\_PRINT\_STDOUT@{VIPER\_PRINT\_STDOUT}}
+\index{VIPER\_PRINT\_STDOUT@{VIPER\_PRINT\_STDOUT}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{VIPER\_PRINT\_STDOUT}{VIPER\_PRINT\_STDOUT}}
+{\footnotesize\ttfamily \#define VIPER\+\_\+\+PRINT\+\_\+\+STDOUT~1}
+
+
+
+Definition at line \mbox{\hyperlink{printer_8h_source_l00009}{9}} of file \mbox{\hyperlink{printer_8h_source}{printer.\+h}}.
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{printer_8h_a76a368c693d7ee602f4bd7efb2ad84d4}\label{printer_8h_a76a368c693d7ee602f4bd7efb2ad84d4} 
+\index{printer.h@{printer.h}!ViperPrint@{ViperPrint}}
+\index{ViperPrint@{ViperPrint}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrint()}{ViperPrint()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+The simplest function for printting with no formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+:: the message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00374}{374}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00358}{Viper\+Print\+F()}}.
+
+\Hypertarget{printer_8h_ab694fea14c131158f577844fb8ebed1f}\label{printer_8h_ab694fea14c131158f577844fb8ebed1f} 
+\index{printer.h@{printer.h}!ViperPrintF@{ViperPrintF}}
+\index{ViperPrintF@{ViperPrintF}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintF()}{ViperPrintF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+PrintF (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Referenced by \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00041}{Execute\+Itoa\+Atoi\+Test()}}, \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00023}{Execute\+Itoa\+Compersion\+Test()}}, \mbox{\hyperlink{tests_2utils_2integer_8c_source_l00010}{Execute\+Itoa\+Crash\+Test()}}, \mbox{\hyperlink{tests_2math_2log_8c_source_l00008}{Execute\+Log\+Test()}}, and \mbox{\hyperlink{deflate_8c_source_l00005}{Viper\+Deflate\+Decompress()}}.
+
+\Hypertarget{printer_8h_ad4219259d607c33892b4f6eb45b4c438}\label{printer_8h_ad4219259d607c33892b4f6eb45b4c438} 
+\index{printer.h@{printer.h}!ViperPrintFlush@{ViperPrintFlush}}
+\index{ViperPrintFlush@{ViperPrintFlush}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintFlush()}{ViperPrintFlush()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+Flush (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{used }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Referenced by \mbox{\hyperlink{logger_8c_source_l00008}{\+\_\+\+\_\+\+Viper\+Logger()}}.
+
+\Hypertarget{printer_8h_a343372078f8293f832667a2901789494}\label{printer_8h_a343372078f8293f832667a2901789494} 
+\index{printer.h@{printer.h}!ViperPrintFVA@{ViperPrintFVA}}
+\index{ViperPrintFVA@{ViperPrintFVA}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintFVA()}{ViperPrintFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+FVA (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{printer_8h_af2c4b95adf386897414108a843130aa6}\label{printer_8h_af2c4b95adf386897414108a843130aa6} 
+\index{printer.h@{printer.h}!ViperPrintNSBF@{ViperPrintNSBF}}
+\index{ViperPrintNSBF@{ViperPrintNSBF}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBF()}{ViperPrintNSBF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00301}{301}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00297}{Viper\+Print\+NSBFVA()}}.
+
+\Hypertarget{printer_8h_adf1f8a00515d402f9dc399e31f561c8c}\label{printer_8h_adf1f8a00515d402f9dc399e31f561c8c} 
+\index{printer.h@{printer.h}!ViperPrintNSBFVA@{ViperPrintNSBFVA}}
+\index{ViperPrintNSBFVA@{ViperPrintNSBFVA}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBFVA()}{ViperPrintNSBFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{printer_8h_acf56baed6f538901fe05b7c65e8d1f29}\label{printer_8h_acf56baed6f538901fe05b7c65e8d1f29} 
+\index{printer.h@{printer.h}!ViperPrintNSBUF@{ViperPrintNSBUF}}
+\index{ViperPrintNSBUF@{ViperPrintNSBUF}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBUF()}{ViperPrintNSBUF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBUF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{used,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Referenced by \mbox{\hyperlink{logger_8c_source_l00008}{\+\_\+\+\_\+\+Viper\+Logger()}}.
+
+\Hypertarget{printer_8h_a10482876700161d431eec7a4b4ff6222}\label{printer_8h_a10482876700161d431eec7a4b4ff6222} 
+\index{printer.h@{printer.h}!ViperPrintNSBUFVA@{ViperPrintNSBUFVA}}
+\index{ViperPrintNSBUFVA@{ViperPrintNSBUFVA}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBUFVA()}{ViperPrintNSBUFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBUFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{int64\+\_\+t}]{used,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Referenced by \mbox{\hyperlink{logger_8c_source_l00008}{\+\_\+\+\_\+\+Viper\+Logger()}}.
+
+\Hypertarget{printer_8h_a883e9ca2bc1bf4588069709c99afb399}\label{printer_8h_a883e9ca2bc1bf4588069709c99afb399} 
+\index{printer.h@{printer.h}!ViperPrintSBFVA@{ViperPrintSBFVA}}
+\index{ViperPrintSBFVA@{ViperPrintSBFVA}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSBFVA()}{ViperPrintSBFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SBFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{printer_8h_af27e6e0a11cc2f2d423992af8830b8f4}\label{printer_8h_af27e6e0a11cc2f2d423992af8830b8f4} 
+\index{printer.h@{printer.h}!ViperPrintSF@{ViperPrintSF}}
+\index{ViperPrintSF@{ViperPrintSF}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSF()}{ViperPrintSF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+
+\Hypertarget{printer_8h_a23ed0dae9dcb9e4fa7398e9bef933025}\label{printer_8h_a23ed0dae9dcb9e4fa7398e9bef933025} 
+\index{printer.h@{printer.h}!ViperPrintSFVA@{ViperPrintSFVA}}
+\index{ViperPrintSFVA@{ViperPrintSFVA}!printer.h@{printer.h}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSFVA()}{ViperPrintSFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [extern]}}
+

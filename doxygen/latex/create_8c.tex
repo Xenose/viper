@@ -1,0 +1,46 @@
+\doxysection{source/memory/create.c File Reference}
+\hypertarget{create_8c}{}\label{create_8c}\index{source/memory/create.c@{source/memory/create.c}}
+{\ttfamily \#include "{}viper/memory/utils.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types.\+h"{}}\newline
+{\ttfamily \#include "{}viper/types/str.\+h"{}}\newline
+{\ttfamily \#include $<$viper/memory/create.\+h$>$}\newline
+{\ttfamily \#include $<$viper/utils/stringer.\+h$>$}\newline
+{\ttfamily \#include $<$viper/application/application.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{create_8c_ac3573c464c7d24d6574ad7cc15d658a4}{Viper\+Create}} (int64\+\_\+t type, void \texorpdfstring{$\ast$}{*}ptr,...)
+\item 
+void \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{create_8c_a87b8ab2f287025c3f8e45e0c3903563b}{Viper\+Delete}} (void \texorpdfstring{$\ast$}{*}ptr)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{create_8c_ac3573c464c7d24d6574ad7cc15d658a4}\label{create_8c_ac3573c464c7d24d6574ad7cc15d658a4} 
+\index{create.c@{create.c}!ViperCreate@{ViperCreate}}
+\index{ViperCreate@{ViperCreate}!create.c@{create.c}}
+\doxysubsubsection{\texorpdfstring{ViperCreate()}{ViperCreate()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Viper\+Create (\begin{DoxyParamCaption}\item[{int64\+\_\+t}]{type,  }\item[{void \texorpdfstring{$\ast$}{*}}]{ptr,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{create_8c_source_l00008}{8}} of file \mbox{\hyperlink{create_8c_source}{create.\+c}}.
+
+
+
+References \mbox{\hyperlink{structs_8h_source_l00040}{Viper\+Generic\+Struct\+\_\+t\+::s\+Type}}, \mbox{\hyperlink{structs_8h_source_l00036}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+APPLICATION}}, \mbox{\hyperlink{structs_8h_source_l00030}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+STRING}}, \mbox{\hyperlink{structs_8h_source_l00008}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+UNKOWN}}, \mbox{\hyperlink{application_8c_source_l00051}{Viper\+Application\+Create()}}, \mbox{\hyperlink{utils_8c_source_l00010}{Viper\+Get\+Structure\+Size()}}, and \mbox{\hyperlink{stringer_8c_source_l00013}{Viper\+String\+Create()}}.
+
+\Hypertarget{create_8c_a87b8ab2f287025c3f8e45e0c3903563b}\label{create_8c_a87b8ab2f287025c3f8e45e0c3903563b} 
+\index{create.c@{create.c}!ViperDelete@{ViperDelete}}
+\index{ViperDelete@{ViperDelete}!create.c@{create.c}}
+\doxysubsubsection{\texorpdfstring{ViperDelete()}{ViperDelete()}}
+{\footnotesize\ttfamily void \texorpdfstring{$\ast$}{*} Viper\+Delete (\begin{DoxyParamCaption}\item[{void \texorpdfstring{$\ast$}{*}}]{ptr }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{create_8c_source_l00039}{39}} of file \mbox{\hyperlink{create_8c_source}{create.\+c}}.
+
+
+
+References \mbox{\hyperlink{structs_8h_source_l00040}{Viper\+Generic\+Struct\+\_\+t\+::s\+Type}}, \mbox{\hyperlink{structs_8h_source_l00030}{VIPER\+\_\+\+STRUCTURE\+\_\+\+TYPE\+\_\+\+STRING}}, and \mbox{\hyperlink{stringer_8c_source_l00042}{Viper\+String\+Delete()}}.
+

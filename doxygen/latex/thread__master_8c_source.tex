@@ -1,0 +1,22 @@
+\doxysection{thread\+\_\+master.\+c}
+\hypertarget{thread__master_8c_source}{}\label{thread__master_8c_source}\index{source/thread\_master.c@{source/thread\_master.c}}
+\mbox{\hyperlink{thread__master_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{types_8h}{viper/types.h}}>}}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{thread__master_8h}{viper/thread\_master.h}}>}}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00004}\mbox{\hyperlink{thread__master_8c_a157f934eab097a9a602077a93604f699}{00004}}\ \textcolor{keyword}{static}\ atomic\_int\_fast32\_t\ \mbox{\hyperlink{thread__master_8c_a157f934eab097a9a602077a93604f699}{stackIndex}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00005}\mbox{\hyperlink{thread__master_8c_a72afc3e20010e74bb050bafd64ddd4ba}{00005}}\ \textcolor{keyword}{static}\ int8\_t\ \mbox{\hyperlink{thread__master_8c_a72afc3e20010e74bb050bafd64ddd4ba}{stakcs}}[256][\mbox{\hyperlink{memory_8h_a760e005f22b8023958a91a9ee9de56a9}{MEMORY\_4KB}}]\ =\ \{\};}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00007}\mbox{\hyperlink{thread__master_8c_a5d848e8ac84c45ed53d9f1db6114e08f}{00007}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{thread__master_8c_a5d848e8ac84c45ed53d9f1db6114e08f}{ExecuteAsync}}()\ \{}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00008}00008\ \ \ \ \ \textcolor{keywordtype}{int}\ processID\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00010}00010\ \ \ \ \ \textcolor{comment}{//processID\ =\ clone(NULL,\ );}}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00012}00012\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ processID)\ \{}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00013}00013\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00014}00014\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00015}00015\ \}}
+\DoxyCodeLine{\Hypertarget{thread__master_8c_source_l00016}00016\ }
+
+\end{DoxyCode}

@@ -1,0 +1,82 @@
+\doxysection{images.\+c}
+\hypertarget{images_8c_source}{}\label{images_8c_source}\index{source/io/images.c@{source/io/images.c}}
+\mbox{\hyperlink{images_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_2images_8h}{viper/types/images.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{io_2file_8h}{viper/io/file.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_2file_8h}{viper/types/file.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{io_2images_8h}{viper/io/images.h}}>}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include<string.h>}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00009}\mbox{\hyperlink{images_8c_a7d05f642e7417818f7e3e201c04ec2d8}{00009}}\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ \mbox{\hyperlink{images_8c_a7d05f642e7417818f7e3e201c04ec2d8}{\_\_jpg}}[]\ =\ \{\ 0xFF,\ 0xD8,\ 0xFF\ \};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00010}\mbox{\hyperlink{images_8c_adf8ac98b9f037e6638ce06ae5010ba0a}{00010}}\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ \mbox{\hyperlink{images_8c_adf8ac98b9f037e6638ce06ae5010ba0a}{\_\_png}}[]\ =\ \{\ 137,\ 80,\ 78,\ 71,\ 13,\ 10,\ 26,\ 10\ \};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00011}\mbox{\hyperlink{images_8c_ae3e3f8c685daa97629c839becfa65425}{00011}}\ \textcolor{keyword}{const}\ \textcolor{keyword}{static}\ uint8\_t\ \mbox{\hyperlink{images_8c_ae3e3f8c685daa97629c839becfa65425}{\_\_ppm}}[]\ =\ \{\ 0x50,\ 0x36\ \};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00012}00012\ \textcolor{comment}{//const\ static\ uint8\_t\ \_\_png[]\ =\ \{\ 10,\ 26,\ 10,\ 13,\ 71,\ 78,\ 80,\ 137\ \};}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00024}\mbox{\hyperlink{images_8c_ad56b0778b11e462bec38062e91bc5817}{00024}}\ int64\_t\ \mbox{\hyperlink{images_8c_ad56b0778b11e462bec38062e91bc5817}{ViperImageFindType}}(uint8\_t*\ h)\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00025}00025\ \ \ \ \ int64\_t\ out\ =\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a64d44a062b49a30735208dd9fc7ec179}{VIPER\_IMAGE\_UNKOWN\_HEADER}};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00027}00027\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ h)\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00028}00028\ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57ad98cba5faec00be4b36fbd6d54004501}{VIPER\_IMAGE\_NULLPTR\_HEADER}};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ EXIT;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{switch}\ (h[0])\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0x50:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!memcmp(h,\ \mbox{\hyperlink{images_8c_ae3e3f8c685daa97629c839becfa65425}{\_\_ppm}},\ 2))\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a02f5305c6b97cb7bc2a39740ddfc5fe8}{VIPER\_IMAGE\_PPM\_HEADER}};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0xFF:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!memcmp(h,\ \mbox{\hyperlink{images_8c_a7d05f642e7417818f7e3e201c04ec2d8}{\_\_jpg}},\ 3))\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57aac44959f433d5ca6cbdf15dc6b5fa477}{VIPER\_IMAGE\_JPG\_HEADER}};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 137:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!memcmp(h,\ \mbox{\hyperlink{images_8c_adf8ac98b9f037e6638ce06ae5010ba0a}{\_\_png}},\ 8))\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ =\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57abb0554b4a2eea52d38dd15c709aab496}{VIPER\_IMAGE\_PNG\_HEADER}};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00048}00048\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00050}00050\ EXIT:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00054}\mbox{\hyperlink{io_2images_8h_a99596fc230453f4ee26dfa1a2c4ce22d}{00054}}\ \mbox{\hyperlink{structViperImage__t}{ViperImage\_t}}*\ \mbox{\hyperlink{images_8c_a99596fc230453f4ee26dfa1a2c4ce22d}{ViperImageLoad}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ path)\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00055}00055\ \ \ \ \ \mbox{\hyperlink{structViperFile__t}{ViperFile\_t}}*\ file\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00056}00056\ \ \ \ \ \mbox{\hyperlink{structViperImage__t}{ViperImage\_t}}*\ image\ =\ calloc(1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structViperImage__t}{ViperImage\_t}}));}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ image)\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_ac55d30540be4b284965f02cebcca0da2}{ViperLogEmergancy}}(\textcolor{stringliteral}{"{}Failed\ allocate\ memory\ for\ ViperImage\_t\ struct"{}});}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00061}00061\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ (file\ =\ \mbox{\hyperlink{io_2file_8h_acb44b9a5b2fc81e54a7f4ab7abc5457e}{ViperLoadFile}}(path)))\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ find\ file\ [\ \%s\ ]"{}},\ path);}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{switch}\ (\mbox{\hyperlink{images_8c_ad56b0778b11e462bec38062e91bc5817}{ViperImageFindType}}(file-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_add9af9569af79ec26dd741fb226b38ba}{ptr}}))\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57aac44959f433d5ca6cbdf15dc6b5fa477}{VIPER\_IMAGE\_JPG\_HEADER}}:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Found\ a\ jpg\ image"{}});}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57abb0554b4a2eea52d38dd15c709aab496}{VIPER\_IMAGE\_PNG\_HEADER}}:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Found\ a\ png\ image"{}});}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ \mbox{\hyperlink{types_2images_8h_ab04a0655cd1e3bcac5e8f48c18df1a57a02f5305c6b97cb7bc2a39740ddfc5fe8}{VIPER\_IMAGE\_PPM\_HEADER}}:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}Found\ a\ ppm\ image"{}});}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00078}00078\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ !=\ \mbox{\hyperlink{io_2file_8h_a10ef6d57d0a11ac6ab49c13eb8926740}{ViperUnloadFile}}(file))\ \{}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00081}00081\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a6a5d98212c88a916f8cd9f5e1a880e28}{ViperLogWarning}}(\textcolor{stringliteral}{"{}Failed\ to\ unload\ file\ [\ \%s\ ]"{}},\ path);}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00082}00082\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{return}\ image;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00084}00084\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{images_8c_source_l00086}00086\ \}}
+
+\end{DoxyCode}

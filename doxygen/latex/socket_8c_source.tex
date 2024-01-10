@@ -1,0 +1,87 @@
+\doxysection{socket.\+c}
+\hypertarget{socket_8c_source}{}\label{socket_8c_source}\index{source/networking/socket.c@{source/networking/socket.c}}
+\mbox{\hyperlink{socket_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include<errno.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<netdb.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<netinet/in.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<sys/types.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<sys/socket.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include<unistd.h>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00010}00010\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{memory_8h}{viper/types/memory.h}}>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00011}00011\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{networking_8h}{viper/types/networking.h}}>}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00019}\mbox{\hyperlink{socket_8c_ac850f63ea2a305842379e677adab7588}{00019}}\ int8\_t\ \mbox{\hyperlink{socket_8c_ac850f63ea2a305842379e677adab7588}{ViperSocketCreate}}(\mbox{\hyperlink{structViperSocket__t}{ViperSocket\_t}}*\ sock,\ \mbox{\hyperlink{structViperSocketCreateInfo__t}{ViperSocketCreateInfo\_t}}*\ \textcolor{keyword}{const}\ info)\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{int}\ off\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{int}\ error\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordtype}{int}\ retry\ =\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a2ca59384824cbde6949ca4b0732fd582}{retry}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{struct\ }addrinfo*\ results\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{struct\ }addrinfo\ hints\ =\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00025}00025\ \ \ \ \ \ \ \ \ .ai\_family\ \ \ \ \ \ =\ 0\ ==\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a9ec5632dbffd585473553801ea84d749}{sockType}}\ ?\ AF\_INET6\ :\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a9ec5632dbffd585473553801ea84d749}{sockType}},}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00026}00026\ \ \ \ \ \ \ \ \ .ai\_socktype\ \ \ \ =\ 0\ ==\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a75d537a95f8bce5a46445ac483054222}{sockProtocol}}\ ?\ SOCK\_STREAM\ :\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a75d537a95f8bce5a46445ac483054222}{sockProtocol}},}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00027}00027\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00028}00028\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{networking_8h_af34d3224651e343eb9d63ceba2af1896}{VIPER\_SOCKET\_FLAG\_SERVER}}\ \&\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a899a76dc5f03f0d4ea3793c339e07ee9}{flags}})\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ hints.ai\_flags\ \ \ \ \ \ =\ AI\_PASSIVE;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00031}00031\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00033}00033\ RETRY\_getaddrinfo:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{switch}(error\ =\ getaddrinfo(info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a45481c7c7ae13f13dbed455332f45cda}{address}},\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_ad723da1801ae1586eb330380e2d9a912}{port}},\ \&hints,\ \&results))\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 0:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a7571e212356ea06899894b48d8c0d00b}{ViperLogDebug}}(\textcolor{stringliteral}{"{}getaddrinfo\ success"{}});}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ retry\ =\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a2ca59384824cbde6949ca4b0732fd582}{retry}};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ EAI\_AGAIN:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (0\ !=\ retry-\/-\/)\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ usleep(5);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ RETRY\_getaddrinfo;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00044}00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}getaddrinfo\ failed\ :\ \%n"{}},\ error);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00048}00048\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00050}00050\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ sock-\/>\mbox{\hyperlink{structViperSocket__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}})\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00051}00051\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ socket\ :\ \%n"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT\_FREE\_INFO;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00053}00053\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordflow}{if}\ (AF\_INET6\ ==\ hints.ai\_family)\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ setsockopt(sock-\/>\mbox{\hyperlink{structViperSocket__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}},\ IPPROTO\_IPV6,\ IPV6\_V6ONLY,\ \&off,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{int})))\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a6a5d98212c88a916f8cd9f5e1a880e28}{ViperLogWarning}}(\textcolor{stringliteral}{"{}Turning\ off\ IPv6\ only\ mode\ failed\ :\ \%n"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00060}00060\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{networking_8h_af34d3224651e343eb9d63ceba2af1896}{VIPER\_SOCKET\_FLAG\_SERVER}}\ \&\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a899a76dc5f03f0d4ea3793c339e07ee9}{flags}})\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (SOCK\_STREAM\ ==\ hints.ai\_socktype)\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ bind(sock-\/>\mbox{\hyperlink{structViperSocket__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}},\ NULL,\ 0))\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ bind\ socket\ :\ \%n"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT\_FREE\_INFO;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ listen(sock-\/>\mbox{\hyperlink{structViperSocket__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}},\ info-\/>\mbox{\hyperlink{structViperSocketCreateInfo__t_a8c6fadb2a8a47abee215d54c2c80f7f5}{backlog}}))\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ listen\ socket\ :\ \%n"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT\_FREE\_INFO;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00074}00074\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00076}00076\ EXIT:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00077}00077\ \ \ \ \ freeaddrinfo(results);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00079}00079\ ERROR\_EXIT\_FREE\_INFO:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00080}00080\ \ \ \ \ freeaddrinfo(results);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00081}00081\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00085}\mbox{\hyperlink{socket_8c_a0ee77e01836491cf7e7f848208d7c44a}{00085}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{socket_8c_a0ee77e01836491cf7e7f848208d7c44a}{ViperSocketAccept}}(\mbox{\hyperlink{structViperServer__t}{ViperServer\_t}}\ \textcolor{keyword}{const}*\ server,\ \mbox{\hyperlink{structViperClient__t}{ViperClient\_t}}*\ client)\ \{}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00086}00086\ \ \ \ \ client-\/>\mbox{\hyperlink{structViperClient__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}}\ =\ accept(server-\/>\mbox{\hyperlink{structViperServer__t_a3666576f6b88007cc7b8f26c7da596c8}{socket}},\ NULL,\ 0);}
+\DoxyCodeLine{\Hypertarget{socket_8c_source_l00087}00087\ \}}
+
+\end{DoxyCode}

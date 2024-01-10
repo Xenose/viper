@@ -1,0 +1,448 @@
+\doxysection{source/io/printer.c File Reference}
+\hypertarget{source_2io_2printer_8c}{}\label{source_2io_2printer_8c}\index{source/io/printer.c@{source/io/printer.c}}
+{\ttfamily \#include "{}viper/types/memory.\+h"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$vulkan/vulkan.\+h$>$}\newline
+{\ttfamily \#include $<$viper/io/printer.\+h$>$}\newline
+{\ttfamily \#include $<$viper/types.\+h$>$}\newline
+{\ttfamily \#include $<$viper/utils/integer.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$vulkan/vulkan\+\_\+core.\+h$>$}\newline
+\doxysubsubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}}
+\begin{DoxyCompactList}\small\item\em This struct is a internal data type to help with passing along crusial data to the next function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a528c2240011348a5331a355bcfa9d0d9}{\+\_\+\+\_\+\+Viper\+Flush\+Buffer}} (\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict data)
+\begin{DoxyCompactList}\small\item\em This function will check if the buffer exceeds the max buffer value, if so then the buffer will be flushed and the buffer\+Used varible will be reset. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a625549cca3cd15129f06dfc73fbe4dc6}{\+\_\+\+\_\+\+Viper\+Get\+Error\+Number}} (\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function is used to convert errno number into something a bit more readable and adding it to the log print buffer. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a39f87c210c83b1e25a516ff9b83b268f}{\+\_\+\+\_\+\+Viper\+Copy\+String}} (\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function will extract the va\+\_\+list string and addit to the buffer so it will be printed. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a0633eacacd12f203683d39c3e8d9c4bd}{\+\_\+\+\_\+\+Viper\+Vulkan\+Result\+To\+String}} (\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict data, va\+\_\+list va)
+\item 
+static int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a7180ced5d88809fdde9b38f5d22e1540}{\+\_\+\+\_\+\+Viper\+Dollar}} (\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em Instead of wasting time on parsing in the \+\_\+\+Percentage function these function will handle more complex parsing allowing for faster parsing over all. \end{DoxyCompactList}\item 
+static int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_aed918331ef480ff64d1f207cf15654da}{\+\_\+\+\_\+\+Viper\+Percentage}} (\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict data, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function is the faster alternative to \+\_\+\+Dollar allowing for less time spent on the printing parsing. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_afd26b064c772ec66ff64711af206d13d}{Viper\+Print\+Flush}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict buffer, int64\+\_\+t used)
+\begin{DoxyCompactList}\small\item\em This function is to flush the buffer for all the print function or if the above function does so. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_ad01c70d9434fb4be32f96632aeda15f4}{Viper\+Print\+NSBUFVA}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict buffer, int64\+\_\+t used, const char \texorpdfstring{$\ast$}{*}restrict format, va\+\_\+list va)
+\begin{DoxyCompactList}\small\item\em This function is the main print function all the other function and allows the most freedom when printing, but it also requires more setup over the smaller functions. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_ac9652516e14c569c22af3f53d217de6e}{Viper\+Print\+NSBUF}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict buffer, int64\+\_\+t used, const char \texorpdfstring{$\ast$}{*}restrict format,...)
+\begin{DoxyCompactList}\small\item\em Print\+NSBF or \mbox{[} Print No-\/buffer Stream Used Format \mbox{]} is a print function wrapping Print\+NSBFVA allowing for simpler calls. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_ae9b4999a4425dfaf990f3e0e09032b9d}{Viper\+Print\+NSBFVA}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict buffer, const char \texorpdfstring{$\ast$}{*}restrict format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_af2c4b95adf386897414108a843130aa6}{Viper\+Print\+NSBF}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer, const char \texorpdfstring{$\ast$}{*}format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_aa580b8ef1b0d8ee78f6597b56d1476f1}{Viper\+Print\+SBFVA}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict buffer, const char \texorpdfstring{$\ast$}{*}restrict format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a48c2cdd7f7e45c2dfb49a6ed1f1a9601}{Viper\+Print\+SBF}} (int stream, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict buffer, const char \texorpdfstring{$\ast$}{*}restrict format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a14c5550dc526d97e317353fba2837141}{Viper\+Print\+SFVA}} (int stream, const char \texorpdfstring{$\ast$}{*}restrict format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a741ff9c04b48243666fe4f3c2b4694a5}{Viper\+Print\+FVA}} (const char \texorpdfstring{$\ast$}{*}restrict format, va\+\_\+list va)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_ae0da2258cfc16dcfc1bcce23f9f4432c}{Viper\+Print\+SF}} (int stream, const char \texorpdfstring{$\ast$}{*}restrict format,...)
+\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}{Viper\+PrintF}} (const char \texorpdfstring{$\ast$}{*}restrict format,...)
+\begin{DoxyCompactList}\small\item\em The functions mimics the printf function, but is thread safe and have more options or will have. \end{DoxyCompactList}\item 
+int64\+\_\+t \mbox{\hyperlink{source_2io_2printer_8c_a76a368c693d7ee602f4bd7efb2ad84d4}{Viper\+Print}} (const char \texorpdfstring{$\ast$}{*}msg)
+\begin{DoxyCompactList}\small\item\em The simplest function for printting with no formatting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{source_2io_2printer_8c_a39f87c210c83b1e25a516ff9b83b268f}\label{source_2io_2printer_8c_a39f87c210c83b1e25a516ff9b83b268f} 
+\index{printer.c@{printer.c}!\_\_ViperCopyString@{\_\_ViperCopyString}}
+\index{\_\_ViperCopyString@{\_\_ViperCopyString}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperCopyString()}{\_\_ViperCopyString()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Viper\+Copy\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+This function will extract the va\+\_\+list string and addit to the buffer so it will be printed. 
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00054}{54}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00028}{\+\_\+\+\_\+\+Viper\+Flush\+Buffer()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00146}{\+\_\+\+\_\+\+Viper\+Dollar()}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00175}{\+\_\+\+\_\+\+Viper\+Percentage()}}.
+
+\Hypertarget{source_2io_2printer_8c_a7180ced5d88809fdde9b38f5d22e1540}\label{source_2io_2printer_8c_a7180ced5d88809fdde9b38f5d22e1540} 
+\index{printer.c@{printer.c}!\_\_ViperDollar@{\_\_ViperDollar}}
+\index{\_\_ViperDollar@{\_\_ViperDollar}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperDollar()}{\_\_ViperDollar()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Viper\+Dollar (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Instead of wasting time on parsing in the \+\_\+\+Percentage function these function will handle more complex parsing allowing for faster parsing over all. 
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00146}{146}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00054}{\+\_\+\+\_\+\+Viper\+Copy\+String()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00237}{Viper\+Print\+NSBUFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_a528c2240011348a5331a355bcfa9d0d9}\label{source_2io_2printer_8c_a528c2240011348a5331a355bcfa9d0d9} 
+\index{printer.c@{printer.c}!\_\_ViperFlushBuffer@{\_\_ViperFlushBuffer}}
+\index{\_\_ViperFlushBuffer@{\_\_ViperFlushBuffer}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperFlushBuffer()}{\_\_ViperFlushBuffer()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Viper\+Flush\+Buffer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function will check if the buffer exceeds the max buffer value, if so then the buffer will be flushed and the buffer\+Used varible will be reset. 
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00028}{28}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00017}{Viper\+Print\+Data\+\_\+t\+::buffer}}, and \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00054}{\+\_\+\+\_\+\+Viper\+Copy\+String()}}.
+
+\Hypertarget{source_2io_2printer_8c_a625549cca3cd15129f06dfc73fbe4dc6}\label{source_2io_2printer_8c_a625549cca3cd15129f06dfc73fbe4dc6} 
+\index{printer.c@{printer.c}!\_\_ViperGetErrorNumber@{\_\_ViperGetErrorNumber}}
+\index{\_\_ViperGetErrorNumber@{\_\_ViperGetErrorNumber}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperGetErrorNumber()}{\_\_ViperGetErrorNumber()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Viper\+Get\+Error\+Number (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This function is used to convert errno number into something a bit more readable and adding it to the log print buffer. 
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00041}{41}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00175}{\+\_\+\+\_\+\+Viper\+Percentage()}}.
+
+\Hypertarget{source_2io_2printer_8c_aed918331ef480ff64d1f207cf15654da}\label{source_2io_2printer_8c_aed918331ef480ff64d1f207cf15654da} 
+\index{printer.c@{printer.c}!\_\_ViperPercentage@{\_\_ViperPercentage}}
+\index{\_\_ViperPercentage@{\_\_ViperPercentage}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperPercentage()}{\_\_ViperPercentage()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Viper\+Percentage (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+This function is the faster alternative to \+\_\+\+Dollar allowing for less time spent on the printing parsing. 
+
+b is used for binary
+
+d is used for double
+
+f is used for floats
+
+h is used for hexdecimal
+
+i is used for int
+
+n is used print errno
+
+o is used for octets
+
+s is used for c strings
+
+S is used for String\+\_\+t
+
+t is used to print the current time with no argument
+
+v is used for printing Vk\+Result
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00175}{175}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00054}{\+\_\+\+\_\+\+Viper\+Copy\+String()}}, \mbox{\hyperlink{source_2io_2printer_8c_source_l00041}{\+\_\+\+\_\+\+Viper\+Get\+Error\+Number()}}, \mbox{\hyperlink{source_2io_2printer_8c_source_l00078}{\+\_\+\+\_\+\+Viper\+Vulkan\+Result\+To\+String()}}, and \mbox{\hyperlink{source_2utils_2integer_8c_source_l00040}{Viper\+Itoa()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00237}{Viper\+Print\+NSBUFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_a0633eacacd12f203683d39c3e8d9c4bd}\label{source_2io_2printer_8c_a0633eacacd12f203683d39c3e8d9c4bd} 
+\index{printer.c@{printer.c}!\_\_ViperVulkanResultToString@{\_\_ViperVulkanResultToString}}
+\index{\_\_ViperVulkanResultToString@{\_\_ViperVulkanResultToString}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{\_\_ViperVulkanResultToString()}{\_\_ViperVulkanResultToString()}}
+{\footnotesize\ttfamily static int64\+\_\+t \+\_\+\+\_\+\+Viper\+Vulkan\+Result\+To\+String (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperPrintData__t}{Viper\+Print\+Data\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{data,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+A very long switch with all the Vk\+Result values
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00078}{78}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00175}{\+\_\+\+\_\+\+Viper\+Percentage()}}.
+
+\Hypertarget{source_2io_2printer_8c_a76a368c693d7ee602f4bd7efb2ad84d4}\label{source_2io_2printer_8c_a76a368c693d7ee602f4bd7efb2ad84d4} 
+\index{printer.c@{printer.c}!ViperPrint@{ViperPrint}}
+\index{ViperPrint@{ViperPrint}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrint()}{ViperPrint()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{msg }\end{DoxyParamCaption})}
+
+
+
+The simplest function for printting with no formatting. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+:: the message. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00374}{374}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00358}{Viper\+Print\+F()}}.
+
+\Hypertarget{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81}\label{source_2io_2printer_8c_a8cd7135d46adbb2f06356cab8052fb81} 
+\index{printer.c@{printer.c}!ViperPrintF@{ViperPrintF}}
+\index{ViperPrintF@{ViperPrintF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintF()}{ViperPrintF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+PrintF (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+The functions mimics the printf function, but is thread safe and have more options or will have. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & \+:: The fomrated string for the input. \\
+\hline
+{\em ...} & \+:: Is va\+\_\+arg list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00358}{358}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00325}{Viper\+Print\+SFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{tests_2io_2printer_8c_source_l00102}{Execute\+Print\+Test()}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00374}{Viper\+Print()}}.
+
+\Hypertarget{source_2io_2printer_8c_afd26b064c772ec66ff64711af206d13d}\label{source_2io_2printer_8c_afd26b064c772ec66ff64711af206d13d} 
+\index{printer.c@{printer.c}!ViperPrintFlush@{ViperPrintFlush}}
+\index{ViperPrintFlush@{ViperPrintFlush}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintFlush()}{ViperPrintFlush()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+Flush (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{buffer,  }\item[{int64\+\_\+t}]{used }\end{DoxyParamCaption})}
+
+
+
+This function is to flush the buffer for all the print function or if the above function does so. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \+:: The stream to output to like \mbox{[} stdout, stderr or other stream \mbox{]} \\
+\hline
+{\em buffer} & \+:: Is the buffer that\textquotesingle{}s used for storing the data. \\
+\hline
+{\em used} & \+:: Allows the above function to set the buffer index \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00222}{222}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+\Hypertarget{source_2io_2printer_8c_a741ff9c04b48243666fe4f3c2b4694a5}\label{source_2io_2printer_8c_a741ff9c04b48243666fe4f3c2b4694a5} 
+\index{printer.c@{printer.c}!ViperPrintFVA@{ViperPrintFVA}}
+\index{ViperPrintFVA@{ViperPrintFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintFVA()}{ViperPrintFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+FVA (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00335}{335}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00325}{Viper\+Print\+SFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_af2c4b95adf386897414108a843130aa6}\label{source_2io_2printer_8c_af2c4b95adf386897414108a843130aa6} 
+\index{printer.c@{printer.c}!ViperPrintNSBF@{ViperPrintNSBF}}
+\index{ViperPrintNSBF@{ViperPrintNSBF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBF()}{ViperPrintNSBF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00301}{301}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00297}{Viper\+Print\+NSBFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_ae9b4999a4425dfaf990f3e0e09032b9d}\label{source_2io_2printer_8c_ae9b4999a4425dfaf990f3e0e09032b9d} 
+\index{printer.c@{printer.c}!ViperPrintNSBFVA@{ViperPrintNSBFVA}}
+\index{ViperPrintNSBFVA@{ViperPrintNSBFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBFVA()}{ViperPrintNSBFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00297}{297}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00237}{Viper\+Print\+NSBUFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00301}{Viper\+Print\+NSBF()}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00310}{Viper\+Print\+SBFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_ac9652516e14c569c22af3f53d217de6e}\label{source_2io_2printer_8c_ac9652516e14c569c22af3f53d217de6e} 
+\index{printer.c@{printer.c}!ViperPrintNSBUF@{ViperPrintNSBUF}}
+\index{ViperPrintNSBUF@{ViperPrintNSBUF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBUF()}{ViperPrintNSBUF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBUF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{buffer,  }\item[{int64\+\_\+t}]{used,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Print\+NSBF or \mbox{[} Print No-\/buffer Stream Used Format \mbox{]} is a print function wrapping Print\+NSBFVA allowing for simpler calls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & is the output stream like \mbox{[} stdout or stderr \mbox{]} \\
+\hline
+{\em buffer} & is used to supply the buffer to the function \\
+\hline
+{\em used} & is to tell the function if the buffer has a pre-\/existing used space \\
+\hline
+{\em format} & is the input format of the va\+\_\+list \\
+\hline
+{\em ...} & is the actual data described in the format string \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00288}{288}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00237}{Viper\+Print\+NSBUFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_ad01c70d9434fb4be32f96632aeda15f4}\label{source_2io_2printer_8c_ad01c70d9434fb4be32f96632aeda15f4} 
+\index{printer.c@{printer.c}!ViperPrintNSBUFVA@{ViperPrintNSBUFVA}}
+\index{ViperPrintNSBUFVA@{ViperPrintNSBUFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintNSBUFVA()}{ViperPrintNSBUFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+NSBUFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{buffer,  }\item[{int64\+\_\+t}]{used,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+This function is the main print function all the other function and allows the most freedom when printing, but it also requires more setup over the smaller functions. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em stream} & \+:: The stream to output to like \mbox{[} stdout, stderr or other stream \mbox{]} \\
+\hline
+{\em buffer} & \+:: Is the buffer that\textquotesingle{}s used for storing the data. \\
+\hline
+{\em used} & \+:: Allows the above function to set the buffer index \\
+\hline
+{\em format} & \+:: The formatting string for the va\+\_\+list. \\
+\hline
+{\em va} & \+:: Is the va\+\_\+list. \\
+\hline
+\end{DoxyParams}
+for loop
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00237}{237}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00146}{\+\_\+\+\_\+\+Viper\+Dollar()}}, \mbox{\hyperlink{source_2io_2printer_8c_source_l00175}{\+\_\+\+\_\+\+Viper\+Percentage()}}, \mbox{\hyperlink{source_2io_2printer_8c_source_l00019}{Viper\+Print\+Data\+\_\+t\+::current}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00016}{Viper\+Print\+Data\+\_\+t\+::stream}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00297}{Viper\+Print\+NSBFVA()}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00288}{Viper\+Print\+NSBUF()}}.
+
+\Hypertarget{source_2io_2printer_8c_a48c2cdd7f7e45c2dfb49a6ed1f1a9601}\label{source_2io_2printer_8c_a48c2cdd7f7e45c2dfb49a6ed1f1a9601} 
+\index{printer.c@{printer.c}!ViperPrintSBF@{ViperPrintSBF}}
+\index{ViperPrintSBF@{ViperPrintSBF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSBF()}{ViperPrintSBF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SBF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00316}{316}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00310}{Viper\+Print\+SBFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_aa580b8ef1b0d8ee78f6597b56d1476f1}\label{source_2io_2printer_8c_aa580b8ef1b0d8ee78f6597b56d1476f1} 
+\index{printer.c@{printer.c}!ViperPrintSBFVA@{ViperPrintSBFVA}}
+\index{ViperPrintSBFVA@{ViperPrintSBFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSBFVA()}{ViperPrintSBFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SBFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}restrict}]{buffer,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00310}{310}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00297}{Viper\+Print\+NSBFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00316}{Viper\+Print\+SBF()}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00325}{Viper\+Print\+SFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_ae0da2258cfc16dcfc1bcce23f9f4432c}\label{source_2io_2printer_8c_ae0da2258cfc16dcfc1bcce23f9f4432c} 
+\index{printer.c@{printer.c}!ViperPrintSF@{ViperPrintSF}}
+\index{ViperPrintSF@{ViperPrintSF}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSF()}{ViperPrintSF()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SF (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{}]{... }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00339}{339}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{source_2io_2printer_8c_source_l00325}{Viper\+Print\+SFVA()}}.
+
+\Hypertarget{source_2io_2printer_8c_a14c5550dc526d97e317353fba2837141}\label{source_2io_2printer_8c_a14c5550dc526d97e317353fba2837141} 
+\index{printer.c@{printer.c}!ViperPrintSFVA@{ViperPrintSFVA}}
+\index{ViperPrintSFVA@{ViperPrintSFVA}!printer.c@{printer.c}}
+\doxysubsubsection{\texorpdfstring{ViperPrintSFVA()}{ViperPrintSFVA()}}
+{\footnotesize\ttfamily int64\+\_\+t Viper\+Print\+SFVA (\begin{DoxyParamCaption}\item[{int}]{stream,  }\item[{const char \texorpdfstring{$\ast$}{*}restrict}]{format,  }\item[{va\+\_\+list}]{va }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{source_2io_2printer_8c_source_l00325}{325}} of file \mbox{\hyperlink{source_2io_2printer_8c_source}{printer.\+c}}.
+
+
+
+References \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00010}{MEMORY\+\_\+256B}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00310}{Viper\+Print\+SBFVA()}}.
+
+
+
+Referenced by \mbox{\hyperlink{source_2io_2printer_8c_source_l00358}{Viper\+Print\+F()}}, \mbox{\hyperlink{source_2io_2printer_8c_source_l00335}{Viper\+Print\+FVA()}}, and \mbox{\hyperlink{source_2io_2printer_8c_source_l00339}{Viper\+Print\+SF()}}.
+

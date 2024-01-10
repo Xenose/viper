@@ -1,0 +1,72 @@
+\doxysection{source/io/file.c File Reference}
+\hypertarget{file_8c}{}\label{file_8c}\index{source/io/file.c@{source/io/file.c}}
+{\ttfamily \#include "{}viper/types/memory.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$viper/io/file.\+h$>$}\newline
+{\ttfamily \#include $<$viper/debug/logger.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structViperFile__t}{Viper\+File\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{file_8c_acb44b9a5b2fc81e54a7f4ab7abc5457e}{Viper\+Load\+File}} (const char \texorpdfstring{$\ast$}{*}file)
+\item 
+\mbox{\hyperlink{structViperFile__t}{Viper\+File\+\_\+t}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{file_8c_a10ef6d57d0a11ac6ab49c13eb8926740}{Viper\+Unload\+File}} (\mbox{\hyperlink{structViperFile__t}{Viper\+File\+\_\+t}} \texorpdfstring{$\ast$}{*}file)
+\item 
+int8\+\_\+t \mbox{\hyperlink{file_8c_ae00dfcb59fc811c54cee1fc04efc4640}{Viper\+Buffer\+Flush\+To\+File}} (const char \texorpdfstring{$\ast$}{*}file\+Name, \mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}buffer)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{file_8c_ae00dfcb59fc811c54cee1fc04efc4640}\label{file_8c_ae00dfcb59fc811c54cee1fc04efc4640} 
+\index{file.c@{file.c}!ViperBufferFlushToFile@{ViperBufferFlushToFile}}
+\index{ViperBufferFlushToFile@{ViperBufferFlushToFile}!file.c@{file.c}}
+\doxysubsubsection{\texorpdfstring{ViperBufferFlushToFile()}{ViperBufferFlushToFile()}}
+{\footnotesize\ttfamily int8\+\_\+t Viper\+Buffer\+Flush\+To\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file\+Name,  }\item[{\mbox{\hyperlink{structViperBuffer__t}{Viper\+Buffer\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{buffer }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{file_8c_source_l00063}{63}} of file \mbox{\hyperlink{file_8c_source}{file.\+c}}.
+
+
+
+References \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00027}{Viper\+Buffer\+\_\+t\+::str}}, and \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}.
+
+\Hypertarget{file_8c_acb44b9a5b2fc81e54a7f4ab7abc5457e}\label{file_8c_acb44b9a5b2fc81e54a7f4ab7abc5457e} 
+\index{file.c@{file.c}!ViperLoadFile@{ViperLoadFile}}
+\index{ViperLoadFile@{ViperLoadFile}!file.c@{file.c}}
+\doxysubsubsection{\texorpdfstring{ViperLoadFile()}{ViperLoadFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperFile__t}{Viper\+File\+\_\+t}} \texorpdfstring{$\ast$}{*} Viper\+Load\+File (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{file_8c_source_l00013}{13}} of file \mbox{\hyperlink{file_8c_source}{file.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_2file_8h_source_l00010}{Viper\+File\+\_\+t\+::buffer}}, \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00028}{Viper\+Buffer\+\_\+t\+::data}}, \mbox{\hyperlink{logger_8h_source_l00007}{Viper\+Log\+Emergancy}}, and \mbox{\hyperlink{logger_8h_source_l00010}{Viper\+Log\+Error}}.
+
+
+
+Referenced by \mbox{\hyperlink{shader_8c_source_l00058}{Viper\+Create\+Shader\+Open\+GL()}}, and \mbox{\hyperlink{images_8c_source_l00054}{Viper\+Image\+Load()}}.
+
+\Hypertarget{file_8c_a10ef6d57d0a11ac6ab49c13eb8926740}\label{file_8c_a10ef6d57d0a11ac6ab49c13eb8926740} 
+\index{file.c@{file.c}!ViperUnloadFile@{ViperUnloadFile}}
+\index{ViperUnloadFile@{ViperUnloadFile}!file.c@{file.c}}
+\doxysubsubsection{\texorpdfstring{ViperUnloadFile()}{ViperUnloadFile()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structViperFile__t}{Viper\+File\+\_\+t}} \texorpdfstring{$\ast$}{*} Viper\+Unload\+File (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structViperFile__t}{Viper\+File\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{file }\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{file_8c_source_l00050}{50}} of file \mbox{\hyperlink{file_8c_source}{file.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_2file_8h_source_l00010}{Viper\+File\+\_\+t\+::buffer}}, \mbox{\hyperlink{memory_8h_source_l00024}{Viper\+Buffer\+\_\+t\+::bytes}}, \mbox{\hyperlink{memory_8h_source_l00026}{Viper\+Buffer\+\_\+t\+::ptr}}, and \mbox{\hyperlink{logger_8h_source_l00009}{Viper\+Log\+Critical}}.
+
+
+
+Referenced by \mbox{\hyperlink{shader_8c_source_l00058}{Viper\+Create\+Shader\+Open\+GL()}}, and \mbox{\hyperlink{images_8c_source_l00054}{Viper\+Image\+Load()}}.
+

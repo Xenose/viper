@@ -1,0 +1,47 @@
+\doxysection{game.\+h}
+\hypertarget{game_8h_source}{}\label{game_8h_source}\index{include/viper/types/game.h@{include/viper/types/game.h}}
+\mbox{\hyperlink{game_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ \_\_header\_viper\_game\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ \_\_header\_viper\_game\_types\_\_}}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{structs_8h}{viper/types/structs.h}}>}}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{str_8h}{viper/types/str.h}}>}}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{math_8h}{viper/types/math.h}}>}}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00008}\mbox{\hyperlink{structTexture__t}{00008}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00009}\mbox{\hyperlink{structTexture__t_afb1cfeb8560138021980e0dc99496d0e}{00009}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a82e53846c2f9514066b7ab1b2450bf4a}{StructType\_t}}\ \mbox{\hyperlink{structTexture__t_afb1cfeb8560138021980e0dc99496d0e}{sType}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00010}00010\ \}\ \mbox{\hyperlink{structTexture__t}{Texture\_t}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00012}\mbox{\hyperlink{structMaterial__t}{00012}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00013}\mbox{\hyperlink{structMaterial__t_afb1cfeb8560138021980e0dc99496d0e}{00013}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a82e53846c2f9514066b7ab1b2450bf4a}{StructType\_t}}\ \mbox{\hyperlink{structMaterial__t_afb1cfeb8560138021980e0dc99496d0e}{sType}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00014}00014\ \}\ \mbox{\hyperlink{structMaterial__t}{Material\_t}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00016}\mbox{\hyperlink{structGameObject4D__t}{00016}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00017}\mbox{\hyperlink{structGameObject4D__t_afb1cfeb8560138021980e0dc99496d0e}{00017}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a82e53846c2f9514066b7ab1b2450bf4a}{StructType\_t}}\ \mbox{\hyperlink{structGameObject4D__t_afb1cfeb8560138021980e0dc99496d0e}{sType}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00018}\mbox{\hyperlink{structGameObject4D__t_a9118116e2531bb8d9a8c1d58415a9dee}{00018}}\ \ \ \ \ \mbox{\hyperlink{structVector4__t}{Vector4\_t}}\ \ \ \ \ \ \mbox{\hyperlink{structGameObject4D__t_a9118116e2531bb8d9a8c1d58415a9dee}{pos}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00019}\mbox{\hyperlink{structGameObject4D__t_ad2c1142a9a6f2629863efbb8c1bfee86}{00019}}\ \ \ \ \ \mbox{\hyperlink{structVector3__t}{Rotation3\_t}}\ \ \mbox{\hyperlink{structGameObject4D__t_ad2c1142a9a6f2629863efbb8c1bfee86}{rotation}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00020}00020\ \}\ \mbox{\hyperlink{structGameObject4D__t}{GameObject4D\_t}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00022}\mbox{\hyperlink{structGameObejctCollection4D__t}{00022}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00023}\mbox{\hyperlink{structGameObejctCollection4D__t_afb1cfeb8560138021980e0dc99496d0e}{00023}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a82e53846c2f9514066b7ab1b2450bf4a}{StructType\_t}}\ \mbox{\hyperlink{structGameObejctCollection4D__t_afb1cfeb8560138021980e0dc99496d0e}{sType}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00024}\mbox{\hyperlink{structGameObejctCollection4D__t_a90239640caa23d359d5c0d62d87f31a4}{00024}}\ \ \ \ \ \mbox{\hyperlink{structMaterial__t}{Material\_t}}*\ \mbox{\hyperlink{structGameObejctCollection4D__t_a90239640caa23d359d5c0d62d87f31a4}{material}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00026}\mbox{\hyperlink{structGameObejctCollection4D__t_afcc68e9eec57ce069fcdc37815837d6d}{00026}}\ \ \ \ \ uint64\_t\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structGameObejctCollection4D__t_afcc68e9eec57ce069fcdc37815837d6d}{count}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00027}\mbox{\hyperlink{structGameObejctCollection4D__t_a036481e6dc7a1d6186f67e18309fb781}{00027}}\ \ \ \ \ \mbox{\hyperlink{structGameObject4D__t}{GameObject4D\_t}}\ \ \ \ \ \ \ \ \mbox{\hyperlink{structGameObejctCollection4D__t_a036481e6dc7a1d6186f67e18309fb781}{objects}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00028}00028\ \}\ \mbox{\hyperlink{structGameObejctCollection4D__t}{GameObejctCollection4D\_t}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00030}\mbox{\hyperlink{structChunk__t}{00030}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00031}\mbox{\hyperlink{structChunk__t_aa806b5d79f1b583d21566ba538ff123d}{00031}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a82e53846c2f9514066b7ab1b2450bf4a}{StructType\_t}}*\ \mbox{\hyperlink{structChunk__t_aa806b5d79f1b583d21566ba538ff123d}{sType}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00032}\mbox{\hyperlink{structChunk__t_ab6d5ea20fd1307d28f12a3a79316dbaf}{00032}}\ \ \ \ \ \mbox{\hyperlink{structGameObejctCollection4D__t}{GameObejctCollection4D\_t}}*\ \mbox{\hyperlink{structChunk__t_ab6d5ea20fd1307d28f12a3a79316dbaf}{collection4D}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00033}00033\ \}\ \mbox{\hyperlink{structChunk__t}{Chunk\_t}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00035}\mbox{\hyperlink{structScene__t}{00035}}\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\{}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00036}\mbox{\hyperlink{structScene__t_afb1cfeb8560138021980e0dc99496d0e}{00036}}\ \ \ \ \ \mbox{\hyperlink{typedefs_8h_a82e53846c2f9514066b7ab1b2450bf4a}{StructType\_t}}\ \mbox{\hyperlink{structScene__t_afb1cfeb8560138021980e0dc99496d0e}{sType}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00037}\mbox{\hyperlink{structScene__t_ab1aed7fa271dc86295d16cc730100306}{00037}}\ \ \ \ \ int64\_t\ \mbox{\hyperlink{structScene__t_ab1aed7fa271dc86295d16cc730100306}{id}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00038}\mbox{\hyperlink{structScene__t_a1a39e03da931fc741163e6bc098198cb}{00038}}\ \ \ \ \ \mbox{\hyperlink{structString__t}{String\_t}}\ \mbox{\hyperlink{structScene__t_a1a39e03da931fc741163e6bc098198cb}{name}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00039}00039\ \}\ \mbox{\hyperlink{structScene__t}{Scene\_t}};}
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{game_8h_source_l00041}00041\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{/*\ \_\_header\_viper\_game\_types\_\_\ */}\textcolor{preprocessor}{}}
+
+\end{DoxyCode}

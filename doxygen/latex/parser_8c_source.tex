@@ -1,0 +1,102 @@
+\doxysection{parser.\+c}
+\hypertarget{parser_8c_source}{}\label{parser_8c_source}\index{source/io/parser.c@{source/io/parser.c}}
+\mbox{\hyperlink{parser_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_8h}{viper/types.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{networking_8h}{viper/types/networking.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{opengl_8h}{viper/types/opengl.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_2parser_8h}{viper/types/parser.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include<stdint.h>}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00007}00007\ \textcolor{preprocessor}{\#include<getopt.h>}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include<stdlib.h>}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00010}\mbox{\hyperlink{struct____StructViperInternalParserData}{00010}}\ \textcolor{keyword}{static}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____StructViperInternalParserData}{\_\_StructViperInternalParserData}}\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00011}\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{00011}}\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00012}\mbox{\hyperlink{struct____StructViperInternalParserData_a6594f3d6e755e34f376f9c8ab6b01234}{00012}}\ \ \ \ \ \textcolor{keywordtype}{char}\ \mbox{\hyperlink{struct____StructViperInternalParserData_a6594f3d6e755e34f376f9c8ab6b01234}{opts}}[4096];}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00013}00013\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00014}\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{00014}}\ \ \ \ \ \mbox{\hyperlink{structViperOptionAction__t}{ViperOptionAction\_t}}*\ \mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00015}\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{00015}}\ \ \ \ \ \textcolor{keyword}{struct\ }option*\ \mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00017}00017\ \}\ \mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\_\_viperInternalParserData}}\ =\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00019}00019\ \ \ \ \ .\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}\ =\ 1,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00020}00020\ \ \ \ \ .opts\ =\ \{\ 0\ \},}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00021}00021\ \ \ \ \ .action\ =\ NULL,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00022}00022\ \ \ \ \ .long\_options\ =\ NULL,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00023}\mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{00023}}\ \};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00025}\mbox{\hyperlink{io_2parser_8h_a7ace12b9a57ad2ede33b62b8b37ef1eb}{00025}}\ int8\_t\ \mbox{\hyperlink{parser_8c_a7ace12b9a57ad2ede33b62b8b37ef1eb}{ViperAddParserOption}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ longCommand,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ shortCommand,\ \textcolor{keywordtype}{char}\ shortChar,\ \textcolor{keywordtype}{int}\ hasArg,\ \textcolor{keywordtype}{int}*\ flags,\ \textcolor{keywordtype}{void}\ (*function)(\mbox{\hyperlink{structViperConfig__t}{ViperConfig\_t}}*\ config,\ \textcolor{keywordtype}{void}*\ customData),\ \textcolor{keywordtype}{void}*\ customData)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{int}\ length\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____StructViperInternalParserData}{\_\_StructViperInternalParserData}}*\ in\ =\ \&\mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\_\_viperInternalParserData}};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00029}00029\ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}}\ =\ realloc(in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}},\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structViperOptionAction__t}{ViperOptionAction\_t}}));}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00030}00030\ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}}\ =\ realloc(in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}},\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}\ *\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ option));}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00031}00031\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00032}00032\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00033}00033\ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}}[in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}\ -\/\ 1]\ =\ (\textcolor{keyword}{struct\ }option)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00034}00034\ \ \ \ \ \ \ \ \ longCommand,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ hasArg,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00036}00036\ \ \ \ \ \ \ \ \ flags,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00037}00037\ \ \ \ \ \ \ \ \ shortChar,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00038}00038\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00039}00039\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00040}00040\ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}}[in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}\ -\/\ 1]\ =\ (\mbox{\hyperlink{structViperOptionAction__t}{ViperOptionAction\_t}})\{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00041}00041\ \ \ \ \ \ \ \ \ .\mbox{\hyperlink{structViperOptionAction__t_a2884a485b9ba3498330a3e341fb54bcc}{function}}\ =\ function,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00042}00042\ \ \ \ \ \ \ \ \ .customData\ =\ customData,}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00043}00043\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00045}00045\ \ \ \ \ length\ =\ strlen(in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a6594f3d6e755e34f376f9c8ab6b01234}{opts}});\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00046}00046\ \ \ \ \ memmove(in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a6594f3d6e755e34f376f9c8ab6b01234}{opts}}\ +\ length,\ shortCommand,\ strlen(shortCommand));}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00048}00048\ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}++;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00050}00050\ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00054}\mbox{\hyperlink{io_2parser_8h_a2982ab3fe2933c7d700c6772c06318b4}{00054}}\ int8\_t\ \mbox{\hyperlink{parser_8c_a2982ab3fe2933c7d700c6772c06318b4}{ViperParseCommands}}(\textcolor{keywordtype}{int}\ arc,\ \textcolor{keywordtype}{char}*\ \textcolor{keyword}{const}*\ arv,\ \mbox{\hyperlink{structViperConfig__t}{ViperConfig\_t}}*\ config)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00055}00055\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct____StructViperInternalParserData}{\_\_StructViperInternalParserData}}*\ in\ =\ \&\mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\_\_viperInternalParserData}};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{int}\ optValue\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ \mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\_\_viperInternalParserData}}.\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}})\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00060}00060\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}This\ function\ is\ allowed\ one\ call\ only!"{}});}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00061}00061\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00064}00064\ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}}\ =\ realloc(in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}},\ (++in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}})\ *\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ option));}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00065}00065\ \ \ \ \ memset(\&in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}}[in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}}\ -\/\ 1],\ 0,\ \textcolor{keyword}{sizeof}(\textcolor{keyword}{struct}\ option));}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ optValue\ =\ getopt\_long(arc,\ arv,\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a6594f3d6e755e34f376f9c8ab6b01234}{opts}},\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}},\ \&index);}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ optValue)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00072}00072\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (0\ ==\ optValue)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}}[index].\mbox{\hyperlink{structViperOptionAction__t_a2884a485b9ba3498330a3e341fb54bcc}{function}})\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Function\ at\ index\ \%i\ is\ NULL"{}},\ index);}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}}[index].\mbox{\hyperlink{structViperOptionAction__t_a2884a485b9ba3498330a3e341fb54bcc}{function}}(config,\ NULL);}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00080}00080\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_acb8db36e3de4a84015c95176dd95ce8e}{commandCount}};\ i++)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (optValue\ ==\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}}[i].val)\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}}[i].\mbox{\hyperlink{structViperOptionAction__t_a2884a485b9ba3498330a3e341fb54bcc}{function}})\ \{}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Function\ at\ index\ \%i\ is\ NULL"{}},\ index);}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ in-\/>\mbox{\hyperlink{struct____StructViperInternalParserData_aab44445d5d5635d7b34e12fe5cc7762e}{action}}[i].\mbox{\hyperlink{structViperOptionAction__t_a2884a485b9ba3498330a3e341fb54bcc}{function}}(config,\ NULL);}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00090}00090\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00092}00092\ \ \ \ \ \}\ \textcolor{keywordflow}{while}(1);}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00094}00094\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00095}00095\ \ \ \ \ free(\mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\_\_viperInternalParserData}}.\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}});}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00096}00096\ \ \ \ \ \mbox{\hyperlink{parser_8c_aedcd4f1565fa9d5bc6c7cf2f2ce09989}{\_\_viperInternalParserData}}.\mbox{\hyperlink{struct____StructViperInternalParserData_a1a59d780ab872e6cc1e7e75bdf6a7bc4}{long\_options}}\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{parser_8c_source_l00098}00098\ \}}
+
+\end{DoxyCode}

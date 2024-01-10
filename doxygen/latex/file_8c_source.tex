@@ -1,0 +1,84 @@
+\doxysection{file.\+c}
+\hypertarget{file_8c_source}{}\label{file_8c_source}\index{source/io/file.c@{source/io/file.c}}
+\mbox{\hyperlink{file_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{memory_8h}{viper/types/memory.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<stdio.h>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include<errno.h>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00004}00004\ \textcolor{preprocessor}{\#include<fcntl.h>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00005}00005\ \textcolor{preprocessor}{\#include<unistd.h>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <sys/mman.h>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00007}00007\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00008}00008\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{io_2file_8h}{viper/io/file.h}}>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00009}00009\ \textcolor{preprocessor}{\#include<\mbox{\hyperlink{logger_8h}{viper/debug/logger.h}}>}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00013}\mbox{\hyperlink{io_2file_8h_acb44b9a5b2fc81e54a7f4ab7abc5457e}{00013}}\ \mbox{\hyperlink{structViperFile__t}{ViperFile\_t}}*\ \mbox{\hyperlink{file_8c_acb44b9a5b2fc81e54a7f4ab7abc5457e}{ViperLoadFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00014}00014\ \ \ \ \ \textcolor{keywordtype}{int}\ fd\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00015}00015\ \ \ \ \ \mbox{\hyperlink{structViperFile__t}{ViperFile\_t}}*\ out\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ (fd\ =\ open(file,\ O\_RDONLY)))\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00018}00018\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ open\ file\ [\ \%s\ ]\ error\ [\ \%n\ ]"{}},\ file,\ errno);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ (out\ =\ calloc(1,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structViperFile__t}{ViperFile\_t}}))))\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00023}00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ allocate\ memory\ for\ File\_t\ with\ error\ [\ \%n\ ]"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00027}00027\ \ \ \ \ out-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}}\ =\ (uint64\_t)lseek(fd,\ 0,\ SEEK\_END);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00029}00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ out-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}})\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00030}00030\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ seek\ end\ for\ memory\ with\ error\ [\ \%n\ ]"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00032}00032\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00034}00034\ \ \ \ \ \textcolor{keywordflow}{if}\ (NULL\ ==\ (out-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_abe222f6d3581e7920dcad5306cc906a8}{data}}\ =\ mmap(0,\ out-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}},\ PROT\_READ,\ MAP\_SHARED,\ fd,\ 0)))\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00038}00038\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ close(fd))\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00039}00039\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_ac55d30540be4b284965f02cebcca0da2}{ViperLogEmergancy}}(\textcolor{stringliteral}{"{}Failed\ to\ close\ fd\ for\ [\ \%s\ ]"{}},\ file);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00042}00042\ EXIT:}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00044}00044\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{return}\ NULL;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00046}00046\ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00047}00047\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00050}\mbox{\hyperlink{io_2file_8h_a10ef6d57d0a11ac6ab49c13eb8926740}{00050}}\ \mbox{\hyperlink{structViperFile__t}{ViperFile\_t}}*\ \mbox{\hyperlink{file_8c_a10ef6d57d0a11ac6ab49c13eb8926740}{ViperUnloadFile}}(\mbox{\hyperlink{structViperFile__t}{ViperFile\_t}}*\ file)\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (munmap(file-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_add9af9569af79ec26dd741fb226b38ba}{ptr}},\ file-\/>\mbox{\hyperlink{structViperFile__t_aeeb467bceb01574ce21d23abb672ccb2}{buffer}}.\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}}))\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00052}00052\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a9fd9f476280f36b3b761fc68f137ed23}{ViperLogCritical}}(\textcolor{stringliteral}{"{}Failed\ to\ munmap\ file\ [\ \%n\ ]"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//\ cleaning\ up\ the\ struct}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00057}00057\ \ \ \ \ free(file);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00058}00058\ \ \ \ \ file\ =\ NULL;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00059}00059\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ file;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00063}\mbox{\hyperlink{io_2file_8h_ae00dfcb59fc811c54cee1fc04efc4640}{00063}}\ int8\_t\ \mbox{\hyperlink{file_8c_ae00dfcb59fc811c54cee1fc04efc4640}{ViperBufferFlushToFile}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ fileName,\ \mbox{\hyperlink{structViperBuffer__t}{ViperBuffer\_t}}*\ buffer)\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{int}\ fd\ =\ open(fileName,\ O\_CREAT\ |\ O\_WRONLY\ |\ O\_EXCL,\ S\_IRUSR\ |\ S\_IWUSR);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00065}00065\ \ \ \ \ int64\_t\ lenght\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1\ ==\ fd)\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00068}00068\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ create\ file"{}});}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00069}00069\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00070}00070\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00072}00072\ \ \ \ \ lenght\ =\ write(fd,\ buffer-\/>\mbox{\hyperlink{structViperBuffer__t_ab50d783982593ef993ea0b68f7ad8b80}{str}},\ buffer-\/>\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}});}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (lenght\ !=\ buffer-\/>\mbox{\hyperlink{structViperBuffer__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}})\ \{}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00075}00075\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{logger_8h_a2ff2a5cee8d0a4833468785e801af403}{ViperLogError}}(\textcolor{stringliteral}{"{}Failed\ to\ write\ all\ the\ data\ to\ file\ [\ \%n\ ]"{}},\ errno);}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00076}00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00080}00080\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00081}00081\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{file_8c_source_l00082}00082\ \}}
+
+\end{DoxyCode}

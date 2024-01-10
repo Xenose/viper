@@ -1,0 +1,49 @@
+\doxysection{source/viper\+\_\+opengl.c File Reference}
+\hypertarget{viper__opengl_8c}{}\label{viper__opengl_8c}\index{source/viper\_opengl.c@{source/viper\_opengl.c}}
+{\ttfamily \#include "{}logger.\+h"{}}\newline
+{\ttfamily \#include $<$viper\+\_\+opengl.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int64\+\_\+t \mbox{\hyperlink{viper__opengl_8c_acfb56037cf6c5ceae6e92b86c7cc18a7}{Open\+GLInit}} (\mbox{\hyperlink{types_8h_ae0b142c29d1227928671fb808a064d9d}{Application\+\_\+t}} \texorpdfstring{$\ast$}{*}app, \mbox{\hyperlink{structOpenGL__t}{Open\+GL\+\_\+t}} \texorpdfstring{$\ast$}{*}gl)
+\begin{DoxyCompactList}\small\item\em This function is used for setting up a Open\+GL enviroment. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{viper__opengl_8c_acfb56037cf6c5ceae6e92b86c7cc18a7}\label{viper__opengl_8c_acfb56037cf6c5ceae6e92b86c7cc18a7} 
+\index{viper\_opengl.c@{viper\_opengl.c}!OpenGLInit@{OpenGLInit}}
+\index{OpenGLInit@{OpenGLInit}!viper\_opengl.c@{viper\_opengl.c}}
+\doxysubsubsection{\texorpdfstring{OpenGLInit()}{OpenGLInit()}}
+{\footnotesize\ttfamily int64\+\_\+t Open\+GLInit (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{types_8h_ae0b142c29d1227928671fb808a064d9d}{Application\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{app,  }\item[{\mbox{\hyperlink{structOpenGL__t}{Open\+GL\+\_\+t}} \texorpdfstring{$\ast$}{*}}]{gl }\end{DoxyParamCaption})}
+
+
+
+This function is used for setting up a Open\+GL enviroment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Application\+\_\+t\texorpdfstring{$\ast$}{*}} & is the main struct for the program \\
+\hline
+{\em Open\+GL\+\_\+t\texorpdfstring{$\ast$}{*}} & is the wrapper for all the Open\+GL data\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+returns 0 on success and -\/1 on error 
+\end{DoxyReturn}
+\hypertarget{viper_opengl.c_Window-Size}{}\doxysubsubsection{\texorpdfstring{Window-\/\+Size}{Window-Size}}\label{viper_opengl.c_Window-Size}
+Setting default values for the window if non is provided
+
+\begin{DoxyItemize}
+\item gl-\/\texorpdfstring{$>$}{>}dimensions\+Window.\+x \+:: 1920 \item gl-\/\texorpdfstring{$>$}{>}dimensions\+Window.\+y \+:: 1080\end{DoxyItemize}
+
+
+Definition at line \mbox{\hyperlink{viper__opengl_8c_source_l00013}{13}} of file \mbox{\hyperlink{viper__opengl_8c_source}{viper\+\_\+opengl.\+c}}.
+
+
+
+References \mbox{\hyperlink{types_8h_source_l00105}{String\+\_\+t\+::bytes}}, \mbox{\hyperlink{types_8h_source_l00106}{String\+\_\+t\+::data}}, \mbox{\hyperlink{types_8h_source_l00200}{Open\+GL\+\_\+t\+::dimensions\+Window}}, \mbox{\hyperlink{logger_8h_source_l00014}{Log\+Debug}}, \mbox{\hyperlink{logger_8h_source_l00010}{Log\+Error}}, \mbox{\hyperlink{types_8h_source_l00208}{\+\_\+\+\_\+\+Application\+\_\+t\+::name}}, \mbox{\hyperlink{types_8h_source_l00218}{\+\_\+\+\_\+\+Application\+\_\+t\+::opengl}}, \mbox{\hyperlink{types_8h_source_l00046}{STRUCTURE\+\_\+\+TYPE\+\_\+\+OPENGL}}, \mbox{\hyperlink{types_8h_source_l00040}{STRUCTURE\+\_\+\+TYPE\+\_\+\+UNKOWN}}, \mbox{\hyperlink{types_8h_source_l00197}{Open\+GL\+\_\+t\+::s\+Type}}, \mbox{\hyperlink{types_8h_source_l00199}{Open\+GL\+\_\+t\+::window}}, \mbox{\hyperlink{types_8h_source_l00073}{Vector\+Int2\+\_\+t\+::x}}, and \mbox{\hyperlink{types_8h_source_l00073}{Vector\+Int2\+\_\+t\+::y}}.
+
+
+
+Referenced by \mbox{\hyperlink{application_8c_source_l00031}{Application\+Create()}}.
+

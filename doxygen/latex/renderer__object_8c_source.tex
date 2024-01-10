@@ -1,0 +1,33 @@
+\doxysection{renderer\+\_\+object.\+c}
+\hypertarget{renderer__object_8c_source}{}\label{renderer__object_8c_source}\index{source/opengl/renderer\_object.c@{source/opengl/renderer\_object.c}}
+\mbox{\hyperlink{renderer__object_8c}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00001}00001\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00002}00002\ \textcolor{preprocessor}{\#include<GL/glew.h>}}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{types_2models_8h}{viper/types/models.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00005}\mbox{\hyperlink{renderer__object_8c_a0f416d381f068ef1c152a71ef6fa4280}{00005}}\ int8\_t\ \mbox{\hyperlink{renderer__object_8c_a0f416d381f068ef1c152a71ef6fa4280}{ViperCreateRenderObjectOpenGL}}(\mbox{\hyperlink{structViperModel__t}{ViperModel\_t}}*\ \textcolor{keyword}{const}\ model)\ \{}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00006}00006\ \ \ \ \ GLuint\ vbo\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00007}00007\ \ \ \ \ GLuint\ vao\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00008}00008\ \ \ \ \ GLint\ result\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00010}00010\ \ \ \ \ glGenBuffers(1,\ \&vbo);}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00011}00011\ \ \ \ \ glBindBuffer(GL\_ARRAY\_BUFFER,\ vbo);}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00012}00012\ \ \ \ \ glBufferData(GL\_ARRAY\_BUFFER,\ model-\/>\mbox{\hyperlink{structViperModel__t_a70e0810beff3eb65d2512892cd7569f5}{vertices}}.\mbox{\hyperlink{structViperVertices__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}},\ model-\/>\mbox{\hyperlink{structViperModel__t_a70e0810beff3eb65d2512892cd7569f5}{vertices}}.\mbox{\hyperlink{structViperVertices__t_ae887b4aa5e766405af291c9343d3729b}{data}},\ GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00014}00014\ \ \ \ \ glGetBufferParameteriv(GL\_ARRAY\_BUFFER,\ GL\_BUFFER\_SIZE,\ \&result);}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00016}00016\ \ \ \ \ \textcolor{keywordflow}{if}\ (model-\/>\mbox{\hyperlink{structViperModel__t_a70e0810beff3eb65d2512892cd7569f5}{vertices}}.\mbox{\hyperlink{structViperVertices__t_a386a3a5adc6cdeb2f1083b3c3d08e7d0}{bytes}}\ !=\ result)\ \{}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00017}00017\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{goto}\ ERROR\_EXIT;}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00018}00018\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00020}00020\ \ \ \ \ glGenBuffers(1,\ \&vao);}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00021}00021\ \ \ \ \ glBindBuffer(GL\_ELEMENT\_ARRAY\_BUFFER,\ vao);}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00025}00025\ ERROR\_EXIT:}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;}
+\DoxyCodeLine{\Hypertarget{renderer__object_8c_source_l00027}00027\ \}}
+
+\end{DoxyCode}
