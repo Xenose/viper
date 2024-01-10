@@ -1,3 +1,5 @@
+#include<stdlib.h>
+
 #include<viper/core/threading/foreman.h>
 
 static ViperThreadingForeman_t viperForeman = { 0 };

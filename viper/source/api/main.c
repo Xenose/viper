@@ -1,4 +1,5 @@
 #include<stdlib.h>
+#include<stdio.h>
 #include<viper/core/types/enums.h>
 #include<viper/api/main.h>
 
@@ -6,11 +7,9 @@ int __ViperMain(int arc, char* const* arv) {
    ViperApplication_t* app = malloc(sizeof(ViperApplication_t));
    ViperApplicationCreateInfo_t* appConfig = malloc(sizeof(ViperApplicationCreateInfo_t));
 
-   *app = (ViperApplication_t){
-      .sType   = VIPER_STRUCT_TYPE_APPLICATION,
-      .argc    = arc,
-      .argv    = arv,
-   };
+   app->sType   = VIPER_STRUCT_TYPE_APPLICATION;
+   app->argc    = arc;
+   app->argv    = arv;
 
    if (0 != ViperSetup(appConfig)) {
    }
