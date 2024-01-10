@@ -3,6 +3,7 @@
 build/*
 doxygen/*
 old/build/*
+old/tmp/*
 viper/build/*
 
 # Objects
