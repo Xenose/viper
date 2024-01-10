@@ -10,6 +10,7 @@
 #include<viper/core/algorithm/dynamic_array.h>
 #include<viper/core/debug/logger.h>
 #include<viper/core/graphics/glfw.h>
+#include<viper/core/graphics/window.h>
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
    return 0;
@@ -17,6 +18,8 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 
 i64 ViperMain(ViperApplication_t* app) {
    ViperBenchmark_t bench;
+
+   ViperInitGLFW(app);
 
    ViperWindow_t window = { 0 };
    ViperWindowCreateInfo_t windowInfo = {
@@ -29,10 +32,7 @@ i64 ViperMain(ViperApplication_t* app) {
 
    ViperBenchmarkStart(&bench);
 
-   //ViperWindowCreate(&window, &windowInfo);
-
-   ViperPrintF("Index\n");
-   //printf("hello\n");
+   ViperWindowCreate(&window, &windowInfo);
    
    ViperBenchmarkStop(&bench);
 

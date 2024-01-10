@@ -1,12 +1,9 @@
 #ifndef __header_viper_core_graphics_glfw__
 #define __header_viper_core_graphics_glfw__
 
-#include<GLFW/glfw3.h>
+#include<viper/core/types/defines.h>
+#include<viper/core/types/application.h>
 
-#include<viper/core/types/glfw.h>
-
-
-extern i8 ViperWindowCreate(ViperWindow_t* restrict window, ViperWindowCreateInfo_t const* restrict info);
-extern void ViperWindowSwapBuffers(ViperWindow_t* window);
+extern i8 ViperInitGLFW(ViperApplication_t* app);
 
 #endif /* __header_viper_core_graphics_glfw__ */

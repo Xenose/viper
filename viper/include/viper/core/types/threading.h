@@ -6,6 +6,7 @@
 
 typedef struct {
    ViperStructType_t sType;
+
 } ViperThreadingWorker_t;
 
 typedef struct {
