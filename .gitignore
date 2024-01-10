@@ -6,3 +6,6 @@ doxygen/*
 # Objects
 *.o
 *.so
+
+# Exceptions
+!.gitkeep
