@@ -14,6 +14,10 @@ ERROR_EXIT:
    return -1;
 }
 
+i8 ViperQueueDestroy() {
+	return 0;
+}
+
 void* ViperQueueGetItem(ViperQueue_t* queue) {
    return ViperDynamicArrayGetItem(&queue->data, queue->index);
 }
@@ -30,4 +34,28 @@ void* ViperQueuePopItem(ViperQueue_t* queue) {
    }
 
    return tmp;
+}
+
+i64 ViperQueueInsertItem(ViperQueue_t* queue, void* item) {
+	i64 index = queue->index + 1;
+
+	if (queue->data.size < queue->count + 1) {
+		goto ERROR_EXIT;
+	}
+
+	if (index >= queue->data.size) {
+		queue->index = 0;
+	}
+
+	index = 0 == queue->index ? queue->count : queue->index - 1;
+
+	if (0 != ViperDynamicArrayInsertItem(&queue->data, index, item)) {
+		goto ERROR_EXIT;
+	}
+
+	++queue->count;
+
+	return 0;
+ERROR_EXIT:
+	return -1;
 }
