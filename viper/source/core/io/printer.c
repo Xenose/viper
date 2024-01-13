@@ -12,8 +12,8 @@
 #include<unistd.h>
 #include<string.h>
 
-#define BUFFER_SIZE 1024
-static __thread char __viperPrintBuffer[1024] = { 0 };
+#define BUFFER_SIZE 2048
+static __thread char __viperPrintBuffer[BUFFER_SIZE] = { 0 };
 
 /**
  */

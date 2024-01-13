@@ -3,6 +3,7 @@
 #include<unistd.h>
 #include<stdlib.h>
 #include<viper/core/io/printer.h>
+#include<viper/core/debug/logger.h>
 
 #include<viper/core/memory/allocator.h>
 
@@ -25,7 +26,7 @@ inline void* ViperMalloc(u64 bytes) {
    if (0 < bytes) {
       ptr = malloc(bytes);
       ++__allocationCount;
-   }
+   } else  ViperLogDebug("0 bytes given");
 
    return ptr;
 }

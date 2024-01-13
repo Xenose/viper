@@ -28,7 +28,7 @@ project "ViperEgnineExampleBasic"
    location "build"
    kind "ConsoleApp"
    language "C"
-   links { "m", "ViperEngine", "GL", "GLEW", "glfw", "vulkan" }
+   links { "m", "ViperEngine", "GL", "GLEW", "glfw", "vulkan", "jpeg" }
    includedirs { "viper/include" }
    buildoptions{ "-mavx2 -mbmi2 -mpopcnt -mfma -mcx16 -mtune=znver1 -msse -msse2 -msse3 -msse4.1 -msse4.2 -mssse3 -mavx -mavx2 -mfma -mavx512f -mavx512dq -mavx512cd -mavx512bw -mavx512vl" }
    

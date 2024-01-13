@@ -16,6 +16,7 @@ au32 __viperLogLevel =
    VIPER_LOG_LEVEL_NOTICE     |
    VIPER_LOG_LEVEL_WARNING    |
    VIPER_LOG_LEVEL_ERROR      |
+   VIPER_LOG_LEVEL_FATAL      |
    VIPER_LOG_LEVEL_CRITICAL   |
    VIPER_LOG_LEVEL_EMERGENCY  
    ;
@@ -39,6 +40,9 @@ inline void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc*
          goto PRINT_DATA;
       case VIPER_LOG_LEVEL_ERROR:
          level = "[ \033[31mERROR\033[0m ]";
+         goto PRINT_DATA;
+      case VIPER_LOG_LEVEL_FATAL:
+         level = "[ FATAL ]";
          goto PRINT_DATA;
       case VIPER_LOG_LEVEL_CRITICAL:
          level = "[ CRITICAL ]";
