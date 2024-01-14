@@ -16,7 +16,6 @@ typedef struct {
 
 static void __ViperImageJpegError(j_common_ptr ptr) {
    __ViperJpegUser* info = (__ViperJpegUser*)ptr;
-
    ViperLogWarning("Failed to decoded jpeg longjmp");
    siglongjmp(info->jmp, -1);
 }
@@ -28,10 +27,12 @@ i8 ViperImageJpegDecode(ViperImage_t* restrict image, ViperBuffer_t* restrict in
    __ViperJpegUser user = { 
       .error.error_exit = &__ViperImageJpegError,
    };
+
    struct jpeg_decompress_struct info = {
       .err = jpeg_std_error(&user.error),
    };
 
+   // not the best use for non local goto's
    if (0 != sigsetjmp(user.jmp, 1)) {
       ViperLogWarning("Failed to decoded jpeg");
       returnCode = -1;
@@ -56,13 +57,13 @@ i8 ViperImageJpegDecode(ViperImage_t* restrict image, ViperBuffer_t* restrict in
    buffer = (*info.mem->alloc_sarray)((j_common_ptr)&info, JPOOL_IMAGE, rowStride, 1);
 
    for (int i = 0; info.output_scanline < info.output_height; i += rowStride) {
-      puts("reading...");
       jpeg_read_scanlines(&info, buffer, 1);
       memcpy(&image->buffer.data[i], buffer[0], rowStride);
    }
 
    jpeg_finish_decompress(&info);
    ViperLogDebug("File decoded");
+   returnCode = image->buffer.bytes;
 ERROR_EXIT:
    jpeg_destroy_decompress(&info);
    return returnCode;

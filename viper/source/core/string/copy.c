@@ -7,9 +7,17 @@
 
 
 char* __ViperStpnCpy128(char* restrict dst, cc* restrict src, unsigned long bytes) {
-   u64 length = strnlen(src, bytes);
-   u64 count = length / 16;
+   u64 length = 0;
+   u64 count = 0;
    u64 i = 0;
+
+   if (NULL == src) {
+      return NULL;
+   }
+
+   length = strnlen(src, bytes);
+   count = length / 16;
+   i = 0;
 
    for (; 0 != count; i += 16, --count) {
       __m128i data = _mm_loadu_si128((__m128i*)(src + i));
@@ -24,9 +32,17 @@ char* __ViperStpnCpy128(char* restrict dst, cc* restrict src, unsigned long byte
 }
 
 char* __ViperStpnCpy256(char* restrict dst, const char* restrict src, unsigned long bytes) {
-   u64 length = strnlen(src, bytes);
-   u64 count = length / 32;
+   u64 length = 0;
+   u64 count = 0;
    u64 i = 0;
+
+   if (NULL == src) {
+      return NULL;
+   }
+
+   length = strnlen(src, bytes);
+   count = length / 16;
+   i = 0;
 
    for (; 0 != count; i += 32, --count) {
       __m256i data = _mm256_loadu_si256((__m256i*)(src + i));

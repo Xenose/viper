@@ -61,7 +61,7 @@ inline void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc*
 PRINT_DATA:
    va_start(args, format);
 
-   ViperPrintNSFB(2, "\t%s File [ %s ] Line [ %i ] Function [ %s ] Message : ", 
+   ViperPrintNSFB(2, "\n\t%s File [ %s ] Line [ %i ] Function [ %s ] Message : ", 
          __viperLogBuffer, BUFFER_SIZE, &__viperLogBufferUsed,
          level, file, line, function
       );
@@ -70,7 +70,7 @@ PRINT_DATA:
    __viperLogBuffer[__viperLogBufferUsed++] = '\n';
 
    ViperPrintFlush(2, __viperLogBuffer, __viperLogBufferUsed);
-
+   __viperLogBufferUsed = 0;
    va_end(args);
 }
 
