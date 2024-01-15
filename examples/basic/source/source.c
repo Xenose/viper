@@ -16,6 +16,7 @@
 #include<viper/core/graphics/window.h>
 #include<viper/api/image/image.h>
 #include<viper/core/file/file.h>
+#include<viper/core/algorithm/queue.h>
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
    return 0;
@@ -24,7 +25,12 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 i64 ViperMain(ViperApplication_t* app) {
    ViperBenchmark_t bench;
 
+   ViperQueue_t queue;
+   int test = 10;
 
+   ViperQueueCreate(&queue, 0, sizeof(int), 10);
+
+   ViperQueueInsertItem(&queue, &test);
    
    /*ViperInitGLFW(app);
 

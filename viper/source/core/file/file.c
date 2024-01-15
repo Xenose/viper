@@ -38,8 +38,6 @@ i8 ViperFileLoad(ViperFile_t* file, const char* path) {
    file->buffer.bytes = length;
    file->buffer.ptr = ptr;
 
-   ViperLogDebug("File loaded [ %s ]", path);
-   ViperLogDebug("memory : %m", file->buffer.data, 1000);
 ERROR_EXIT:
    return 0;
 }
@@ -91,7 +89,6 @@ i8 ViperFileLoad(ViperFile_t* file, const char* path) {
 
    fclose(fd);
    file->buffer.bytes = length;
-   ViperLogDebug("memory : %m", file->buffer.data, 1000);
    return 0;
 ERROR_EXIT_CLOSE:
    fclose(fd);
