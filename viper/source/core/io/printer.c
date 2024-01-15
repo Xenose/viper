@@ -15,6 +15,22 @@
 #define BUFFER_SIZE 2048
 static __thread char __viperPrintBuffer[BUFFER_SIZE] = { 0 };
 
+void __ViperPrintMemory(i64* total, i64 stream, const char* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
+   u8* data = va_arg(args, u8*);
+   i64 length = va_arg(args, i64);
+
+   for (i64 i = 0; i < length; i++) {
+      if (16 > data[i]) {
+         buffer[*bufferUsed] = '0';
+         ++(*bufferUsed);
+      }
+
+      *bufferUsed += ViperItoa(data[i], &buffer[*bufferUsed], bufferSize - *bufferUsed, 16);
+      buffer[*bufferUsed] = ' ';
+      ++(*bufferUsed);
+   }
+}
+
 /**
  */
 void __ViperPrinterParseString(i64* total, i64 stream, const char* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
@@ -41,6 +57,9 @@ LOOP:
                break;
             case 'i':
                *bufferUsed += ViperItoa(va_arg(args, i64), &buffer[*bufferUsed], bufferSize - *bufferUsed, 10);
+               break;
+            case 'm':
+               __ViperPrintMemory(total, stream, format, buffer, bufferSize, bufferUsed, args);
                break;
             case 's':
                *bufferUsed += ViperStpnCpy(&buffer[*bufferUsed], va_arg(args, char*), bufferSize - *bufferUsed) - &buffer[*bufferUsed];

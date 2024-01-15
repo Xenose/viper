@@ -37,18 +37,16 @@ i64 ViperMain(ViperApplication_t* app) {
 
    //ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
  
-   ViperBenchmarkStart(&bench);
-
    ViperFile_t file = {};
-   ViperFileLoad(&file, "resources/images/test.jpg");
    
+   ViperBenchmarkStart(&bench);
+   ViperFileLoad(&file, "resources/images/test.jpg");
+   ViperBenchmarkStop(&bench);
+
    ViperImage_t image = { };
    //ViperWindowCreate(&window, &windowInfo);
    
    ViperImageDecode(&image, &file.buffer);
-   
-   ViperBenchmarkStop(&bench);
-
    ViperLogDebug("Seconds %i Micro %i Nano %i", bench.seconds, bench.secondsMicro, bench.secondsNano);
 
    return 0;
