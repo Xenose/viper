@@ -5,8 +5,8 @@
 
 #include<viper/core/types/defines.h>
 
-
-char* __ViperStpnCpy128(char* restrict dst, cc* restrict src, unsigned long bytes) {
+// TODO :: add to its own library
+/*char* __ViperStpnCpy128(char* restrict dst, cc* restrict src, unsigned long bytes) {
    u64 length = 0;
    u64 count = 0;
    u64 i = 0;
@@ -65,11 +65,11 @@ char* __ViperStpnCpy256(char* restrict dst, const char* restrict src, unsigned l
 
 char* __ViperStpnCpy512(char* restrict dst, const char* restrict src, unsigned long bytes) {
    return NULL;
-}
+}*/
 
 // public functions
 
-char* (*ViperStpnCpy)(char* restrict dst, const char* restrict src, unsigned long bytes) = &__ViperStpnCpy128;
+char* (*ViperStpnCpy)(char* restrict dst, const char* restrict src, unsigned long bytes) = &stpncpy;//&__ViperStpnCpy128;
 
 void ViperOptimizeStringFunctions() {
 }

@@ -23,14 +23,14 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   ViperBenchmark_t bench;
+   /*ViperBenchmark_t bench;
 
    ViperQueue_t queue;
-   int test = 10;
+   int test = 10;*/
 
-   ViperQueueCreate(&queue, 0, sizeof(int), 10);
+   //ViperQueueCreate(&queue, 0, sizeof(int), 10);
 
-   ViperQueueInsertItem(&queue, &test);
+   //ViperQueueInsertItem(&queue, &test);
    
    /*ViperInitGLFW(app);
 
@@ -43,17 +43,17 @@ i64 ViperMain(ViperApplication_t* app) {
 
    //ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
  
-   ViperFile_t file = {};
+   /*ViperFile_t file = {};
    
    ViperBenchmarkStart(&bench);
    ViperFileLoad(&file, "resources/images/test.jpg");
    ViperBenchmarkStop(&bench);
 
-   ViperImage_t image = { };
+   ViperImage_t image = { };*/
    //ViperWindowCreate(&window, &windowInfo);
    
-   ViperImageDecode(&image, &file.buffer);
-   ViperLogDebug("Seconds %i Micro %i Nano %i", bench.seconds, bench.secondsMicro, bench.secondsNano);
+   //ViperImageDecode(&image, &file.buffer);
+   //ViperLogDebug("Seconds %i Micro %i Nano %i", bench.seconds, bench.secondsMicro, bench.secondsNano);
 
    return 0;
 }

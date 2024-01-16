@@ -2,10 +2,16 @@
 #include<stdio.h>
 #include<viper/core/types/enums.h>
 #include<viper/api/main.h>
+#include<viper/core/memory/allocator.h>
+#include<viper/core/debug/signaller.h>
 
 int __ViperMain(int arc, char* const* arv) {
-   ViperApplication_t* app = malloc(sizeof(ViperApplication_t));
-   ViperApplicationCreateInfo_t* appConfig = malloc(sizeof(ViperApplicationCreateInfo_t));
+	if (0 != ViperSignalHandlerInit()) {
+		puts("failed to init signal handlers");
+	}
+
+   ViperApplication_t* app = ViperMalloc(sizeof(ViperApplication_t));
+   ViperApplicationCreateInfo_t* appConfig = ViperMalloc(sizeof(ViperApplicationCreateInfo_t));
 
    app->sType   = VIPER_STRUCT_TYPE_APPLICATION;
    app->argc    = arc;
