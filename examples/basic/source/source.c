@@ -23,37 +23,54 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   /*ViperBenchmark_t bench;
+   /*
 
-   ViperQueue_t queue;
-   int test = 10;*/
+   ViperQueue_t queue = { 0 };
+   int test = 101;
+   int test2 = 102;
 
-   //ViperQueueCreate(&queue, 0, sizeof(int), 10);
-
-   //ViperQueueInsertItem(&queue, &test);
+   if (0 != ViperQueueCreate(&queue, 0, sizeof(int), 10)) {
+      ViperLogDebug("failed to create queue");
+   }
    
-   /*ViperInitGLFW(app);
+   ViperQueueInsertItem(&queue, &test);
+   ViperQueueInsertItem(&queue, &test2);
+
+   ViperPrintF("%i\n", *((int*)ViperQueueGetItem(&queue)));
+   ViperQueuePopItem(&queue);
+   ViperPrintF("%i\n", *((int*)ViperQueueGetItem(&queue)));
+   ViperQueuePopItem(&queue);
+   ViperPrintF("%i\n", *((int*)ViperQueueGetItem(&queue)));
+   ViperQueueInsertItem(&queue, &test2);
+   ViperPrintF("%i\n", *((int*)ViperQueueGetItem(&queue)));
+   
+   ViperInitGLFW(app);
 
    ViperWindow_t window = { 0 };
    ViperWindowCreateInfo_t windowInfo = {
       .name = "hello",
       .resultion.x = 1920,
       .resultion.y = 1080,
-   };*/
+   };
 
-   //ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
+   ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
  
-   /*ViperFile_t file = {};
+   ViperFile_t file = {};
    
-   ViperBenchmarkStart(&bench);
    ViperFileLoad(&file, "resources/images/test.jpg");
+
+   ViperImage_t image = { };
+   ViperWindowCreate(&window, &windowInfo);
+   
+   ViperImageDecode(&image, &file.buffer);*/
+   puts("lolz");
+
+   ViperBenchmark_t bench;
+
+   ViperBenchmarkStart(&bench);
+   ViperLogDebug("hello world!");
    ViperBenchmarkStop(&bench);
 
-   ViperImage_t image = { };*/
-   //ViperWindowCreate(&window, &windowInfo);
-   
-   //ViperImageDecode(&image, &file.buffer);
-   //ViperLogDebug("Seconds %i Micro %i Nano %i", bench.seconds, bench.secondsMicro, bench.secondsNano);
-
+   ViperLogDebug("Seconds %i Micro %i Nano %i", bench.seconds, bench.secondsMicro, bench.secondsNano);
    return 0;
 }

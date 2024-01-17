@@ -13,9 +13,10 @@ int __ViperMain(int arc, char* const* arv) {
    ViperApplication_t* app = ViperMalloc(sizeof(ViperApplication_t));
    ViperApplicationCreateInfo_t* appConfig = ViperMalloc(sizeof(ViperApplicationCreateInfo_t));
 
-   app->sType   = VIPER_STRUCT_TYPE_APPLICATION;
-   app->argc    = arc;
-   app->argv    = arv;
+   app->sType  = VIPER_STRUCT_TYPE_APPLICATION;
+   app->argc   = arc;
+   app->argv   = arv;
+   app->state  = 0;
 
    if (0 != ViperSetup(appConfig)) {
    }
@@ -38,5 +39,6 @@ LOOP:
          goto LOOP;
    }
 
+   ViperFree(app);
    return 0;
 }

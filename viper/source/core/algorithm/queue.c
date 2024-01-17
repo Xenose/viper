@@ -3,9 +3,11 @@
 #include<viper/core/debug/logger.h>
 
 i8 ViperQueueCreate(ViperQueue_t* queue, ViperStructType_t type, u64 size, u64 itemCount) {
-   queue->index = 0;
+   queue->insertIndex = 0;
+   queue->currentIndex = 0;
 
    if (-1 == ViperDynamicArrayCreate(&queue->data, type, size, itemCount)) {
+      ViperLogError("Failed to allocate queue dynamic array");
       goto ERROR_EXIT;
    }
 
@@ -19,41 +21,36 @@ i8 ViperQueueDestroy() {
 }
 
 void* ViperQueueGetItem(ViperQueue_t* queue) {
-   return ViperDynamicArrayGetItem(&queue->data, queue->index);
+   return ViperDynamicArrayGetItem(&queue->data, queue->currentIndex);
 }
 
-void* ViperQueuePopItem(ViperQueue_t* queue) {
-   void* tmp = ViperDynamicArrayGetItem(&queue->data, queue->index);
-
-   if (-1 == ViperDynamicArrayClearItem(&queue->data, queue->index)) {
+i8 ViperQueuePopItem(ViperQueue_t* queue) {
+   if (-1 == ViperDynamicArrayClearItem(&queue->data, queue->currentIndex++)) {
       ViperLogWarning("Failed to clear internal dynamic array in queue");
    }
 
-   if (++queue->index >= queue->data.count) {
-      queue->index = 0;
-   }
+   --queue->count;
 
-   return tmp;
+   return 0;
 }
 
 i64 ViperQueueInsertItem(ViperQueue_t* queue, void* item) {
-	i64 index = queue->index + 1;
 
-	if (queue->data.size < queue->count + 1) {
+   if (queue->count >= queue->data.size) {
+      ViperLogWarning("Queue is full");
+      goto ERROR_EXIT;
+   }
+
+   if (0 != ViperDynamicArrayInsertItem(&queue->data, queue->insertIndex++, item)) {
+      goto ERROR_EXIT;
+   }
+
+
+	if (queue->data.size <= queue->count) {
 		goto ERROR_EXIT;
 	}
 
-	if (index >= queue->data.size) {
-		queue->index = 0;
-	}
-
-	index = 0 == queue->index ? queue->count : queue->index - 1;
-
-	if (0 != ViperDynamicArrayInsertItem(&queue->data, index, item)) {
-		goto ERROR_EXIT;
-	}
-
-	++queue->count;
+   ++queue->count;
 
 	return 0;
 ERROR_EXIT:

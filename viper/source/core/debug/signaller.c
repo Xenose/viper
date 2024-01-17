@@ -21,8 +21,7 @@ void __ViperSingalHandler(int sig, siginfo_t* info, void* ptr) {
 }
 
 i8 ViperSignalHandlerInit() {
-	struct sigaction oldAction;
-	struct sigaction action;
+	struct sigaction action = { 0 };
 	
 	action.sa_flags = SA_SIGINFO,
 	action.sa_sigaction = &__ViperSingalHandler,
