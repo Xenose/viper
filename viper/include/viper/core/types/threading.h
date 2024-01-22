@@ -3,17 +3,41 @@
 
 #include<viper/core/types/defines.h>
 #include<viper/core/types/struct.h>
+#include<viper/core/algorithm/queue.h>
+
+typedef struct {
+   ViperStructType_t sType;
+   void* data;
+} ViperThreadingTask_t;
 
 typedef struct {
    ViperStructType_t sType;
 
+   union {
+      void* topPtr;
+      u8* topDataPtr;
+   };
+
+   union {
+      void* bottomPtr;
+      u8* bottomDataPtr;
+   };
+} ViperThreadingStack_t;
+
+typedef struct {
+   ViperStructType_t sType;
+ 
+   u64 id;
+   ViperThreadingStack_t stack;
+   ViperQueue_t tasks;
 } ViperThreadingWorker_t;
 
 typedef struct {
    ViperStructType_t sType;
-   
-   i64 workCount;
-   ViperThreadingWorker_t* work;
+
+   i64 workerCount;
+   ViperQueue_t tasks;
+   ViperQueue_t workers;
 } ViperThreadingForeman_t;
 
 #endif /* __threading_viper_types_threading__ */

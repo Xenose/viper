@@ -1,13 +1,14 @@
 #include<stdarg.h>
 #include<stdlib.h>
+#include<string.h>
 
 #include<viper/core/debug/logger.h>
 #include<viper/core/io/printer.h>
 
-#define BUFFER_SIZE 4096
+#define BUFFER_SIZE 8192
 
-__thread char __viperLogBuffer[BUFFER_SIZE] = { 0 };
-__thread u64 __viperLogBufferUsed = 0;
+static __thread char __viperLogBuffer[BUFFER_SIZE] = { 0 };
+static __thread u64 __viperLogBufferUsed = 0;
 
 // TODO later only warning level and above should be logged
 au32 __viperLogLevel =
@@ -24,6 +25,8 @@ au32 __viperLogLevel =
 inline void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc* format, ...) {
    va_list args;
    cc* level = NULL;
+
+   __viperLogBufferUsed = 0;
 
    if (logLevel & __viperLogLevel) switch (logLevel) {
       case VIPER_LOG_LEVEL_DEBUG:
@@ -61,7 +64,7 @@ inline void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc*
 PRINT_DATA:
    va_start(args, format);
 
-   ViperPrintNSFB(2, "\n\t%s File [ %s ] Line [ %i ] Function [ %s ] Message : ", 
+   ViperPrintNSFB(2, "%s File [ %s ] Line [ %i ] Function [ %s ] Message : ", 
          __viperLogBuffer, BUFFER_SIZE, &__viperLogBufferUsed,
          level, file, line, function
       );
@@ -70,7 +73,6 @@ PRINT_DATA:
    __viperLogBuffer[__viperLogBufferUsed++] = '\n';
 
    ViperPrintFlush(2, __viperLogBuffer, __viperLogBufferUsed);
-   __viperLogBufferUsed = 0;
    va_end(args);
 }
 

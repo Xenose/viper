@@ -13,6 +13,7 @@
 #include<string.h>
 
 #define BUFFER_SIZE 2048
+
 static __thread char __viperPrintBuffer[BUFFER_SIZE] = { 0 };
 
 void __ViperPrintMemory(i64* total, i64 stream, const char* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
@@ -84,7 +85,9 @@ LOOP:
 
 // flush buffer functions
 inline i64 ViperPrintFlush(i64 stream, char* buffer, u64 bufferSize) {
-   ViperWrite(stream, buffer, bufferSize);
+   int df = dup(stream);
+   ViperWrite(df, buffer, bufferSize);
+   close(df);
    return 0;
 }
 
