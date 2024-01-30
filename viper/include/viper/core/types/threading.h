@@ -8,6 +8,7 @@
 typedef struct {
    ViperStructType_t sType;
    void* data;
+   void (*func)(void* ptr);
 } ViperThreadingTask_t;
 
 typedef struct {

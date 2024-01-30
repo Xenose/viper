@@ -69,7 +69,14 @@ char* __ViperStpnCpy512(char* restrict dst, const char* restrict src, unsigned l
 
 // public functions
 
-char* (*ViperStpnCpy)(char* restrict dst, const char* restrict src, unsigned long bytes) = &stpncpy;//&__ViperStpnCpy128;
+u64 __ViperStpnCpy(char* restrict dst, cc* restrict src, u64 bytes) {
+   uint64_t length = strnlen(src, bytes);
+   memcpy(dst, src, length);
+
+   return length;
+}
+
+u64 (*ViperStpnCpy)(char* restrict dst, cc* restrict src, u64 bytes) = &__ViperStpnCpy;//&__ViperStpnCpy128;
 
 void ViperOptimizeStringFunctions() {
 }

@@ -8,6 +8,7 @@
 #include<viper/core/types/application.h>
 
 extern i8 ViperThreadingForemanInit(u64 workerCount);
+extern i8 ViperThreadingForemanAddTask(ViperThreadingTask_t* const task);
 extern i64 ViperThreadingForemanStart(ViperApplication_t* app);
 
 #endif /* __header_viper_core_foreman__ */

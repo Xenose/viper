@@ -7,7 +7,6 @@
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/threading/foreman.h>
 #include<viper/core/debug/logger.h>
-#include<viper/core/io/printer.h>
 
 static ViperThreadingForeman_t __foreman = { 0 };
 
@@ -16,6 +15,7 @@ static int __ViperThreadingWorker(void* ptr) {
    ViperThreadingWorker_t* me = ptr;
 
    while (1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
+      ViperLogNotice("Hello World!");
    }
    return 0;
 }
@@ -25,26 +25,8 @@ i8 ViperThreadingForemanInit(u64 workerCount) {
       ViperLogFatal("Failed to create worker queue");
       return -1;
    }
-   
-   if (0 != ViperQueueCreate(&__foreman.tasks, 0, sizeof(ViperThreadingTask_t), 10)) {
-      ViperLogFatal("Failed to create worker queue");
-      return -1;
-   }
-
-   __foreman.workerCount = workerCount;
 
    return 0;
-}
-
-i8 ViperThreadingForemanAddTask(ViperThreadingTask_t* const task) {
-   if (0 != ViperQueueInsertItemExpand(&__foreman.tasks, task)) {
-      ViperLogWarning("Failed to add task");
-      goto ERROR_EXIT;
-   }
-
-   return 0;
-ERROR_EXIT:
-   return -1;
 }
 
 i64 ViperThreadingForemanStart(ViperApplication_t* app) {
@@ -59,17 +41,25 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
 
       if (-1 == clone(__ViperThreadingWorker, current->stack.bottomPtr, CLONE_FILES | CLONE_VM, current)) {
          ViperLogFatal("Clone failed [ %e ]", errno);
-
          goto ERROR_EXIT;
       }
    }
 
    while(1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
-      ViperThreadingTask_t* task = ViperQueueGetItem(&__foreman.tasks);
-      task->func(app);
    }
 
 ERROR_EXIT:
    return 0;
+}
+
+i8 ViperThreadingForemanAddTask(ViperThreadingTask_t* const task) {
+   if (0 != ViperQueueInsertItemExpand(&__foreman.tasks, task)) {
+      ViperLogWarning("Failed to add task");
+      goto ERROR_EXIT;
+   }
+
+   return 0;
+ERROR_EXIT:
+   return -1;
 }
 

@@ -34,9 +34,9 @@ void __ViperPrintMemory(i64* total, i64 stream, const char* restrict format, cha
 
 /**
  */
-void __ViperPrinterParseString(i64* total, i64 stream, const char* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
+void __ViperPrinterParseString(i64* total, i64 stream, cc* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
 LOOP:
-   if (bufferSize <= (*bufferUsed) + 24) {
+   if (bufferSize <= (*bufferUsed) + 1) {
       ViperPrintFlush(stream, buffer, *bufferUsed);
       *total += *bufferUsed;
       *bufferUsed = 0;
@@ -63,7 +63,7 @@ LOOP:
                __ViperPrintMemory(total, stream, format, buffer, bufferSize, bufferUsed, args);
                break;
             case 's':
-               *bufferUsed += ViperStpnCpy(&buffer[*bufferUsed], va_arg(args, char*), bufferSize - *bufferUsed) - &buffer[*bufferUsed];
+               *bufferUsed += ViperStpnCpy(&buffer[*bufferUsed], va_arg(args, char*), bufferSize - *bufferUsed);
                break;
             case 'x':
                break;
@@ -85,9 +85,7 @@ LOOP:
 
 // flush buffer functions
 inline i64 ViperPrintFlush(i64 stream, char* buffer, u64 bufferSize) {
-   int df = dup(stream);
-   ViperWrite(df, buffer, bufferSize);
-   close(df);
+   ViperWrite(stream, buffer, bufferSize);
    return 0;
 }
 

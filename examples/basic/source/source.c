@@ -23,6 +23,11 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
    return 0;
 }
 
+void Hello() {
+   sleep(1);
+   ViperPrintF("Hello Hello!\n");
+}
+
 i64 ViperMain(ViperApplication_t* app) {
    
    ViperInitGLFW(app);
@@ -34,9 +39,17 @@ i64 ViperMain(ViperApplication_t* app) {
       .resultion.y = 1080,
    };
 
+   ViperThreadingTask_t task = {
+      .func = Hello,
+   };
+
+   ViperThreadingForemanInit(10);
+
+   if (0 != ViperThreadingForemanAddTask(&task)) {
+      return -1;
+   }
    //ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
  
-   ViperThreadingForemanInit(10);
    ViperThreadingForemanStart(app);
    return 0;
 }
