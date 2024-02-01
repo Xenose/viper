@@ -5,11 +5,17 @@
 #include<viper/core/types/dynamic_array.h>
 
 typedef struct {
-   ViperStructType_t sType;
-   i64 insertIndex;
-   i64 currentIndex;
+	ViperStructType_t sType;
+	i64 insertIndex;
+	i64 currentIndex;
 	i64 count;
-   ViperDynamicArray_t data;
+	ViperDynamicArray_t data;
 } ViperQueue_t;
+
+typedef struct {
+	ViperStructType_t sType;
+	atomic_flag locked;
+	ViperQueue_t queue;
+} ViperAtomicQueue_t;
 
 #endif /* __header_viper_core_types_queue__ */
