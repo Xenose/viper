@@ -1,0 +1,2 @@
+/usr/bin/ar qc libviper_f95.a CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.o
+/usr/bin/ranlib libviper_f95.a

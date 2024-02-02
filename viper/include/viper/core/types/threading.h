@@ -5,13 +5,15 @@
 #include<viper/core/types/struct.h>
 #include<viper/core/algorithm/queue.h>
 
-#define VIPER_THREADING_TASK_BUSY			0x0001
+#define VIPER_THREADING_TASK_ASSIGNED    0x0001
 
 typedef struct {
    ViperStructType_t sType;
+   
+	au64 flags;
+   
    void* data;
    void (*func)(void* ptr);
-	au64 flags;
 } ViperThreadingTask_t;
 
 typedef struct {
@@ -33,7 +35,7 @@ typedef struct {
  
    u64 id;
    ViperThreadingStack_t stack;
-   ViperQueue_t tasks;
+   ViperAtomicQueue_t tasks;
 } ViperThreadingWorker_t;
 
 typedef struct {

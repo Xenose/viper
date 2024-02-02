@@ -19,16 +19,18 @@
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/threading/foreman.h>
 
+#include<viper/core/dummy/hello.h>
+
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
    return 0;
 }
 
 void Hello() {
-   sleep(1);
    ViperPrintF("Hello Hello!\n");
 }
 
 i64 ViperMain(ViperApplication_t* app) {
+   ViperFortranHello();
    
    ViperInitGLFW(app);
 

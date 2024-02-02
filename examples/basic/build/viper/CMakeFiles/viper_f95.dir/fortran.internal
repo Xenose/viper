@@ -1,0 +1,3 @@
+# The fortran modules provided by this target.
+provides
+ viper_fortran_hello_modlue.mod

@@ -1,4 +1,5 @@
 #include <stdatomic.h>
+#include<unistd.h>
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/algorithm/dynamic_array.h>
 #include<viper/core/debug/logger.h>
@@ -8,6 +9,7 @@ i8 ViperQueueCreate(ViperQueue_t* queue, ViperStructType_t type, u64 size, u64 i
 	queue->currentIndex = 0;
 	queue->count = 0;
 
+   sleep(1);
 	if (-1 == ViperDynamicArrayCreate(&queue->data, type, size, itemCount)) {
 		ViperLogError("Failed to allocate queue dynamic array");
 		goto ERROR_EXIT;
@@ -27,7 +29,22 @@ void* ViperQueueGetItem(ViperQueue_t* queue) {
 }
 
 void* ViperQueueGetNextItem(ViperQueue_t* queue) {
-	return ViperDynamicArrayGetItem(&queue->data, queue->currentIndex++);
+   u64 index = 0;
+
+   if (0 == queue->count) {
+      goto ERROR_EXIT;
+   }
+
+   index = queue->currentIndex++;
+
+   if (queue->data.size <= index) {
+      index = 0;
+      queue->currentIndex = 1;
+   }
+
+	return ViperDynamicArrayGetItem(&queue->data, index);
+ERROR_EXIT:
+   return NULL;
 }
 
 i64 ViperQueuePopItem(ViperQueue_t* queue) {
@@ -52,7 +69,6 @@ ERROR_EXIT:
 }
 
 i64 ViperQueueInsertItem(ViperQueue_t* restrict queue, void* restrict item) {
-
 	if (queue->count >= queue->data.count) {
 		ViperLogWarning("Queue is full");
 		goto ERROR_EXIT;

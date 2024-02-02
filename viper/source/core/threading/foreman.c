@@ -8,6 +8,8 @@
 #include<viper/core/threading/foreman.h>
 #include<viper/core/debug/logger.h>
 #include<viper/core/io/printer.h>
+#include<viper/core/memory/allocator.h>
+#include<viper/core/types/memory.h>
 
 static ViperThreadingForeman_t __foreman = { 0 };
 
@@ -15,9 +17,30 @@ static int __ViperThreadingWorker(void* ptr) {
    ViperApplication_t* app = NULL;
    ViperThreadingWorker_t* me = ptr;
 
+   const char* message = "None";
+
+   if (0 != ViperAtomicQueueCreate(&me->tasks, 0, sizeof(ViperThreadingTask_t), 10)) {
+      message = "Failed to create queue";
+      goto ERROR_EXIT;
+   }
+
    while (1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
+      ViperThreadingTask_t* task = ViperAtomicQueueGetNextItem(&me->tasks);
+
+      if (NULL == task) {
+         continue;
+      }
+
+      if (!(VIPER_THREADING_TASK_ASSIGNED & task->flags)) {
+         continue;
+      }
+
+      task->func(task->data);
    }
    return 0;
+ERROR_EXIT:
+   ViperLogFatal("%s", message);
+   return -1;
 }
 
 i8 ViperThreadingForemanInit(u64 workerCount) {
@@ -48,16 +71,17 @@ ERROR_EXIT:
 }
 
 i64 ViperThreadingForemanStart(ViperApplication_t* app) {
-   ViperThreadingWorker_t* current = NULL;
-
    for (int i = 0; i < __foreman.workerCount; i++) {
-      current = ViperQueueGetNextItem(&__foreman.workers);
-      current->stack.topPtr = calloc(1, 16192);
-      current->stack.bottomPtr = current->stack.topPtr + 16192;
+      ViperThreadingWorker_t worker = { 0 };
 
-      current->id = i + 1;
+      worker.stack.topPtr = ViperCalloc(1, VIPER_MEMORY_8KB);
+      worker.stack.bottomPtr = worker.stack.topPtr + VIPER_MEMORY_8KB;
 
-      if (-1 == clone(__ViperThreadingWorker, current->stack.bottomPtr, CLONE_FILES | CLONE_VM, current)) {
+      worker.id = i + 1;
+      
+      ViperQueueInsertItem(&__foreman.workers, &worker);
+
+      if (-1 == clone(__ViperThreadingWorker, worker.stack.bottomPtr, CLONE_FILES | CLONE_VM, ViperQueueGetNextItem(&__foreman.workers))) {
          ViperLogFatal("Clone failed [ %e ]", errno);
 
          goto ERROR_EXIT;
@@ -65,8 +89,21 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
    }
 
    while(1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
-      ViperThreadingTask_t* task = ViperQueueGetItem(&__foreman.tasks);
-      task->func(app);
+      ViperThreadingTask_t* task = ViperQueueGetNextItem(&__foreman.tasks);
+
+      if (NULL == task) {
+         continue;
+      }
+
+      if (VIPER_THREADING_TASK_ASSIGNED & task->flags) {
+         continue;
+      }
+
+      for (u64 i = 0; i < __foreman.workerCount; i++) {
+         ViperThreadingWorker_t* worker = ViperQueueGetNextItem(&__foreman.workers);
+         ViperAtomicQueueInsertItem(&worker->tasks, task);
+         task->flags |= VIPER_THREADING_TASK_ASSIGNED;
+      }
    }
 
 ERROR_EXIT:
