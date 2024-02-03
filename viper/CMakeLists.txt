@@ -3,10 +3,13 @@ project(viper LANGUAGES C Fortran)
 
 enable_language(Fortran)
 
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -pg")
 set(CMAKE_C_STANDARD 17)
 
 set(F95_SOURCE
    "source/core/dummy/hello.f95"
+   
+   "source/core/maths/basic.f95"
 )
 
 set(C_SOURCE

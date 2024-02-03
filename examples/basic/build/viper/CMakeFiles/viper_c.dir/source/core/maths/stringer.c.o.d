@@ -42,4 +42,7 @@ viper/CMakeFiles/viper_c.dir/source/core/maths/stringer.c.o: \
  /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h
+ /usr/include/bits/stdio_lim.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/benchmark.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/benchmark.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h

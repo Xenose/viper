@@ -1,0 +1,47 @@
+! basic.f95
+
+MODULE VIPER_FORTRAN_MATH
+   USE, INTRINSIC :: ISO_C_BINDING
+   IMPLICIT NONE
+
+CONTAINS
+
+
+
+   FUNCTION VIPER_INTEGER_LOG(BASE, X) BIND (C, NAME="ViperIntLog") RESULT(RES)
+      
+      INTEGER(KIND = C_INT64_T), VALUE :: BASE
+      INTEGER(KIND = C_INT64_T), VALUE :: X
+      INTEGER(KIND = C_INT64_T) :: RES
+
+      RES = 0
+      X = X / BASE
+
+      DO WHILE (0 /= X)
+         RES = RES + 1
+         X = X / BASE
+      END DO
+
+   END FUNCTION VIPER_INTEGER_LOG
+
+
+
+   FUNCTION VIPER_INTEGER_POWER(P, X) BIND(C, NAME="ViperIntPower") RESULT(RES)
+
+      INTEGER(KIND = C_INT64_T), VALUE :: P
+      INTEGER(KIND = C_INT64_T), VALUE :: X
+      INTEGER(KIND = C_INT64_T) :: RES
+
+      RES = P
+      X = X - 1
+
+      DO WHILE (0 /= X)
+         RES = RES * P
+         X = X - 1
+      END DO
+
+   END FUNCTION VIPER_INTEGER_POWER
+
+
+
+END MODULE VIPER_FORTRAN_MATH

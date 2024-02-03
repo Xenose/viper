@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_Fortran
   "/home/xenose/Projects/main/library/examples/basic/viper/source/core/dummy/hello.f95" "/home/xenose/Projects/main/library/examples/basic/build/viper/CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.o"
+  "/home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/basic.f95" "/home/xenose/Projects/main/library/examples/basic/build/viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o"
   )
 set(CMAKE_Fortran_COMPILER_ID "GNU")
 set(CMAKE_Fortran_SUBMODULE_SEP "@")

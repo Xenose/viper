@@ -1,9 +1,12 @@
 #define VIPER_USE_LIBRARY_MAIN
 
+#define _OPEN_SYS_ITOA_EXT
+
 #include<stdio.h>
 #include<fcntl.h>
 #include<sys/mman.h>
 #include<unistd.h>
+#include<stdlib.h>
 
 #include<viper/api/main.h>
 #include<viper/core/io/printer.h>
@@ -30,8 +33,21 @@ void Hello() {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   ViperFortranHello();
+   char buffer[256] = { 0 };
+
+   ViperBenchmark_t spf = { 0 };
+   ViperBenchmark_t itoaBench = { 0 };
+   ViperBenchmark_t itoa2Bench = { 0 };
    
+   ViperBenchmark(&spf, for (int i = 0; i < 1000000; i++) sprintf(buffer, "%ld", (long int)100));
+   ViperBenchmark(&itoaBench, for (int i = 0; i < 1000000; i++) ViperItoa(100, buffer, 255, 10));
+   ViperBenchmark(&itoa2Bench, for (int i = 0; i < 1000000; i++) ViperItoa2(100, buffer, 255, 10));
+
+   printf("Itoa :: %li seconds %li micro %li nano\n", itoaBench.seconds, itoaBench.secondsMicro, itoaBench.secondsNano);
+   printf("Itoa2 :: %li seconds %li micro %li nano\n", itoa2Bench.seconds, itoa2Bench.secondsMicro, itoa2Bench.secondsNano);
+   printf("Sprintf :: %li seconds %li micro %li nano\n", spf.seconds, spf.secondsMicro, spf.secondsNano);
+
+   /*
    ViperInitGLFW(app);
 
    ViperWindow_t window = { 0 };
@@ -52,6 +68,6 @@ i64 ViperMain(ViperApplication_t* app) {
    }
    //ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
  
-   ViperThreadingForemanStart(app);
+   ViperThreadingForemanStart(app);*/
    return 0;
 }

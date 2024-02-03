@@ -82,17 +82,32 @@ viper/CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.s"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/dummy/hello.f95 -o CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.s
 
+viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o: viper/CMakeFiles/viper_f95.dir/flags.make
+viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/basic.f95
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building Fortran object viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -c /home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/basic.f95 -o CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o
+
+viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing Fortran source to CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.i"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -E /home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/basic.f95 > CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.i
+
+viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling Fortran source to assembly CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.s"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/gfortran $(Fortran_DEFINES) $(Fortran_INCLUDES) $(Fortran_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/basic.f95 -o CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.s
+
 # Object files for target viper_f95
 viper_f95_OBJECTS = \
-"CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.o"
+"CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.o" \
+"CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o"
 
 # External object files for target viper_f95
 viper_f95_EXTERNAL_OBJECTS =
 
 viper/libviper_f95.a: viper/CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.o
+viper/libviper_f95.a: viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o
 viper/libviper_f95.a: viper/CMakeFiles/viper_f95.dir/build.make
 viper/libviper_f95.a: viper/CMakeFiles/viper_f95.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking Fortran static library libviper_f95.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking Fortran static library libviper_f95.a"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && $(CMAKE_COMMAND) -P CMakeFiles/viper_f95.dir/cmake_clean_target.cmake
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/viper_f95.dir/link.txt --verbose=$(VERBOSE)
 

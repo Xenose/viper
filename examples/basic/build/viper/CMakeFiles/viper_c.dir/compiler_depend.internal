@@ -858,7 +858,10 @@ viper/CMakeFiles/viper_c.dir/source/core/io/printer.c.o
 
 viper/CMakeFiles/viper_c.dir/source/core/maths/stringer.c.o
  /home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/stringer.c
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/benchmark.h
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/stringer.h
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/benchmark.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h
  /usr/include/alloca.h

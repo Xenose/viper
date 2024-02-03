@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/viper_f95.dir/source/core/dummy/hello.f95.o"
+  "CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o"
   "libviper_f95.a"
   "libviper_f95.pdb"
 )

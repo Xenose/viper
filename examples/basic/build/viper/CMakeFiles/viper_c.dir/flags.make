@@ -6,5 +6,5 @@ C_DEFINES =
 
 C_INCLUDES = -I/home/xenose/Projects/main/library/examples/basic/viper/include
 
-C_FLAGS = 
+C_FLAGS =  -Wall -O0 -pg -Wall -O0 -pg
 

@@ -528,6 +528,30 @@ source/core/io/printer.c.s:
 	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_c.dir/build.make viper/CMakeFiles/viper_c.dir/source/core/io/printer.c.s
 .PHONY : source/core/io/printer.c.s
 
+source/core/maths/basic.o: source/core/maths/basic.f95.o
+.PHONY : source/core/maths/basic.o
+
+# target to build an object file
+source/core/maths/basic.f95.o:
+	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_f95.dir/build.make viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.o
+.PHONY : source/core/maths/basic.f95.o
+
+source/core/maths/basic.i: source/core/maths/basic.f95.i
+.PHONY : source/core/maths/basic.i
+
+# target to preprocess a source file
+source/core/maths/basic.f95.i:
+	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_f95.dir/build.make viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.i
+.PHONY : source/core/maths/basic.f95.i
+
+source/core/maths/basic.s: source/core/maths/basic.f95.s
+.PHONY : source/core/maths/basic.s
+
+# target to generate assembly for a file
+source/core/maths/basic.f95.s:
+	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_f95.dir/build.make viper/CMakeFiles/viper_f95.dir/source/core/maths/basic.f95.s
+.PHONY : source/core/maths/basic.f95.s
+
 source/core/maths/stringer.o: source/core/maths/stringer.c.o
 .PHONY : source/core/maths/stringer.o
 
@@ -802,6 +826,9 @@ help:
 	@echo "... source/core/io/printer.o"
 	@echo "... source/core/io/printer.i"
 	@echo "... source/core/io/printer.s"
+	@echo "... source/core/maths/basic.o"
+	@echo "... source/core/maths/basic.i"
+	@echo "... source/core/maths/basic.s"
 	@echo "... source/core/maths/stringer.o"
 	@echo "... source/core/maths/stringer.i"
 	@echo "... source/core/maths/stringer.s"

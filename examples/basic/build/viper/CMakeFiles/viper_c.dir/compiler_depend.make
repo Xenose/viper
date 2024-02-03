@@ -842,7 +842,10 @@ viper/CMakeFiles/viper_c.dir/source/core/io/printer.c.o: /home/xenose/Projects/m
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h
 
 viper/CMakeFiles/viper_c.dir/source/core/maths/stringer.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/maths/stringer.c \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/benchmark.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/stringer.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/benchmark.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h \
   /usr/include/alloca.h \
@@ -1537,6 +1540,8 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /usr/include/bits/confname.h:
 
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h:
+
 /usr/include/bits/fcntl-linux.h:
 
 /usr/include/linux/errno.h:
@@ -1993,6 +1998,10 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/avx512vbmi2vlintrin.h:
 
+/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/immintrin.h:
+
+/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/avx512vbmivlintrin.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/avxintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h:
@@ -2026,7 +2035,3 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/clzerointrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/hresetintrin.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/avx512vbmivlintrin.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/immintrin.h:
