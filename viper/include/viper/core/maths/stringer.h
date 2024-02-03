@@ -4,8 +4,6 @@
 #include<viper/core/types/defines.h>
 #include<viper/core/types/struct.h>
 
-extern i64 ViperItoa(i64 value, char* buffer, u64 bufferSize, i64 base);
-
 /**
  * ViperItoa2 is a function used for converted integers to
  * a human reable format in the form of a string.
@@ -18,5 +16,6 @@ extern i64 ViperItoa(i64 value, char* buffer, u64 bufferSize, i64 base);
  * @return On success the length of the new string will be \
  * returned on error -1 will be returned.
  */
-extern  i64 ViperItoa2(i64 value, char* buffer, u64 size, i64 base);
+extern  i64 ViperItoa(i64 value, char* buffer, u64 size, i64 base);
+
 #endif /* __header_viper_core_maths_stringer__ */
