@@ -3,7 +3,8 @@ project(viper LANGUAGES C Fortran)
 
 enable_language(Fortran)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -O0 -pg")
+set(CMAKE_C_FLAGS "${CMAKE_fortran_FLAGS} ")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall ")
 set(CMAKE_C_STANDARD 17)
 
 set(F95_SOURCE

@@ -4,7 +4,7 @@
 #include<viper/core/types/benchmark.h>
 
 #define ViperBenchmark(bench, code) ViperBenchmarkStart(bench); { code; } ViperBenchmarkStop(bench)
-#define ViperBenchmarkPrint(bench, text, code) ViperBenchmark(bench, code); \
+#define ViperBenchmarkPrint(bench, text, code) ViperBenchmark(bench, (code)); \
    printf(text " :: %li seconds %li micro %li nano\n", (bench)->seconds, (bench)->secondsMicro, (bench)->secondsNano);
 
 extern i8 ViperBenchmarkStart(ViperBenchmark_t* bench);

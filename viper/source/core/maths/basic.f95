@@ -32,13 +32,17 @@ CONTAINS
       INTEGER(KIND = C_INT64_T), VALUE :: X
       INTEGER(KIND = C_INT64_T) :: RES
 
-      RES = P
-      X = X - 1
+      RES = 0
 
-      DO WHILE (0 /= X)
-         RES = RES * P
+      IF ( 0 /= X ) THEN
+         RES = P
          X = X - 1
-      END DO
+
+         DO WHILE (0 /= X)
+            RES = RES * P
+            X = X - 1
+         END DO
+      END IF
 
    END FUNCTION VIPER_INTEGER_POWER
 

@@ -7,6 +7,7 @@
 #include<sys/mman.h>
 #include<unistd.h>
 #include<stdlib.h>
+#include<string.h>
 
 #include<viper/api/main.h>
 #include<viper/core/io/printer.h>
@@ -35,14 +36,30 @@ void Hello() {
 i64 ViperMain(ViperApplication_t* app) {
    char buffer[256] = { 0 };
 
+   /*for (int i = -100; i <= 100; i++) {
+      ViperItoa(i, buffer, 255, 10);
+      puts(buffer);
+      memset(buffer, 0, 255);
+   }*/
+
+   /*int t = 1000000;
+
    ViperBenchmark_t spf = { 0 };
    ViperBenchmark_t itoaBench = { 0 };
    
-   ViperBenchmark(&spf, for (int i = 0; i < 1000000; i++) sprintf(buffer, "%ld", (long int)100));
-   ViperBenchmark(&itoaBench, for (int i = 0; i < 1000000; i++) ViperItoa(100, buffer, 255, 10));
+   ViperBenchmark(&spf, for (i64 i = -t; i < t; i++) sprintf(buffer, "%ld", i));
+   ViperBenchmark(&itoaBench, for (i64 i = -t; i < t; i++) ViperItoa(i, buffer, 255, 10));
 
    printf("Itoa :: %li seconds %li micro %li nano\n", itoaBench.seconds, itoaBench.secondsMicro, itoaBench.secondsNano);
-   printf("Sprintf :: %li seconds %li micro %li nano\n", spf.seconds, spf.secondsMicro, spf.secondsNano);
+   printf("Sprintf :: %li seconds %li micro %li nano\n", spf.seconds, spf.secondsMicro, spf.secondsNano);*/
+
+   ViperBenchmark_t test = { 0 };
+
+   ViperBenchmarkStart(&test);
+   ViperLogNotice("hello");
+   ViperBenchmarkStop(&test);
+
+   printf("Log :: %li seconds %li micro %li nano\n", test.seconds, test.secondsMicro, test.secondsNano);
 
    /*
    ViperInitGLFW(app);

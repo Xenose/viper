@@ -40,7 +40,9 @@ CMakeFiles/basic.dir/source/source.c.o: \
  /usr/include/bits/pthreadtypes-arch.h \
  /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-float.h \
+ /usr/include/bits/stdlib-float.h /usr/include/string.h \
+ /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
+ /usr/include/strings.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/api/main.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \

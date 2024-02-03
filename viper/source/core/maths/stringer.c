@@ -16,7 +16,8 @@ static const i64 __viperNumberTableSize = sizeof(__viperNumberTable) / sizeof(__
 
 i64 ViperItoa(i64 value, char* restrict buffer, u64 size, i64 base) {
    u64 i = 0;
-   u64 pw;
+   u64 j = 0;
+   u64 pw = 0;
    u64 temporarius;
    i64 trahens = 0;
 
@@ -25,27 +26,28 @@ i64 ViperItoa(i64 value, char* restrict buffer, u64 size, i64 base) {
    }
   
    if (0 > value) {
-      buffer[i++] = '-';
-      ++trahens;
+      buffer[j++] = '-';
       value = labs(value);
    }
 
    trahens += ViperIntLog(base, value);
-   
+
    pw = ViperIntPower(base, trahens);
 
-   if (value < base || __viperNumberTableSize < base || size < trahens) {
+   if (__viperNumberTableSize < base || size < trahens) {
       goto ERROR_EXIT;
    }
-
-   while (i <= trahens) {
+   
+   if (0 == pw) {
+      buffer[j++] = __viperNumberTable[value];
+   } else while (i++ <= trahens) {
       temporarius = value / pw;
       value -= temporarius * pw;
-      buffer[i++] = __viperNumberTable[temporarius];
+      buffer[j++] = __viperNumberTable[temporarius];
       pw /= base;
    }
 
-   return trahens;
+   return j + 1;
 ERROR_EXIT:
    return -1;
 }
