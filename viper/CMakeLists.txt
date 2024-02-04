@@ -9,45 +9,34 @@ set(CMAKE_C_STANDARD 17)
 
 set(F95_SOURCE
    "source/core/dummy/hello.f95"
-   
    "source/core/maths/basic.f95"
 )
 
 set(C_SOURCE
-   "source/api/main.c"
    "source/api/image/image.c"
-
+   "source/api/main.c"
    "source/core/algorithm/dynamic_array.c"
    "source/core/algorithm/queue.c"
-
    "source/core/debug/benchmark.c"
    "source/core/debug/exceptions.c"
    "source/core/debug/logger.c"
    "source/core/debug/signaller.c"
-   
    "source/core/file/file.c"
    "source/core/file/format.c"
-   
    "source/core/graphics/glfw.c"
    "source/core/graphics/window.c"
-
-   "source/core/image/jpeg2k.c"
    "source/core/image/jpeg.c"
-
+   "source/core/image/jpeg2k.c"
    "source/core/io/printer.c"
-
    "source/core/maths/stringer.c"
-
    "source/core/memory/allocator.c"
    "source/core/memory/utils.c"
-
    "source/core/platform/cpu.c"
    "source/core/platform/dynamic_loading.c"
    "source/core/platform/error.c"
    "source/core/platform/io.c"
-
    "source/core/string/copy.c"
-
+   "source/core/terminal/parser.c"
    "source/core/threading/foreman.c"
 )
 

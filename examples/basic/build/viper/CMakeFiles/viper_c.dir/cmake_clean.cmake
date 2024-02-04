@@ -45,6 +45,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/viper_c.dir/source/core/platform/io.c.o.d"
   "CMakeFiles/viper_c.dir/source/core/string/copy.c.o"
   "CMakeFiles/viper_c.dir/source/core/string/copy.c.o.d"
+  "CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o"
+  "CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o.d"
   "CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o"
   "CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o.d"
   "libviper_c.a"

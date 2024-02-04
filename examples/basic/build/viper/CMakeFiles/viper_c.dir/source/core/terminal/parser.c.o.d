@@ -1,5 +1,5 @@
-viper/CMakeFiles/viper_c.dir/source/api/main.c.o: \
- /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c \
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o: \
+ /home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c \
  /usr/include/stdc-predef.h /usr/include/stdlib.h \
  /usr/include/bits/libc-header-start.h /usr/include/features.h \
  /usr/include/features-time64.h /usr/include/bits/wordsize.h \
@@ -30,7 +30,11 @@ viper/CMakeFiles/viper_c.dir/source/api/main.c.o: \
  /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/types/cookie_io_functions_t.h \
- /usr/include/bits/stdio_lim.h \
+ /usr/include/bits/stdio_lim.h /usr/include/getopt.h \
+ /usr/include/bits/getopt_core.h /usr/include/bits/getopt_ext.h \
+ /usr/include/string.h /usr/include/bits/types/locale_t.h \
+ /usr/include/bits/types/__locale_t.h /usr/include/strings.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/enums.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/api/main.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h \
@@ -39,10 +43,9 @@ viper/CMakeFiles/viper_c.dir/source/api/main.c.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdatomic.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/application.h \
- /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/enums.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/memory/allocator.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/allocator.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/signaller.h \
- /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/terminal/parser.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/logger.h \
- /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/terminal/parser.h

@@ -76,4 +76,6 @@ CMakeFiles/basic.dir/source/source.c.o: \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/queue.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/threading/foreman.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/threading.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h \
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/parser.h \
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/dummy/hello.h

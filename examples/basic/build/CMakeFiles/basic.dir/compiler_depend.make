@@ -13,6 +13,7 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/glfw.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/window.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/io/printer.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/stringer.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/memory/allocator.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/threading/foreman.h \
@@ -27,6 +28,7 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/glfw.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/image.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/parser.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/queue.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/threading.h \
@@ -179,6 +181,10 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 
 /usr/include/bits/stdint-uintn.h:
 
+/usr/include/bits/stat.h:
+
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/parser.h:
+
 /usr/include/unistd.h:
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/glfw.h:
@@ -193,12 +199,6 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/api/main.h:
 
-/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h:
-
-/usr/include/features.h:
-
-/home/xenose/Projects/main/library/examples/basic/source/source.c:
-
 /usr/include/bits/types/struct_timeval.h:
 
 /usr/include/bits/stdio_lim.h:
@@ -212,10 +212,6 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 /usr/include/bits/posix_opt.h:
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/benchmark.h:
-
-/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h:
-
-/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/threading.h:
 
 /usr/include/bits/struct_mutex.h:
 
@@ -239,7 +235,7 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/memory/allocator.h:
 
-/usr/include/bits/stat.h:
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h:
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/benchmark.h:
 
@@ -249,6 +245,10 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/threading/foreman.h:
 
+/usr/include/bits/stdint-intn.h:
+
+/usr/include/bits/mman_ext.h:
+
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/algorithm/dynamic_array.h:
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h:
@@ -257,11 +257,13 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 
 /usr/include/bits/libc-header-start.h:
 
+/usr/include/bits/wordsize.h:
+
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/stringer.h:
+
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/glfw.h:
+
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/enums.h:
-
-/usr/include/bits/mman_ext.h:
-
-/usr/include/bits/stdint-intn.h:
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/file.h:
 
@@ -269,15 +271,19 @@ CMakeFiles/basic.dir/source/source.c.o: /home/xenose/Projects/main/library/examp
 
 /usr/include/bits/byteswap.h:
 
-/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/glfw.h:
+/usr/include/features.h:
 
-/usr/include/bits/wordsize.h:
+/home/xenose/Projects/main/library/examples/basic/source/source.c:
 
-/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/stringer.h:
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h:
 
 /usr/include/bits/timesize.h:
 
 /usr/include/bits/endian.h:
+
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h:
+
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/threading.h:
 
 /usr/include/GL/glext.h:
 

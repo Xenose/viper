@@ -31,6 +31,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/xenose/Projects/main/library/examples/basic/viper/source/core/platform/error.c" "viper/CMakeFiles/viper_c.dir/source/core/platform/error.c.o" "gcc" "viper/CMakeFiles/viper_c.dir/source/core/platform/error.c.o.d"
   "/home/xenose/Projects/main/library/examples/basic/viper/source/core/platform/io.c" "viper/CMakeFiles/viper_c.dir/source/core/platform/io.c.o" "gcc" "viper/CMakeFiles/viper_c.dir/source/core/platform/io.c.o.d"
   "/home/xenose/Projects/main/library/examples/basic/viper/source/core/string/copy.c" "viper/CMakeFiles/viper_c.dir/source/core/string/copy.c.o" "gcc" "viper/CMakeFiles/viper_c.dir/source/core/string/copy.c.o.d"
+  "/home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c" "viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o" "gcc" "viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o.d"
   "/home/xenose/Projects/main/library/examples/basic/viper/source/core/threading/foreman.c" "viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o" "gcc" "viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o.d"
   )
 

@@ -34,12 +34,15 @@ viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o: /home/xenose/Projects/m
 
 viper/CMakeFiles/viper_c.dir/source/api/main.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/api/main.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/logger.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/signaller.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/memory/allocator.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/terminal/parser.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/allocator.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/application.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/enums.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h \
   /usr/include/alloca.h \
   /usr/include/bits/atomic_wide_counter.h \
@@ -1337,6 +1340,85 @@ viper/CMakeFiles/viper_c.dir/source/core/string/copy.c.o: /home/xenose/Projects/
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/xsavesintrin.h \
   /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/xtestintrin.h
 
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/api/main.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/logger.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/signaller.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/memory/allocator.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/terminal/parser.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/allocator.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/application.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/defines.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/enums.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h \
+  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h \
+  /usr/include/alloca.h \
+  /usr/include/bits/atomic_wide_counter.h \
+  /usr/include/bits/byteswap.h \
+  /usr/include/bits/endian.h \
+  /usr/include/bits/endianness.h \
+  /usr/include/bits/floatn-common.h \
+  /usr/include/bits/floatn.h \
+  /usr/include/bits/getopt_core.h \
+  /usr/include/bits/getopt_ext.h \
+  /usr/include/bits/libc-header-start.h \
+  /usr/include/bits/long-double.h \
+  /usr/include/bits/pthreadtypes-arch.h \
+  /usr/include/bits/pthreadtypes.h \
+  /usr/include/bits/select.h \
+  /usr/include/bits/stdint-intn.h \
+  /usr/include/bits/stdint-uintn.h \
+  /usr/include/bits/stdio_lim.h \
+  /usr/include/bits/stdlib-float.h \
+  /usr/include/bits/struct_mutex.h \
+  /usr/include/bits/struct_rwlock.h \
+  /usr/include/bits/thread-shared-types.h \
+  /usr/include/bits/time64.h \
+  /usr/include/bits/timesize.h \
+  /usr/include/bits/types.h \
+  /usr/include/bits/types/FILE.h \
+  /usr/include/bits/types/__FILE.h \
+  /usr/include/bits/types/__fpos64_t.h \
+  /usr/include/bits/types/__fpos_t.h \
+  /usr/include/bits/types/__locale_t.h \
+  /usr/include/bits/types/__mbstate_t.h \
+  /usr/include/bits/types/__sigset_t.h \
+  /usr/include/bits/types/clock_t.h \
+  /usr/include/bits/types/clockid_t.h \
+  /usr/include/bits/types/cookie_io_functions_t.h \
+  /usr/include/bits/types/locale_t.h \
+  /usr/include/bits/types/sigset_t.h \
+  /usr/include/bits/types/struct_FILE.h \
+  /usr/include/bits/types/struct_timespec.h \
+  /usr/include/bits/types/struct_timeval.h \
+  /usr/include/bits/types/time_t.h \
+  /usr/include/bits/types/timer_t.h \
+  /usr/include/bits/typesizes.h \
+  /usr/include/bits/uintn-identity.h \
+  /usr/include/bits/waitflags.h \
+  /usr/include/bits/waitstatus.h \
+  /usr/include/bits/wchar.h \
+  /usr/include/bits/wordsize.h \
+  /usr/include/endian.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/getopt.h \
+  /usr/include/gnu/stubs-64.h \
+  /usr/include/gnu/stubs.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/sys/cdefs.h \
+  /usr/include/sys/select.h \
+  /usr/include/sys/types.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdarg.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdatomic.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stddef.h \
+  /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/stdint.h
+
 viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/threading/foreman.c \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/algorithm/queue.h \
   /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/debug/logger.h \
@@ -1436,6 +1518,12 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/threading/foreman.h:
 
+/usr/include/getopt.h:
+
+/usr/include/bits/getopt_ext.h:
+
+/home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/xsavesintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/xsaveoptintrin.h:
@@ -1476,11 +1564,9 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/mm_malloc.h:
 
-/usr/include/bits/types/sigval_t.h:
+/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/ia32intrin.h:
 
 /usr/include/bits/types/siginfo_t.h:
-
-/usr/include/bits/typesizes.h:
 
 /usr/include/bits/signal_ext.h:
 
@@ -1600,6 +1686,8 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /usr/include/bits/waitflags.h:
 
+/home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/terminal/parser.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/fmaintrin.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/prfchwintrin.h:
@@ -1655,6 +1743,8 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 /usr/include/bits/types/struct_timeval.h:
 
 /home/xenose/Projects/main/library/examples/basic/viper/source/core/debug/exceptions.c:
+
+/usr/include/bits/typesizes.h:
 
 /usr/include/bits/siginfo-arch.h:
 
@@ -1733,8 +1823,6 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/emmintrin.h:
 
 /usr/include/bits/long-double.h:
-
-/usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/ia32intrin.h:
 
 /usr/include/bits/types/__locale_t.h:
 
@@ -1836,6 +1924,8 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /usr/include/openjpeg-2.5/openjpeg.h:
 
+/usr/include/bits/types/sigval_t.h:
+
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/movdirintrin.h:
 
 /usr/include/bits/waitstatus.h:
@@ -1888,9 +1978,9 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Pro
 
 /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/window.h:
 
-/usr/include/bits/types/sig_atomic_t.h:
-
 /usr/include/bits/types/__fpos_t.h:
+
+/usr/include/bits/types/sig_atomic_t.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/amxfp16intrin.h:
 

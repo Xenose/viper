@@ -14,6 +14,7 @@ CMakeFiles/basic.dir/source/source.c.o
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/glfw.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/graphics/window.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/io/printer.h
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/basic.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/maths/stringer.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/memory/allocator.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/threading/foreman.h
@@ -28,6 +29,7 @@ CMakeFiles/basic.dir/source/source.c.o
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/glfw.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/image.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/logger.h
+ /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/parser.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/queue.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/struct.h
  /home/xenose/Projects/main/library/examples/basic/viper/include/viper/core/types/threading.h

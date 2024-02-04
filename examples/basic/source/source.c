@@ -1,7 +1,5 @@
 #define VIPER_USE_LIBRARY_MAIN
 
-#define _OPEN_SYS_ITOA_EXT
-
 #include<stdio.h>
 #include<fcntl.h>
 #include<sys/mman.h>
@@ -22,6 +20,8 @@
 #include<viper/core/file/file.h>
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/threading/foreman.h>
+#include<viper/core/maths/basic.h>
+#include<viper/core/types/parser.h>
 
 #include<viper/core/dummy/hello.h>
 
@@ -29,48 +29,12 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
    return 0;
 }
 
+
 void Hello() {
    ViperPrintF("Hello Hello!\n");
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   char buffer[256] = { 0 };
-
-   /*for (int i = -100; i <= 100; i++) {
-      ViperItoa(i, buffer, 255, 10);
-      puts(buffer);
-      memset(buffer, 0, 255);
-   }*/
-
-   /*int t = 1000000;
-
-   ViperBenchmark_t spf = { 0 };
-   ViperBenchmark_t itoaBench = { 0 };
-   
-   ViperBenchmark(&spf, for (i64 i = -t; i < t; i++) sprintf(buffer, "%ld", i));
-   ViperBenchmark(&itoaBench, for (i64 i = -t; i < t; i++) ViperItoa(i, buffer, 255, 10));
-
-   printf("Itoa :: %li seconds %li micro %li nano\n", itoaBench.seconds, itoaBench.secondsMicro, itoaBench.secondsNano);
-   printf("Sprintf :: %li seconds %li micro %li nano\n", spf.seconds, spf.secondsMicro, spf.secondsNano);*/
-
-   ViperBenchmark_t test = { 0 };
-   ViperBenchmark_t test2 = { 0 };
-
-   ViperBenchmarkStart(&test);
-   for (int i = 0; i < 1000; i++)
-      ViperLogNotice("hello");
-   ViperBenchmarkStop(&test);
-
-
-   ViperBenchmarkStart(&test2);
-   for (int i = 0; i < 1000; i++)
-      printf("[ \033[34mNOTICE\033[0m ] File [ %s ] Line [ %i ] Function [ %s ] Message : %s\n", __FILE__, __LINE__, __func__, "hello");
-   ViperBenchmarkStop(&test2);
-
-   printf("Log :: %li seconds %li micro %li nano\n", test.seconds, test.secondsMicro, test.secondsNano);
-   printf("Printf :: %li seconds %li micro %li nano\n", test2.seconds, test2.secondsMicro, test2.secondsNano);
-
-   /*
    ViperInitGLFW(app);
 
    ViperWindow_t window = { 0 };
@@ -89,8 +53,7 @@ i64 ViperMain(ViperApplication_t* app) {
    if (0 != ViperThreadingForemanAddTask(&task)) {
       return -1;
    }
-   //ViperLogDisableLevel(VIPER_LOG_LEVEL_DEBUG);
  
-   ViperThreadingForemanStart(app);*/
+   ViperThreadingForemanStart(app);
    return 0;
 }

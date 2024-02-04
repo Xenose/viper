@@ -744,6 +744,30 @@ source/core/string/copy.c.s:
 	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_c.dir/build.make viper/CMakeFiles/viper_c.dir/source/core/string/copy.c.s
 .PHONY : source/core/string/copy.c.s
 
+source/core/terminal/parser.o: source/core/terminal/parser.c.o
+.PHONY : source/core/terminal/parser.o
+
+# target to build an object file
+source/core/terminal/parser.c.o:
+	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_c.dir/build.make viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o
+.PHONY : source/core/terminal/parser.c.o
+
+source/core/terminal/parser.i: source/core/terminal/parser.c.i
+.PHONY : source/core/terminal/parser.i
+
+# target to preprocess a source file
+source/core/terminal/parser.c.i:
+	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_c.dir/build.make viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.i
+.PHONY : source/core/terminal/parser.c.i
+
+source/core/terminal/parser.s: source/core/terminal/parser.c.s
+.PHONY : source/core/terminal/parser.s
+
+# target to generate assembly for a file
+source/core/terminal/parser.c.s:
+	cd /home/xenose/Projects/main/library/examples/basic/build && $(MAKE) $(MAKESILENT) -f viper/CMakeFiles/viper_c.dir/build.make viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.s
+.PHONY : source/core/terminal/parser.c.s
+
 source/core/threading/foreman.o: source/core/threading/foreman.c.o
 .PHONY : source/core/threading/foreman.o
 
@@ -853,6 +877,9 @@ help:
 	@echo "... source/core/string/copy.o"
 	@echo "... source/core/string/copy.i"
 	@echo "... source/core/string/copy.s"
+	@echo "... source/core/terminal/parser.o"
+	@echo "... source/core/terminal/parser.i"
+	@echo "... source/core/terminal/parser.s"
 	@echo "... source/core/threading/foreman.o"
 	@echo "... source/core/threading/foreman.i"
 	@echo "... source/core/threading/foreman.s"

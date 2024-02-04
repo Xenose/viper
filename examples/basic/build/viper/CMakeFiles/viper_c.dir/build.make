@@ -69,24 +69,10 @@ include viper/CMakeFiles/viper_c.dir/progress.make
 # Include the compile flags for this target's objects.
 include viper/CMakeFiles/viper_c.dir/flags.make
 
-viper/CMakeFiles/viper_c.dir/source/api/main.c.o: viper/CMakeFiles/viper_c.dir/flags.make
-viper/CMakeFiles/viper_c.dir/source/api/main.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c
-viper/CMakeFiles/viper_c.dir/source/api/main.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object viper/CMakeFiles/viper_c.dir/source/api/main.c.o"
-	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/api/main.c.o -MF CMakeFiles/viper_c.dir/source/api/main.c.o.d -o CMakeFiles/viper_c.dir/source/api/main.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c
-
-viper/CMakeFiles/viper_c.dir/source/api/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/viper_c.dir/source/api/main.c.i"
-	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c > CMakeFiles/viper_c.dir/source/api/main.c.i
-
-viper/CMakeFiles/viper_c.dir/source/api/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/api/main.c.s"
-	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c -o CMakeFiles/viper_c.dir/source/api/main.c.s
-
 viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o: viper/CMakeFiles/viper_c.dir/flags.make
 viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/api/image/image.c
 viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o -MF CMakeFiles/viper_c.dir/source/api/image/image.c.o.d -o CMakeFiles/viper_c.dir/source/api/image/image.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/api/image/image.c
 
 viper/CMakeFiles/viper_c.dir/source/api/image/image.c.i: cmake_force
@@ -96,6 +82,20 @@ viper/CMakeFiles/viper_c.dir/source/api/image/image.c.i: cmake_force
 viper/CMakeFiles/viper_c.dir/source/api/image/image.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/api/image/image.c.s"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/api/image/image.c -o CMakeFiles/viper_c.dir/source/api/image/image.c.s
+
+viper/CMakeFiles/viper_c.dir/source/api/main.c.o: viper/CMakeFiles/viper_c.dir/flags.make
+viper/CMakeFiles/viper_c.dir/source/api/main.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c
+viper/CMakeFiles/viper_c.dir/source/api/main.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object viper/CMakeFiles/viper_c.dir/source/api/main.c.o"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/api/main.c.o -MF CMakeFiles/viper_c.dir/source/api/main.c.o.d -o CMakeFiles/viper_c.dir/source/api/main.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c
+
+viper/CMakeFiles/viper_c.dir/source/api/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/viper_c.dir/source/api/main.c.i"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c > CMakeFiles/viper_c.dir/source/api/main.c.i
+
+viper/CMakeFiles/viper_c.dir/source/api/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/api/main.c.s"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/api/main.c -o CMakeFiles/viper_c.dir/source/api/main.c.s
 
 viper/CMakeFiles/viper_c.dir/source/core/algorithm/dynamic_array.c.o: viper/CMakeFiles/viper_c.dir/flags.make
 viper/CMakeFiles/viper_c.dir/source/core/algorithm/dynamic_array.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/algorithm/dynamic_array.c
@@ -237,24 +237,10 @@ viper/CMakeFiles/viper_c.dir/source/core/graphics/window.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/core/graphics/window.c.s"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/graphics/window.c -o CMakeFiles/viper_c.dir/source/core/graphics/window.c.s
 
-viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o: viper/CMakeFiles/viper_c.dir/flags.make
-viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c
-viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o"
-	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o -MF CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o.d -o CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c
-
-viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.i"
-	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c > CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.i
-
-viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.s"
-	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c -o CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.s
-
 viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o: viper/CMakeFiles/viper_c.dir/flags.make
 viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg.c
 viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building C object viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o -MF CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o.d -o CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg.c
 
 viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.i: cmake_force
@@ -264,6 +250,20 @@ viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.i: cmake_force
 viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/core/image/jpeg.c.s"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg.c -o CMakeFiles/viper_c.dir/source/core/image/jpeg.c.s
+
+viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o: viper/CMakeFiles/viper_c.dir/flags.make
+viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c
+viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building C object viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o -MF CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o.d -o CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c
+
+viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.i"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c > CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.i
+
+viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.s"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/image/jpeg2k.c -o CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.s
 
 viper/CMakeFiles/viper_c.dir/source/core/io/printer.c.o: viper/CMakeFiles/viper_c.dir/flags.make
 viper/CMakeFiles/viper_c.dir/source/core/io/printer.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/io/printer.c
@@ -391,10 +391,24 @@ viper/CMakeFiles/viper_c.dir/source/core/string/copy.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/core/string/copy.c.s"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/string/copy.c -o CMakeFiles/viper_c.dir/source/core/string/copy.c.s
 
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o: viper/CMakeFiles/viper_c.dir/flags.make
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o -MF CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o.d -o CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c
+
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/viper_c.dir/source/core/terminal/parser.c.i"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c > CMakeFiles/viper_c.dir/source/core/terminal/parser.c.i
+
+viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/viper_c.dir/source/core/terminal/parser.c.s"
+	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/xenose/Projects/main/library/examples/basic/viper/source/core/terminal/parser.c -o CMakeFiles/viper_c.dir/source/core/terminal/parser.c.s
+
 viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: viper/CMakeFiles/viper_c.dir/flags.make
 viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: /home/xenose/Projects/main/library/examples/basic/viper/source/core/threading/foreman.c
 viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o: viper/CMakeFiles/viper_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building C object viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building C object viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o -MF CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o.d -o CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o -c /home/xenose/Projects/main/library/examples/basic/viper/source/core/threading/foreman.c
 
 viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.i: cmake_force
@@ -407,8 +421,8 @@ viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.s: cmake_force
 
 # Object files for target viper_c
 viper_c_OBJECTS = \
-"CMakeFiles/viper_c.dir/source/api/main.c.o" \
 "CMakeFiles/viper_c.dir/source/api/image/image.c.o" \
+"CMakeFiles/viper_c.dir/source/api/main.c.o" \
 "CMakeFiles/viper_c.dir/source/core/algorithm/dynamic_array.c.o" \
 "CMakeFiles/viper_c.dir/source/core/algorithm/queue.c.o" \
 "CMakeFiles/viper_c.dir/source/core/debug/benchmark.c.o" \
@@ -419,8 +433,8 @@ viper_c_OBJECTS = \
 "CMakeFiles/viper_c.dir/source/core/file/format.c.o" \
 "CMakeFiles/viper_c.dir/source/core/graphics/glfw.c.o" \
 "CMakeFiles/viper_c.dir/source/core/graphics/window.c.o" \
-"CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o" \
 "CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o" \
+"CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o" \
 "CMakeFiles/viper_c.dir/source/core/io/printer.c.o" \
 "CMakeFiles/viper_c.dir/source/core/maths/stringer.c.o" \
 "CMakeFiles/viper_c.dir/source/core/memory/allocator.c.o" \
@@ -430,13 +444,14 @@ viper_c_OBJECTS = \
 "CMakeFiles/viper_c.dir/source/core/platform/error.c.o" \
 "CMakeFiles/viper_c.dir/source/core/platform/io.c.o" \
 "CMakeFiles/viper_c.dir/source/core/string/copy.c.o" \
+"CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o" \
 "CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o"
 
 # External object files for target viper_c
 viper_c_EXTERNAL_OBJECTS =
 
-viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/api/main.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/api/image/image.c.o
+viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/api/main.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/algorithm/dynamic_array.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/algorithm/queue.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/debug/benchmark.c.o
@@ -447,8 +462,8 @@ viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/file/file.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/file/format.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/graphics/glfw.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/graphics/window.c.o
-viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/image/jpeg.c.o
+viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/image/jpeg2k.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/io/printer.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/maths/stringer.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/memory/allocator.c.o
@@ -458,10 +473,11 @@ viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/platform/dynamic_lo
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/platform/error.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/platform/io.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/string/copy.c.o
+viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/terminal/parser.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/source/core/threading/foreman.c.o
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/build.make
 viper/libviper_c.a: viper/CMakeFiles/viper_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Linking C static library libviper_c.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Linking C static library libviper_c.a"
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && $(CMAKE_COMMAND) -P CMakeFiles/viper_c.dir/cmake_clean_target.cmake
 	cd /home/xenose/Projects/main/library/examples/basic/build/viper && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/viper_c.dir/link.txt --verbose=$(VERBOSE)
 
