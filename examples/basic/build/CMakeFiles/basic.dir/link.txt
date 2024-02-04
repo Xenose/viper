@@ -1,1 +1,0 @@
-/usr/bin/cc  -Wall -O0 -pg CMakeFiles/basic.dir/source/source.c.o -o basic  viper/libviper_c.a viper/libviper_f95.a -lm -lGL -lGLEW -lglfw -lvulkan -lgfortran -lm -lquadmath -lm 

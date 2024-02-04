@@ -1,7 +1,0 @@
-/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles/basic.dir
-/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles/edit_cache.dir
-/home/xenose/Projects/main/library/examples/basic/build/CMakeFiles/rebuild_cache.dir
-/home/xenose/Projects/main/library/examples/basic/build/viper/CMakeFiles/viper_f95.dir
-/home/xenose/Projects/main/library/examples/basic/build/viper/CMakeFiles/viper_c.dir
-/home/xenose/Projects/main/library/examples/basic/build/viper/CMakeFiles/edit_cache.dir
-/home/xenose/Projects/main/library/examples/basic/build/viper/CMakeFiles/rebuild_cache.dir

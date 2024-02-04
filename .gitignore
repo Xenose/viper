@@ -1,8 +1,8 @@
 
 # Folders
-*/build/*
-*/doxygen/*
-*/tmp/*
+**/build/*
+**/doxygen/*
+**/tmp/*
 
 # Objects
 *.o
