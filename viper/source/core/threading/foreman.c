@@ -25,17 +25,17 @@ static int __ViperThreadingWorker(void* ptr) {
    }
 
    while (1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
-      ViperThreadingTask_t* task = ViperAtomicQueueGetNextItem(&me->tasks);
+      /*ViperThreadingTask_t* task = ViperAtomicQueueGetNextItem(&me->tasks);
 
       if (NULL == task) {
          continue;
-      }
+      }*/
 
-      if (!(VIPER_THREADING_TASK_ASSIGNED & task->flags)) {
+      /*if (!(VIPER_THREADING_TASK_ASSIGNED & task->flags)) {
          continue;
       }
 
-      task->func(task->data);
+      task->func(task->data);*/
    }
    return 0;
 ERROR_EXIT:
@@ -81,13 +81,14 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       
       ViperQueueInsertItem(&__foreman.workers, &worker);
 
-      if (-1 == clone(__ViperThreadingWorker, worker.stack.bottomPtr, CLONE_FILES | CLONE_VM, ViperQueueGetNextItem(&__foreman.workers))) {
+      if (-1 == clone(__ViperThreadingWorker, worker.stack.bottomPtr, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, ViperQueueGetNextItem(&__foreman.workers))) {
          ViperLogFatal("Clone failed [ %e ]", errno);
 
          goto ERROR_EXIT;
       }
    }
 
+   sleep(1);
    while(1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
       ViperThreadingTask_t* task = ViperQueueGetNextItem(&__foreman.tasks);
 
@@ -100,6 +101,7 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       }
 
       for (u64 i = 0; i < __foreman.workerCount; i++) {
+         ViperLogDebug("assigning task!");
          ViperThreadingWorker_t* worker = ViperQueueGetNextItem(&__foreman.workers);
          ViperAtomicQueueInsertItem(&worker->tasks, task);
          task->flags |= VIPER_THREADING_TASK_ASSIGNED;
