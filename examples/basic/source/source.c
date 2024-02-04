@@ -54,12 +54,21 @@ i64 ViperMain(ViperApplication_t* app) {
    printf("Sprintf :: %li seconds %li micro %li nano\n", spf.seconds, spf.secondsMicro, spf.secondsNano);*/
 
    ViperBenchmark_t test = { 0 };
+   ViperBenchmark_t test2 = { 0 };
 
    ViperBenchmarkStart(&test);
-   ViperLogNotice("hello");
+   for (int i = 0; i < 1000; i++)
+      ViperLogNotice("hello");
    ViperBenchmarkStop(&test);
 
+
+   ViperBenchmarkStart(&test2);
+   for (int i = 0; i < 1000; i++)
+      printf("[ \033[34mNOTICE\033[0m ] File [ %s ] Line [ %i ] Function [ %s ] Message : %s\n", __FILE__, __LINE__, __func__, "hello");
+   ViperBenchmarkStop(&test2);
+
    printf("Log :: %li seconds %li micro %li nano\n", test.seconds, test.secondsMicro, test.secondsNano);
+   printf("Printf :: %li seconds %li micro %li nano\n", test2.seconds, test2.secondsMicro, test2.secondsNano);
 
    /*
    ViperInitGLFW(app);
