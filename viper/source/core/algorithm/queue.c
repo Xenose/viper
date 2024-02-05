@@ -37,7 +37,7 @@ void* ViperQueueGetNextItem(ViperQueue_t* queue) {
 
    index = queue->currentIndex++;
 
-   if (queue->data.size <= index) {
+   if (queue->count <= index) {
       index = 0;
       queue->currentIndex = 1;
    }
@@ -58,6 +58,7 @@ i64 ViperQueuePopItem(ViperQueue_t* queue) {
 i64 ViperQueueInsertItemExpand(ViperQueue_t* restrict queue, void* restrict item) {
 	if (0 != ViperDynamicArrayInsertItem(&queue->data, queue->insertIndex++, item)) {
 		ViperLogDebug("Failed to insert item");
+      queue->insertIndex--;
 		goto ERROR_EXIT;
 	}
 

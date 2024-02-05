@@ -1,12 +1,12 @@
 ! Hello.f95
 
-module VIPER_FORTRAN_HELLO_MODLUE
-   use, intrinsic :: iso_c_binding
-   implicit none
+MODULE VIPER_FORTRAN_HELLO_MODLUE
+   USE, INTRINSIC :: ISO_C_BINDING
+   IMPLICIT NONE
 
-contains
-   subroutine VIPER_FORTRAN_HELLO() bind(C, name="ViperFortranHello")
-      write(*,*) "Hello, World!"
-   end subroutine VIPER_FORTRAN_HELLO
+CONTAINS
+   SUBROUTINE VIPER_FORTRAN_HELLO() BIND(C, NAME="ViperFortranHello")
+      WRITE(*,*) "Hello, World!"
+   END SUBROUTINE VIPER_FORTRAN_HELLO
 
-end module VIPER_FORTRAN_HELLO_MODLUE
+END MODULE VIPER_FORTRAN_HELLO_MODLUE

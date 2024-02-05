@@ -16,6 +16,7 @@ typedef struct {
    void (*func)(void* ptr);
 } ViperThreadingTask_t;
 
+
 typedef struct {
    ViperStructType_t sType;
 
@@ -30,6 +31,7 @@ typedef struct {
    };
 } ViperThreadingStack_t;
 
+
 typedef struct {
    ViperStructType_t sType;
  
@@ -38,12 +40,14 @@ typedef struct {
    ViperAtomicQueue_t tasks;
 } ViperThreadingWorker_t;
 
+
 typedef struct {
    ViperStructType_t sType;
 
    i64 workerCount;
+   ViperThreadingWorker_t* workers;
+   
    ViperQueue_t tasks;
-   ViperQueue_t workers;
 } ViperThreadingForeman_t;
 
 #endif /* __threading_viper_types_threading__ */

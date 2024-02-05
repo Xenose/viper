@@ -31,7 +31,8 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 
 
 void Hello() {
-   ViperPrintF("Hello Hello!\n");
+   ViperLogNotice("Hello Hello!");
+   sleep(1);
 }
 
 i64 ViperMain(ViperApplication_t* app) {
