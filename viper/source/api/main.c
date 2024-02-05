@@ -8,6 +8,7 @@
 #include<viper/core/debug/signaller.h>
 #include<viper/core/terminal/parser.h>
 #include<viper/core/debug/logger.h>
+#include<viper/core/graphics/glfw.h>
 
 /**
  * The hidden main function for the Viper engine used the application
@@ -44,6 +45,9 @@ int __ViperMain(int arc, char* const* arv) {
    }
 
    if (NULL != app->SetupOpenGL) {
+      app->opengl = ViperCalloc(1, sizeof(ViperOpenGL_t));
+      
+      ViperInitGLFW(app);
       app->SetupOpenGL(app);
    }
 

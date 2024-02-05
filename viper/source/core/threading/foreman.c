@@ -43,6 +43,18 @@ ERROR_EXIT:
    return -1;
 }
 
+static int __ViperThreadingRenderOpenGL(void* ptr) {
+   ViperApplication_t* app = ptr;
+   ViperOpenGL_t* gl = app->opengl;
+
+   glfwMakeContextCurrent(gl->window.window);
+
+   while (1) {
+      app->LoopOpenGL(app);
+      glfwSwapBuffers(gl->window.window);
+   }
+}
+
 i8 ViperThreadingForemanInit(u64 workerCount) {
    
    
@@ -89,6 +101,16 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       if (-1 == clone(__ViperThreadingWorker, worker.stack.bottomPtr, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, &__foreman.workers[i])) {
          ViperLogFatal("Clone failed [ %e ]", errno);
 
+         goto ERROR_EXIT;
+      }
+   }
+
+   if (VIPER_APP_FLAG_USE_OPENGL & app->flags) {
+      ViperLogDebug("Using OpenGL");
+      void* stack = ViperCalloc(1, VIPER_MEMORY_8KB);
+
+      if (-1 == clone(__ViperThreadingRenderOpenGL, stack + VIPER_MEMORY_8KB, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, app)) {
+         ViperLogFatal("Clone failed [ %e ]", errno);
          goto ERROR_EXIT;
       }
    }

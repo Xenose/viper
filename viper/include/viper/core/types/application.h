@@ -1,12 +1,17 @@
 #ifndef __header_viper_core_types_application__
 #define __header_viper_core_types_application__
 
+#include<GLFW/glfw3.h>
+
 #include<viper/core/types/defines.h>
 #include<viper/core/types/struct.h>
 #include<viper/core/types/flags.h>
+#include<viper/core/types/glfw.h>
 
 typedef struct __ViperOpenGL_t {
    ViperStructType_t sType;
+
+   ViperWindow_t window;
 } ViperOpenGL_t;
 
 typedef struct __ViperApplication_t {
@@ -23,7 +28,7 @@ typedef struct __ViperApplication_t {
    i8 (*SetupOpenGL)(struct __ViperApplication_t* app);
    void (*LoopOpenGL)(struct __ViperApplication_t* app);
 
-   ViperOpenGL_t opengl;
+   ViperOpenGL_t* opengl;
 } ViperApplication_t;
 
 typedef struct {

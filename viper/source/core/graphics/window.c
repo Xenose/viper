@@ -21,7 +21,6 @@ i8 ViperWindowCreate(ViperWindow_t* restrict window, ViperWindowCreateInfo_t con
    }
 
    if (VIPER_WINDOW_FLAG_OPENGL & info->flags) {
-      glfwMakeContextCurrent(window->window);
       __ViperWindowSwapBuffers = &__ViperWindowSwapBuffersOpenGL;
    } else {
       __ViperWindowSwapBuffers = &__ViperWindowSwapBuffersVulkan;

@@ -22,21 +22,23 @@
 #include<viper/core/threading/foreman.h>
 #include<viper/core/maths/basic.h>
 #include<viper/core/types/parser.h>
+#include<viper/core/graphics/window.h>
 
 #include<viper/core/dummy/hello.h>
 
 
 i8 SetupOpenGL(ViperApplication_t* app) {
    ViperLogInfo("Hello OpenGL");
-
-   ViperInitGLFW(app);
-   ViperWindow_t window = { 0 };
+   ViperOpenGL_t* gl = app->opengl;
 
    ViperWindowCreateInfo_t windowInfo = {
       .name = "hello",
       .resultion.x = 1920,
       .resultion.y = 1080,
+      .flags = VIPER_WINDOW_FLAG_OPENGL,
    };
+
+   ViperWindowCreate(&gl->window, &windowInfo);
 
    return 0;
 }
@@ -45,8 +47,6 @@ void LoopOpenGL(ViperApplication_t* app) {
 }
 
 void Hello() {
-   ViperLogNotice("Hello Hello!");
-   sleep(10);
 }
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
