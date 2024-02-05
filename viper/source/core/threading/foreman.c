@@ -1,8 +1,12 @@
 #define _GNU_SOURCE
+#define GLEW_STATIC
+
 #include<stdlib.h>
 #include<sched.h>
 #include<errno.h>
 #include<unistd.h>
+
+#include<GL/glew.h>
 
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/threading/foreman.h>
@@ -49,7 +53,14 @@ static int __ViperThreadingRenderOpenGL(void* ptr) {
 
    glfwMakeContextCurrent(gl->window.window);
 
+   if (GLEW_OK != glewInit()) {
+      ViperLogError("Glew init failed");
+      glfwTerminate();
+      return -1;
+   }
+
    while (1) {
+      glClear(GL_COLOR_BUFFER_BIT);
       app->LoopOpenGL(app);
       glfwSwapBuffers(gl->window.window);
    }
@@ -107,9 +118,9 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
 
    if (VIPER_APP_FLAG_USE_OPENGL & app->flags) {
       ViperLogDebug("Using OpenGL");
-      void* stack = ViperCalloc(1, VIPER_MEMORY_8KB);
+      void* stack = ViperCalloc(1, VIPER_MEMORY_64KB);
 
-      if (-1 == clone(__ViperThreadingRenderOpenGL, stack + VIPER_MEMORY_8KB, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, app)) {
+      if (-1 == clone(__ViperThreadingRenderOpenGL, stack + VIPER_MEMORY_64KB, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, app)) {
          ViperLogFatal("Clone failed [ %e ]", errno);
          goto ERROR_EXIT;
       }

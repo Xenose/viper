@@ -44,6 +44,18 @@ i8 SetupOpenGL(ViperApplication_t* app) {
 }
 
 void LoopOpenGL(ViperApplication_t* app) {
+
+   glBegin(GL_TRIANGLES);
+        glColor3f(1.0f, 0.0f, 0.0f); // Red
+        glVertex2f(0.0f, 1.0f);     // Top vertex
+
+        glColor3f(0.0f, 1.0f, 0.0f); // Green
+        glVertex2f(-1.0f, -1.0f);   // Bottom-left vertex
+
+        glColor3f(0.0f, 0.0f, 1.0f); // Blue
+        glVertex2f(1.0f, -1.0f);    // Bottom-right vertex
+    glEnd();
+
 }
 
 void Hello() {
@@ -68,9 +80,9 @@ i64 ViperMain(ViperApplication_t* app) {
 
    ViperThreadingForemanInit(10);
 
-   if (0 != ViperThreadingForemanAddTask(&task)) {
+   /*if (0 != ViperThreadingForemanAddTask(&task)) {
       return -1;
-   }
+   }*/
  
    ViperThreadingForemanStart(app);
    return 0;

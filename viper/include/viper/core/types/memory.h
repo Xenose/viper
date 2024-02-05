@@ -7,5 +7,6 @@
 #define VIPER_MEMORY_8KB      8192
 #define VIPER_MEMORY_16KB     16384
 #define VIPER_MEMORY_32KB     32768
+#define VIPER_MEMORY_64KB     65536
 
 #endif /* __header_viper_core_types_memory__ */
