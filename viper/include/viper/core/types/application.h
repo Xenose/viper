@@ -3,11 +3,13 @@
 
 #include<viper/core/types/defines.h>
 #include<viper/core/types/struct.h>
+#include<viper/core/types/flags.h>
 
-typedef struct {
-} ViperApplicationCreateInfo_t;
+typedef struct __ViperOpenGL_t {
+   ViperStructType_t sType;
+} ViperOpenGL_t;
 
-typedef struct {
+typedef struct __ViperApplication_t {
    // the type of the struct
    ViperStructType_t sType;
    // the command line argc, provided before setup
@@ -15,7 +17,22 @@ typedef struct {
    // the command line argv, provided before setup
    char* const* argv;
 
+   au64 flags;
    au16 state;
+
+   i8 (*SetupOpenGL)(struct __ViperApplication_t* app);
+   void (*LoopOpenGL)(struct __ViperApplication_t* app);
+
+   ViperOpenGL_t opengl;
 } ViperApplication_t;
+
+typedef struct {
+   ViperStructType_t sType;
+   au64 flags;
+
+   i8 (*SetupOpenGL)(ViperApplication_t* app);
+   void (*LoopOpenGL)(ViperApplication_t* app);
+
+} ViperApplicationCreateInfo_t;
 
 #endif /* __header_viper_core_types_application__ */

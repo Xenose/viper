@@ -74,7 +74,9 @@ ERROR_EXIT:
 }
 
 i64 ViperThreadingForemanStart(ViperApplication_t* app) {
-   for (int i = 0; i < __foreman.workerCount; i++) {
+   u64 i = 0;
+
+   for (i = 0; i < __foreman.workerCount; i++) {
       
       ViperThreadingWorker_t worker = {
          .id = i + 1,
@@ -91,7 +93,9 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       }
    }
 
-   u64 i = 0;
+   // Reseting [ i ] doesn't relly matter do.
+   i = 0;
+
    while(1 /*VIPER_APP_STATE_RUNNING == app->state*/) {
       ViperThreadingTask_t* task = ViperQueueGetNextItem(&__foreman.tasks);
 

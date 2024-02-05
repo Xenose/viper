@@ -36,6 +36,17 @@ int __ViperMain(int arc, char* const* arv) {
    if (0 != ViperSetup(appConfig)) {
    }
 
+   if (VIPER_APP_FLAG_USE_OPENGL & appConfig->flags) {
+      app->flags = VIPER_APP_FLAG_USE_OPENGL;
+
+      app->SetupOpenGL = appConfig->SetupOpenGL;
+      app->LoopOpenGL = appConfig->LoopOpenGL;
+   }
+
+   if (NULL != app->SetupOpenGL) {
+      app->SetupOpenGL(app);
+   }
+
    // Freeing the ViperApplicationCreateInfo_t
    free(appConfig);
 

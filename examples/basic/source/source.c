@@ -25,29 +25,46 @@
 
 #include<viper/core/dummy/hello.h>
 
-i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
-   return 0;
-}
 
+i8 SetupOpenGL(ViperApplication_t* app) {
+   ViperLogInfo("Hello OpenGL");
 
-void Hello() {
-   ViperLogNotice("Hello Hello!");
-   sleep(1);
-}
-
-i64 ViperMain(ViperApplication_t* app) {
    ViperInitGLFW(app);
-
    ViperWindow_t window = { 0 };
+
    ViperWindowCreateInfo_t windowInfo = {
       .name = "hello",
       .resultion.x = 1920,
       .resultion.y = 1080,
    };
 
+   return 0;
+}
+
+void LoopOpenGL(ViperApplication_t* app) {
+}
+
+void Hello() {
+   ViperLogNotice("Hello Hello!");
+   sleep(10);
+}
+
+i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
+
+   app->flags =
+      VIPER_APP_FLAG_USE_OPENGL;
+   
+   app->SetupOpenGL = &SetupOpenGL;
+   app->LoopOpenGL = &LoopOpenGL;
+
+   return 0;
+}
+
+i64 ViperMain(ViperApplication_t* app) {
    ViperThreadingTask_t task = {
       .func = Hello,
    };
+
 
    ViperThreadingForemanInit(10);
 
