@@ -8,6 +8,7 @@ extern void* ViperCalloc(u64 count, u64 bytes);
 extern void* ViperMalloc(u64 bytes);
 extern void* ViperRealloc(void* ptr, u64 bytes);
 extern void* ViperZalloc(u64 bytes);
+extern void* ViperStringDuplicate(cc* string);
 
 extern void ViperFree(void* free);
 extern u64 ViperGetMemoryLeaks();

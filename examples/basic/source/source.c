@@ -21,6 +21,7 @@
 #include<viper/core/types/parser.h>
 #include<viper/core/graphics/window.h>
 #include<viper/core/string/stringer.h>
+#include<viper/core/file/directory.h>
 
 #include<viper/core/dummy/hello.h>
 
@@ -71,13 +72,20 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
+   u64 dirCount = 0;
+   char** fileNames = ViperDirectorySearch(&dirCount, "/home/xenose/Projects/main/library/viper/source", "*.lua", 0);
+
+   if (0 == dirCount) {
+      ViperLogNotice("no lua files found");
+   }
+
+   for (u64 i = 0; i < dirCount; i++) {
+      ViperLogDebug("File found [ %s ]", fileNames[i]);
+   }
+
    ViperThreadingTask_t task = {
       .func = Hello,
    };
-
-   if (1 == ViperStringIsMatch("h*llo *", "hello world")) {
-      ViperLogNotice("is match");
-   }
 
    ViperThreadingForemanInit(10);
 

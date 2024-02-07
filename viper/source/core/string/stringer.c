@@ -15,7 +15,7 @@ i8 __ViperStringIsMatch(cc* format, cc* input, i64 offsetFormat, i64 offsetInput
          return __ViperStringIsMatch(format, input, offsetFormat + 1, offsetInput);
 
       default:
-         if (format[offsetInput] != input[offsetInput]) {
+         if (format[offsetFormat] != input[offsetInput]) {
             return VIPER_FALSE;
          }
    }

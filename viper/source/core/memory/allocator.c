@@ -1,4 +1,5 @@
 #define _POSIX_SOURCE
+#define _GNU_SOURCE
 #include<sys/mman.h>
 #include<string.h>
 #include<unistd.h>
@@ -68,12 +69,27 @@ inline void* ViperZalloc(u64 bytes) {
    return ptr;
 }
 
+inline void* ViperStringDuplicate(cc* string) {
+   void* ptr = NULL;
+
+   while (atomic_flag_test_and_set(&__locked));
+   ptr = strdup(string);
+   atomic_flag_clear(&__locked);
+
+   if (NULL != ptr) {
+      ++__allocationCount;
+   }
+
+   return ptr;
+}
+
 inline void ViperFree(void* ptr) {
    if (NULL != ptr) {
       free(ptr);
       --__allocationCount;
    }
 }
+
 
 inline u64 ViperGetMemoryLeaks() {
    return __allocationCount;
