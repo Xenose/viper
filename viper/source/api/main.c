@@ -9,6 +9,7 @@
 #include<viper/core/terminal/parser.h>
 #include<viper/core/debug/logger.h>
 #include<viper/core/graphics/glfw.h>
+#include<viper/core/graphics/window.h>
 
 /**
  * The hidden main function for the Viper engine used the application
@@ -23,6 +24,7 @@ int __ViperMain(int arc, char* const* arv) {
 		puts("failed to init signal handlers");
 	}
 
+   ViperGraphicsCreateInfo_t* graphicsInfo = NULL;
    ViperApplication_t* app = ViperMalloc(sizeof(ViperApplication_t));
    ViperApplicationCreateInfo_t* appConfig = ViperMalloc(sizeof(ViperApplicationCreateInfo_t));
 
@@ -46,10 +48,16 @@ int __ViperMain(int arc, char* const* arv) {
 
    if (NULL != app->SetupOpenGL) {
       app->opengl = ViperCalloc(1, sizeof(ViperOpenGL_t));
-      
+      graphicsInfo = ViperCalloc(1, sizeof(ViperGraphicsCreateInfo_t));
       ViperInitGLFW(app);
-      app->SetupOpenGL(app);
+      
+      app->SetupOpenGL(app, graphicsInfo);
+
+      ViperWindowCreate(&app->opengl->window, &graphicsInfo->window);
+      free(graphicsInfo);
    }
+      
+   
 
    // Freeing the ViperApplicationCreateInfo_t
    free(appConfig);

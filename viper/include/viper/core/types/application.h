@@ -25,7 +25,7 @@ typedef struct __ViperApplication_t {
    au64 flags;
    au16 state;
 
-   i8 (*SetupOpenGL)(struct __ViperApplication_t* app);
+   i8 (*SetupOpenGL)(struct __ViperApplication_t* app, ViperGraphicsCreateInfo_t* info);
    void (*LoopOpenGL)(struct __ViperApplication_t* app);
 
    ViperOpenGL_t* opengl;
@@ -35,7 +35,7 @@ typedef struct {
    ViperStructType_t sType;
    au64 flags;
 
-   i8 (*SetupOpenGL)(ViperApplication_t* app);
+   i8 (*SetupOpenGL)(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info);
    void (*LoopOpenGL)(ViperApplication_t* app);
 
 } ViperApplicationCreateInfo_t;

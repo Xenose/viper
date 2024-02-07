@@ -9,7 +9,7 @@ enum {
    VIPER_EVENT_TYPE_LONG_PRESS,
 };
 
-typedef struct __ViperKeyEvent_t{
+typedef struct __ViperKeyEvent_t {
    ViperStructType_t sType;
 
    void (*func)(struct __ViperKeyEvent_t* event);

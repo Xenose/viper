@@ -1,11 +1,8 @@
 #define VIPER_USE_LIBRARY_MAIN
 
-#include<stdio.h>
 #include<fcntl.h>
 #include<sys/mman.h>
 #include<unistd.h>
-#include<stdlib.h>
-#include<string.h>
 
 #include<viper/api/main.h>
 #include<viper/core/io/printer.h>
@@ -27,18 +24,18 @@
 #include<viper/core/dummy/hello.h>
 
 
-i8 SetupOpenGL(ViperApplication_t* app) {
+i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
    ViperLogInfo("Hello OpenGL");
-   ViperOpenGL_t* gl = app->opengl;
 
-   ViperWindowCreateInfo_t windowInfo = {
-      .name = "hello",
-      .resultion.x = 1920,
-      .resultion.y = 1080,
-      .flags = VIPER_WINDOW_FLAG_OPENGL,
+   *info = (ViperGraphicsCreateInfo_t){
+      .window = {
+         .name = "viper",
+         .resultion.x = 1920,
+         .resultion.y = 1080,
+         .flags = VIPER_WINDOW_FLAG_OPENGL,
+      }
    };
 
-   ViperWindowCreate(&gl->window, &windowInfo);
 
    return 0;
 }
@@ -46,15 +43,15 @@ i8 SetupOpenGL(ViperApplication_t* app) {
 void LoopOpenGL(ViperApplication_t* app) {
 
    glBegin(GL_TRIANGLES);
-        glColor3f(1.0f, 0.0f, 0.0f); // Red
-        glVertex2f(0.0f, 1.0f);     // Top vertex
+   glColor3f(1.0f, 0.0f, 0.0f); // Red
+   glVertex2f(0.0f, 1.0f);     // Top vertex
 
-        glColor3f(0.0f, 1.0f, 0.0f); // Green
-        glVertex2f(-1.0f, -1.0f);   // Bottom-left vertex
+   glColor3f(0.0f, 1.0f, 0.0f); // Green
+   glVertex2f(-1.0f, -1.0f);   // Bottom-left vertex
 
-        glColor3f(0.0f, 0.0f, 1.0f); // Blue
-        glVertex2f(1.0f, -1.0f);    // Bottom-right vertex
-    glEnd();
+   glColor3f(0.0f, 0.0f, 1.0f); // Blue
+   glVertex2f(1.0f, -1.0f);    // Bottom-right vertex
+   glEnd();
 
 }
 
@@ -65,7 +62,7 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 
    app->flags =
       VIPER_APP_FLAG_USE_OPENGL;
-   
+
    app->SetupOpenGL = &SetupOpenGL;
    app->LoopOpenGL = &LoopOpenGL;
 
@@ -81,9 +78,9 @@ i64 ViperMain(ViperApplication_t* app) {
    ViperThreadingForemanInit(10);
 
    /*if (0 != ViperThreadingForemanAddTask(&task)) {
-      return -1;
-   }*/
- 
+     return -1;
+     }*/
+
    ViperThreadingForemanStart(app);
    return 0;
 }

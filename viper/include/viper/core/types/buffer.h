@@ -7,7 +7,7 @@
 typedef struct {
    ViperStructType_t sType;
 
-   i64 bytes;
+   i64 length;
 
    union {
       void* ptr;

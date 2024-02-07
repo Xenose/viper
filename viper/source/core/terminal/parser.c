@@ -13,6 +13,7 @@
 
 static struct option __viperOptions[] = {
    { "viper-dryrun",             no_argument,         0, 0 },
+   { "viper-unit-tests",         no_argument,         0, 0 },
    { "viper-enable-log-levels",  required_argument,   0, 0 },
    { "viper-disable-log-levels", required_argument,   0, 0 },
    { 0 },
@@ -42,6 +43,10 @@ LOOP:
          if (0 == strcmp("viper-dryrun", __viperOptions[index].name)) {
             goto LOOP;
          } /* viper-dryrun */
+
+         if (0 == strcmp("viper-unit-tests", __viperOptions[index].name)) {
+            exit(0);
+         } /* viper-unit-tests */
          
          /**
           * This command option enables the engine log level.

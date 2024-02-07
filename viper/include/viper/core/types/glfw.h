@@ -26,4 +26,8 @@ typedef struct {
    GLFWwindow* window;
 } ViperWindow_t;
 
+typedef struct {
+   ViperWindowCreateInfo_t window;
+} ViperGraphicsCreateInfo_t;
+
 #endif /* __header_viper_core_types_glfw__ */
