@@ -29,4 +29,13 @@
  */
 extern char** ViperDirectorySearch(u64* count, cc* path, cc* format, u64 flags);
 
+
+/**
+ * Retrieves the program binary path.
+ *
+ * @return Returns a heap allocated string with the path on success this
+ * pointer must be freed by the user, on error NULL is returned.
+ */
+extern char* ViperDirectoryProgram();
+
 #endif /* __header_viper_core_file_directory__ */

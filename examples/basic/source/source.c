@@ -72,17 +72,6 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   u64 dirCount = 0;
-   char** fileNames = ViperDirectorySearch(&dirCount, "/home/xenose/Projects/main/library/viper/source", "*.lua", 0);
-
-   if (0 == dirCount) {
-      ViperLogNotice("no lua files found");
-   }
-
-   for (u64 i = 0; i < dirCount; i++) {
-      ViperLogDebug("File found [ %s ]", fileNames[i]);
-   }
-
    ViperThreadingTask_t task = {
       .func = Hello,
    };

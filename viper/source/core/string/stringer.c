@@ -26,3 +26,4 @@ i8 __ViperStringIsMatch(cc* format, cc* input, i64 offsetFormat, i64 offsetInput
 i8 ViperStringIsMatch(cc* format, cc* input) {
    return __ViperStringIsMatch(format, input, 0, 0);
 }
+

@@ -2,6 +2,7 @@
 #include<errno.h>
 #include<string.h>
 #include<stdlib.h>
+#include<unistd.h>
 
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>
@@ -86,3 +87,18 @@ char** ViperDirectorySearch(u64* restrict count, cc* restrict path, cc* restrict
    *count = 0; 
    return __ViperDirectorySearch(NULL, count, path, format, flags);
 }
+
+char* ViperDirectoryProgram() {
+   char path[PATH_MAX + 1] = { 0 };
+
+   if (NULL == getcwd(path, PATH_MAX)) {
+      ViperLogError("Failed to retrive program path [ %e ]", errno);
+      goto ERROR_EXIT;
+   }
+
+   return ViperStringDuplicate(path);
+ERROR_EXIT:
+   return NULL;
+}
+
+
