@@ -14,7 +14,7 @@ static const u8 __viperJpegMagic2k01[] = { 0x00, 0x00, 0x00, 0x0C, 0x6A, 0x50, 0
 static const u8 __viperPngMagic[] = { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
 
 i64 ViperFileGetFormat(ViperBuffer_t* buffer) {
-   if (0 >= buffer->bytes) {
+   if (0 >= buffer->length) {
       goto ERROR_EXIT;
    }
 

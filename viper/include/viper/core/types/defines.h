@@ -7,6 +7,9 @@
 typedef __int128_t  int128_t;
 typedef __uint128_t uint128_t;
 
+#define VIPER_TRUE   1
+#define VIPER_FALSE  0
+
 /* Normal varibles */
 
 typedef char c;

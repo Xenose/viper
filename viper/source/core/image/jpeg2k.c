@@ -10,7 +10,7 @@ i8 DecodeJpeg2k(ViperImage_t* restrict image, ViperBuffer_t* restrict buffer) {
    opj_stream_t* stream =  NULL;
    FILE* fmem = NULL;
 
-   if (NULL == (fmem = fmemopen(buffer->ptr, buffer->bytes, "rb"))) {
+   if (NULL == (fmem = fmemopen(buffer->ptr, buffer->length, "rb"))) {
       ViperLogWarning("fmemopen [ %e ]", errno);
       return -1;
    }

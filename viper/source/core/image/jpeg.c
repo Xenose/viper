@@ -40,13 +40,13 @@ i8 ViperImageJpegDecode(ViperImage_t* restrict image, ViperBuffer_t* restrict in
    }
 
    jpeg_create_decompress(&info);
-   jpeg_mem_src(&info, input->ptr, input->bytes);
+   jpeg_mem_src(&info, input->ptr, input->length);
    jpeg_read_header(&info, TRUE);
    
    jpeg_start_decompress(&info);
 
-   image->buffer.bytes = info.output_width * info.output_height * info.output_components;
-   image->buffer.ptr = ViperMalloc(image->buffer.bytes);
+   image->buffer.length = info.output_width * info.output_height * info.output_components;
+   image->buffer.ptr = ViperMalloc(image->buffer.length);
 
    if (NULL == image->buffer.ptr) {
       ViperLogFatal("Malloc failed [ %e ]", errno);
@@ -63,7 +63,7 @@ i8 ViperImageJpegDecode(ViperImage_t* restrict image, ViperBuffer_t* restrict in
 
    jpeg_finish_decompress(&info);
    ViperLogDebug("File decoded");
-   returnCode = image->buffer.bytes;
+   returnCode = image->buffer.length;
 ERROR_EXIT:
    jpeg_destroy_decompress(&info);
    return returnCode;

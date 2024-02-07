@@ -36,6 +36,7 @@ set(C_SOURCE
    "source/core/platform/error.c"
    "source/core/platform/io.c"
    "source/core/string/copy.c"
+   "source/core/string/stringer.c"
    "source/core/terminal/parser.c"
    "source/core/threading/foreman.c"
 )

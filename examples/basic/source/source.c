@@ -20,6 +20,7 @@
 #include<viper/core/maths/basic.h>
 #include<viper/core/types/parser.h>
 #include<viper/core/graphics/window.h>
+#include<viper/core/string/stringer.h>
 
 #include<viper/core/dummy/hello.h>
 
@@ -74,6 +75,9 @@ i64 ViperMain(ViperApplication_t* app) {
       .func = Hello,
    };
 
+   if (1 == ViperStringIsMatch("h*llo *", "hello world")) {
+      ViperLogNotice("is match");
+   }
 
    ViperThreadingForemanInit(10);
 
