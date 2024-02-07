@@ -1,7 +1,7 @@
 local viper = require("viper")
 
 local value = 0;
-local buffer = "                                     "
+local buffer = string.rep(" ", 10)
 local size = 10
 local base = 10
 
