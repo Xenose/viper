@@ -5,7 +5,8 @@
 #include<viper/core/types/struct.h>
 #include<viper/core/algorithm/queue.h>
 
-#define VIPER_THREADING_TASK_ASSIGNED    0x0001
+#define VIPER_THREADING_TASK_ASSIGNED     0x0001
+#define VIPER_THREADING_TASK_ONE_TIME     0x0002
 
 typedef struct {
    ViperStructType_t sType;

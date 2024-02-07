@@ -3,6 +3,7 @@
 **/build/*
 **/doxygen/*
 **/tmp/*
+**/images/*
 
 # Objects
 *.o
