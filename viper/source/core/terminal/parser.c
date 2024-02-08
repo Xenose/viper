@@ -10,6 +10,8 @@
 #include<viper/core/debug/logger.h>
 
 #include<viper/core/terminal/parser.h>
+#include<viper/core/test/unit_tests.h>
+#include<viper/core/file/directory.h>
 
 static struct option __viperOptions[] = {
    { "viper-dryrun",             no_argument,         0, 0 },
@@ -45,6 +47,9 @@ LOOP:
          } /* viper-dryrun */
 
          if (0 == strcmp("viper-unit-tests", __viperOptions[index].name)) {
+            char* wp = ViperDirectoryProgram();
+            ViperExecuteUniteTests(wp);
+            ViperFree(wp);
             exit(0);
          } /* viper-unit-tests */
          

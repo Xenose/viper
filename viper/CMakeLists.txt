@@ -36,10 +36,13 @@ set(C_SOURCE
    "source/core/platform/dynamic_loading.c"
    "source/core/platform/error.c"
    "source/core/platform/io.c"
+   "source/core/test/unit_tests.c"
    "source/core/string/copy.c"
    "source/core/string/stringer.c"
    "source/core/terminal/parser.c"
    "source/core/threading/foreman.c"
+
+   "source/core/lua/maths/stringer.c"
 )
 
 include_directories("include")
@@ -54,5 +57,5 @@ target_include_directories(viper_c PUBLIC "include")
 
 # Link the C library with the Fortran library
 add_library(viper INTERFACE)
-target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "m" "GL" "GLEW" "glfw" "vulkan")
+target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "m" "GL" "GLEW" "glfw" "vulkan" "lua")
 

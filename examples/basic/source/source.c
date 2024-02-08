@@ -38,7 +38,6 @@ i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
       }
    };
 
-
    return 0;
 }
 

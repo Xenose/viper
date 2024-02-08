@@ -1,12 +1,23 @@
-local viper = require("viper")
+VIPER = VIPER or nil
 
-local value = 0;
-local buffer = string.rep(" ", 10)
-local size = 10
-local base = 10
+local function ItoaTest(value, size, base)
+   local buffer = string.rep(" ", size)
+   local result, bufout = VIPER.Itoa(value, buffer, size, base)
 
-local result, bufout = viper.ViperItoa(value, buffer, size, base)
+   assert(string.len(tostring(value)) + 1 == result, "Expected " ..
+   string.len(tostring(value)) .. " characters written got " ..
+   result)
 
-assert(2 == result, "Expected 2 characters written")
-assert("0" == bufout, "Expected value to be '0'")
+   assert(value == tonumber(bufout), "Expected value to be '0'")
+end -- ItoaTest
 
+
+-- various 
+ItoaTest(-1000, 256, 10)
+ItoaTest(-1, 256, 10)
+
+ItoaTest(0, 256, 10)
+
+ItoaTest(2, 256, 10)
+ItoaTest(10, 256, 10)
+ItoaTest(1000, 256, 10)
