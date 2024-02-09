@@ -52,4 +52,5 @@ To learn and create a general purpose game engine.
 | GLSL            | 2          | 13            | 0.51%      |
 | Text            | 3          | 6             | 0.24%      |
 | Summary         | 105        | 2541          | 100.00%    |
+
 [](python-stats-end)
