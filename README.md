@@ -43,17 +43,18 @@ The stats needs to manual update for now using the python script "./script/state
 state was choosen as its name beacuse of the current "stats state".
 
 [](python-stats-start)
+
 |  Language       | File Count | Lines of Code | Procentage |
 | --------------- | ---------- | ------------- | ---------- |
-| C               | 89         | 2272          | 89.41%     |
+| C               | 89         | 2272          | 89.31%     |
 | CMake           | 3          | 70            | 2.75%      |
-| Python          | 1          | 69            | 2.72%      |
-| Markdown        | 1          | 43            | 1.69%      |
+| Python          | 1          | 70            | 2.75%      |
+| Markdown        | 1          | 45            | 1.77%      |
 | Fortran 95      | 2          | 36            | 1.42%      |
 | Bourne Shell    | 2          | 16            | 0.63%      |
 | Lua             | 2          | 16            | 0.63%      |
 | GLSL            | 2          | 13            | 0.51%      |
 | Text            | 3          | 6             | 0.24%      |
-| Summary         | 105        | 2541          | 100.00%    |
+| Summary         | 105        | 2544          | 100.00%    |
 
 [](python-stats-end)

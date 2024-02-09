@@ -61,7 +61,7 @@ def WriteToReadme():
             if ("[](python-stats-start)" == l):
                 skip = True
 
-                out += l + "\n"
+                out += l + "\n\n"
                 out += "|  Language       | File Count | Lines of Code | Procentage |\n"
                 out += "| --------------- | ---------- | ------------- | ---------- |\n"
 
@@ -71,6 +71,8 @@ def WriteToReadme():
                     out += f"| {str(i.line_count).ljust(14)}"
                     out += f"| {i.procentage:.2f}%".ljust(13)
                     out += f"|\n"
+
+                out += "\n"
 
             if ("[](python-stats-end)" == l):
                 skip = False
