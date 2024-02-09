@@ -39,6 +39,9 @@ To learn and create a general purpose game engine.
 | Doxygen |         | Generates documentation form the source files     |       |
 
 ## Stats
+The stats needs to manual update for now using the python script "./script/state_report.py",
+state was choosen as its name beacuse of the current "stats state".
+
 [](python-stats-start)
 |  Language       | File Count | Lines of Code | Procentage |
 | --------------- | ---------- | ------------- | ---------- |
