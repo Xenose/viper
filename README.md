@@ -12,7 +12,7 @@ To learn and create a general purpose game engine.
 | ------- | ---------- | ------- | ---------------------------------------------- | -------------------------------------------------------------------------------- |
 | BSD     | Maybe?     |         | A Unix operating family of Operating Systems   | [ Wikipedia ](https://en.wikipedia.org/wiki/Berkeley_Software_Distribution)      |
 | Linux   | In Dev     | 6.7.2   | Open Source OS based on Unix                   | [ Kernal.org ](https://kernel.org/)                                              |
-| MacOS   | Unlikely   |         | Closed source OS based on Unix                 | [ Wikipedia ](https://en.wikipedia.org/wiki/MacOS)                               |
+| MacOS   | Unlikely   |         | Closed source Unix                             | [ Wikipedia ](https://en.wikipedia.org/wiki/MacOS)                               |
 | Windows | Far future |         | Biggest desktop OS on the market               | [ Wikipedia ](https://en.wikipedia.org/wiki/Microsoft_Windows)                   |
 
 ## Build Requirements
