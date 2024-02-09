@@ -8,4 +8,5 @@ cd "${LIBRARY_PATH}"
 cd "${EXAMPLE_BUILD_PATH}"
 
 cmake ..
+make
 ./basic "$@"
