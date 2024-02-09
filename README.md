@@ -21,7 +21,7 @@ To learn and create a general purpose game engine.
 | ------- | ------- | ------------------------------------------ | --------------------------------------------------------------------- |
 | C       | 17      | A very old progarming language             | [ Wikipedia ](https://en.wikipedia.org/wiki/C_(programming_language)) |
 | Fortran | 95      | A even older programing language           | [ Wikipedia ](https://en.wikipedia.org/wiki/Fortran)                  |
-| Lua     |         | A scripting language with C as its backend | [ lua.org ](https://www.lua.org/)                                     |
+| Lua     | 5.4.6   | A scripting language with C as its backend | [ lua.org ](https://www.lua.org/)                                     |
 | CMake   |         | Cross compatible build system              |       |
 | Make    |         | Non cross compatible build system          |       |
 | OpenGL  |         | Graphics rendering library                 |       |
