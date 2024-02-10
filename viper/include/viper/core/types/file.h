@@ -4,12 +4,15 @@
 #include<viper/core/types/defines.h>
 #include<viper/core/types/buffer.h>
 
+#define VIPER_FILE_FLAG_OPEN        0x0001
+#define VIPER_FILE_FLAG_LOADED      0x0002
 
 typedef struct {
    ViperStructType_t sType;
 
-   int fd;
-   const char* name;
+   u64 flags;
+   i64 fd;
+   cc* name;
   
    ViperBuffer_t buffer;
 } ViperFile_t;
