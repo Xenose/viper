@@ -46,6 +46,7 @@ int8_t ViperCreateShaderOpenGL(ViperShader_t* restrict shader, const ViperShader
    u64 tesselation   = 0;
    u64 compute       = 0;
 
+
    if (NULL == shader || NULL == info) {
       ViperLogError("NUll values provided");
       goto ERROR_EXIT;

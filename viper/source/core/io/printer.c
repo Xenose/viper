@@ -7,6 +7,7 @@
 
 // testing avx instructions
 #include<viper/core/string/copy.h>
+#include<viper/core/string/opengl.h>
 
 #include<stdio.h>
 #include<unistd.h>
@@ -55,6 +56,12 @@ LOOP:
                *bufferUsed += ViperErrnoToBuffer(va_arg(args, int), &buffer[*bufferUsed], bufferSize - *bufferUsed);
                break;
             case 'f':
+               break;
+            case 'g':
+               *bufferUsed += ViperToStringOpenglEnum(va_arg(args, i64), &buffer[*bufferUsed], bufferSize - *bufferUsed);
+               break;
+            case 'G':
+               *bufferUsed += ViperToSrringGlew(va_arg(args, i64), &buffer[*bufferUsed], bufferSize - *bufferUsed);
                break;
             case 'i':
                *bufferUsed += ViperItoa(va_arg(args, i64), &buffer[*bufferUsed], bufferSize - *bufferUsed, 10);

@@ -22,8 +22,8 @@
 #include<viper/core/graphics/window.h>
 #include<viper/core/string/stringer.h>
 #include<viper/core/file/directory.h>
+#include<viper/core/graphics/opengl.h>
 
-#include<viper/core/dummy/hello.h>
 
 
 i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
@@ -71,6 +71,14 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
+   ViperShader_t shader = { 0 };
+   ViperShaderCreateInfo_t shaderInfo = {
+      .fragmentPath = "/home/xenose/Projects/main/library/viper/shaders/basic_fragment.glsl",
+      .vertexPath = "/home/xenose/Projects/main/library/viper/shaders/basic_vertex.glsl",
+   };
+
+   ViperCreateShaderOpenGL(&shader, &shaderInfo);
+
    ViperThreadingTask_t task = {
       .func = Hello,
    };

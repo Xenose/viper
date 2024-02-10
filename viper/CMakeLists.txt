@@ -7,6 +7,8 @@ set(CMAKE_C_FLAGS "${CMAKE_fortran_FLAGS} ")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall ")
 set(CMAKE_C_STANDARD 17)
 
+add_compile_options(-g -rdynamic -Wall -Wextra -Wno-unused-parameter -Wno-unused-label)
+
 set(F95_SOURCE
    "source/core/dummy/hello.f95"
    "source/core/maths/basic.f95"
@@ -25,6 +27,7 @@ set(C_SOURCE
    "source/core/file/file.c"
    "source/core/file/format.c"
    "source/core/graphics/glfw.c"
+   "source/core/graphics/opengl.c"
    "source/core/graphics/window.c"
    "source/core/image/jpeg.c"
    "source/core/image/jpeg2k.c"
@@ -39,6 +42,7 @@ set(C_SOURCE
    "source/core/test/unit_tests.c"
    "source/core/string/copy.c"
    "source/core/string/stringer.c"
+   "source/core/string/opengl.c"
    "source/core/terminal/parser.c"
    "source/core/threading/foreman.c"
 

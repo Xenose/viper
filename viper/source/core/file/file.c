@@ -20,6 +20,7 @@ i8 ViperFileUnload(ViperFile_t* file) {
       goto ERROR_EXIT;
    }
 
+   b = &f->buffer;
    munmap(b->ptr, b->length);
    f->flags &= ~VIPER_FILE_FLAG_LOADED;
    return 0;
@@ -62,8 +63,10 @@ i8 ViperFileClose(ViperFile_t* file) {
       goto ERROR_EXIT;
    }
 
-   if (0 != ViperFileUnload(f)) {
-      ViperLogWarning("Failed to unload file %s", f->name);
+   if (VIPER_FILE_FLAG_LOADED & f->flags) {
+      if (0 != ViperFileUnload(f)) {
+         ViperLogWarning("Failed to unload file %s", f->name);
+      }
    }
    
    return 0;
@@ -106,14 +109,14 @@ i8 ViperFileOpenLoad(ViperFile_t* file, cc* fullpath, u64 flags, u64 mode) {
    }
 
    if (0 != ViperFileLoad(file)) {
-      goto ERROR_EXIT_CLOSE;
+      goto ERROR_EXIT;
    }
 
    return 0;
-
 ERROR_EXIT_CLOSE:
    ViperFileClose(file);
 ERROR_EXIT:
+   ViperLogError("Failed to open/load file [ %s ]", fullpath);
    return -1;
 }
 
