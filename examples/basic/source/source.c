@@ -23,6 +23,7 @@
 #include<viper/core/string/stringer.h>
 #include<viper/core/file/directory.h>
 #include<viper/core/graphics/opengl.h>
+#include<viper/core/algorithm/hash.h>
 
 
 
@@ -71,6 +72,11 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
+   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "hello"));
+   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "olleh"));
+   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "lleh"));
+   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "hellod"));
+
    ViperShader_t shader = { 0 };
    ViperShaderCreateInfo_t shaderInfo = {
       .fragmentPath = "/home/xenose/Projects/main/library/viper/shaders/basic_fragment.glsl",

@@ -18,6 +18,7 @@ set(C_SOURCE
    "source/api/image/image.c"
    "source/api/main.c"
    "source/core/algorithm/dynamic_array.c"
+   "source/core/algorithm/hash.c"
    "source/core/algorithm/queue.c"
    "source/core/debug/benchmark.c"
    "source/core/debug/exceptions.c"

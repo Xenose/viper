@@ -11,6 +11,8 @@ static const u8 __viperJpegMagic04[] = { 0xFF, 0xD8, 0xFF, 0xEE };
 
 static const u8 __viperJpegMagic2k01[] = { 0x00, 0x00, 0x00, 0x0C, 0x6A, 0x50, 0x20, 0x20, 0x0D, 0x0A, 0x87, 0x0A };
 
+static const u8 __viperPpmMagic[] = { 0x50, 0x36 };
+
 static const u8 __viperPngMagic[] = { 0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };
 
 i64 ViperFileGetFormat(ViperBuffer_t* buffer) {
@@ -24,6 +26,9 @@ i64 ViperFileGetFormat(ViperBuffer_t* buffer) {
          break;
       case 0x23:
          if (memcmp(&buffer->data[1], &__viperScriptMagic[1], 1))    return VIPER_FILE_TYPE_SCRIPT;
+         break;
+      case 0x50:
+         if (memcmp(&buffer->data[1], &__viperPpmMagic[1], 1))       return VIPER_FILE_TYPE_IMAGE_PPM;
          break;
       case 0x89:
          if (memcmp(&buffer->data[1], &__viperPngMagic[1], 7))       return VIPER_FILE_TYPE_IMAGE_PNG;
