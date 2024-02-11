@@ -1,6 +1,7 @@
 #ifndef __header_viper_core_debug_benchmark__
 #define __header_viper_core_debug_benchmark__
 
+#include<stdio.h>
 #include<viper/core/types/benchmark.h>
 
 #define ViperBenchmark(bench, code) ViperBenchmarkStart(bench); { code; } ViperBenchmarkStop(bench)

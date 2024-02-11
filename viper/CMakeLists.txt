@@ -12,6 +12,7 @@ add_compile_options(-g -rdynamic -Wall -Wextra -Wno-unused-parameter -Wno-unused
 set(F95_SOURCE
    "source/core/dummy/hello.f95"
    "source/core/maths/basic.f95"
+   "source/core/maths/hashes.f95"
 )
 
 set(C_SOURCE
@@ -40,13 +41,12 @@ set(C_SOURCE
    "source/core/platform/dynamic_loading.c"
    "source/core/platform/error.c"
    "source/core/platform/io.c"
-   "source/core/test/unit_tests.c"
    "source/core/string/copy.c"
-   "source/core/string/stringer.c"
    "source/core/string/opengl.c"
+   "source/core/string/stringer.c"
    "source/core/terminal/parser.c"
+   "source/core/test/unit_tests.c"
    "source/core/threading/foreman.c"
-
    "source/core/lua/maths/stringer.c"
 )
 

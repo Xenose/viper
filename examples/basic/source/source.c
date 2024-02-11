@@ -72,10 +72,14 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "hello"));
-   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "olleh"));
-   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "lleh"));
-   ViperLogDebug("hash function retiurned --> %i", (i64)ViperHashSimple(10, "hellod"));
+   ViperBenchmark_t bench = { 0 };
+   ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
+
+   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hello"));
+   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "olleh"));
+   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "lleh"));
+   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hellod"));
+   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
 
    ViperShader_t shader = { 0 };
    ViperShaderCreateInfo_t shaderInfo = {
