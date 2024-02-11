@@ -1,7 +1,9 @@
 #ifndef __header_viper_core_debug_benchmark__
 #define __header_viper_core_debug_benchmark__
 
-#include<stdio.h>
+#include<stdio.h> // marked as unused, but its used by the macro
+
+// Start of internal libraries
 #include<viper/core/types/benchmark.h>
 
 #define ViperBenchmark(bench, code) ViperBenchmarkStart(bench); { code; } ViperBenchmarkStop(bench)
