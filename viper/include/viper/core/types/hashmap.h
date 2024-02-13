@@ -3,13 +3,22 @@
 
 #include<viper/core/types/defines.h>
 #include<viper/core/types/struct.h>
+#include<viper/core/types/buffer.h>
 #include<viper/core/types/dynamic_array.h>
 
 typedef struct {
-   ViperStructType_t sType;
+   ViperBuffer_t key;
+   void* ptr;
+} ViperHashmapItem_t;
 
-   u64 type; // the type of hashmap
-   ViperDynamicArray_t* data;
+typedef struct {
+   ViperStructType_t sType;
+   ViperStructType_t storedType;
+
+   u64 count;
+   u64 size;
+   u64 resize;
+   ViperHashmapItem_t* data;
 } ViperHashmap_t;
 
 #endif /* __header_viper_core_types_hashmap__ */
