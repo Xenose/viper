@@ -8,25 +8,17 @@
 #include<viper/core/debug/logger.h>
 #include<viper/core/memory/allocator.h>
 
-
-/**
- * ViperHashmapCreate is a function to in initialize the ViperHashmap_t struct and set its initial size.
- *
- * @param hash :: This is the ViperHashmap_t that will store all the data.
- * @param flags ::
- * @paran resize :: 
- * @param type :: The type of the struct that will be stored.
- * @param size :: The size of the data to be stored.
- * @param count :: Number of items that can be stored in the hashmap.
- *
- * @return Either returns 0 for success or -1 for failure.
- */
 i8 ViperHashmapCreate(ViperHashmap_t* hash, ViperStructType_t hashType, u64 resize, ViperStructType_t type, u64 size, u64 count) {
    hash->sType = hashType;
    hash->size = size;
    hash->count = count;
 
-   hash->data = ViperRealloc(hash->data, size * count);
+   if (NULL != hash) {
+      ViperLogWarning("Hashmap is not null");
+      goto ERROR_EXIT;
+   }
+
+   hash->data = ViperMalloc(size * count);
 
    return 0;
 ERROR_EXIT:
