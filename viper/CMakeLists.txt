@@ -48,7 +48,8 @@ set(C_SOURCE
    "source/core/terminal/parser.c"
    "source/core/test/unit_tests.c"
    "source/core/threading/foreman.c"
-   "source/core/lua/maths/stringer.c"
+   "source/lua/maths/stringer.c"
+   "source/lua/maths/hashes.c"
 )
 
 include_directories("include")

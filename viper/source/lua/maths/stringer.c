@@ -8,7 +8,7 @@ int ViperLuaUtoa(lua_State* lua) {
    u64 size = luaL_checkinteger(lua, 3);
    i64 base = luaL_checkinteger(lua, 4);
 
-   i64 result = ViperUtoa(value, buffer, size, base);
+   u64 result = ViperUtoa(value, buffer, size, base);
 
    lua_pushinteger(lua, result);
    lua_pushstring(lua, buffer);

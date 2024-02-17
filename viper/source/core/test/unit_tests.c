@@ -9,8 +9,10 @@
 #include<viper/core/debug/logger.h>
 
 #include<viper/lua/maths/stringer.h>
+#include<viper/lua/maths/hashes.h>
 
 static const struct luaL_Reg viper_lib[] = {
+   { "HashBasicCalc", ViperLuaHashBasicCalc },
    { "Itoa", ViperLuaItoa },
    { "Utoa", ViperLuaUtoa },
    { NULL, NULL }
