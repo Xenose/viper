@@ -6,6 +6,12 @@
 #include<lualib.h>
 
 /**
+ * Wrapper function for the ViperUtoa functions so it can
+ * be called from Lua.
+ */
+extern int ViperLuaUtoa(lua_State* lua);
+
+/**
  * Wrapper function for the ViperItoa functions so it can
  * be called from Lua.
  */

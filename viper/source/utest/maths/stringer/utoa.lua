@@ -11,7 +11,7 @@ local function ItoaTest(value, size, base)
    assert(value == tonumber(bufout), "Expected value to be '0'")
 end -- ItoaTest
 
-print("[ LUA UTEST ] Executing itoa Lua Tests")
+print("[ LUA UTEST ] Executing utoa Lua Tests")
 
 -- various 
 ItoaTest(-1000, 256, 10)

@@ -12,6 +12,7 @@
 
 static const struct luaL_Reg viper_lib[] = {
    { "Itoa", ViperLuaItoa },
+   { "Utoa", ViperLuaUtoa },
    { NULL, NULL }
 };
 

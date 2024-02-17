@@ -4,13 +4,15 @@
 #include<viper/core/types/defines.h>
 #include<viper/core/types/struct.h>
 
+extern i64 ViperUtoa(u64 value, char* restrict buffer, u64 size, i64 base);
+
 /**
- * ViperItoa2 is a function used for converted integers to
- * a human reable format in the form of a string.
+ * ViperItoa is a function used for converted integers to
+ * a human readable format in the form of a string.
  *
  * @param value :: Is the value that will be converted.
  * @param buffer :: Is the output buffer for the string.
- * @param size :: Is the size of the buffer avalible for use.
+ * @param size :: Is the size of the buffer available for use.
  * @param base :: Is the base of the output 2 to 36.
  *
  * @return On success the length of the new string will be \
