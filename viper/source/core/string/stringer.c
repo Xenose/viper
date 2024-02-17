@@ -27,3 +27,15 @@ i8 ViperStringIsMatch(cc* format, cc* input) {
    return __ViperStringIsMatch(format, input, 0, 0);
 }
 
+i8 ViperStringCompare(cc* restrict s0, cc* restrict s1) {
+   while (*s0 == *s1) {
+      if (0 == *s0) {
+         return 1;
+      }
+
+      ++s0;
+      ++s1;
+   }
+
+   return 0;
+}

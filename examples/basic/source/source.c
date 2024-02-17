@@ -3,6 +3,7 @@
 #include<fcntl.h>
 #include<sys/mman.h>
 #include<unistd.h>
+#include<string.h>
 
 #include<viper/api/main.h>
 #include<viper/core/io/printer.h>
@@ -72,7 +73,22 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
+
    ViperBenchmark_t bench = { 0 };
+
+   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
+   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
+
+   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
+   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
+
+   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
+   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
+
+   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
+   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
+   return 0;
+
    ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
 
    ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hello"));

@@ -15,4 +15,7 @@
  */
 extern i8 ViperStringIsMatch(cc* format, cc* input);
 
+
+extern i8 ViperStringCompare(cc* restrict str0, cc* restrict str1);
+
 #endif /* __header_viper_core_string_stringer__ */
