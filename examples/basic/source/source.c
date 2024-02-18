@@ -25,6 +25,7 @@
 #include<viper/core/file/directory.h>
 #include<viper/core/graphics/opengl.h>
 #include<viper/core/algorithm/hash.h>
+#include<viper/core/platform/cpu.h>
 
 
 
@@ -73,21 +74,10 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-
-   ViperBenchmark_t bench = { 0 };
-
-   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
-   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
-
-   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
-   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
-
-   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
-   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
-
-   ViperBenchmarkPrint(&bench, "strcmp", 0 == strcmp("hello", "hellol"));
-   ViperBenchmarkPrint(&bench, "ViperStringCompare", ViperStringCompare("hello", "hellol"));
+   ViperCpuSpec_t specs;
+   ViperCpuGetSpecs(&specs);
    return 0;
+   ViperBenchmark_t bench;
 
    ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
 

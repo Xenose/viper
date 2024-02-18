@@ -46,15 +46,15 @@ state was choosen as its name beacuse of the current "stats state".
 
 |  Language       | File Count | Lines of Code | Procentage |
 | --------------- | ---------- | ------------- | ---------- |
-| C               | 106        | 2819          | 89.07%     |
-| CMake           | 3          | 77            | 2.43%      |
-| Python          | 1          | 70            | 2.21%      |
-| Lua             | 4          | 61            | 1.93%      |
-| Markdown        | 2          | 52            | 1.64%      |
-| Fortran 95      | 3          | 51            | 1.61%      |
-| Bourne Shell    | 2          | 16            | 0.51%      |
-| GLSL            | 2          | 13            | 0.41%      |
-| Text            | 3          | 6             | 0.19%      |
-| Summary         | 126        | 3165          | 100.00%    |
+| C               | 107        | 2892          | 89.29%     |
+| CMake           | 3          | 77            | 2.38%      |
+| Python          | 1          | 70            | 2.16%      |
+| Lua             | 4          | 61            | 1.88%      |
+| Markdown        | 2          | 52            | 1.61%      |
+| Fortran 95      | 3          | 51            | 1.57%      |
+| Bourne Shell    | 2          | 16            | 0.49%      |
+| GLSL            | 2          | 13            | 0.40%      |
+| Text            | 3          | 7             | 0.22%      |
+| Summary         | 127        | 3239          | 100.00%    |
 
 [](python-stats-end)

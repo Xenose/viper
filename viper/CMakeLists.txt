@@ -64,5 +64,5 @@ target_include_directories(viper_c PUBLIC "include")
 
 # Link the C library with the Fortran library
 add_library(viper INTERFACE)
-target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "m" "GL" "GLEW" "glfw" "vulkan" "lua")
+target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "m" "GL" "GLEW" "glfw" "vulkan" "lua" "bsd")
 

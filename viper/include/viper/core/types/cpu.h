@@ -18,10 +18,11 @@ typedef struct {
    u64 vendor;
 
    struct {
+      u8 fpu  : 1;
       u8 avx  : 1;
       u8 avx2 : 1;
    } support;
 
-} CpuSpec_t;
+} ViperCpuSpec_t;
 
 #endif /* __header_viper_types_cpu__ */

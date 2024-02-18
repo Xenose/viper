@@ -1,3 +1,4 @@
+-- VIPER is provided by C so to disable the warning we do this...
 VIPER = VIPER or nil
 
 local function HashBasicCalcTest(index, value, expected)
