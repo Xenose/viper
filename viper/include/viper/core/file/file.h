@@ -15,6 +15,16 @@
 extern i8 ViperFileUnload(ViperFile_t* file);
 
 /**
+ * ViperFileClose this function closes the file and unloads the content
+ * allowing the pointer to the file to be reused.
+ *
+ * @param file :: The file that will be closed and unloaded.
+ *
+ * @return Returns -1 on error and 0 on success.
+ */
+extern i8 ViperFileClose(ViperFile_t* file);
+
+/**
  * ViperFileLoad loads files either using mmap or a read loop, if the flag
  * VIPER_FILE_FLAG_SYSTEM is set then the file is likely to be a system
  * file with ZERO length meaning that we use the loop to load it.
