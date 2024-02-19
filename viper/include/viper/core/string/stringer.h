@@ -18,4 +18,8 @@ extern i8 ViperStringIsMatch(cc* format, cc* input);
 
 extern i8 ViperStringCompare(cc* restrict str0, cc* restrict str1);
 
+extern char* ViperStringFindDevider(char* str, char chr);
+
+extern char* ViperStringGetSub(char* str, u64* lenght);
+
 #endif /* __header_viper_core_string_stringer__ */

@@ -1,5 +1,8 @@
 #include<viper/core/string/stringer.h>
 
+#include<stdlib.h>
+#include<stdio.h>
+
 i8 __ViperStringIsMatch(cc* format, cc* input, i64 offsetFormat, i64 offsetInput) {
    switch (format[offsetFormat]) {
       case '\0':
@@ -38,4 +41,34 @@ i8 ViperStringCompare(cc* restrict s0, cc* restrict s1) {
    }
 
    return 0;
+}
+
+char* ViperStringFindDevider(char* str, char chr) {
+   while (chr != *str && '\0' != *str) {
+      ++str;
+   }
+
+   return str;
+}
+
+char* ViperStringGetSub(char* str, u64* lenght) {
+   char* out = NULL;
+
+   if (NULL == str) {
+      goto ERROR_EXIT;
+   }
+
+   while(' ' == *str || '\t' == *str) {
+      ++str;
+   }
+
+   out = str;
+
+   while(' ' != *str && '\t' != *str && '\0' != *str && '\n' != *str) {
+      ++*lenght;
+      ++str;
+   }
+
+ERROR_EXIT:
+   return out;
 }
