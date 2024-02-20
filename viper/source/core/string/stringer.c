@@ -1,4 +1,5 @@
 #include<viper/core/string/stringer.h>
+#include<viper/core/debug/logger.h>
 
 #include<stdlib.h>
 #include<stdio.h>
@@ -14,7 +15,7 @@ i8 __ViperStringIsMatch(cc* format, cc* input, i64 offsetFormat, i64 offsetInput
                return VIPER_TRUE;
             }
          }
-         
+
          return __ViperStringIsMatch(format, input, offsetFormat + 1, offsetInput);
 
       default:
