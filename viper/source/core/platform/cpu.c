@@ -18,13 +18,17 @@ i8 __ViperCpuGetVendor(ViperCpuSpec_t* restrict spec, cc* restrict buffer, u64 l
 
 	if (VIPER_TRUE == ViperStringIsMatch("*Intel*", buffer)) {
 		spec->vendor = VIPER_CPU_VENDOR_INTEL;
-		ViperLogDebug("INTEL");
 		goto EXIT;
 	}
 
 ERROR_EXIT:
 	return -1;
 EXIT:
+	return 0;
+
+}
+
+i8 __ViperCpuGetCoreCount(ViperCpuSpec_t* restrict spec, cc* restrict buffer, u64 lenght) {
 	return 0;
 
 }
@@ -60,6 +64,10 @@ i8 ViperCpuGetSpecs(ViperCpuSpec_t* spec) {
 	}
 
 	if (0 != __ViperCpuGetSpec(spec, &proc, &__ViperCpuGetVendor)) {
+		ViperLogWarning("No vendor ID found");
+	}
+
+	if (0 != __ViperCpuGetSpec(spec, &proc, &__ViperCpuGetCoreCount)) {
 		ViperLogWarning("No vendor ID found");
 	}
 

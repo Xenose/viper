@@ -76,6 +76,11 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 i64 ViperMain(ViperApplication_t* app) {
    ViperCpuSpec_t specs;
    ViperCpuGetSpecs(&specs);
+
+	u64 test = 0;
+	ViperAtou(&test, "900", 5, 10);
+	printf("%lu\n", test);
+
    return 0;
    ViperBenchmark_t bench;
 
