@@ -41,6 +41,17 @@ ERROR_EXIT:
    return -1;
 }
 
+/**
+ * A general function that finds the value in the proc file and then
+ * passes the location to the actual operation function.
+ *
+ * @param parm :: The string to search for example [ "vendor_id", "cpu cores", ... ].
+ * @param spec :: The struct where the data will be stored.
+ * @param file :: The file that will be parsed.
+ * @param func :: The function that will handle the data loading into the struct.
+ *
+ * @return Returns 0 on success and -1 on error.
+ */
 i8 __ViperCpuGetSpec(cc* parm, ViperCpuSpec_t* restrict spec, const  ViperFile_t* restrict file,
 		i8 (*func)(ViperCpuSpec_t* restrict spec, cc* restrict buffer, u64 lenght)) {
 	u64 lenght = 0;
