@@ -29,17 +29,36 @@ EXIT:
 }
 
 i8 __ViperCpuGetCoreCount(ViperCpuSpec_t* restrict spec, cc* restrict buffer, u64 lenght) {
-	return 0;
+   u64 cores = 0;
 
+   if (0 != ViperAtou(&cores, buffer, lenght, 10)) {
+      ViperLogError("Problems reading core count from cpu info");
+      goto ERROR_EXIT;
+   }
+
+	return 0;
+ERROR_EXIT:
+   return -1;
 }
 
-i8 __ViperCpuGetSpec(ViperCpuSpec_t* restrict spec, const  ViperFile_t* restrict file,
+/**
+ * A general function that finds the value in the proc file and then
+ * passes the location to the actual operation function.
+ *
+ * @param parm :: The string to search for example [ "vendor_id", "cpu cores", ... ].
+ * @param spec :: The struct where the data will be stored.
+ * @param file :: The file that will be parsed.
+ * @param func :: The function that will handle the data loading into the struct.
+ *
+ * @return Returns 0 on success and -1 on error.
+ */
+i8 __ViperCpuGetSpec(cc* parm, ViperCpuSpec_t* restrict spec, const  ViperFile_t* restrict file,
 		i8 (*func)(ViperCpuSpec_t* restrict spec, cc* restrict buffer, u64 lenght)) {
 	u64 lenght = 0;
 	char buffer[256] = { 0 };
 	char* ptr = NULL;
 
-	ptr = ViperStringFindDevider(strstr(file->buffer.str, "vendor_id"), ':') + 1;
+	ptr = ViperStringFindDevider(strstr(file->buffer.str, parm), ':') + 1;
 
 	if (NULL == ptr) {
 		goto ERROR_EXIT;
@@ -62,12 +81,14 @@ i8 ViperCpuGetSpecs(ViperCpuSpec_t* spec) {
 		ViperLogWarning("Failed to load /proc/cpuinfo");
 		goto ERROR_EXIT;
 	}
+   
+   ViperLogDebug(proc.buffer.str);
 
-	if (0 != __ViperCpuGetSpec(spec, &proc, &__ViperCpuGetVendor)) {
+	if (0 != __ViperCpuGetSpec("vendor_id", spec, &proc, &__ViperCpuGetVendor)) {
 		ViperLogWarning("No vendor ID found");
 	}
 
-	if (0 != __ViperCpuGetSpec(spec, &proc, &__ViperCpuGetCoreCount)) {
+	if (0 != __ViperCpuGetSpec("cpu cores", spec, &proc, &__ViperCpuGetCoreCount)) {
 		ViperLogWarning("No vendor ID found");
 	}
 

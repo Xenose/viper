@@ -97,8 +97,8 @@ static i8 __ViperFileLoadLoop(ViperFile_t* file) {
    }
 
    b->ptr = tmp;
-   b->str[total] = '\0';
-   b->length = total + 1;
+   b->str[total - 1] = '\0';
+   b->length = total;
    return 0;
 }
 

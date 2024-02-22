@@ -15,6 +15,7 @@ static const struct luaL_Reg viper_lib[] = {
    { "HashBasicCalc", ViperLuaHashBasicCalc },
    { "Itoa", ViperLuaItoa },
    { "Utoa", ViperLuaUtoa },
+   { "Atou", ViperLuaAtou },
    { NULL, NULL }
 };
 
