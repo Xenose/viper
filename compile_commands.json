@@ -1,0 +1,9 @@
+
+{
+  "command": "clang",
+  "arguments": [
+    "-std=c11",
+	 "-I ./viper/include"
+  ]
+}
+
