@@ -29,7 +29,6 @@
  */
 extern char** ViperDirectorySearch(u64* count, cc* path, cc* format, u64 flags);
 
-
 /**
  * Retrieves the program binary path.
  *

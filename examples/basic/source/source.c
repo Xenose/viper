@@ -26,7 +26,7 @@
 #include<viper/core/graphics/opengl.h>
 #include<viper/core/algorithm/hash.h>
 #include<viper/core/platform/cpu.h>
-
+#include<viper/core/algorithm/hashmap.h>
 
 
 i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
@@ -74,10 +74,19 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 }
 
 i64 ViperMain(ViperApplication_t* app) {
-   ViperCpuSpec_t specs;
-   ViperCpuGetSpecs(&specs);
+	int test = 10;
+	ViperHashmap_t map = { 0 };
 
-   return 0;
+	ViperHashmapCreate(&map, 0, 10, 0, sizeof(int), 10);
+
+	ViperHashmapInsert(&map, "hello", &test);
+	test = 12;
+	ViperHashmapInsert(&map, "hello1", &test);
+
+	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello")));
+	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello1")));
+
+	return 0;
    ViperBenchmark_t bench;
 
    ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
@@ -87,11 +96,12 @@ i64 ViperMain(ViperApplication_t* app) {
    ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "lleh"));
    ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hellod"));
    ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
+ 
 
    ViperShader_t shader = { 0 };
    ViperShaderCreateInfo_t shaderInfo = {
-      .fragmentPath = "/home/xenose/Projects/main/library/viper/shaders/basic_fragment.glsl",
-      .vertexPath = "/home/xenose/Projects/main/library/viper/shaders/basic_vertex.glsl",
+      .fragmentPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_fragment.glsl",
+      .vertexPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_vertex.glsl",
    };
 
    ViperCreateShaderOpenGL(&shader, &shaderInfo);

@@ -13,12 +13,12 @@ i8 ViperHashmapCreate(ViperHashmap_t* hash, ViperStructType_t hashType, u64 resi
    hash->size = size;
    hash->count = count;
 
-   if (NULL != hash) {
+   if (NULL != hash->data) {
       ViperLogWarning("Hashmap is not null");
       goto ERROR_EXIT;
    }
 
-   hash->data = ViperMalloc(size * count);
+   hash->data = ViperMalloc(count * sizeof(ViperHashmapItem_t));
 
    return 0;
 ERROR_EXIT:
@@ -45,7 +45,7 @@ EXIT:
 
 i8 ViperHashmapExpand(ViperHashmap_t* hash) {
    u64 index = 0;
-   void* tmp = ViperRealloc(hash->data, (hash->count * hash->size) + hash->resize);
+   void* tmp = ViperRealloc(hash->data, (hash->count * sizeof(ViperHashmapItem_t) + hash->resize));
 
    if (NULL == tmp) {
       ViperLogError("Failed to realloc memory [ %e ]", errno);
