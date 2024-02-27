@@ -85,11 +85,7 @@ i64 ViperMain(ViperApplication_t* app) {
 	test = 15;
 	ViperHashmapInsert(&map, "olleh", &test);
 
-	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello")));
-	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello1")));
-	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "olleh")));
-
-	puts("\n");
+   puts("\n");
 
 	ViperLogDebug("Hello");
 	ViperLogInfo("Hello");
@@ -97,8 +93,16 @@ i64 ViperMain(ViperApplication_t* app) {
 	ViperLogWarning("Hello");
 	ViperLogError("Hello");
 	ViperLogFatal("Hello");
+	ViperLogAlert("Hello");
 	ViperLogCritical("Hello");
 	ViperLogEmergancy("Hello");
+   
+   puts("\n");
+
+	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello")));
+	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello1")));
+	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "olleh")));
+
 
 	return 0;
    ViperBenchmark_t bench;

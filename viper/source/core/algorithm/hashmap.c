@@ -18,7 +18,7 @@ i8 ViperHashmapCreate(ViperHashmap_t* hash, ViperStructType_t hashType, u64 resi
       goto ERROR_EXIT;
    }
 
-   hash->data = ViperMalloc(count * sizeof(ViperHashmapItem_t));
+   hash->data = ViperCalloc(count, sizeof(ViperHashmapItem_t));
 
    return 0;
 ERROR_EXIT:
@@ -51,7 +51,6 @@ i8 ViperHashmapExpand(ViperHashmap_t* hash) {
       ViperLogError("Failed to realloc memory [ %e ]", errno);
       goto ERROR_EXIT;
    }
-
 
    for (u64 i = 0; i < hash->count; i++) {
       if (NULL != hash->data[i].ptr) {

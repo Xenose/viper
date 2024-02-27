@@ -13,6 +13,7 @@
 #define ViperLogWarning(format, ...)     	ViperLog(VIPER_LOG_LEVEL_WARNING,    	format, ##__VA_ARGS__)
 #define ViperLogError(format, ...)       	ViperLog(VIPER_LOG_LEVEL_ERROR,      	format, ##__VA_ARGS__)
 #define ViperLogFatal(format, ...)       	ViperLog(VIPER_LOG_LEVEL_FATAL,      	format, ##__VA_ARGS__)
+#define ViperLogAlert(format, ...)		   ViperLog(VIPER_LOG_LEVEL_ALERT,  		format, ##__VA_ARGS__)
 #define ViperLogCritical(format, ...)		ViperLog(VIPER_LOG_LEVEL_CRITICAL, 		format, ##__VA_ARGS__)
 #define ViperLogEmergancy(format, ...)   	ViperLog(VIPER_LOG_LEVEL_EMERGENCY,  	format, ##__VA_ARGS__)
 
