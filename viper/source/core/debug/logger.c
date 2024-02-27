@@ -26,11 +26,11 @@ inline void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc*
 
    switch (logLevel & __viperLogLevel ? logLevel : -100) {
       case VIPER_LOG_LEVEL_DEBUG:
-         level = "[ \033[32mDEBUG\033[0m ]";
+         level = "[ \033[33mDEBUG\033[0m ]";
          goto PRINT_DATA;
 
       case VIPER_LOG_LEVEL_INFO:
-         level = "[ INFO\033[0m ]";
+         level = "[ \033[32mINFO\033[0m  ]";
          goto PRINT_DATA;
 
       case VIPER_LOG_LEVEL_NOTICE:
