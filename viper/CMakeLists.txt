@@ -7,7 +7,23 @@ set(CMAKE_C_FLAGS "${CMAKE_fortran_FLAGS} ")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall ")
 set(CMAKE_C_STANDARD 17)
 
-add_compile_options(-O2 -g -rdynamic -Wall -Wextra -Wno-unused-parameter -Wno-unused-label)
+add_compile_options(
+   -O0 
+   -g 
+   -rdynamic 
+   ## Warnings
+   -Wall
+   -Wextra
+   -pedantic
+   -Wno-unused-parameter
+   -Wno-unused-label
+)
+
+if (CMAKE_C_COMPILER_ID STREQUAL "GNU" AND CMAKE_LANG STREQUAL "C")
+   add_compile_options(
+      -Wformat-security
+      )
+endif()
 
 set(F95_SOURCE
    "source/core/dummy/hello.f95"

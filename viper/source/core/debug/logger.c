@@ -1,6 +1,7 @@
 #include<stdarg.h>
 #include<stdlib.h>
 #include<string.h>
+#include<limits.h>
 
 #include<viper/core/debug/logger.h>
 #include<viper/core/io/printer.h>
@@ -25,7 +26,7 @@ inline void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc*
    cc* level = NULL;
    u64 used = 0;
 
-   switch (logLevel & __viperLogLevel ? logLevel : -100) {
+   switch (logLevel & __viperLogLevel ? logLevel : INT_MAX) {
       case VIPER_LOG_LEVEL_DEBUG:
          level = "[ \033[90mDEBUG\033[0m     ]";
          goto PRINT_DATA;

@@ -80,6 +80,7 @@ i64 ViperMain(ViperApplication_t* app) {
 	ViperHashmapCreate(&map, 0, 10, 0, sizeof(int), 10);
 
 	ViperHashmapInsert(&map, "hello", &test);
+	ViperHashmapInsert(&map, "hello", &test);
 	test = 12;
 	ViperHashmapInsert(&map, "hello1", &test);
 	test = 15;
