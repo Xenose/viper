@@ -28,7 +28,6 @@
 #include<viper/core/platform/cpu.h>
 #include<viper/core/algorithm/hashmap.h>
 
-
 i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
    ViperLogInfo("Hello OpenGL");
 

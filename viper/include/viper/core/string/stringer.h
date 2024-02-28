@@ -20,7 +20,7 @@ extern i8 ViperStringCompare(cc* restrict str0, cc* restrict str1);
 
 extern char* ViperStringFindDevider(char* str, char chr);
 
-extern char* ViperStringFindNonNumeric(cc* str, u64 length, cc* valid, u64 validLength);
+extern cc* ViperStringFindNonNumeric(cc* str, u64 length, cc* valid, u64 validLength);
 
 extern char* ViperStringGetSub(char* str, u64* lenght);
 

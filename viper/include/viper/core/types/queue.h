@@ -6,9 +6,9 @@
 
 typedef struct {
 	ViperStructType_t sType;
-	i64 insertIndex;
-	i64 currentIndex;
-	i64 count;
+	u64 insertIndex;
+	u64 currentIndex;
+	u64 count;
 	ViperDynamicArray_t data;
 } ViperQueue_t;
 

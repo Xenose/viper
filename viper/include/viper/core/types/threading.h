@@ -45,7 +45,7 @@ typedef struct {
 typedef struct {
    ViperStructType_t sType;
 
-   i64 workerCount;
+   u64 workerCount;
    ViperThreadingWorker_t* workers;
    
    ViperQueue_t tasks;

@@ -53,7 +53,7 @@ char* ViperStringFindDevider(char* str, char chr) {
    return str;
 }
 
-char* ViperStringFindNonNumeric(cc* str, u64 length, cc* valid, u64 validLength) {
+cc* ViperStringFindNonNumeric(cc* str, u64 length, cc* valid, u64 validLength) {
 	i8 tr = 1; // tr == true
 	char* cpy = (char*)str;
 

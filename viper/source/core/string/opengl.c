@@ -5,7 +5,7 @@
 
 inline u64 ViperToSrringGlew(i64 e, char* buffer, u64 size) {
    cc* tmp = (cc*)glewGetErrorString(e);
-   i64 length = strlen(tmp);
+   u64 length = strlen(tmp);
 
    if (length >= size) {
       goto ERROR_EXIT;

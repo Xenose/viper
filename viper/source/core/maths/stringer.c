@@ -50,7 +50,7 @@ i64 ViperItoa(i64 value, char* restrict buffer, u64 size, i64 base) {
 	u64 temporarius; // temporary varible
 	u64 i = 0; // the index fpr loops
 	u64 j = 0; // the buffer index
-	i64 trahens = 0; // reminder(latin)
+	u64 trahens = 0; // reminder(latin)
 	u64 pw = 0;
 
 	if (NULL == buffer) {
@@ -92,7 +92,7 @@ i8 ViperAtou(u64* value, cc* restrict buffer, u64 lenght, u64 base) {
 	u64 pw = 1;
 	*value = 0;
 
-	bufferEnd = ViperStringFindNonNumeric(buffer, lenght, __viperNumberTable, base);
+	bufferEnd = (char*)ViperStringFindNonNumeric(buffer, lenght, __viperNumberTable, base);
 
 	 while (buffer != (--bufferEnd + 1)) {
 		switch (*bufferEnd) {

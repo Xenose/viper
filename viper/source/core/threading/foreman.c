@@ -104,7 +104,7 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       ViperThreadingWorker_t worker = {
          .id = i + 1,
          .stack.topPtr = ViperCalloc(1, VIPER_MEMORY_8KB),
-         .stack.bottomPtr = worker.stack.topPtr + VIPER_MEMORY_8KB,
+         .stack.bottomPtr = ((u8*)worker.stack.topPtr) + VIPER_MEMORY_8KB,
       };
 
       __foreman.workers[i] = worker;
@@ -120,7 +120,7 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       ViperLogDebug("Using OpenGL");
       void* stack = ViperCalloc(1, VIPER_MEMORY_64KB);
 
-      if (-1 == clone(__ViperThreadingRenderOpenGL, stack + VIPER_MEMORY_64KB, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, app)) {
+      if (-1 == clone(__ViperThreadingRenderOpenGL, ((u8*)stack) + VIPER_MEMORY_64KB, CLONE_THREAD | CLONE_SIGHAND | CLONE_FILES | CLONE_VM, app)) {
          ViperLogFatal("Clone failed [ %e ]", errno);
          goto ERROR_EXIT;
       }

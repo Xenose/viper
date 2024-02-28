@@ -27,7 +27,7 @@ i8 ViperDynamicArrayExpand(ViperDynamicArray_t* array, u64 count) {
       goto ERROR_EXIT;
    }
 
-   memset(tmp + count, 0, count - array->count);
+   memset(((u8*)tmp) + count, 0, count - array->count);
    array->ptr = tmp;
    array->count = count;
 
@@ -75,7 +75,7 @@ ERROR_EXIT:
  * @return The void pointer where the item is stored.
  */
 void* ViperDynamicArrayGetItem(ViperDynamicArray_t* array, u64 index) {
-   return array->ptr + (array->size * index);
+   return ((u8*)array->ptr) + (array->size * index);
 }
 
 /**
@@ -96,7 +96,7 @@ i8 ViperDynamicArrayInsertItem(ViperDynamicArray_t* array, u64 index, void* item
       }
    }
 
-   memmove(array->ptr + (array->size * index), item, array->size);
+   memmove(((u8*)array->ptr) + (array->size * index), item, array->size);
 
    return 0;
 ERROR_EXIT:
@@ -127,8 +127,8 @@ i8 ViperDynamicArrayInsertItems(ViperDynamicArray_t* array, u64 index, u64 count
       }
    }
 
-   for (i32 i = 0; i < count; i++) {
-      memmove(array->ptr + (array->size * i), va_arg(items, void*), array->size);
+   for (u64 i = 0; i < count; i++) {
+      memmove(((u8*)array->ptr) + (array->size * i), va_arg(items, void*), array->size);
    }
 
    va_end(items);
@@ -154,7 +154,7 @@ i8 ViperDynamicArrayPushItem(ViperDynamicArray_t* array, void* item) {
       goto ERROR_EXIT;
    }
 
-   memmove(array->ptr + array->count, item, array->size);
+   memmove(((u8*)array->ptr) + array->count, item, array->size);
    array->count = newCount;
 
    return 0;
@@ -180,7 +180,7 @@ i8 ViperDynamicArrayClearItem(ViperDynamicArray_t* array, u64 index) {
       }
    }
 
-   memset(array->ptr + (array->size * index), 0, array->size);
+   memset(((u8*)array->ptr) + (array->size * index), 0, array->size);
 
    return 0;
 ERROR_EXIT:
