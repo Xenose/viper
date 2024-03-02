@@ -16,17 +16,34 @@ project(viper LANGUAGES C Fortran)
 set(CMAKE_Fortran_STANDARD 95)
 set(CMAKE_C_STANDARD 17)
 
-add_compile_options(
-   -O0 
-   -g 
-   -rdynamic 
-   ## Warnings
-   -Wall
-   ## -Wextra :: no suport for windows
-   -pedantic
-   ## -Wno-unused-parameter :: no support for windows
-   ## -Wno-unused-label :: no support for windows
-)
+## More Windows Magic
+IF (MSVC)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -experimental:c11atomics")
+ENDIF()
+
+IF(MSVC)
+
+    add_compile_options(
+       -Wall
+    )
+
+ELSE()
+
+    add_compile_options(
+       -O0 
+       -g 
+       -rdynamic 
+       ## Warnings
+       -Wall
+       ## -Wextra :: no suport for windows
+       -pedantic
+       ## -Wno-unused-parameter :: no support for windows
+       ## -Wno-unused-label :: no support for windows
+    )
+
+ENDIF() # MSVC
+
+
 
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU" AND CMAKE_LANG STREQUAL "C")
    add_compile_options(

@@ -1,7 +1,10 @@
 #include<stdlib.h>
 #include<stdio.h>
-#include<getopt.h>
 #include<string.h>
+
+#ifndef _WIN32
+    #include<getopt.h>
+#endif /* _WIN32 */
 
 #include<viper/core/types/enums.h>
 #include<viper/api/main.h>

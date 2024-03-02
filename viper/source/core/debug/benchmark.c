@@ -2,6 +2,8 @@
 #include<errno.h>
 #include<viper/core/debug/benchmark.h>
 
+#ifndef _WIN32
+
 i8 ViperBenchmarkStart(ViperBenchmark_t* bench) {
    struct timespec t = { 0 };
 
@@ -35,3 +37,15 @@ i8 ViperBenchmarkStop(ViperBenchmark_t* bench) {
 
    return 0;
 }
+
+# else // TODO fix windows version
+
+i8 ViperBenchmarkStart(ViperBenchmark_t* bench) {
+    return 0;
+}
+
+i8 ViperBenchmarkStop(ViperBenchmark_t* bench) {
+    return 0;
+}
+
+#endif 

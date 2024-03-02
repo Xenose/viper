@@ -10,8 +10,11 @@
 #include<viper/core/string/opengl.h>
 
 #include<stdio.h>
-#include<unistd.h>
 #include<string.h>
+
+#ifndef _WIN32
+    #include<unistd.h>
+#endif /* _WIN32 */
 
 #define BUFFER_SIZE 2048
 

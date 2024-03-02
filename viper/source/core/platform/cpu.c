@@ -8,7 +8,10 @@
 
 #include<fcntl.h>
 #include<stdio.h>
-#include<unistd.h>
+
+#ifndef _WIN32
+	#include<unistd.h>
+#endif /* _WIN32 */
 
 i8 __ViperCpuGetVendor(ViperCpuSpec_t* restrict spec, cc* restrict buffer, u64 lenght) {
 	if (VIPER_TRUE == ViperStringIsMatch("*AMD*", buffer)) {

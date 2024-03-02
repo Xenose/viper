@@ -2,9 +2,12 @@
 #define GLEW_STATIC
 
 #include<stdlib.h>
-#include<sched.h>
 #include<errno.h>
-#include<unistd.h>
+
+#ifndef _WIN32
+    #include<sched.h>
+    #include<unistd.h>
+#endif /* _WIN32 */
 
 #include<GL/glew.h>
 

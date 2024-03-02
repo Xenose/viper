@@ -1,10 +1,12 @@
 #define _GNU_SOURCE
-#include<dlfcn.h>
 #include<stdlib.h>
 #include<string.h>
 
-#include<linux/limits.h>
+#ifndef _WIN32
+    #include<dlfcn.h>
+#endif /* _WIN32 */
 
+#include<viper/core/platform/limits.h>
 #include<viper/core/platform/dynamic_loading.h>
 #include<viper/core/memory/allocator.h>
 #include<viper/core/debug/logger.h>

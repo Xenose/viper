@@ -1,5 +1,8 @@
 
-#include<unistd.h>
+#ifndef _WIN32
+	#include<unistd.h>
+#endif /* _WIN32 */
+
 #include<fcntl.h>
 #include<viper/core/platform/io.h>
 

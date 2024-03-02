@@ -1,8 +1,13 @@
+#ifndef _WIN32
+	#include<unistd.h>
+#endif
+
 #include <stdatomic.h>
-#include<unistd.h>
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/algorithm/dynamic_array.h>
 #include<viper/core/debug/logger.h>
+
+
 
 i8 ViperQueueCreate(ViperQueue_t* queue, ViperStructType_t type, u64 size, u64 itemCount) {
 	queue->insertIndex = 0;
