@@ -17,7 +17,7 @@ static void __ViperJumpSignalHandler(int signal, siginfo_t* action, void* data) 
    }
 }
 
-inline i32 __ViperJumpIndexDecrease(i32 i) {
+inline i64 __ViperJumpIndexDecrease(i32 i) {
    return __viperJumpIndex -= i;
 }
 
@@ -27,7 +27,7 @@ inline i32 __ViperJumpIndexDecrease(i32 i) {
  * @param i : A integer value will be added
  * to the index.
  */
-inline i32 __ViperJumpIndexIncrease(i32 i) {
+inline i64 __ViperJumpIndexIncrease(i32 i) {
    return __viperJumpIndex += i;
 }
 
@@ -54,7 +54,7 @@ inline void __ViperJump(i32 error) {
  * This function is used internally to set the signal
  * handler in catching mode for the try/catch block.
  */
-i32 __ViperJumpSignalHandlerInit() {
+i8 __ViperJumpSignalHandlerInit() {
    struct sigaction newSigaction = {
       .sa_sigaction = &__ViperJumpSignalHandler,
       .sa_flags = SA_SIGINFO,

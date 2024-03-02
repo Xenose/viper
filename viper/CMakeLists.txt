@@ -8,6 +8,9 @@ IF (WIN32)
     IF (Fortran_COMPILER)
         set(ENV{FC} ${Fortran_COMPILER})
     ENDIF()
+    
+    include_directories("C:/usr/include/")
+    link_directories(AFTER "C:/usr/lib/")
 ENDIF()
 
 enable_language(Fortran)

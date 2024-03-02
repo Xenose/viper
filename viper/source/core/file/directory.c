@@ -1,8 +1,11 @@
-#include<dirent.h>
 #include<errno.h>
 #include<string.h>
 #include<stdlib.h>
-#include<unistd.h>
+
+#ifndef _WIN32
+	#include<dirent.h>
+	#include<unistd.h>
+#endif
 
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>

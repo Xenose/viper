@@ -1,7 +1,10 @@
-#include<bits/types/siginfo_t.h>
 #include<signal.h>
 #include<stdio.h>
-#include<execinfo.h>
+
+#ifndef _WIN32
+	#include<bits/types/siginfo_t.h>
+	#include<execinfo.h>
+#endif
 
 #include<viper/core/debug/signaller.h>
 

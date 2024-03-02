@@ -3,9 +3,13 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<sys/stat.h>
+
+#ifndef _WIN32
 #include<sys/mman.h>
 #include<unistd.h>
-#include<sys/stat.h>
+#endif 
+
 
 #include<viper/core/file/file.h>
 #include<viper/core/debug/logger.h>
