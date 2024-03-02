@@ -64,7 +64,9 @@ inline i64 ViperErrnoToBuffer(int eno, char* buffer, i64 size) {
       case ENOMEM:            return __ViperErrnoCopy("ENOMEM(Out of memory)",                                       21, buffer, size); // 012
       case EACCES:            return __ViperErrnoCopy("EACCES(Premission denined)",                                  26, buffer, size); // 013
       case EFAULT:            return __ViperErrnoCopy("EFAULT(Bad address)",                                         19, buffer, size); // 014
+#ifndef _WIN32
       case ENOTBLK:           return __ViperErrnoCopy("ENOTBLK(Block device required)",                              30, buffer, size); // 015
+#endif 
       case EBUSY:             return __ViperErrnoCopy("EBUSY(Device or resource is busy)",                           33, buffer, size); // 016
       case EEXIST:            return __ViperErrnoCopy("EEXIST(File exists)",                                         19, buffer, size); // 017
       case EXDEV:             return __ViperErrnoCopy("EXDEV(Cross-device link)",                                    24, buffer, size); // 018
@@ -90,9 +92,12 @@ inline i64 ViperErrnoToBuffer(int eno, char* buffer, i64 size) {
       case ENOSYS:            return __ViperErrnoCopy("ENOSYS(Function not implemented)",                            32, buffer, size); // 038
       case ENOTEMPTY:         return __ViperErrnoCopy("ENOTEMPTY(Directory not empty)",                              30, buffer, size); // 039
       case ELOOP:             return __ViperErrnoCopy("ELOOP(Too many symbolic linkes encountered)",                 43, buffer, size); // 040
+#ifndef _WIN32
       case 41:                return __ViperErrnoCopy("UNKNOWN(Unkown error)",                                       21, buffer, size); // 041
+#endif 
       case ENOMSG:            return __ViperErrnoCopy("ENOMDG(No message of desired type)",                          32, buffer, size); // 042
       case EIDRM:             return __ViperErrnoCopy("EIDRM(Identifier removed)",                                   25, buffer, size); // 043
+#ifndef _WIN32
       case ECHRNG:            return __ViperErrnoCopy("ECHRNG(Channel number out of range)",                         35, buffer, size); // 044
       case EL2NSYNC:          return __ViperErrnoCopy("EL2NSYNC(Level 2 not synchronized)",                          34, buffer, size); // 045
       case EL3HLT:            return __ViperErrnoCopy("EL3HLT(Level 3 halted)",                                      22, buffer, size); // 046
@@ -107,24 +112,34 @@ inline i64 ViperErrnoToBuffer(int eno, char* buffer, i64 size) {
       case ENOANO:            return __ViperErrnoCopy("ENOANO(No anode)",                                            16, buffer, size); // 055
       case EBADRQC:           return __ViperErrnoCopy("EBADRQC(Invalid request code)",                               29, buffer, size); // 056
       case EBADSLT:           return __ViperErrnoCopy("EBADSLT(Invalid slot)",                                       21, buffer, size); // 057
+#endif 
       case 58:                return __ViperErrnoCopy("UNKNOWN(Unkown error)",                                       21, buffer, size); // 058
+#ifndef _WIN32
       case EBFONT:            return __ViperErrnoCopy("EBFONT(Bad file file format)",                                28, buffer, size); // 059
+#endif 
       case ENOSTR:            return __ViperErrnoCopy("ENOSTR(Device not a stream)",                                 27, buffer, size); // 060
       case ENODATA:           return __ViperErrnoCopy("ENODATA(No data available)",                                  26, buffer, size); // 061
       case ETIME:             return __ViperErrnoCopy("ETIME(Timer expired)",                                        20, buffer, size); // 062
       case ENOSR:             return __ViperErrnoCopy("ENOSR(Out of stream resources)",                              30, buffer, size); // 063
+#ifndef _WIN32
       case ENONET:            return __ViperErrnoCopy("ENONET(Machine is not on the network)",                       37, buffer, size); // 064
       case ENOPKG:            return __ViperErrnoCopy("ENOPKG(Package not installed)",                               29, buffer, size); // 065
       case EREMOTE:           return __ViperErrnoCopy("EREMOTE(Object is remote)",                                   25, buffer, size); // 066
+#endif 
       case ENOLINK:           return __ViperErrnoCopy("ENOLINK(Link has been severed)",                              30, buffer, size); // 067
+#ifndef _WIN32
       case EADV:              return __ViperErrnoCopy("EADV(Advertise error)",                                       21, buffer, size); // 068
       case ESRMNT:            return __ViperErrnoCopy("ESRMNT(Srmount error)",                                       21, buffer, size); // 069
       case ECOMM:             return __ViperErrnoCopy("ECOMM(Communication error on send)",                          34, buffer, size); // 070
+#endif 
       case EPROTO:            return __ViperErrnoCopy("EPROTO(Protocol error)",                                      22, buffer, size); // 071
+#ifndef _WIN32
       case EMULTIHOP:         return __ViperErrnoCopy("EMULTIHOP(Multihop attempted)",                               29, buffer, size); // 072
       case EDOTDOT:           return __ViperErrnoCopy("EDOTDOT(RFS specific error)",                                 27, buffer, size); // 073
+#endif 
       case EBADMSG:           return __ViperErrnoCopy("EBADMSG(Not a data message)",                                 27, buffer, size); // 074
       case EOVERFLOW:         return __ViperErrnoCopy("EOVERFLOW(Value to large for defined data type)",             47, buffer, size); // 075
+#ifndef _WIN32
       case ENOTUNIQ:          return __ViperErrnoCopy("ENOTUNIQ(Name not unique on network)",                        36, buffer, size); // 076
       case EBADFD:            return __ViperErrnoCopy("EBADFD(File descriptor in bad state)",                        36, buffer, size); // 077
       case EREMCHG:           return __ViperErrnoCopy("EREMCHG(Remote address changed)",                             31, buffer, size); // 078
@@ -133,19 +148,26 @@ inline i64 ViperErrnoToBuffer(int eno, char* buffer, i64 size) {
       case ELIBSCN:           return __ViperErrnoCopy("ELIBSCN(.lib section in a.out corrupted)",                    40, buffer, size); // 081
       case ELIBMAX:           return __ViperErrnoCopy("ELIBMAX(Attempting tp link too many shared libraries)",       53, buffer, size); // 082
       case ELIBEXEC:          return __ViperErrnoCopy("ELIBEXEC(Cannot exec a shared library directly)",             46, buffer, size); // 083
+#endif 
       case EILSEQ:            return __ViperErrnoCopy("EILSEQ(Illegal bytes sequence)",                              30, buffer, size); // 084
+#ifndef _WIN32
       case ERESTART:          return __ViperErrnoCopy("ERESTART(Interuppted system call should be restarted)",       53, buffer, size); // 085
       case ESTRPIPE:          return __ViperErrnoCopy("ESTRPIPE(Streams pipe error)",                                28, buffer, size); // 086
       case EUSERS:            return __ViperErrnoCopy("EUSERS(Too many users)",                                      22, buffer, size); // 087
+#endif 
       case ENOTSOCK:          return __ViperErrnoCopy("ENOTSOCK(Socket operation on non-socket)",                    40, buffer, size); // 088
       case EDESTADDRREQ:      return __ViperErrnoCopy("EDESTADDRREQ(Destination address required)",                  42, buffer, size); // 089
       case EMSGSIZE:          return __ViperErrnoCopy("EMSGSIZE(Message too long)",                                  26, buffer, size); // 090
       case EPROTOTYPE:        return __ViperErrnoCopy("EPROTOTYPE(Protocol wrong type for socket)",                  42, buffer, size); // 091
       case ENOPROTOOPT:       return __ViperErrnoCopy("ENOPROTOOPT(Address family not supported by socket)",         51, buffer, size); // 092
       case EPROTONOSUPPORT:   return __ViperErrnoCopy("EPROTONOSUPPORT(Protocol not supported)",                     39, buffer, size); // 093
+#ifndef _WIN32
       case ESOCKTNOSUPPORT:   return __ViperErrnoCopy("ESOCKNOSUPPORT(Socket type not supported)",                   41, buffer, size); // 094
+#endif 
       case EOPNOTSUPP:        return __ViperErrnoCopy("EOPNOTSUPP(Operation not supporeted on transport endpoint)",  58, buffer, size); // 095
+#ifndef _WIN32
       case EPFNOSUPPORT:      return __ViperErrnoCopy("EPFNOSOPPORT(Protocol family not supported)",                 43, buffer, size); // 096
+#endif 
       case EAFNOSUPPORT:      return __ViperErrnoCopy("EAFNOSUPPORT(Address family not supported by protocol)",      54, buffer, size); // 097
       case EADDRINUSE:        return __ViperErrnoCopy("EADDRINUSE(Address already in use)",                          34, buffer, size); // 098
       case EADDRNOTAVAIL:     return __ViperErrnoCopy("EADDRNOTAVAIL(Cannot assign requested address)",              46, buffer, size); // 099
@@ -157,14 +179,19 @@ inline i64 ViperErrnoToBuffer(int eno, char* buffer, i64 size) {
       case ENOBUFS:           return __ViperErrnoCopy("ENOBUFS(No buffer space available)",                          34, buffer, size); // 105
       case EISCONN:           return __ViperErrnoCopy("EISCONN(Transport endpoint is already connected)",            48, buffer, size); // 106
       case ENOTCONN:          return __ViperErrnoCopy("ENOTCONN(Transport endpoint is not connected)",               48, buffer, size); // 107
+#ifndef _WIN32
       case ESHUTDOWN:         return __ViperErrnoCopy("ESHUTDOWN(Cannot send after transport endpoint shutdown)",    56, buffer, size); // 108
       case ETOOMANYREFS:      return __ViperErrnoCopy("ETOOMANYREFS(Too many references: cannot splice)",            48, buffer, size); // 109
+#endif 
       case ETIMEDOUT:         return __ViperErrnoCopy("ETIMEOUT(Connectin timed out)",                               29, buffer, size); // 110
       case ECONNREFUSED:      return __ViperErrnoCopy("ECONNREFUSED(Connection refused)",                            32, buffer, size); // 111
+#ifndef _WIN32
       case EHOSTDOWN:         return __ViperErrnoCopy("EHOSTDOWN(Host is down)",                                     23, buffer, size); // 112
+#endif 
       case EHOSTUNREACH:      return __ViperErrnoCopy("EHOSTUNREACH(No route to host)",                              30, buffer, size); // 113
       case EALREADY:          return __ViperErrnoCopy("EALREADY(Operation already in progress)",                     39, buffer, size); // 114
       case EINPROGRESS:       return __ViperErrnoCopy("EINPROGRESS(Operation now in progress)",                      38, buffer, size); // 115
+#ifndef _WIN32
       case ESTALE:            return __ViperErrnoCopy("ESTALE(Stale NFS file handle)",                               29, buffer, size); // 116
       case EUCLEAN:           return __ViperErrnoCopy("EUCLEAN(Structure needs cleaning)",                           33, buffer, size); // 117
       case ENOTNAM:           return __ViperErrnoCopy("ENOTNAM(Not a XENIX named type file)",                        36, buffer, size); // 118
@@ -174,14 +201,19 @@ inline i64 ViperErrnoToBuffer(int eno, char* buffer, i64 size) {
       case EDQUOT:            return __ViperErrnoCopy("EDQUOT(Quata exceeded)",                                      22, buffer, size); // 122
       case ENOMEDIUM:         return __ViperErrnoCopy("ENOMEDIUM(No medium found)",                                  26, buffer, size); // 123
       case EMEDIUMTYPE:       return __ViperErrnoCopy("EMEDIUMTYPE(Wrong media type)",                               29, buffer, size); // 124
+#endif 
       case ECANCELED:         return __ViperErrnoCopy("ECANCELED(Operation canceled)",                               29, buffer, size); // 125
+#ifndef _WIN32
       case ENOKEY:            return __ViperErrnoCopy("ENOKEY(Required key not available)",                          34, buffer, size); // 126
       case EKEYEXPIRED:       return __ViperErrnoCopy("EKEYEXPIRED(Key expired)",                                    24, buffer, size); // 127
       case EKEYREVOKED:       return __ViperErrnoCopy("EKEYREVOKED(Key has been revoked)",                           33, buffer, size); // 128
       case EKEYREJECTED:      return __ViperErrnoCopy("EKEYREJECTED(Key was rejected by server)",                    40, buffer, size); // 129
+#endif 
       case EOWNERDEAD:        return __ViperErrnoCopy("EOWNERDEAD(Owner died)",                                      22, buffer, size); // 130
       case ENOTRECOVERABLE:   return __ViperErrnoCopy("ENOTRECOVERABLE(State not recoverable)",                      38, buffer, size); // 131
+#ifndef _WIN32
       case 132:               return __ViperErrnoCopy("UNKNOWN(Unkown error)",                                       21, buffer, size); // 131
+#endif 
    }
 
    return 0;

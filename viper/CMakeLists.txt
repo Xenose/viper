@@ -1,10 +1,19 @@
 cmake_minimum_required(VERSION 3.28)
-project(viper LANGUAGES C Fortran)
+
+## Windows needs to be the special case as allways
+IF (WIN32)
+    find_program(Fortran_COMPILER NAMES ifx ifort gfortran PATHS "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin")
+    message("Fortran compiler [ ${Fortran_COMPILER} ]")
+
+    IF (Fortran_COMPILER)
+        set(ENV{FC} ${Fortran_COMPILER})
+    ENDIF()
+ENDIF()
 
 enable_language(Fortran)
+project(viper LANGUAGES C Fortran)
 
-set(CMAKE_C_FLAGS "${CMAKE_fortran_FLAGS} ")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall ")
+set(CMAKE_Fortran_STANDARD 95)
 set(CMAKE_C_STANDARD 17)
 
 add_compile_options(
@@ -13,10 +22,10 @@ add_compile_options(
    -rdynamic 
    ## Warnings
    -Wall
-   -Wextra
+   ## -Wextra :: no suport for windows
    -pedantic
-   -Wno-unused-parameter
-   -Wno-unused-label
+   ## -Wno-unused-parameter :: no support for windows
+   ## -Wno-unused-label :: no support for windows
 )
 
 if (CMAKE_C_COMPILER_ID STREQUAL "GNU" AND CMAKE_LANG STREQUAL "C")

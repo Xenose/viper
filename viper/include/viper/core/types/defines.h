@@ -2,10 +2,21 @@
 #define __header_viper_types_defines__
 
 #include<stdint.h>
-#include<stdatomic.h>
 
-typedef __int128_t  int128_t;
-typedef __uint128_t uint128_t;
+#ifndef _WIN32
+	#include<stdatomic.h>
+#else
+	#include<vcruntime_c11_stdatomic.h>
+#endif
+
+#ifdef _WIN32
+	typedef int64_t  int128_t;
+	typedef uint64_t uint128_t;
+#else
+	typedef __int128_t  int128_t;
+	typedef __uint128_t uint128_t;
+#endif
+
 
 #define VIPER_TRUE   1
 #define VIPER_FALSE  0
@@ -28,17 +39,36 @@ typedef uint64_t  u64;
 typedef uint128_t u128;
 
 /* Atomics */
+#ifdef _WIN32
+	typedef int8_t  ai8;
+	typedef int16_t ai16;
+	typedef int32_t ai32;
+	typedef int64_t ai64;
 
-typedef atomic_int_least8_t  ai8;
-typedef atomic_int_least16_t ai16;
-typedef atomic_int_least32_t ai32;
-typedef atomic_int_least64_t ai64;
+	typedef uint64_t  au8;
+	typedef uint16_t au16;
+	typedef uint32_t au32;
+	typedef uint64_t au64;
+#else
+	typedef atomic_int_least8_t  ai8;
+	typedef atomic_int_least16_t ai16;
+	typedef atomic_int_least32_t ai32;
+	typedef atomic_int_least64_t ai64;
 
-typedef atomic_uint_least8_t  au8;
-typedef atomic_uint_least16_t au16;
-typedef atomic_uint_least32_t au32;
-typedef atomic_uint_least64_t au64;
+	typedef atomic_uint_least8_t  au8;
+	typedef atomic_uint_least16_t au16;
+	typedef atomic_uint_least32_t au32;
+	typedef atomic_uint_least64_t au64;
+#endif
 
 typedef u64 ViperStructType_t;
+
+
+/* Various types */
+#ifdef _WIN32
+	#define __thread __declspec(thread)
+
+	#define sigjmp_buf jmp_buf
+#endif
 
 #endif /* __header_viper_types_defines__ */

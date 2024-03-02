@@ -9,5 +9,10 @@
 *.o
 *.so
 
+# Visual Studio
+.vs
+*.vsidx
+*.ipch
+
 # Exceptions
 !.gitkeep
