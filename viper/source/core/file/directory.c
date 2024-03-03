@@ -7,6 +7,7 @@
 	#include<unistd.h>
 #endif
 
+#include<viper/core/platform/limits.h>
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>
 #include<viper/core/string/stringer.h>

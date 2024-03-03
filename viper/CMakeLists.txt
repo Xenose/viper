@@ -21,7 +21,7 @@ set(CMAKE_C_STANDARD 17)
 
 ## More Windows Magic
 IF (MSVC)
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -experimental:c11atomics")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} /experimental:c11atomics")
 ENDIF()
 
 IF(MSVC)
