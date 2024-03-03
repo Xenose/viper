@@ -5,7 +5,9 @@
 #ifndef _WIN32
 	#include<dirent.h>
 	#include<unistd.h>
-#endif
+#else
+   #incude<viper/core/file/dirent.h>
+#endif /* _WIN32 */
 
 #include<viper/core/platform/limits.h>
 #include<viper/core/file/directory.h>
