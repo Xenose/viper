@@ -2,7 +2,12 @@
 #define __header_viper_types_defines__
 
 #include<stdint.h>
-#include<stdatomic.h>
+
+#ifndef _WIN32
+	#include<stdatomic.h>
+#else
+	#include<vcruntime_c11_stdatomic.h>
+#endif
 
 #ifdef _WIN32
 	typedef int64_t  int128_t;
