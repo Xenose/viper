@@ -6,7 +6,7 @@
 	#include<dirent.h>
 	#include<unistd.h>
 #else
-   #incude<viper/core/file/dirent.h>
+   #include<viper/core/file/dirent.h>
 #endif /* _WIN32 */
 
 #include<viper/core/platform/limits.h>
