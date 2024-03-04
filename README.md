@@ -46,8 +46,8 @@ state was choosen as its name beacuse of the current "stats state".
 
 |  Language       | File Count | Lines of Code | Procentage |
 | --------------- | ---------- | ------------- | ---------- |
-| C               | 113        | 3282          | 88.77%     |
-| CMake           | 3          | 93            | 2.52%      |
+| C               | 113        | 3285          | 88.78%     |
+| CMake           | 3          | 93            | 2.51%      |
 | Lua             | 5          | 73            | 1.97%      |
 | Python          | 1          | 70            | 1.89%      |
 | Markdown        | 2          | 54            | 1.46%      |
@@ -57,6 +57,6 @@ state was choosen as its name beacuse of the current "stats state".
 | GLSL            | 2          | 13            | 0.35%      |
 | C/C++ Header    | 1          | 10            | 0.27%      |
 | Text            | 2          | 4             | 0.11%      |
-| Summary         | 136        | 3697          | 100.00%    |
+| Summary         | 136        | 3700          | 100.00%    |
 
 [](python-stats-end)

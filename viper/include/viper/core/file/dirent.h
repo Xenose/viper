@@ -15,16 +15,16 @@
 		DT_DIR,
 	};
 
-   struct dirent {
+   typedef struct dirent {
 	   ino_t d_ino;
 	   off_t d_off;
 	   unsigned short d_reclen;
 	   unsigned char d_type;
 	   char d_name[NAME_MAX + 1];
-   };
+   } Dirent_t;
 
    typedef struct {
-	   struct dirent ent;
+	   Dirent_t ent;
 	   uint64_t count;
 	   WIN32_FIND_DATA findFileData;
 	   HANDLE handleFind;

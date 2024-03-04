@@ -8,7 +8,7 @@
     * A windows implementation of opendir :: see [ man dirent.h ]
     */
    DIR* opendir(cc* path) {
-       char buffer[MAX_PATH] = { 0 };
+       char buffer[MAX_PATH + 1] = { 0 };
        DIR* out = ViperCalloc(1, sizeof(DIR));
 
        if (NULL == out) {
