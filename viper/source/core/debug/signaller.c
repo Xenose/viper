@@ -8,6 +8,14 @@
 
 #include<viper/core/debug/signaller.h>
 
+#ifdef _WIN32
+
+i8 ViperSignalHandlerInit() {
+	return 0;
+}
+
+#else
+
 void __ViperSingalHandler(int sig, siginfo_t* info, void* ptr) {
 	void* ptrs[25] = { 0 };
 
@@ -33,3 +41,5 @@ i8 ViperSignalHandlerInit() {
 	sigaction(SIGILL, &action, NULL);
 	return 0;
 }
+
+#endif /* _WIN32 */

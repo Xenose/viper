@@ -2,12 +2,7 @@
 #define __header_viper_types_defines__
 
 #include<stdint.h>
-
-#ifndef _WIN32
-	#include<stdatomic.h>
-#else
-	#include<vcruntime_c11_stdatomic.h>
-#endif
+#include<stdatomic.h>
 
 #ifdef _WIN32
 	typedef int64_t  int128_t;
@@ -23,7 +18,6 @@
 
 /* Normal varibles */
 
-typedef char c;
 typedef const char cc;
 
 typedef int8_t   i8;

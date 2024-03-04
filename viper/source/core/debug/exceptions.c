@@ -2,6 +2,8 @@
 #include<signal.h>
 #include<viper/core/debug/exceptions.h>
 
+#ifndef _WIN32 /* there is no sigaction on windows */
+
 __thread i64 __viperJumpIndex = 0;
 
 __thread struct sigaction __oldSigactions[256] = { 0 };
@@ -68,3 +70,5 @@ ERROR_EXIT:
    // TODO :: return more errors
    return -1;
 }
+
+#endif /* _WIN32 */
