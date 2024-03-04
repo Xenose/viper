@@ -57,6 +57,9 @@ typedef u64 ViperStructType_t;
 	#define __thread __declspec(thread)
 
 	#define sigjmp_buf jmp_buf
+
+	typedef uint64_t ino_t;
+	typedef uint64_t off_t;
 #endif
 
 #endif /* __header_viper_types_defines__ */
