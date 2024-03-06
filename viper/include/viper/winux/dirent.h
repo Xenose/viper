@@ -27,7 +27,7 @@
 	   HANDLE handleFind;
    } DIR;
 
-   extern DIR* opendir(cc* path);
+   extern DIR* opendir(const char* path);
    extern struct dirent* readdir(DIR* dir);
    extern int closedir(DIR* dir);
 #endif /* _WIN32 */
