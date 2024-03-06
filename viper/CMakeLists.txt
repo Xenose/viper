@@ -38,10 +38,10 @@ ELSE()
        -rdynamic 
        ## Warnings
        -Wall
-       ## -Wextra :: no suport for windows
+       -Wextra
        -pedantic
-       ## -Wno-unused-parameter :: no support for windows
-       ## -Wno-unused-label :: no support for windows
+       -Wno-unused-parameter
+       -Wno-unused-label
     )
 
 ENDIF() # MSVC
