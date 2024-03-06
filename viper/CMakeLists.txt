@@ -1,7 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
 
-add_subdirectory(source/winux)
-
 ## Windows needs to be the special case as allways
 IF (WIN32)
     find_program(Fortran_COMPILER NAMES ifx ifort gfortran PATHS "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin")
@@ -55,6 +53,12 @@ if (CMAKE_C_COMPILER_ID STREQUAL "GNU" AND CMAKE_LANG STREQUAL "C")
       -Wformat-security
       )
 endif()
+
+set(WINUX_C_SOURCE
+   "source/winux/dirent.c"
+   "source/winux/unistd.c"
+   "source/winux/mman.c"
+)
 
 set(F95_SOURCE
    "source/core/dummy/hello.f95"
