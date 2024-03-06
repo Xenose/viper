@@ -2,9 +2,13 @@
 #define __header_viper_winux_dirent__
 
 #ifndef _WIN32
-   #include<dirent.h>
+
+#include<dirent.h>
+
 #else
-   #include<Windows.h>
+
+#include<viper/winux/limits.h>
+#include<Windows.h>
 
 	typedef uint64_t ino_t;
 	typedef uint64_t off_t;
