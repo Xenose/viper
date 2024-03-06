@@ -72,7 +72,6 @@ set(C_SOURCE
    "source/core/debug/logger.c"
    "source/core/debug/signaller.c"
    "source/core/file/directory.c"
-   "source/core/file/dirent.c"
    "source/core/file/file.c"
    "source/core/file/format.c"
    "source/core/graphics/glfw.c"
