@@ -16,6 +16,8 @@
 #include<viper/core/test/unit_tests.h>
 #include<viper/core/file/directory.h>
 
+#include<viper/core/types/terminal.h>
+
 static struct option __viperOptions[] = {
    { "viper-dryrun",             no_argument,         0, 0 },
    { "viper-unit-tests",         no_argument,         0, 0 },
@@ -114,3 +116,51 @@ LOOP:
 EXIT:
    return 0;
 } /* ViperInternalCommandParser */
+
+static ViperCommands_t __viperCommands = { 0 };
+
+i8 ViperCommandAdd(cc signleChar, cc* command, cc* descriptions, void* ptr) {
+   void* tmp = NULL;
+   u64 count = __viperCommands.count + 1;
+
+   tmp = realloc(__viperCommands.command, count * sizeof(char**));
+
+   if (NULL == tmp) {
+      goto ERROR_EXIT;
+   }
+
+   tmp = realloc(__viperCommands.singleChar, count * sizeof(char*));
+
+   if (NULL == tmp) {
+      goto ERROR_EXIT;
+   }
+   
+   return 0;
+ERROR_EXIT:
+   return -1;
+}
+
+i8 ViperCommandPrintUsage() {
+   for (uint64_t i = 0; i < __viperCommands.count; i++) {
+      ViperLogNotice(" %s %s ",
+            __viperCommands.singleChar, __viperCommands.command);
+   }
+
+   return 0;
+} 
+
+i8 ViperCommandRead(u64 argc, cc* args) {
+   for (uint64_t i = 0; i < argc; i++) {
+      if ('-' != args[i]) {
+         goto ERROR_EXIT;
+      }
+
+      if ('-' == args[i + 1]) {
+      }
+   }
+
+   return 0;
+ERROR_EXIT:
+   ViperCommandPrintUsage();
+   return -1;
+}
