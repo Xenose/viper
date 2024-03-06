@@ -9,7 +9,7 @@
    #include<viper/core/file/dirent.h>
 #endif /* _WIN32 */
 
-#include<viper/core/platform/limits.h>
+#include<viper/winux/limits.h>
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>
 #include<viper/core/string/stringer.h>

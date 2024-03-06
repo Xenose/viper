@@ -106,6 +106,10 @@ set(C_SOURCE
 include_directories("include")
 
 # Create a library from Fortran sources
+add_library(winux_c STATIC ${WINUX_C_SOURCE})
+target_include_directories(winux_c PUBLIC "include")
+
+# Create a library from Fortran sources
 add_library(viper_f95 STATIC ${F95_SOURCE})
 target_include_directories(viper_f95 PUBLIC "include")
 
@@ -115,5 +119,5 @@ target_include_directories(viper_c PUBLIC "include")
 
 # Link the C library with the Fortran library
 add_library(viper INTERFACE)
-target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "m" "GL" "GLEW" "glfw" "vulkan" "lua" "bsd")
+target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "winux_c" "m" "GL" "GLEW" "glfw" "vulkan" "lua" "bsd")
 
