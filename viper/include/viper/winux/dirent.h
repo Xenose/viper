@@ -6,6 +6,9 @@
 #else
    #include<Windows.h>
 
+	typedef uint64_t ino_t;
+	typedef uint64_t off_t;
+
 	enum {
 		DT_UNKNOWN,
 		DT_REG,
