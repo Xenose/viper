@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.28)
 
+add_subdirectory(source/winux)
+
 ## Windows needs to be the special case as allways
 IF (WIN32)
     find_program(Fortran_COMPILER NAMES ifx ifort gfortran PATHS "C:/Program Files (x86)/Intel/oneAPI/compiler/latest/bin")
