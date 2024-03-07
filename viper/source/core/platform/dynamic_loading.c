@@ -2,11 +2,11 @@
 #include<stdlib.h>
 #include<string.h>
 
-#ifndef _WIN32
-    #include<dlfcn.h>
-#endif /* _WIN32 */
 
 #include<viper/winux/limits.h>
+#include<viper/winux/dlfcn.h>
+
+
 #include<viper/core/platform/dynamic_loading.h>
 #include<viper/core/memory/allocator.h>
 #include<viper/core/debug/logger.h>

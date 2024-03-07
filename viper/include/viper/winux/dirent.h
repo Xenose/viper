@@ -8,6 +8,7 @@
 #else
 
 #include<viper/winux/limits.h>
+#include<stdint.h>
 #include<Windows.h>
 
 	typedef uint64_t ino_t;
@@ -34,6 +35,13 @@
 	   HANDLE handleFind;
    } DIR;
 
+   /**
+   * The implementation for opendir on Windows, see
+   * [ man opendir ] for more information either
+   * searching on the internet or using the terminal.
+   * 
+   * @param path :: The path to the directory.
+   */
    extern DIR* opendir(const char* path);
    extern struct dirent* readdir(DIR* dir);
    extern int closedir(DIR* dir);

@@ -3,16 +3,16 @@
 #ifdef _WIN32
 
 #include<stdint.h>
+#include<stdlib.h>
 
     /**
     * A windows implementation of opendir :: see [ man dirent.h ]
     */
    DIR* opendir(const char* path) {
        char buffer[MAX_PATH + 1] = { 0 };
-       DIR* out = ViperCalloc(1, sizeof(DIR));
+       DIR* out = calloc(1, sizeof(DIR));
 
        if (NULL == out) {
-           ViperLogError("Failed to allocate memory");
            goto ERROR_EXIT;
        }
 

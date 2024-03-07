@@ -5,11 +5,8 @@
 #include<string.h>
 #include<sys/stat.h>
 
-#ifndef _WIN32
-#include<sys/mman.h>
-#include<unistd.h>
-#endif 
-
+#include<viper/winux/unistd.h>
+#include<viper/winux/mman.h>
 
 #include<viper/core/file/file.h>
 #include<viper/core/debug/logger.h>

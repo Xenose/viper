@@ -2,14 +2,10 @@
 #include<string.h>
 #include<stdlib.h>
 
-#ifndef _WIN32
-	#include<dirent.h>
-	#include<unistd.h>
-#else
-   #include<viper/core/file/dirent.h>
-#endif /* _WIN32 */
-
+#include<viper/winux/unistd.h>
 #include<viper/winux/limits.h>
+#include<viper/winux/dirent.h>
+
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>
 #include<viper/core/string/stringer.h>

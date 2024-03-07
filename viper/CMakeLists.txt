@@ -58,6 +58,9 @@ set(WINUX_C_SOURCE
    "source/winux/dirent.c"
    "source/winux/unistd.c"
    "source/winux/mman.c"
+   "source/winux/fcntl.c"
+   "source/winux/getopt.c"
+   "source/winux/sched.c"
 )
 
 set(F95_SOURCE
@@ -83,8 +86,6 @@ set(C_SOURCE
    "source/core/graphics/glfw.c"
    "source/core/graphics/opengl.c"
    "source/core/graphics/window.c"
-   "source/core/image/jpeg.c"
-   "source/core/image/jpeg2k.c"
    "source/core/io/printer.c"
    "source/core/maths/stringer.c"
    "source/core/memory/allocator.c"

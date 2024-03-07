@@ -2,9 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 
-#ifndef _WIN32
-    #include<getopt.h>
-#endif /* _WIN32 */
+#include<viper/winux/getopt.h>
 
 #include<viper/core/types/enums.h>
 #include<viper/api/main.h>

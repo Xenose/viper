@@ -4,12 +4,10 @@
 #include<stdlib.h>
 #include<errno.h>
 
-#ifndef _WIN32
-    #include<sched.h>
-    #include<unistd.h>
-#endif /* _WIN32 */
-
 #include<GL/glew.h>
+
+#include<viper/winux/sched.h>
+#include<viper/winux/unistd.h>
 
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/threading/foreman.h>

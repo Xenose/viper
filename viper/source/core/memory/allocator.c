@@ -1,9 +1,11 @@
 #define _POSIX_SOURCE
 #define _GNU_SOURCE
-#include<sys/mman.h>
 #include<string.h>
-#include<unistd.h>
 #include<stdlib.h>
+
+#include<viper/winux/mman.h>
+#include<viper/winux/unistd.h>
+
 #include<viper/core/io/printer.h>
 #include<viper/core/debug/logger.h>
 
