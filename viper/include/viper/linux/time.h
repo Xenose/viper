@@ -5,7 +5,20 @@
    #include<time.h>
 #else
 
+#include<Windows.h>
 #include<viper/linux/types.h>
+
+struct timespec {
+	time_t tv_sec;
+	long tv_nsec;
+};
+
+enum {
+	CLOCK_REALTIME = 1,
+	CLOCK_MONOTONIC,
+	CLOCK_PROCESS_CPUTIME_ID,
+	CLOCK_THREAD_CPUTIME_ID,
+};
 
 #endif /* _WIN32 */
 
