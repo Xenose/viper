@@ -4,6 +4,7 @@
 **/doxygen/*
 **/tmp/*
 **/images/*
+**/tmp/*
 
 # Objects
 *.o
