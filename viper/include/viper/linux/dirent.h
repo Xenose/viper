@@ -8,11 +8,9 @@
 #else
 
 #include<viper/linux/limits.h>
-#include<stdint.h>
-#include<Windows.h>
+#include<viper/linux/types.h>
 
-	typedef uint64_t ino_t;
-	typedef uint64_t off_t;
+#include<Windows.h>
 
 	enum {
 		DT_UNKNOWN,

@@ -7,6 +7,8 @@
 
 #else
 
+#include<viper/linux/types.h>
+
 extern unsigned int sleep(unsigned int seconds);
 extern unsigned int usleep(useconds_t usec);
 extern int isatty(int fd);

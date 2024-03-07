@@ -56,11 +56,12 @@ endif()
 
 set(LINUX_C_SOURCE
    "source/linux/dirent.c"
-   "source/linux/unistd.c"
-   "source/linux/mman.c"
    "source/linux/fcntl.c"
    "source/linux/getopt.c"
+   "source/linux/mman.c"
    "source/linux/sched.c"
+   "source/linux/unistd.c"
+   "source/linux/time.c"
 )
 
 set(F95_SOURCE

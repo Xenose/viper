@@ -30,6 +30,7 @@ typedef uint64_t time_t;
 typedef uint64_t trace_attr_t;
 typedef uint64_t trace_event_set_t;
 typedef uint64_t uid_t;
+typedef uint64_t useconds_t;
 
 #endif /* _WIN32 */
 
