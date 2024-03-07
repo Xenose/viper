@@ -3,8 +3,8 @@
 #include<string.h>
 
 
-#include<viper/winux/limits.h>
-#include<viper/winux/dlfcn.h>
+#include<viper/linux/limits.h>
+#include<viper/linux/dlfcn.h>
 
 
 #include<viper/core/platform/dynamic_loading.h>

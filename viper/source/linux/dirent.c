@@ -1,4 +1,4 @@
-#include<viper/winux/dirent.h>
+#include<viper/linux/dirent.h>
 
 #ifdef _WIN32
 

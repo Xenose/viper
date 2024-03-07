@@ -10,7 +10,8 @@
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>
 
-#include<viper/winux/limits.h>
+#include<viper/linux/limits.h>
+
 #include<viper/lua/maths/stringer.h>
 #include<viper/lua/maths/hashes.h>
 

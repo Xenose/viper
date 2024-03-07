@@ -1,5 +1,5 @@
-#ifndef __header_viper_winux_dirent__
-#define __header_viper_winux_dirent__
+#ifndef __header_viper_linux_dirent__
+#define __header_viper_linux_dirent__
 
 #ifndef _WIN32
 
@@ -7,7 +7,7 @@
 
 #else
 
-#include<viper/winux/limits.h>
+#include<viper/linux/limits.h>
 #include<stdint.h>
 #include<Windows.h>
 
@@ -47,4 +47,4 @@
    extern int closedir(DIR* dir);
 #endif /* _WIN32 */
 
-#endif /* __header_viper_winux_dirent__ */
+#endif /* __header_viper_linux_dirent__ */

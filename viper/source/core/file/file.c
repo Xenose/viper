@@ -1,12 +1,12 @@
 #include<errno.h>
-#include<fcntl.h>
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
 #include<sys/stat.h>
 
-#include<viper/winux/unistd.h>
-#include<viper/winux/mman.h>
+#include<viper/linux/fcntl.h>
+#include<viper/linux/unistd.h>
+#include<viper/linux/mman.h>
 
 #include<viper/core/file/file.h>
 #include<viper/core/debug/logger.h>

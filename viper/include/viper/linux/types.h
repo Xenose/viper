@@ -1,5 +1,5 @@
-#ifndef __header_viper_winux_types__
-#define __header_viper_winux_types__
+#ifndef __header_viper_linux_types__
+#define __header_viper_linux_types__
 
 #include<sys/types.h>
 
@@ -33,4 +33,4 @@ typedef uint64_t uid_t;
 
 #endif /* _WIN32 */
 
-#endif /* __header_viper_winux_types__ */
+#endif /* __header_viper_linux_types__ */

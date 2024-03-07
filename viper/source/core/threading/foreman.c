@@ -6,8 +6,8 @@
 
 #include<GL/glew.h>
 
-#include<viper/winux/sched.h>
-#include<viper/winux/unistd.h>
+#include<viper/linux/sched.h>
+#include<viper/linux/unistd.h>
 
 #include<viper/core/algorithm/queue.h>
 #include<viper/core/threading/foreman.h>

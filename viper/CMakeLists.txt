@@ -54,13 +54,13 @@ if (CMAKE_C_COMPILER_ID STREQUAL "GNU" AND CMAKE_LANG STREQUAL "C")
       )
 endif()
 
-set(WINUX_C_SOURCE
-   "source/winux/dirent.c"
-   "source/winux/unistd.c"
-   "source/winux/mman.c"
-   "source/winux/fcntl.c"
-   "source/winux/getopt.c"
-   "source/winux/sched.c"
+set(LINUX_C_SOURCE
+   "source/linux/dirent.c"
+   "source/linux/unistd.c"
+   "source/linux/mman.c"
+   "source/linux/fcntl.c"
+   "source/linux/getopt.c"
+   "source/linux/sched.c"
 )
 
 set(F95_SOURCE
@@ -106,9 +106,9 @@ set(C_SOURCE
 
 include_directories("include")
 
-# Create a library from Fortran sources
-add_library(winux_c STATIC ${WINUX_C_SOURCE})
-target_include_directories(winux_c PUBLIC "include")
+# Create a library for re-implementations of Linux and POSIX libraries
+add_library(linux_c STATIC ${LINUX_C_SOURCE})
+target_include_directories(linux_c PUBLIC "include")
 
 # Create a library from Fortran sources
 add_library(viper_f95 STATIC ${F95_SOURCE})
@@ -120,5 +120,5 @@ target_include_directories(viper_c PUBLIC "include")
 
 # Link the C library with the Fortran library
 add_library(viper INTERFACE)
-target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "winux_c" "m" "GL" "GLEW" "glfw" "vulkan" "lua" "bsd")
+target_link_libraries(viper INTERFACE "viper_c" "viper_f95" "linux_c" "m" "GL" "GLEW" "glfw" "vulkan" "lua" "bsd")
 

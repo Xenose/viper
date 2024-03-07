@@ -1,5 +1,5 @@
-#ifndef __header_viper_winux_mman__
-#define __header_viper_winux_mman__
+#ifndef __header_viper_linux_mman__
+#define __header_viper_linux_mman__
 
 #ifndef _WIN32
    #include<sys/mman.h>
@@ -7,7 +7,7 @@
 
 
 #include<stdlib.h>
-#include<viper/winux/types.h>
+#include<viper/linux/types.h>
 
 #define MAP_FAILED NULL
 
@@ -22,4 +22,4 @@ extern void* mmap(void* addr, size_t length, int prot, int flags, int fd, off_t 
 	
 #endif /* _WIN32 */
 
-#endif /* __header_viper_winux_mman__ */
+#endif /* __header_viper_linux_mman__ */

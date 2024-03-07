@@ -2,7 +2,7 @@
 #include<stdio.h>
 #include<string.h>
 
-#include<viper/winux/getopt.h>
+#include<viper/linux/getopt.h>
 
 #include<viper/core/types/enums.h>
 #include<viper/api/main.h>

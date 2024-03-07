@@ -1,5 +1,5 @@
-#ifndef __header_viper_winux_sched__
-#define __header_viper_winux_sched__
+#ifndef __header_viper_linux_sched__
+#define __header_viper_linux_sched__
 
 #ifndef _WIN32
    #include<sched.h>
@@ -14,4 +14,4 @@ extern int clone(int (*fn)(void* ptr), void* stack, int flags, void* arg, ...);
 
 #endif /* _WIN32 */
 
-#endif /* __header_viper_winux_sched__ */
+#endif /* __header_viper_linux_sched__ */

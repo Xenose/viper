@@ -1,8 +1,8 @@
-#ifndef __header_viper_winux_getopt__
-#define __header_viper_winux_getopt__
+#ifndef __header_viper_linux_getopt__
+#define __header_viper_linux_getopt__
 
 #ifndef _WIN32
-   #include<getopt>
+   #include<getopt.h>
 #else
 
 #define no_argument			0x0001
@@ -21,4 +21,4 @@ int getopt_long(int argc, char* const argv[], const char* optstring, const struc
 
 #endif /* _WIN32 */
 
-#endif /* __header_viper_winux_getopt__ */
+#endif /* __header_viper_linux_getopt__ */

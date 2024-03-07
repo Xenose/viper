@@ -3,8 +3,8 @@
 #include<string.h>
 #include<stdlib.h>
 
-#include<viper/winux/mman.h>
-#include<viper/winux/unistd.h>
+#include<viper/linux/mman.h>
+#include<viper/linux/unistd.h>
 
 #include<viper/core/io/printer.h>
 #include<viper/core/debug/logger.h>

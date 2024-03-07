@@ -1,5 +1,5 @@
-#ifndef __header_viper_winux_dlfcn__
-#define __header_viper_winux_dlfcn__
+#ifndef __header_viper_linux_dlfcn__
+#define __header_viper_linux_dlfcn__
 
 #ifndef _WIN32
 #include<dlfcn.h>
@@ -11,4 +11,4 @@
 
 #endif /* _WIN32 */
 
-#endif /* __header_viper_winux_dlfcn__ */
+#endif /* __header_viper_linux_dlfcn__ */

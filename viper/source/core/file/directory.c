@@ -2,9 +2,9 @@
 #include<string.h>
 #include<stdlib.h>
 
-#include<viper/winux/unistd.h>
-#include<viper/winux/limits.h>
-#include<viper/winux/dirent.h>
+#include<viper/linux/unistd.h>
+#include<viper/linux/limits.h>
+#include<viper/linux/dirent.h>
 
 #include<viper/core/file/directory.h>
 #include<viper/core/debug/logger.h>
