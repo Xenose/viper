@@ -2,6 +2,7 @@
 #include<viper/linux/time.h>
 
 static LARGE_INTEGER __lastClock = { 0 };
+static CRITICAL_SECTION __lastClockLock = { 0 };
 
 int clock_getres(clockid_t clockid, struct timespec* res) {
 	return 0;
@@ -22,11 +23,14 @@ REDO:
 	
 	switch(clockid) {
 		case CLOCK_MONOTONIC:
+			EnterCriticalSection(&__lastClockLock);
 			if (ct.QuadPart < __lastClock.QuadPart) {
+				LeaveCriticalSection(&__lastClockLock);
 				goto REDO;
 			}
 
 			__lastClock = ct;
+			LeaveCriticalSection(&__lastClockLock);
 		case CLOCK_REALTIME:
 			tp->tv_sec = seconds;
 			tp->tv_nsec = nseconds;
