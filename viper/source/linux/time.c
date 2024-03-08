@@ -1,6 +1,8 @@
 #include<errno.h>
 #include<viper/linux/time.h>
 
+#define NSEC 1000000000LL
+
 static LARGE_INTEGER __lastClock = { 0 };
 static CRITICAL_SECTION __lastClockLock = { 0 };
 
@@ -18,8 +20,8 @@ REDO:
 		goto ERROR_EXIT;
 	}
 	
-	seconds = ct.QuadPart / 1000000000LL;
-	nseconds = ct.QuadPart - (seconds * 1000000000LL);
+	seconds = ct.QuadPart / NSEC;
+	nseconds = ct.QuadPart - (seconds * NSEC);
 	
 	switch(clockid) {
 		case CLOCK_MONOTONIC:
@@ -35,6 +37,7 @@ REDO:
 			tp->tv_sec = seconds;
 			tp->tv_nsec = nseconds;
 			break;
+
 		case CLOCK_PROCESS_CPUTIME_ID:
 			break;
 		case CLOCK_THREAD_CPUTIME_ID:
