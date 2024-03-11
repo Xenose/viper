@@ -117,7 +117,17 @@ EXIT:
 
 static ViperCommands_t __viperCommands = { 0 };
 
-i8 ViperCommandAdd(cc signleChar, cc* command, cc* descriptions, void* ptr) {
+/**
+ * ViperCommandAdd adds a command to the list of possible commands to be
+ * executed at run time.
+ *
+ * @param singleChar :: The char that represent the single char option.
+ * @param command :: Is the long version of the command.
+ * @param description :: What the command does.
+ * @param func :: Is the function that should be called for this command.
+ * @param ptr :: The data provided to the function in the struct.
+ */
+i8 ViperCommandAdd(cc singleChar, cc* command, cc* description, void (func)(void*), void* ptr) {
    void* tmp = NULL;
    u64 count = __viperCommands.count + 1;
 
