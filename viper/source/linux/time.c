@@ -1,6 +1,8 @@
 #include<errno.h>
 #include<viper/linux/time.h>
 
+#ifdef _WIN32
+
 #define NSEC 1000000000LL
 
 static LARGE_INTEGER __lastClock = { 0 };
@@ -56,3 +58,5 @@ int clock_settime(clockid_t clockid, const struct timespec* tp) {
 	return 0;
 
 }
+
+#endif /* _WIN32 */

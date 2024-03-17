@@ -16,6 +16,9 @@
 
 #include<viper/core/types/terminal.h>
 
+
+#ifdef _comment_out
+
 static struct option __viperOptions[] = {
    { "viper-dryrun",             no_argument,         0, 0 },
    { "viper-unit-tests",         no_argument,         0, 0 },
@@ -115,7 +118,7 @@ EXIT:
    return 0;
 } /* ViperInternalCommandParser */
 
-static ViperCommands_t __viperCommands = { 0 };
+#endif
 
 /**
  * ViperCommandAdd adds a command to the list of possible commands to be
@@ -127,48 +130,52 @@ static ViperCommands_t __viperCommands = { 0 };
  * @param func :: Is the function that should be called for this command.
  * @param ptr :: The data provided to the function in the struct.
  */
-i8 ViperCommandAdd(cc singleChar, cc* command, cc* description, void (func)(void*), void* ptr) {
+i8 ViperCommandAdd(ViperCommands_t* restrict com, cc singleChar, cc* restrict command, cc* restrict description, i64 (func)(void*), void* ptr) {
    void* tmp = NULL;
-   u64 count = __viperCommands.count + 1;
+   u64 count = com->count + 1;
 
-   tmp = realloc(__viperCommands.command, count * sizeof(char**));
-
-   if (NULL == tmp) {
-      goto ERROR_EXIT;
-   }
-
-   tmp = realloc(__viperCommands.singleChar, count * sizeof(char*));
+   tmp = ViperRealloc(com->commands, count * sizeof(ViperCommands_t));
 
    if (NULL == tmp) {
       goto ERROR_EXIT;
    }
-   
+
+   com->commands = tmp;
+
+   ViperLogDebug("added command [ short : %s ] [ long : %s ]", singleChar, command);
+
    return 0;
 ERROR_EXIT:
    return -1;
 }
 
-i8 ViperCommandPrintUsage() {
-   for (uint64_t i = 0; i < __viperCommands.count; i++) {
+i8 ViperCommandPrintUsage(ViperCommands_t* com) {
+   for (uint64_t i = 0; i < com->count; i++) {
       ViperLogNotice(" %s %s ",
-            __viperCommands.singleChar, __viperCommands.command);
+            com->commands[i].shortOpt, com->commands[i].longOpt);
    }
 
    return 0;
 } 
 
-i8 ViperCommandRead(u64 argc, cc* args) {
-   for (uint64_t i = 0; i < argc; i++) {
-      if ('-' != args[i]) {
-         goto ERROR_EXIT;
+i8 ViperCommandRead(ViperCommands_t* com, u64 argc, cc** args) {
+   for (uint64_t i = 1; i < argc; i++) {
+      ViperLogDebug("Reading command [ %s ]", args[i]);
+
+      if ('-' == args[i][1]) {
+         ViperLogDebug("Long command");
+         continue;
       }
 
-      if ('-' == args[i + 1]) {
+      if ('-' == args[i][0]) {
+         ViperLogDebug("Short command");
+         continue;
       }
+
    }
 
    return 0;
 ERROR_EXIT:
-   ViperCommandPrintUsage();
+   ViperCommandPrintUsage(com);
    return -1;
 }

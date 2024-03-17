@@ -36,6 +36,13 @@ void __ViperPrintMemory(i64* total, i64 stream, const char* restrict format, cha
    }
 }
 
+static i64 __ViperCopyString(char* out, cc* in, u64 length) {
+   if (NULL == in) {
+      return ViperStpnCpy(out, "(NULL)", length);
+   }
+   return ViperStpnCpy(out, in, length);
+}
+
 /**
  */
 void __ViperPrinterParseString(i64* total, i64 stream, cc* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
@@ -73,7 +80,7 @@ LOOP:
                __ViperPrintMemory(total, stream, format, buffer, bufferSize, bufferUsed, args);
                break;
             case 's':
-               *bufferUsed += ViperStpnCpy(&buffer[*bufferUsed], va_arg(args, char*), bufferSize - *bufferUsed);
+               *bufferUsed += __ViperCopyString(&buffer[*bufferUsed], va_arg(args, char*), bufferSize - *bufferUsed);
                break;
             case 'x':
                break;

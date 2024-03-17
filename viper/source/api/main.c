@@ -27,16 +27,25 @@ int __ViperMain(int arc, char* const* arv) {
    ViperGraphicsCreateInfo_t* graphicsInfo = NULL;
    ViperApplication_t* app = ViperMalloc(sizeof(ViperApplication_t));
    ViperApplicationCreateInfo_t* appConfig = ViperMalloc(sizeof(ViperApplicationCreateInfo_t));
+   ViperCommands_t commands = { 0 };
 
    app->sType  = VIPER_STRUCT_TYPE_APPLICATION;
    app->argc   = arc;
    app->argv   = arv;
    app->state  = 0;
 
-   if (0 != ViperInternalCommandParser(app, arc, arv)) {
-   }
+   //if (0 != ViperInternalCommandParser(app, arc, arv)) {
+   //}
+   
+   ViperCommandAdd(&commands, NULL, "viper-dryrun",               "Running the program without a infinete loop",  NULL, NULL);
+   ViperCommandAdd(&commands, NULL, "viper-unit-tests",           "Running the internal viper engine tests",      NULL, NULL);
+   ViperCommandAdd(&commands, NULL, "viper-enable-log-levels",    "Enables each logging level",                   NULL, NULL);
+   ViperCommandAdd(&commands, NULL, "viper-disable-log-levels",   "Disables each logging level",                  NULL, NULL);
 
    if (0 != ViperSetup(appConfig)) {
+   }
+
+   if (0 != ViperCommandRead(&commands, arc, (cc**)arv)) {
    }
 
    if (VIPER_APP_FLAG_USE_OPENGL & appConfig->flags) {
