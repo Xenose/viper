@@ -11,6 +11,11 @@
 #include<viper/core/graphics/glfw.h>
 #include<viper/core/graphics/window.h>
 
+i64 __ViperDryrun(cc* opts, u64 count, void*) {
+   ViperLogDebug("hello from dryrun");
+   return 0;
+}
+
 /**
  * The hidden main function for the Viper engine used the application
  * to pre-allocate useful data and handles cleanup upon exit.
@@ -37,7 +42,7 @@ int __ViperMain(int arc, char* const* arv) {
    //if (0 != ViperInternalCommandParser(app, arc, arv)) {
    //}
    
-   ViperCommandAdd(&commands, NULL, "viper-dryrun",               "Running the program without a infinete loop",  NULL, NULL);
+   ViperCommandAdd(&commands, NULL, "viper-dryrun",               "Running the program without a infinete loop",  &__ViperDryrun, NULL);
    ViperCommandAdd(&commands, NULL, "viper-unit-tests",           "Running the internal viper engine tests",      NULL, NULL);
    ViperCommandAdd(&commands, NULL, "viper-enable-log-levels",    "Enables each logging level",                   NULL, NULL);
    ViperCommandAdd(&commands, NULL, "viper-disable-log-levels",   "Disables each logging level",                  NULL, NULL);
@@ -46,6 +51,7 @@ int __ViperMain(int arc, char* const* arv) {
    }
 
    if (0 != ViperCommandRead(&commands, arc, (cc**)arv)) {
+      goto ERROR_EXIT;
    }
 
    if (VIPER_APP_FLAG_USE_OPENGL & appConfig->flags) {
@@ -88,4 +94,6 @@ LOOP:
 
    ViperFree(app);
    return 0;
+ERROR_EXIT:
+   return -1;
 }

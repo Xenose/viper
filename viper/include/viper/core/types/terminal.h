@@ -8,7 +8,7 @@ typedef struct {
    char shortOpt;
    char* longOpt;
    char* description;
-   int8_t (*func)(void* data);
+   i64 (*func)(cc* opts, u64 count, void* data);
 } ViperCommandEntries_t;
 
 typedef struct {
