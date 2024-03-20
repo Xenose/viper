@@ -38,10 +38,10 @@ int __ViperMain(int arc, char* const* arv) {
    //if (0 != ViperInternalCommandParser(app, arc, arv)) {
    //}
    
-   ViperCommandAdd(&commands, NULL, "viper-dryrun",               "Running the program without a infinete loop",  &ViperTerminalCommandDryrun, app);
-   ViperCommandAdd(&commands, NULL, "viper-unit-tests",           "Running the internal viper engine tests",      NULL, NULL);
-   ViperCommandAdd(&commands, NULL, "viper-enable-log-levels",    "Enables each logging level",                   NULL, NULL);
-   ViperCommandAdd(&commands, NULL, "viper-disable-log-levels",   "Disables each logging level",                  NULL, NULL);
+   ViperCommandAdd(&commands, 0, "viper-dryrun",               "Running the program without a infinete loop",  &ViperTerminalCommandDryrun, app);
+   ViperCommandAdd(&commands, 0, "viper-unit-tests",           "Running the internal viper engine tests",      &ViperTerminalCommandUnitTest, NULL);
+   ViperCommandAdd(&commands, 0, "viper-enable-log-levels",    "Enables each logging level",                   &ViperTerminalCommandEnableLogLevels, NULL);
+   ViperCommandAdd(&commands, 0, "viper-disable-log-levels",   "Disables each logging level",                  &ViperTerminalCommandDisableLogLevels, NULL);
 
    if (0 != ViperSetup(appConfig)) {
    }

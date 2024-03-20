@@ -23,7 +23,6 @@ static const struct luaL_Reg viper_lib[] = {
    { NULL, NULL }
 };
 
-
 i8 ViperExecuteUniteTests(cc* path) {
    char tmp[PATH_MAX + 1] = { 0 };
    u64 fileCount = 0;
