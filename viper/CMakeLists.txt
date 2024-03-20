@@ -72,6 +72,7 @@ set(F95_SOURCE
 
 set(C_SOURCE
    "source/api/image/image.c"
+   "source/api/terminal/commands.c"
    "source/api/main.c"
    "source/core/algorithm/dynamic_array.c"
    "source/core/algorithm/hash.c"

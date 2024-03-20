@@ -2,6 +2,7 @@
 #include<stdio.h>
 
 #include<viper/api/main.h>
+#include<viper/api/terminal/commands.h>
 
 #include<viper/core/types/enums.h>
 #include<viper/core/memory/allocator.h>
@@ -10,11 +11,6 @@
 #include<viper/core/debug/logger.h>
 #include<viper/core/graphics/glfw.h>
 #include<viper/core/graphics/window.h>
-
-i64 __ViperDryrun(cc* opts, u64 count, void*) {
-   ViperLogDebug("hello from dryrun");
-   return 0;
-}
 
 /**
  * The hidden main function for the Viper engine used the application
@@ -42,7 +38,7 @@ int __ViperMain(int arc, char* const* arv) {
    //if (0 != ViperInternalCommandParser(app, arc, arv)) {
    //}
    
-   ViperCommandAdd(&commands, NULL, "viper-dryrun",               "Running the program without a infinete loop",  &__ViperDryrun, NULL);
+   ViperCommandAdd(&commands, NULL, "viper-dryrun",               "Running the program without a infinete loop",  &ViperTerminalCommandDryrun, app);
    ViperCommandAdd(&commands, NULL, "viper-unit-tests",           "Running the internal viper engine tests",      NULL, NULL);
    ViperCommandAdd(&commands, NULL, "viper-enable-log-levels",    "Enables each logging level",                   NULL, NULL);
    ViperCommandAdd(&commands, NULL, "viper-disable-log-levels",   "Disables each logging level",                  NULL, NULL);
@@ -76,6 +72,7 @@ int __ViperMain(int arc, char* const* arv) {
 
    // Freeing the ViperApplicationCreateInfo_t
    free(appConfig);
+   ViperCommandDelete(&commands);
 
    if (0 != ViperMain(app)) {
    }
