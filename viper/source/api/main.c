@@ -11,6 +11,7 @@
 #include<viper/core/debug/logger.h>
 #include<viper/core/graphics/glfw.h>
 #include<viper/core/graphics/window.h>
+#include<viper/core/file/config.h>
 
 /**
  * The hidden main function for the Viper engine used the application
@@ -44,6 +45,10 @@ int __ViperMain(int arc, char* const* arv) {
    ViperCommandAdd(&commands, 0, "viper-disable-log-levels",   "Disables each logging level",                  &ViperTerminalCommandDisableLogLevels, NULL);
 
    if (0 != ViperSetup(appConfig)) {
+   }
+
+   if (0 != ViperConfigLocationsRead(&commands, "example/conf")) {
+      ViperLogWarning("Failed to load config");
    }
 
    if (0 != ViperCommandRead(&commands, arc, (cc**)arv)) {

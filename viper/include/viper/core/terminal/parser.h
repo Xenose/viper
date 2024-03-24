@@ -6,6 +6,14 @@
 #include<viper/core/types/terminal.h>
 
 /**
+ * ViperCommandAdd adds a command to the list of possible commands to be
+ * executed at run time.
+ *
+ * @param singleChar :: The char that represent the single char option.
+ * @param command :: Is the long version of the command.
+ * @param description :: What the command does.
+ * @param func :: Is the function that should be called for this command.
+ * @param ptr :: The data provided to the function in the struct.
  */
 extern i8 ViperCommandAdd(ViperCommands_t* restrict com, cc singleChar, cc* restrict command, cc* restrict description, i64 (func)(cc* opts, u64 count, void*), void* ptr);
 

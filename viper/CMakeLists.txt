@@ -75,6 +75,7 @@ set(C_SOURCE
    "source/api/terminal/commands.c"
    "source/api/main.c"
    "source/core/algorithm/dynamic_array.c"
+   "source/core/file/config.c"
    "source/core/algorithm/hash.c"
    "source/core/algorithm/hashmap.c"
    "source/core/algorithm/queue.c"

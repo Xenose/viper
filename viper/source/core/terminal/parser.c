@@ -17,16 +17,6 @@
 #include<viper/core/types/terminal.h>
 #include<viper/core/io/printer.h>
 
-/**
- * ViperCommandAdd adds a command to the list of possible commands to be
- * executed at run time.
- *
- * @param singleChar :: The char that represent the single char option.
- * @param command :: Is the long version of the command.
- * @param description :: What the command does.
- * @param func :: Is the function that should be called for this command.
- * @param ptr :: The data provided to the function in the struct.
- */
 i8 ViperCommandAdd(ViperCommands_t* restrict com, cc shortOpt, cc* restrict longOpt, cc* restrict description, i64 (func)(cc* opts, u64 count, void*), void* ptr) {
    void* tmp = NULL;
    u64 count = com->count + 1;
@@ -92,8 +82,8 @@ i8 ViperCommandLongExecute(ViperCommands_t* com, cc* args) {
    return -1;
 }
 
-i8 ViperCommandShortExecute(ViperCommands_t* com, cc* args) {
-   for (u64 j = 0; '\0' != args[j]; j++) {
+i8 ViperCommandShortExecute(ViperCommands_t* com, cc* arg) {
+   for (u64 j = 0; '\0' != arg[j]; j++) {
    }
 }
 

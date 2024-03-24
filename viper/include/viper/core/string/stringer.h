@@ -26,4 +26,6 @@ extern char* ViperStringGetSub(char* str, u64* lenght);
 
 extern i8 ViperAtou(u64* value, cc* restrict buffer, u64 lenght, u64 base);
 
+extern char* ViperStringGetLine(cc* str);
+
 #endif /* __header_viper_core_string_stringer__ */

@@ -104,3 +104,8 @@ char* ViperStringGetSub(char* str, u64* lenght) {
 ERROR_EXIT:
    return out;
 }
+
+char* ViperStringGetLine(cc* str) {
+   while ('\n' != *str && '\0' != *str) ++str;
+   return (char*)str;
+}

@@ -7,6 +7,7 @@
 #include<viper/core/types/struct.h>
 #include<viper/core/types/flags.h>
 #include<viper/core/types/glfw.h>
+#include<viper/core/types/scene.h>
 
 typedef struct __ViperOpenGL_t {
    ViperStructType_t sType;
@@ -29,6 +30,8 @@ typedef struct __ViperApplication_t {
    void (*LoopOpenGL)(struct __ViperApplication_t* app);
 
    ViperOpenGL_t* opengl;
+   ViperScene_t* scenes;
+   ViperScene_t* activeScene;
 } ViperApplication_t;
 
 typedef struct {

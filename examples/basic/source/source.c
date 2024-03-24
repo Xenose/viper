@@ -27,6 +27,7 @@
 #include<viper/core/algorithm/hash.h>
 #include<viper/core/platform/cpu.h>
 #include<viper/core/algorithm/hashmap.h>
+#include<viper/core/file/config.h>
 
 i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
    ViperLogInfo("Hello OpenGL");
@@ -104,7 +105,6 @@ i64 ViperMain(ViperApplication_t* app) {
 	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "olleh")));
 
 
-	return 0;
    ViperBenchmark_t bench;
 
    ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
