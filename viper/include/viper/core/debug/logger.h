@@ -5,7 +5,11 @@
 #include<viper/core/types/struct.h>
 #include<viper/core/types/logger.h>
 
-#define ViperLog(level, format, ...) ViperLogFunction(level, __LINE__, __FILE__, __func__, format, ##__VA_ARGS__)
+#ifndef VIPER_SOURCE_PATH_LENGTH
+	#define VIPER_SOURCE_PATH_LENGTH sizeof(__FILE__) - 1
+#endif /* VIPER_SOURCE_PATH_LENGTH */
+
+#define ViperLog(level, format, ...) ViperLogFunction(level, __LINE__, &__FILE__[VIPER_SOURCE_PATH_LENGTH], __func__, format, ##__VA_ARGS__)
 
 #define ViperLogDebug(format, ...)       	ViperLog(VIPER_LOG_LEVEL_DEBUG,      	format, ##__VA_ARGS__)
 #define ViperLogInfo(format, ...)        	ViperLog(VIPER_LOG_LEVEL_INFO,       	format, ##__VA_ARGS__)
