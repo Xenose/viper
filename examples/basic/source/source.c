@@ -30,32 +30,32 @@
 #include<viper/core/file/config.h>
 
 i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
-   ViperLogInfo("Hello OpenGL");
+	ViperLogInfo("Hello OpenGL");
 
-   *info = (ViperGraphicsCreateInfo_t){
-      .window = {
-         .name = "viper",
-         .resultion.x = 1920,
-         .resultion.y = 1080,
-         .flags = VIPER_WINDOW_FLAG_OPENGL,
-      }
-   };
+	*info = (ViperGraphicsCreateInfo_t){
+		.window = {
+			.name = "viper",
+			.resultion.x = 1920,
+			.resultion.y = 1080,
+			.flags = VIPER_WINDOW_FLAG_OPENGL,
+		}
+	};
 
-   return 0;
+	return 0;
 }
 
 void LoopOpenGL(ViperApplication_t* app) {
 
-   glBegin(GL_TRIANGLES);
-   glColor3f(1.0f, 0.0f, 0.0f); // Red
-   glVertex2f(0.0f, 1.0f);     // Top vertex
+	glBegin(GL_TRIANGLES);
+	glColor3f(1.0f, 0.0f, 0.0f); // Red
+	glVertex2f(0.0f, 1.0f);     // Top vertex
 
-   glColor3f(0.0f, 1.0f, 0.0f); // Green
-   glVertex2f(-1.0f, -1.0f);   // Bottom-left vertex
+	glColor3f(0.0f, 1.0f, 0.0f); // Green
+	glVertex2f(-1.0f, -1.0f);   // Bottom-left vertex
 
-   glColor3f(0.0f, 0.0f, 1.0f); // Blue
-   glVertex2f(1.0f, -1.0f);    // Bottom-right vertex
-   glEnd();
+	glColor3f(0.0f, 0.0f, 1.0f); // Blue
+	glVertex2f(1.0f, -1.0f);    // Bottom-right vertex
+	glEnd();
 
 }
 
@@ -64,13 +64,13 @@ void Hello() {
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 
-   app->flags =
-      VIPER_APP_FLAG_USE_OPENGL;
+	app->flags =
+		VIPER_APP_FLAG_USE_OPENGL;
 
-   app->SetupOpenGL = &SetupOpenGL;
-   app->LoopOpenGL = &LoopOpenGL;
+	app->SetupOpenGL = &SetupOpenGL;
+	app->LoopOpenGL = &LoopOpenGL;
 
-   return 0;
+	return 0;
 }
 
 i64 ViperMain(ViperApplication_t* app) {
@@ -86,7 +86,7 @@ i64 ViperMain(ViperApplication_t* app) {
 	test = 15;
 	ViperHashmapInsert(&map, "olleh", &test);
 
-   puts("\n");
+	puts("\n");
 
 	ViperLogDebug("Hello");
 	ViperLogInfo("Hello");
@@ -97,43 +97,43 @@ i64 ViperMain(ViperApplication_t* app) {
 	ViperLogAlert("Hello");
 	ViperLogCritical("Hello");
 	ViperLogEmergancy("Hello");
-   
-   puts("\n");
+
+	puts("\n");
 
 	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello")));
 	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello1")));
 	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "olleh")));
 
 
-   ViperBenchmark_t bench;
+	ViperBenchmark_t bench;
 
-   ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
+	ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
 
-   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hello"));
-   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "olleh"));
-   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "lleh"));
-   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hellod"));
-   ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
- 
+	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hello"));
+	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "olleh"));
+	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "lleh"));
+	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hellod"));
+	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
 
-   ViperShader_t shader = { 0 };
-   ViperShaderCreateInfo_t shaderInfo = {
-      .fragmentPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_fragment.glsl",
-      .vertexPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_vertex.glsl",
-   };
 
-   ViperCreateShaderOpenGL(&shader, &shaderInfo);
+	ViperShader_t shader = { 0 };
+	ViperShaderCreateInfo_t shaderInfo = {
+		.fragmentPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_fragment.glsl",
+		.vertexPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_vertex.glsl",
+	};
 
-   ViperThreadingTask_t task = {
-      .func = Hello,
-   };
+	ViperCreateShaderOpenGL(&shader, &shaderInfo);
 
-   ViperThreadingForemanInit(10);
+	ViperThreadingTask_t task = {
+		.func = Hello,
+	};
 
-   /*if (0 != ViperThreadingForemanAddTask(&task)) {
-     return -1;
-     }*/
+	ViperThreadingForemanInit(10);
 
-   ViperThreadingForemanStart(app);
-   return 0;
+	/*if (0 != ViperThreadingForemanAddTask(&task)) {
+	  return -1;
+	  }*/
+
+	ViperThreadingForemanStart(app);
+	return 0;
 }

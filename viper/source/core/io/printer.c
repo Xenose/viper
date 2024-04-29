@@ -18,7 +18,6 @@
 
 #define BUFFER_SIZE 2048
 
-static __thread char __viperPrintBuffer[BUFFER_SIZE] = { 0 };
 
 void __ViperPrintMemory(i64* total, i64 stream, const char* restrict format, char* buffer, u64 bufferSize, u64* restrict bufferUsed, va_list args) {
    u8* data = va_arg(args, u8*);
@@ -121,7 +120,9 @@ inline i64 ViperPrintVSFB(i64 stream, const char* restrict format, char* restric
 
 inline i64 ViperPrintVSF(i64 stream, const char* restrict format, va_list args) {
    u64 used = 0;
-   return ViperPrintVSFB(stream, format, __viperPrintBuffer, BUFFER_SIZE, &used, args);
+	char buffer[BUFFER_SIZE] = { 0 };
+
+   return ViperPrintVSFB(stream, format, buffer, BUFFER_SIZE, &used, args);
 }
 
 inline i64 ViperPrintVF(const char* format, va_list args) {

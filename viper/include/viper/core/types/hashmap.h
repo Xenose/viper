@@ -21,4 +21,15 @@ typedef struct {
    ViperHashmapItem_t* data;
 } ViperHashmap_t;
 
+typedef struct {
+} ViperGenericHashmapItem_t;
+
+typedef struct {
+   ViperStructType_t sType;
+
+   u64 count;
+   u64 resize;
+   ViperGenericHashmapItem_t* data;
+} viperGenericHashmap_t;
+
 #endif /* __header_viper_core_types_hashmap__ */
