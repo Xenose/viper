@@ -1,4 +1,5 @@
 #define VIPER_USE_LIBRARY_MAIN
+#define VIPER_USE_NAMESPACE
 
 #include<fcntl.h>
 #include<sys/mman.h>
@@ -30,7 +31,7 @@
 #include<viper/core/file/config.h>
 
 i8 SetupOpenGL(ViperApplication_t* app, ViperGraphicsCreateInfo_t* info) {
-	ViperLogInfo("Hello OpenGL");
+	LogInfo("Hello OpenGL");
 
 	*info = (ViperGraphicsCreateInfo_t){
 		.window = {
@@ -60,6 +61,8 @@ void LoopOpenGL(ViperApplication_t* app) {
 }
 
 void Hello() {
+	LogDebug("Hello");
+   sleep(1);
 }
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
@@ -73,47 +76,43 @@ i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
 	return 0;
 }
 
-i64 ViperMain(ViperApplication_t* app) {
+i64 Main(ViperApplication_t* app) {
 	int test = 10;
 	ViperHashmap_t map = { 0 };
 
-	ViperHashmapCreate(&map, 0, 10, 0, sizeof(int), 10);
+	HashmapCreate(&map, 0, 10, 0, sizeof(int), 10);
 
-	ViperHashmapInsert(&map, "hello", &test);
-	ViperHashmapInsert(&map, "hello", &test);
+	HashmapInsert(&map, "hello", &test);
+	HashmapInsert(&map, "hello", &test);
 	test = 12;
-	ViperHashmapInsert(&map, "hello1", &test);
+	HashmapInsert(&map, "hello1", &test);
 	test = 15;
-	ViperHashmapInsert(&map, "olleh", &test);
+	HashmapInsert(&map, "olleh", &test);
 
-	puts("\n");
+	LogDebug("Hello");
+	LogInfo("Hello");
+	LogNotice("Hello");
+	LogWarning("Hello");
+	LogError("Hello");
+	LogFatal("Hello");
+	LogAlert("Hello");
+	LogCritical("Hello");
+	LogEmergancy("Hello");
 
-	ViperLogDebug("Hello");
-	ViperLogInfo("Hello");
-	ViperLogNotice("Hello");
-	ViperLogWarning("Hello");
-	ViperLogError("Hello");
-	ViperLogFatal("Hello");
-	ViperLogAlert("Hello");
-	ViperLogCritical("Hello");
-	ViperLogEmergancy("Hello");
-
-	puts("\n");
-
-	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello")));
-	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello1")));
-	ViperLogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "olleh")));
+	LogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello")));
+	LogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "hello1")));
+	LogDebug("The stored value is [ %i ]", *((int*)ViperHashmapGet(&map, "olleh")));
 
 
 	ViperBenchmark_t bench;
 
-	ViperBenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
+	BenchmarkPrint(&bench, "Viper hash", ViperHashSimple(100, "h"));
 
-	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hello"));
-	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "olleh"));
-	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "lleh"));
-	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hellod"));
-	ViperLogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
+	LogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hello"));
+	LogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "olleh"));
+	LogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "lleh"));
+	LogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "hellod"));
+	LogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
 
 
 	ViperShader_t shader = { 0 };
@@ -122,17 +121,17 @@ i64 ViperMain(ViperApplication_t* app) {
 		.vertexPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_vertex.glsl",
 	};
 
-	ViperCreateShaderOpenGL(&shader, &shaderInfo);
+	ShaderCreateOpenGL(&shader, &shaderInfo);
 
 	ViperThreadingTask_t task = {
 		.func = Hello,
 	};
 
 	ViperThreadingForemanInit(10);
-
-	/*if (0 != ViperThreadingForemanAddTask(&task)) {
-	  return -1;
-	  }*/
+   
+   if (0 != ViperThreadingForemanAddTask(&task)) {
+     return -1;
+   }
 
 	ViperThreadingForemanStart(app);
 	return 0;

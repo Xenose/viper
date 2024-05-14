@@ -18,7 +18,7 @@
  * to pre-allocate useful data and handles cleanup upon exit.
  *
  * This function should never be called by the user, instead the macro
- * for enablening the pre-processor main should be used and then the
+ * for enabling the pre-processor main should be used and then the
  * ViperMain function will be called.
  */
 int __ViperMain(int arc, char* const* arv) {

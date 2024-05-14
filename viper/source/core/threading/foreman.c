@@ -16,8 +16,12 @@
 #include<viper/core/memory/allocator.h>
 #include<viper/core/types/memory.h>
 
+// The internal foreman struct containing the
+// data for executing all its worker
 static ViperThreadingForeman_t __foreman = { 0 };
 
+/**
+ */
 static int __ViperThreadingWorker(void* ptr) {
    ViperApplication_t* app = NULL;
    ViperThreadingWorker_t* me = ptr;
@@ -127,7 +131,7 @@ i64 ViperThreadingForemanStart(ViperApplication_t* app) {
       }
    }
 
-   // Reseting [ i ] doesn't relly matter do.
+   // Resetting [ i ] doesn't really matter do.
    i = 0;
 
    while(1 /*VIPER_APP_STATE_RUNNING == app->state*/) {

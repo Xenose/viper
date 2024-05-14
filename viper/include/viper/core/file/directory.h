@@ -37,4 +37,17 @@ extern char** ViperDirectorySearch(u64* count, cc* path, cc* format, u64 flags);
  */
 extern char* ViperDirectoryProgram();
 
+/**
+ * This maybe is a good idea as I don't want to use
+ * special names for my application, but not there
+ * might be a conflict in future projects so this
+ * macro will allow me to turn off the prefix.
+ */
+#ifdef VIPER_USE_NAMESPACE
+
+#define DirectorySearch    ViperDirectorySearch
+#define DirectoryProgram   ViperDirectoryProgram
+
+#endif /* VIPER_USE_NAMESPACE */
+
 #endif /* __header_viper_core_file_directory__ */

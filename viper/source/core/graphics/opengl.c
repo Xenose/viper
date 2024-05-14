@@ -5,7 +5,7 @@
 #include<viper/core/graphics/opengl.h>
 #include<viper/core/file/file.h>
 
-static inline int8_t __ViperCreateShaderOpenGL(u64* restrict shader, u64 type, ViperFile_t* restrict file) {
+static inline int8_t __ViperShaderCreateOpenGL(u64* restrict shader, u64 type, ViperFile_t* restrict file) {
    i32 result = 0;
    i32 length = 0;
 
@@ -35,7 +35,7 @@ ERROR_EXIT:
    return -1;
 }
 
-int8_t ViperCreateShaderOpenGL(ViperShader_t* restrict shader, const ViperShaderCreateInfo_t* restrict info) {
+int8_t ViperShaderCreateOpenGL(ViperShader_t* restrict shader, const ViperShaderCreateInfo_t* restrict info) {
    ViperFile_t file = { 0 };
 
    i32 result = 0;
@@ -60,7 +60,7 @@ int8_t ViperCreateShaderOpenGL(ViperShader_t* restrict shader, const ViperShader
          goto ERROR_EXIT;
       }
 
-      if (0 != __ViperCreateShaderOpenGL(&compute, GL_COMPUTE_SHADER, &file)) {
+      if (0 != __ViperShaderCreateOpenGL(&compute, GL_COMPUTE_SHADER, &file)) {
          goto ERROR_EXIT;
       }
 
@@ -75,7 +75,7 @@ int8_t ViperCreateShaderOpenGL(ViperShader_t* restrict shader, const ViperShader
          goto ERROR_EXIT;
       }
 
-      if (0 != __ViperCreateShaderOpenGL(&geometric, GL_GEOMETRY_SHADER, &file)) {
+      if (0 != __ViperShaderCreateOpenGL(&geometric, GL_GEOMETRY_SHADER, &file)) {
          goto ERROR_EXIT;
       }
       
@@ -92,7 +92,7 @@ int8_t ViperCreateShaderOpenGL(ViperShader_t* restrict shader, const ViperShader
       goto ERROR_EXIT;
    }
 
-   if (0 != __ViperCreateShaderOpenGL(&fragment, GL_FRAGMENT_SHADER, &file)) {
+   if (0 != __ViperShaderCreateOpenGL(&fragment, GL_FRAGMENT_SHADER, &file)) {
       goto ERROR_EXIT;
    }
 
@@ -101,7 +101,7 @@ int8_t ViperCreateShaderOpenGL(ViperShader_t* restrict shader, const ViperShader
       goto ERROR_EXIT;
    }
 
-   if (0 != __ViperCreateShaderOpenGL(&vertex, GL_VERTEX_SHADER, &file)) {
+   if (0 != __ViperShaderCreateOpenGL(&vertex, GL_VERTEX_SHADER, &file)) {
       goto ERROR_EXIT;
    }
    

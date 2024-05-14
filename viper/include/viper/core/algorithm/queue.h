@@ -22,4 +22,29 @@ extern i64 ViperAtomicQueuePopItem(ViperAtomicQueue_t* queue);
 extern i64 ViperAtomicQueueInsertItemExpand(ViperAtomicQueue_t* restrict queue, void* restrict item);
 extern i64 ViperAtomicQueueInsertItem(ViperAtomicQueue_t* restrict queue, void* restrict item);
 
+/**
+ * This maybe is a good idea as I don't want to use
+ * special names for my application, but not there
+ * might be a conflict in future projects so this
+ * macro will allow me to turn off the prefix.
+ */
+#ifdef VIPER_USE_NAMESPACE
+
+#define QueueCreate              ViperQueueCreate
+#define QueueInsertItemExpand    ViperQueueInsertItemExpand
+#define QueueInsertItem          ViperQueueInsertItem
+#defien QueueGetItem             ViperQueueGetItem
+#define QueueGetNextItem         ViperQueueGetNextItem
+#define QueuePopItem             ViperQueuePopItem
+
+#define AtomicQueueCreate           ViperAtomicQueueCreate
+#define AtomicQueueDestroy          ViperAtomicQueueDestroy
+#define AtomicQueueGetItem          ViperAtomicQueueGetItem
+#define AtomicQueueGetNextItem      ViperAtomicQueueGetNextItem
+#define AtomicQueueQueuePopItem     ViperAtomicQueuePopItem
+#define AtomicQueueInsertItemExpand ViperAtomicQueueInsertItemExpand
+#deifne AtomicQueueInsertItem       ViperAtomicQueueInsertItem
+
+#endif /* VIPER_USE_NAMESPACE */
+
 #endif /* __header_viper_core_algorithm_queue__ */

@@ -5,7 +5,7 @@
 #include<dlfcn.h>
 #else
 
-#define RTLD_GLOBAL		0x0001
+#define RTLD_GLOBAL	0x0001
 #define RTLD_LAZY		0x0002
 #define RTLD_NOW		0x0004
 

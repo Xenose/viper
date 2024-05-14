@@ -26,4 +26,28 @@ extern void ViperLogFunction(u32 logLevel, i64 line, cc* file, cc* function, cc*
 extern void ViperLogEnableLevel(u32 flag);
 extern void ViperLogDisableLevel(u32 flag);
 
+/**
+ * This maybe is a good idea as I don't want to use
+ * special names for my application, but not there
+ * might be a conflict in future projects so this
+ * macro will allow me to turn off the prefix.
+ */
+#ifdef VIPER_USE_NAMESPACE
+
+#define LogDebug     ViperLogDebug
+#define LogInfo      ViperLogInfo
+#define LogNotice    ViperLogNotice 
+#define LogWarning   ViperLogWarning
+#define LogError     ViperLogError
+#define LogFatal     ViperLogFatal
+#define LogAlert     ViperLogAlert
+#define LogCritical  ViperLogCritical
+#define LogEmergancy ViperLogEmergancy
+
+#define LogFunction     ViperLogFunction
+#define LogEnableLevel  ViperLogEnableLevel
+#define LogDisableLevel ViperLogDisableLevel
+
+#endif /* VIPER_USE_NAMESPACE */
+
 #endif /* __header_viper_core_debug_logger__ */

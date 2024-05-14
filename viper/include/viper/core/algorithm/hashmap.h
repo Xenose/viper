@@ -58,6 +58,10 @@ extern void* ViperHashmapGetByIndex(ViperHashmap_t* hash, u64 index);
 extern void* ViperHashmapGet(ViperHashmap_t* hash, cc* key);
 
 /**
+ * @param hash : The hashmap that will be used to store the value.
+ * @param key  : The string key that will be used to calculate the
+ * index where the value will be inserted.
+ * @param ptr  : The pointer to the value that will be copied.
  */
 extern i8 ViperHashmapInsert(ViperHashmap_t* hash, cc* key, void* ptr);
 
@@ -65,4 +69,23 @@ extern i8 ViperHashmapInsert(ViperHashmap_t* hash, cc* key, void* ptr);
  */
 extern i8 ViperHashmapInsertItems(ViperHashmap_t* hash, u64 count, ...);
 
+/**
+ * This maybe is a good idea as I don't want to use
+ * special names for my application, but not there
+ * might be a conflict in future projects so this
+ * macro will allow me to turn off the prefix.
+ */
+#ifdef VIPER_USE_NAMESPACE
+
+#define HashmapCreate      ViperHashmapCreate
+#define HashmapClearItem   ViperHashmapClearItem
+#define HashmapExpand      ViperHashmapEpxand
+#define HashmapGetByIndex  ViperHashmapGetByIndex
+#define HashmapGet         ViperHashmapGet
+#define HashmapInsert      ViperHashmapInsert
+#define HashmapInsertItems ViperHashmapInsertItems
+
+#endif /* VIPER_USE_NAMESPACE */
+
 #endif /* __header_viper_core_algorithm__ */
+
