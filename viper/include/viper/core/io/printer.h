@@ -16,4 +16,16 @@ extern i64 ViperPrintSFB(i64 stream, const char* fomrat, char* buffer, u64 buffe
 extern i64 ViperPrintSF(i64 stream, const char* format, ...);
 extern i64 ViperPrintF(const char* format, ...);
 
+/**
+ * This maybe is a good idea as I don't want to use
+ * special names for my application, but not there
+ * might be a conflict in future projects so this
+ * macro will allow me to turn off the prefix.
+ */
+#ifdef VIPER_USE_NAMESPACE
+
+#define PrintF ViperPrintF
+
+#endif /* VIPER_USE_NAMESPACE */
+
 #endif /* __header_viper_core_io_printer__ */

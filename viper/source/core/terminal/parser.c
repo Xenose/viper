@@ -73,7 +73,7 @@ i8 ViperCommandLongExecute(ViperCommands_t* com, cc* args) {
       if (0 == strcmp(com->commands[i].longOpt, &args[2])) {
          ViperLogDebug("command found");
          if (NULL != com->commands[i].func) {
-            com->commands[i].func(0, NULL, NULL);
+            com->commands[i].func(NULL, 0, NULL);
          }
          return 0;
       }

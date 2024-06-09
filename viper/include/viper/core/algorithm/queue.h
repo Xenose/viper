@@ -33,7 +33,7 @@ extern i64 ViperAtomicQueueInsertItem(ViperAtomicQueue_t* restrict queue, void* 
 #define QueueCreate              ViperQueueCreate
 #define QueueInsertItemExpand    ViperQueueInsertItemExpand
 #define QueueInsertItem          ViperQueueInsertItem
-#defien QueueGetItem             ViperQueueGetItem
+#define QueueGetItem             ViperQueueGetItem
 #define QueueGetNextItem         ViperQueueGetNextItem
 #define QueuePopItem             ViperQueuePopItem
 
@@ -43,7 +43,7 @@ extern i64 ViperAtomicQueueInsertItem(ViperAtomicQueue_t* restrict queue, void* 
 #define AtomicQueueGetNextItem      ViperAtomicQueueGetNextItem
 #define AtomicQueueQueuePopItem     ViperAtomicQueuePopItem
 #define AtomicQueueInsertItemExpand ViperAtomicQueueInsertItemExpand
-#deifne AtomicQueueInsertItem       ViperAtomicQueueInsertItem
+#define AtomicQueueInsertItem       ViperAtomicQueueInsertItem
 
 #endif /* VIPER_USE_NAMESPACE */
 

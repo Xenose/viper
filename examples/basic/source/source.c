@@ -61,8 +61,9 @@ void LoopOpenGL(ViperApplication_t* app) {
 }
 
 void Hello() {
-	LogDebug("Hello");
-   sleep(1);
+	//LogDebug("Hello");
+   PrintF("hello\n");
+   sleep(2);
 }
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
@@ -115,8 +116,8 @@ i64 Main(ViperApplication_t* app) {
 	LogDebug("hash function returned --> %i", (i64)ViperHashSimple(100, "dkwjadk"));
 
 
-	ViperShader_t shader = { 0 };
-	ViperShaderCreateInfo_t shaderInfo = {
+	Shader_t shader = { 0 };
+	ShaderCreateInfo_t shaderInfo = {
 		.fragmentPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_fragment.glsl",
 		.vertexPath = "/home/xenose/Projects/main/viper/viper/shaders/basic_vertex.glsl",
 	};
@@ -127,12 +128,12 @@ i64 Main(ViperApplication_t* app) {
 		.func = Hello,
 	};
 
-	ViperThreadingForemanInit(10);
+	ThreadingForemanInit(10);
    
-   if (0 != ViperThreadingForemanAddTask(&task)) {
+   if (0 != ThreadingForemanAddTask(&task)) {
      return -1;
    }
 
-	ViperThreadingForemanStart(app);
+	ThreadingForemanStart(app);
 	return 0;
 }
