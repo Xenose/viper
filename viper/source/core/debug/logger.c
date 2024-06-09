@@ -6,7 +6,7 @@
 #include<viper/core/debug/logger.h>
 #include<viper/core/io/printer.h>
 
-#define BUFFER_SIZE 8192
+#define BUFFER_SIZE 2048
 
 // TODO later only warning level and above should be logged
 au32 __viperLogLevel =

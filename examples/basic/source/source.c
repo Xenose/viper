@@ -61,9 +61,9 @@ void LoopOpenGL(ViperApplication_t* app) {
 }
 
 void Hello() {
-	//LogDebug("Hello");
-   PrintF("hello\n");
-   sleep(2);
+	LogDebug("Hello");
+   //PrintF("hello\n");
+   sleep(1);
 }
 
 i64 ViperSetup(ViperApplicationCreateInfo_t* app) {
